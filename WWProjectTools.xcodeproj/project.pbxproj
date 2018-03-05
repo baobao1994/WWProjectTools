@@ -172,6 +172,7 @@
 		4FFEE1B6204D12DC00F6D520 /* loading_34.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE149204D12DC00F6D520 /* loading_34.png */; };
 		4FFEE1B7204D12DC00F6D520 /* loading_35.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE14A204D12DC00F6D520 /* loading_35.png */; };
 		4FFEE1B8204D12DC00F6D520 /* loading_21.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE14B204D12DC00F6D520 /* loading_21.png */; };
+		968003FD671C2A7E62652FC9 /* libPods-WWProjectTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1A7DA76EF63F8E98EE9F60 /* libPods-WWProjectTools.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +193,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C583A231EE4DCC195D760DA /* Pods-WWProjectTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWProjectTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools.debug.xcconfig"; sourceTree = "<group>"; };
+		3413E42F67456B02EE442D7E /* Pods-WWProjectTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWProjectTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools.release.xcconfig"; sourceTree = "<group>"; };
 		4F790462200F391A00CA7DF3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		4FACE825200E019F00CCC34D /* WWProjectTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWProjectTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACE83D200E01A000CCC34D /* WWProjectToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWProjectToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -411,6 +414,7 @@
 		4FFEE149204D12DC00F6D520 /* loading_34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_34.png; sourceTree = "<group>"; };
 		4FFEE14A204D12DC00F6D520 /* loading_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_35.png; sourceTree = "<group>"; };
 		4FFEE14B204D12DC00F6D520 /* loading_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_21.png; sourceTree = "<group>"; };
+		AA1A7DA76EF63F8E98EE9F60 /* libPods-WWProjectTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WWProjectTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +422,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968003FD671C2A7E62652FC9 /* libPods-WWProjectTools.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +443,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10EEEFB96FF4CE351034ED5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA1A7DA76EF63F8E98EE9F60 /* libPods-WWProjectTools.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4FACE81C200E019F00CCC34D = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +459,8 @@
 				4FACE840200E01A000CCC34D /* WWProjectDemoTests */,
 				4FACE84B200E01A000CCC34D /* WWProjectDemoUITests */,
 				4FACE826200E019F00CCC34D /* Products */,
+				7D9E22C34FEA66D33886BB29 /* Pods */,
+				10EEEFB96FF4CE351034ED5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -815,6 +830,15 @@
 			path = loading;
 			sourceTree = "<group>";
 		};
+		7D9E22C34FEA66D33886BB29 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C583A231EE4DCC195D760DA /* Pods-WWProjectTools.debug.xcconfig */,
+				3413E42F67456B02EE442D7E /* Pods-WWProjectTools.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -822,9 +846,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FACE851200E01A000CCC34D /* Build configuration list for PBXNativeTarget "WWProjectTools" */;
 			buildPhases = (
+				163D35C195033C2A5E0DC6F4 /* [CP] Check Pods Manifest.lock */,
 				4FACE821200E019F00CCC34D /* Sources */,
 				4FACE822200E019F00CCC34D /* Frameworks */,
 				4FACE823200E019F00CCC34D /* Resources */,
+				2DCF4A53F2C123B160D0CFB0 /* [CP] Embed Pods Frameworks */,
+				79A85D616CB942056D1408D3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1055,6 +1082,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		163D35C195033C2A5E0DC6F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WWProjectTools-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DCF4A53F2C123B160D0CFB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79A85D616CB942056D1408D3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4FACE821200E019F00CCC34D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1268,6 +1349,7 @@
 		};
 		4FACE852200E01A000CCC34D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C583A231EE4DCC195D760DA /* Pods-WWProjectTools.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1284,6 +1366,7 @@
 		};
 		4FACE853200E01A000CCC34D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3413E42F67456B02EE442D7E /* Pods-WWProjectTools.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
