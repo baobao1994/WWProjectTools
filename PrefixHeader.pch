@@ -12,4 +12,27 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+//GCD - 在Main线程上运行
+#define kDISPATCH_MAIN_THREAD(mainQueueBlock) dispatch_async(dispatch_get_main_queue(), mainQueueBlock);
+
+//主窗口
+
+#define KEY_WINDOW [UIApplication sharedApplication].windows.lastObject
+
+//系统版本
+#define IOS_VERSION   floorf([[UIDevice currentDevice].systemVersion floatValue])
+
+// UIColor
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define UIColorFromHexColor(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:1.0]
+#define UIColorFromHexColorA(hexValue,alp) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:alp]
+
+#define UIScreenWidth [UIScreen mainScreen].bounds.size.width
+#define UIScreenHeight [UIScreen mainScreen].bounds.size.height
+#define ScreenScale (UIScreenWidth / 375.0)//屏幕比例，iPhone6为1
+
+#define kWeakSelf __weak __typeof (self)weakSelf = self
+
+#define HideKeyBoard [[[UIApplication sharedApplication] keyWindow] endEditing:YES]
+
 #endif /* PrefixHeader_pch */
