@@ -15,6 +15,8 @@
 #import "PushViewController.h"
 #import "WXSViewController.h"
 #import "WWGifLoadingView.h"
+#import "PictureBrowserViewController.h"
+#import "ESPPictureBrowserViewController.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -32,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initNavigation];
-    self.arr = @[@"TextInputBarView-模仿微信输入框扩展高度",@"自定义转场-Push",@"WXS自定义转场-All",@"GIF-Show-投递成功",@"GIF-Show-努力加载中..."];
+    self.arr = @[@"TextInputBarView-模仿微信输入框扩展高度",@"自定义转场-Push",@"WXS自定义转场-All",@"GIF-Show-投递成功",@"GIF-Show-努力加载中...",@"图片浏览器",@"ESP图片浏览器"];
     [self.tableView reloadData];
 }
 
@@ -160,6 +162,10 @@
             vc = [(PushViewController *)[PushViewController alloc] init];
         } else if (row == 2) {
             vc = [(WXSViewController *)[WXSViewController alloc] init];
+        } else if (row == 5) {
+            vc = [(PictureBrowserViewController *)[PictureBrowserViewController alloc] init];
+        } else if (row == 6) {
+            vc = [(ESPPictureBrowserViewController *)[ESPPictureBrowserViewController alloc] init];
         }
         vc.title = self.arr[row];
         vc.view.backgroundColor = [UIColor whiteColor];

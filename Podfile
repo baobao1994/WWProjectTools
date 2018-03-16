@@ -10,4 +10,6 @@ target 'WWProjectTools' do
     pod 'MJRefresh'
     pod 'Realm'
     pod 'BmobSDK'
+    pod 'ESPictureBrowser'
+    pod 'AsyncDisplayKit', '~> 1.9.90'
 end

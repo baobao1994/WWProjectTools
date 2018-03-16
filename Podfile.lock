@@ -14,9 +14,25 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
+  - AsyncDisplayKit (1.9.92):
+    - AsyncDisplayKit/PINRemoteImage (= 1.9.92)
+  - AsyncDisplayKit/ASDealloc2MainObject (1.9.92)
+  - AsyncDisplayKit/Core (1.9.92):
+    - AsyncDisplayKit/ASDealloc2MainObject
+  - AsyncDisplayKit/PINRemoteImage (1.9.92):
+    - AsyncDisplayKit/Core
+    - PINCache (= 3.0.1-beta)
+    - PINRemoteImage/iOS (= 3.0.0-beta.3)
   - BmobSDK (2.2.8)
+  - ESPictureBrowser (0.4.4):
+    - YYWebImage (~> 1.0.5)
   - IQKeyboardManager (5.0.8)
   - MJRefresh (3.1.15.3)
+  - PINCache (3.0.1-beta)
+  - PINRemoteImage/Core (3.0.0-beta.3):
+    - PINCache (>= 3.0.0-beta)
+  - PINRemoteImage/iOS (3.0.0-beta.3):
+    - PINRemoteImage/Core
   - ReactiveObjC (2.1.2)
   - Realm (3.1.1):
     - Realm/Headers (= 3.1.1)
@@ -27,10 +43,19 @@ PODS:
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
   - UICKeyChainStore (2.1.1)
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
 
 DEPENDENCIES:
   - AFNetworking
+  - AsyncDisplayKit (~> 1.9.90)
   - BmobSDK
+  - ESPictureBrowser
   - IQKeyboardManager
   - MJRefresh
   - ReactiveObjC (~> 2.1.2)
@@ -40,15 +65,22 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  AsyncDisplayKit: 49d94f5739669d666ff7cdc3430f43f0b2cfbeaf
   BmobSDK: 8ee987736c9b766a688ea8e0274ce4748db2255e
+  ESPictureBrowser: 2e9bb9dd2fc3c26a42d535e06df49981c5a8a2e2
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  PINCache: 6911fe422a633e18b3d3ddf2bd4f0e55e36e2892
+  PINRemoteImage: 308731aa6534500e58fc211b9cc2bb7252df25ba
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 65f63c194f1b3faf11a9f6e62f6ccca57440e865
+PODFILE CHECKSUM: 204f89f6ca0aff1188b08c97b9a875e8ed4826da
 
 COCOAPODS: 1.4.0.rc.1
