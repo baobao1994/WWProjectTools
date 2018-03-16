@@ -8,6 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		4F1AF26E205BA46800D8419C /* DBModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF26D205BA46800D8419C /* DBModels.m */; };
+		4F1AF296205BA80600D8419C /* UITextView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF270205BA80600D8419C /* UITextView+Addition.m */; };
+		4F1AF297205BA80600D8419C /* NSArray+Combinations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF271205BA80600D8419C /* NSArray+Combinations.m */; };
+		4F1AF298205BA80600D8419C /* UIView+NIB.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF272205BA80600D8419C /* UIView+NIB.m */; };
+		4F1AF299205BA80600D8419C /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF273205BA80600D8419C /* NSString+Check.m */; };
+		4F1AF29A205BA80600D8419C /* UITableView+TableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF274205BA80600D8419C /* UITableView+TableHeadView.m */; };
+		4F1AF29B205BA80600D8419C /* NSString+DES.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF275205BA80600D8419C /* NSString+DES.m */; };
+		4F1AF29C205BA80600D8419C /* UIView+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF277205BA80600D8419C /* UIView+Addtion.m */; };
+		4F1AF29D205BA80600D8419C /* UIButton+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF278205BA80600D8419C /* UIButton+Addition.m */; };
+		4F1AF29E205BA80600D8419C /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF27D205BA80600D8419C /* UIView+Layout.m */; };
+		4F1AF29F205BA80600D8419C /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF280205BA80600D8419C /* NSDate+Addition.m */; };
+		4F1AF2A0205BA80600D8419C /* UITableViewCell+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF288205BA80600D8419C /* UITableViewCell+Addition.m */; };
+		4F1AF2A1205BA80600D8419C /* UITextField+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF289205BA80600D8419C /* UITextField+Addition.m */; };
+		4F1AF2A2205BA80600D8419C /* NSArray+Permutation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF28C205BA80600D8419C /* NSArray+Permutation.m */; };
+		4F1AF2A3205BA80600D8419C /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF28F205BA80600D8419C /* NSString+MD5.m */; };
+		4F1AF2A4205BA80600D8419C /* UIViewController+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF290205BA80600D8419C /* UIViewController+Addition.m */; };
+		4F1AF2A5205BA80600D8419C /* UIImage+PixelColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF291205BA80600D8419C /* UIImage+PixelColor.m */; };
+		4F1AF2A6205BA80600D8419C /* NSString+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF292205BA80600D8419C /* NSString+Random.m */; };
+		4F1AF2A7205BA80600D8419C /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF294205BA80600D8419C /* UITabBar+Badge.m */; };
+		4F1AF2A8205BA80600D8419C /* NSString+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF295205BA80600D8419C /* NSString+Addition.m */; };
 		4F45EB9B205B5D04008AE38D /* SmallFamilyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EB99205B5D04008AE38D /* SmallFamilyViewController.m */; };
 		4F45EB9C205B5D04008AE38D /* SmallFamilyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F45EB9A205B5D04008AE38D /* SmallFamilyViewController.xib */; };
 		4F45EBA0205B5D20008AE38D /* BabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EB9E205B5D20008AE38D /* BabyViewController.m */; };
@@ -209,6 +228,44 @@
 		3413E42F67456B02EE442D7E /* Pods-WWProjectTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWProjectTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools.release.xcconfig"; sourceTree = "<group>"; };
 		4F1AF26C205BA46800D8419C /* DBModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBModels.h; sourceTree = "<group>"; };
 		4F1AF26D205BA46800D8419C /* DBModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBModels.m; sourceTree = "<group>"; };
+		4F1AF270205BA80600D8419C /* UITextView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Addition.m"; sourceTree = "<group>"; };
+		4F1AF271205BA80600D8419C /* NSArray+Combinations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Combinations.m"; sourceTree = "<group>"; };
+		4F1AF272205BA80600D8419C /* UIView+NIB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NIB.m"; sourceTree = "<group>"; };
+		4F1AF273205BA80600D8419C /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
+		4F1AF274205BA80600D8419C /* UITableView+TableHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+TableHeadView.m"; sourceTree = "<group>"; };
+		4F1AF275205BA80600D8419C /* NSString+DES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DES.m"; sourceTree = "<group>"; };
+		4F1AF276205BA80600D8419C /* NSArray+Permutation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Permutation.h"; sourceTree = "<group>"; };
+		4F1AF277205BA80600D8419C /* UIView+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addtion.m"; sourceTree = "<group>"; };
+		4F1AF278205BA80600D8419C /* UIButton+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Addition.m"; sourceTree = "<group>"; };
+		4F1AF279205BA80600D8419C /* UITableViewCell+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Addition.h"; sourceTree = "<group>"; };
+		4F1AF27A205BA80600D8419C /* UITextField+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Addition.h"; sourceTree = "<group>"; };
+		4F1AF27B205BA80600D8419C /* UIViewController+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Addition.h"; sourceTree = "<group>"; };
+		4F1AF27C205BA80600D8419C /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		4F1AF27D205BA80600D8419C /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		4F1AF27E205BA80600D8419C /* NSString+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addition.h"; sourceTree = "<group>"; };
+		4F1AF27F205BA80600D8419C /* UITabBar+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Badge.h"; sourceTree = "<group>"; };
+		4F1AF280205BA80600D8419C /* NSDate+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
+		4F1AF281205BA80600D8419C /* UIImage+PixelColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PixelColor.h"; sourceTree = "<group>"; };
+		4F1AF282205BA80600D8419C /* NSString+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Random.h"; sourceTree = "<group>"; };
+		4F1AF283205BA80600D8419C /* UITableView+TableHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+TableHeadView.h"; sourceTree = "<group>"; };
+		4F1AF284205BA80600D8419C /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
+		4F1AF285205BA80600D8419C /* UIView+NIB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NIB.h"; sourceTree = "<group>"; };
+		4F1AF286205BA80600D8419C /* NSArray+Combinations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Combinations.h"; sourceTree = "<group>"; };
+		4F1AF287205BA80600D8419C /* UITextView+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Addition.h"; sourceTree = "<group>"; };
+		4F1AF288205BA80600D8419C /* UITableViewCell+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Addition.m"; sourceTree = "<group>"; };
+		4F1AF289205BA80600D8419C /* UITextField+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Addition.m"; sourceTree = "<group>"; };
+		4F1AF28A205BA80600D8419C /* UIButton+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Addition.h"; sourceTree = "<group>"; };
+		4F1AF28B205BA80600D8419C /* UIView+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Addtion.h"; sourceTree = "<group>"; };
+		4F1AF28C205BA80600D8419C /* NSArray+Permutation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Permutation.m"; sourceTree = "<group>"; };
+		4F1AF28D205BA80600D8419C /* NSString+DES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DES.h"; sourceTree = "<group>"; };
+		4F1AF28E205BA80600D8419C /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		4F1AF28F205BA80600D8419C /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		4F1AF290205BA80600D8419C /* UIViewController+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Addition.m"; sourceTree = "<group>"; };
+		4F1AF291205BA80600D8419C /* UIImage+PixelColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PixelColor.m"; sourceTree = "<group>"; };
+		4F1AF292205BA80600D8419C /* NSString+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Random.m"; sourceTree = "<group>"; };
+		4F1AF293205BA80600D8419C /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
+		4F1AF294205BA80600D8419C /* UITabBar+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
+		4F1AF295205BA80600D8419C /* NSString+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addition.m"; sourceTree = "<group>"; };
 		4F45EB98205B5D04008AE38D /* SmallFamilyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmallFamilyViewController.h; sourceTree = "<group>"; };
 		4F45EB99205B5D04008AE38D /* SmallFamilyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmallFamilyViewController.m; sourceTree = "<group>"; };
 		4F45EB9A205B5D04008AE38D /* SmallFamilyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallFamilyViewController.xib; sourceTree = "<group>"; };
@@ -495,6 +552,51 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4F1AF26F205BA80600D8419C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4F1AF27C205BA80600D8419C /* NSString+MD5.h */,
+				4F1AF28F205BA80600D8419C /* NSString+MD5.m */,
+				4F1AF28D205BA80600D8419C /* NSString+DES.h */,
+				4F1AF275205BA80600D8419C /* NSString+DES.m */,
+				4F1AF27E205BA80600D8419C /* NSString+Addition.h */,
+				4F1AF295205BA80600D8419C /* NSString+Addition.m */,
+				4F1AF284205BA80600D8419C /* NSString+Check.h */,
+				4F1AF273205BA80600D8419C /* NSString+Check.m */,
+				4F1AF282205BA80600D8419C /* NSString+Random.h */,
+				4F1AF292205BA80600D8419C /* NSString+Random.m */,
+				4F1AF286205BA80600D8419C /* NSArray+Combinations.h */,
+				4F1AF271205BA80600D8419C /* NSArray+Combinations.m */,
+				4F1AF276205BA80600D8419C /* NSArray+Permutation.h */,
+				4F1AF28C205BA80600D8419C /* NSArray+Permutation.m */,
+				4F1AF28E205BA80600D8419C /* UIView+Layout.h */,
+				4F1AF27D205BA80600D8419C /* UIView+Layout.m */,
+				4F1AF285205BA80600D8419C /* UIView+NIB.h */,
+				4F1AF272205BA80600D8419C /* UIView+NIB.m */,
+				4F1AF28B205BA80600D8419C /* UIView+Addtion.h */,
+				4F1AF277205BA80600D8419C /* UIView+Addtion.m */,
+				4F1AF28A205BA80600D8419C /* UIButton+Addition.h */,
+				4F1AF278205BA80600D8419C /* UIButton+Addition.m */,
+				4F1AF287205BA80600D8419C /* UITextView+Addition.h */,
+				4F1AF270205BA80600D8419C /* UITextView+Addition.m */,
+				4F1AF27A205BA80600D8419C /* UITextField+Addition.h */,
+				4F1AF289205BA80600D8419C /* UITextField+Addition.m */,
+				4F1AF27F205BA80600D8419C /* UITabBar+Badge.h */,
+				4F1AF294205BA80600D8419C /* UITabBar+Badge.m */,
+				4F1AF281205BA80600D8419C /* UIImage+PixelColor.h */,
+				4F1AF291205BA80600D8419C /* UIImage+PixelColor.m */,
+				4F1AF283205BA80600D8419C /* UITableView+TableHeadView.h */,
+				4F1AF274205BA80600D8419C /* UITableView+TableHeadView.m */,
+				4F1AF279205BA80600D8419C /* UITableViewCell+Addition.h */,
+				4F1AF288205BA80600D8419C /* UITableViewCell+Addition.m */,
+				4F1AF293205BA80600D8419C /* NSDate+Addition.h */,
+				4F1AF280205BA80600D8419C /* NSDate+Addition.m */,
+				4F1AF27B205BA80600D8419C /* UIViewController+Addition.h */,
+				4F1AF290205BA80600D8419C /* UIViewController+Addition.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		4F45EB92205B5C8E008AE38D /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +719,7 @@
 				4FFEE046204D126D00F6D520 /* WWTextBarViewDemo */,
 				4FFEE04A204D126D00F6D520 /* WWCustomView */,
 				4FFEE06E204D126D00F6D520 /* Resource */,
+				4F1AF26F205BA80600D8419C /* Category */,
 				4FFEE079204D126D00F6D520 /* Vendor */,
 				4FFEE071204D126D00F6D520 /* WWTabBarDemo */,
 				4F45EB93205B5C8E008AE38D /* ViewControllers */,
@@ -693,9 +796,9 @@
 		4FFEE04B204D126D00F6D520 /* WWPushAnimated */ = {
 			isa = PBXGroup;
 			children = (
+				4FFEE04E204D126D00F6D520 /* WWPopTransition.h */,
 				4FFEE04C204D126D00F6D520 /* WWPopTransition.m */,
 				4FFEE04D204D126D00F6D520 /* WWPushTransition.h */,
-				4FFEE04E204D126D00F6D520 /* WWPopTransition.h */,
 				4FFEE04F204D126D00F6D520 /* WWPushTransition.m */,
 			);
 			path = WWPushAnimated;
@@ -713,27 +816,27 @@
 		4FFEE053204D126D00F6D520 /* WWTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				4FFEE054204D126D00F6D520 /* WWCenterButton.h */,
-				4FFEE055204D126D00F6D520 /* WWButton.h */,
-				4FFEE056204D126D00F6D520 /* WWTabBar.h */,
-				4FFEE057204D126D00F6D520 /* TabBarController.m */,
-				4FFEE058204D126D00F6D520 /* WWTabBarController.h */,
-				4FFEE059204D126D00F6D520 /* UINavigationController+hidesBottomBarWhenPushed.m */,
 				4FFEE05A204D126D00F6D520 /* WWTabBarConfig.h */,
-				4FFEE05B204D126D00F6D520 /* WWBadgeView.m */,
-				4FFEE05C204D126D00F6D520 /* main_badge@2x.png */,
-				4FFEE05D204D126D00F6D520 /* UITabBarItem+BadgeColor.m */,
-				4FFEE05E204D126D00F6D520 /* main_badge@3x.png */,
-				4FFEE05F204D126D00F6D520 /* TabBarController.h */,
-				4FFEE060204D126D00F6D520 /* WWTabBar.m */,
-				4FFEE061204D126D00F6D520 /* WWButton.m */,
-				4FFEE062204D126D00F6D520 /* WWCenterButton.m */,
 				4FFEE063204D126D00F6D520 /* WWTabBarConfig.m */,
-				4FFEE064204D126D00F6D520 /* UINavigationController+hidesBottomBarWhenPushed.h */,
+				4FFEE054204D126D00F6D520 /* WWCenterButton.h */,
+				4FFEE062204D126D00F6D520 /* WWCenterButton.m */,
+				4FFEE055204D126D00F6D520 /* WWButton.h */,
+				4FFEE061204D126D00F6D520 /* WWButton.m */,
+				4FFEE056204D126D00F6D520 /* WWTabBar.h */,
+				4FFEE060204D126D00F6D520 /* WWTabBar.m */,
+				4FFEE058204D126D00F6D520 /* WWTabBarController.h */,
 				4FFEE065204D126D00F6D520 /* WWTabBarController.m */,
-				4FFEE066204D126D00F6D520 /* UITabBarItem+BadgeColor.h */,
-				4FFEE067204D126D00F6D520 /* PublishAnimate */,
+				4FFEE05F204D126D00F6D520 /* TabBarController.h */,
+				4FFEE057204D126D00F6D520 /* TabBarController.m */,
+				4FFEE064204D126D00F6D520 /* UINavigationController+hidesBottomBarWhenPushed.h */,
+				4FFEE059204D126D00F6D520 /* UINavigationController+hidesBottomBarWhenPushed.m */,
 				4FFEE06A204D126D00F6D520 /* WWBadgeView.h */,
+				4FFEE05B204D126D00F6D520 /* WWBadgeView.m */,
+				4FFEE066204D126D00F6D520 /* UITabBarItem+BadgeColor.h */,
+				4FFEE05D204D126D00F6D520 /* UITabBarItem+BadgeColor.m */,
+				4FFEE05C204D126D00F6D520 /* main_badge@2x.png */,
+				4FFEE05E204D126D00F6D520 /* main_badge@3x.png */,
+				4FFEE067204D126D00F6D520 /* PublishAnimate */,
 			);
 			path = WWTabBar;
 			sourceTree = "<group>";
@@ -741,8 +844,8 @@
 		4FFEE067204D126D00F6D520 /* PublishAnimate */ = {
 			isa = PBXGroup;
 			children = (
-				4FFEE068204D126D00F6D520 /* PlusAnimate.m */,
 				4FFEE069204D126D00F6D520 /* PlusAnimate.h */,
+				4FFEE068204D126D00F6D520 /* PlusAnimate.m */,
 			);
 			path = PublishAnimate;
 			sourceTree = "<group>";
@@ -790,41 +893,41 @@
 		4FFEE07F204D126D00F6D520 /* WXSTransition */ = {
 			isa = PBXGroup;
 			children = (
-				4FFEE080204D126D00F6D520 /* WXSTransitionManager+CoverAnimation.h */,
-				4FFEE081204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.m */,
-				4FFEE082204D126D00F6D520 /* WXSTransitionManager+TypeTool.h */,
-				4FFEE083204D126D00F6D520 /* WXSTransitionManager+SystermAnimation.h */,
-				4FFEE084204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m */,
-				4FFEE085204D126D00F6D520 /* WXSTransitionManager+BoomAnimation.m */,
-				4FFEE086204D126D00F6D520 /* UIViewController+WXSTransitionProperty.m */,
-				4FFEE087204D126D00F6D520 /* WXSTransitionManager+PageAnimation.m */,
-				4FFEE088204D126D00F6D520 /* WXSTransitionManager.h */,
-				4FFEE089204D126D00F6D520 /* WXSTransitionManager+BrickAnimation.m */,
-				4FFEE08A204D126D00F6D520 /* WXSTransitionManager+FragmentAnimation.h */,
-				4FFEE08B204D126D00F6D520 /* WXSTransitionManager+FlipAnimation.m */,
-				4FFEE08C204D126D00F6D520 /* WXSTransitionManager+ViewMoveAnimation.h */,
-				4FFEE08D204D126D00F6D520 /* UINavigationController+WXSTransition.m */,
-				4FFEE08E204D126D00F6D520 /* UIViewController+WXSTransition.m */,
-				4FFEE08F204D126D00F6D520 /* WXSTransitionProperty.h */,
-				4FFEE090204D126D00F6D520 /* WXSPercentDrivenInteractiveTransition.m */,
-				4FFEE091204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.h */,
-				4FFEE092204D126D00F6D520 /* WXSTransitionManager+TypeTool.m */,
-				4FFEE093204D126D00F6D520 /* WXSTransitionManager+CoverAnimation.m */,
-				4FFEE094204D126D00F6D520 /* WXSTransitionManager+BrickAnimation.h */,
-				4FFEE095204D126D00F6D520 /* WXSTransitionManager+FragmentAnimation.m */,
-				4FFEE096204D126D00F6D520 /* WXSTransitionManager.m */,
-				4FFEE097204D126D00F6D520 /* WXSTransitionManager+PageAnimation.h */,
-				4FFEE098204D126D00F6D520 /* UIViewController+WXSTransitionProperty.h */,
-				4FFEE099204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.h */,
-				4FFEE09A204D126D00F6D520 /* WXSTransitionManager+BoomAnimation.h */,
-				4FFEE09B204D126D00F6D520 /* WXSTransitionManager+SystermAnimation.m */,
+				4FFEE0A2204D126D00F6D520 /* WXSTypedefConfig.h */,
 				4FFEE09C204D126D00F6D520 /* UINavigationController+WXSTransition.h */,
-				4FFEE09D204D126D00F6D520 /* WXSTransitionManager+ViewMoveAnimation.m */,
+				4FFEE088204D126D00F6D520 /* WXSTransitionManager.h */,
+				4FFEE096204D126D00F6D520 /* WXSTransitionManager.m */,
+				4FFEE09A204D126D00F6D520 /* WXSTransitionManager+BoomAnimation.h */,
+				4FFEE085204D126D00F6D520 /* WXSTransitionManager+BoomAnimation.m */,
+				4FFEE094204D126D00F6D520 /* WXSTransitionManager+BrickAnimation.h */,
+				4FFEE089204D126D00F6D520 /* WXSTransitionManager+BrickAnimation.m */,
+				4FFEE080204D126D00F6D520 /* WXSTransitionManager+CoverAnimation.h */,
+				4FFEE093204D126D00F6D520 /* WXSTransitionManager+CoverAnimation.m */,
+				4FFEE08A204D126D00F6D520 /* WXSTransitionManager+FragmentAnimation.h */,
+				4FFEE095204D126D00F6D520 /* WXSTransitionManager+FragmentAnimation.m */,
 				4FFEE09E204D126D00F6D520 /* WXSTransitionManager+FlipAnimation.h */,
+				4FFEE08B204D126D00F6D520 /* WXSTransitionManager+FlipAnimation.m */,
+				4FFEE099204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.h */,
+				4FFEE084204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m */,
+				4FFEE097204D126D00F6D520 /* WXSTransitionManager+PageAnimation.h */,
+				4FFEE087204D126D00F6D520 /* WXSTransitionManager+PageAnimation.m */,
+				4FFEE091204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.h */,
+				4FFEE081204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.m */,
+				4FFEE083204D126D00F6D520 /* WXSTransitionManager+SystermAnimation.h */,
+				4FFEE09B204D126D00F6D520 /* WXSTransitionManager+SystermAnimation.m */,
+				4FFEE082204D126D00F6D520 /* WXSTransitionManager+TypeTool.h */,
+				4FFEE092204D126D00F6D520 /* WXSTransitionManager+TypeTool.m */,
+				4FFEE08C204D126D00F6D520 /* WXSTransitionManager+ViewMoveAnimation.h */,
+				4FFEE09D204D126D00F6D520 /* WXSTransitionManager+ViewMoveAnimation.m */,
+				4FFEE08D204D126D00F6D520 /* UINavigationController+WXSTransition.m */,
+				4FFEE0A1204D126D00F6D520 /* UIViewController+WXSTransition.h */,
+				4FFEE08E204D126D00F6D520 /* UIViewController+WXSTransition.m */,
+				4FFEE098204D126D00F6D520 /* UIViewController+WXSTransitionProperty.h */,
+				4FFEE086204D126D00F6D520 /* UIViewController+WXSTransitionProperty.m */,
+				4FFEE08F204D126D00F6D520 /* WXSTransitionProperty.h */,
 				4FFEE09F204D126D00F6D520 /* WXSTransitionProperty.m */,
 				4FFEE0A0204D126D00F6D520 /* WXSPercentDrivenInteractiveTransition.h */,
-				4FFEE0A1204D126D00F6D520 /* UIViewController+WXSTransition.h */,
-				4FFEE0A2204D126D00F6D520 /* WXSTypedefConfig.h */,
+				4FFEE090204D126D00F6D520 /* WXSPercentDrivenInteractiveTransition.m */,
 			);
 			path = WXSTransition;
 			sourceTree = "<group>";
@@ -1270,11 +1373,13 @@
 				4FFEE0D8204D126D00F6D520 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				4F1AF26E205BA46800D8419C /* DBModels.m in Sources */,
 				4FFEE0B0204D126D00F6D520 /* WXSCollectionViewCell.m in Sources */,
+				4F1AF29C205BA80600D8419C /* UIView+Addtion.m in Sources */,
 				4FFEE0B8204D126D00F6D520 /* UINavigationController+hidesBottomBarWhenPushed.m in Sources */,
 				4FFEE0D9204D126D00F6D520 /* WXSTransitionManager.m in Sources */,
 				4FFEE0AE204D126D00F6D520 /* SecondViewController.m in Sources */,
 				4FFEE0AD204D126D00F6D520 /* CollectionViewController.m in Sources */,
 				4FFEE0D0204D126D00F6D520 /* WXSTransitionManager+PageAnimation.m in Sources */,
+				4F1AF29B205BA80600D8419C /* NSString+DES.m in Sources */,
 				4FFEE0B7204D126D00F6D520 /* TabBarController.m in Sources */,
 				4FFEE0AA204D126D00F6D520 /* DetailViewController.m in Sources */,
 				4FFEE0AF204D126D00F6D520 /* TableViewController.m in Sources */,
@@ -1282,6 +1387,7 @@
 				4FFEE0A4204D126D00F6D520 /* PopViewController.m in Sources */,
 				4F45EC02205B6DFD008AE38D /* WSCollectionViewController.m in Sources */,
 				4F45EC01205B6DFD008AE38D /* WSRefreshCollectionView.m in Sources */,
+				4F1AF29D205BA80600D8419C /* UIButton+Addition.m in Sources */,
 				4FFEE0B9204D126D00F6D520 /* WWBadgeView.m in Sources */,
 				4FFEE0D3204D126D00F6D520 /* UINavigationController+WXSTransition.m in Sources */,
 				4FFEE0CF204D126D00F6D520 /* UIViewController+WXSTransitionProperty.m in Sources */,
@@ -1296,12 +1402,17 @@
 				4FFEE0DB204D126D00F6D520 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				4FFEE0C3204D126D00F6D520 /* WWTextInputBarView.m in Sources */,
 				4FFEE0A3204D126D00F6D520 /* PushViewController.m in Sources */,
+				4F1AF2A5205BA80600D8419C /* UIImage+PixelColor.m in Sources */,
 				4FFEE0BE204D126D00F6D520 /* WWButton.m in Sources */,
+				4F1AF29E205BA80600D8419C /* UIView+Layout.m in Sources */,
 				4F45EBEE205B638C008AE38D /* ConstString.m in Sources */,
 				4FFEE0B2204D126D00F6D520 /* TextViewViewController.m in Sources */,
 				4F45EBFE205B6DFD008AE38D /* WSRefreshTableView.m in Sources */,
+				4F1AF2A6205BA80600D8419C /* NSString+Random.m in Sources */,
+				4F1AF2A7205BA80600D8419C /* UITabBar+Badge.m in Sources */,
 				4F45EBA0205B5D20008AE38D /* BabyViewController.m in Sources */,
 				4F45EC00205B6DFD008AE38D /* WSRefreshHeader.m in Sources */,
+				4F1AF2A0205BA80600D8419C /* UITableViewCell+Addition.m in Sources */,
 				4FFEE0AB204D126D00F6D520 /* WXSViewController.m in Sources */,
 				4FFEE0D1204D126D00F6D520 /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				4FFEE0C0204D126D00F6D520 /* WWTabBarConfig.m in Sources */,
@@ -1310,21 +1421,32 @@
 				4FFEE0A8204D126D00F6D520 /* WXSBaseViewController.m in Sources */,
 				4FFEE0D4204D126D00F6D520 /* UIViewController+WXSTransition.m in Sources */,
 				4FFEE0CD204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
+				4F1AF29A205BA80600D8419C /* UITableView+TableHeadView.m in Sources */,
 				4FFEE0C7204D126D00F6D520 /* ViewController.m in Sources */,
 				4F45EBFD205B6DFD008AE38D /* WSTableViewController.m in Sources */,
 				4FFEE0CC204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				4F45EBFF205B6DFD008AE38D /* WSRefreshFooter.m in Sources */,
 				4FFEE0B1204D126D00F6D520 /* main.m in Sources */,
 				4F45EB9B205B5D04008AE38D /* SmallFamilyViewController.m in Sources */,
+				4F1AF29F205BA80600D8419C /* NSDate+Addition.m in Sources */,
 				4FFEE0A9204D126D00F6D520 /* WXSTestViewController.m in Sources */,
 				4FFEE0D5204D126D00F6D520 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
+				4F1AF2A2205BA80600D8419C /* NSArray+Permutation.m in Sources */,
 				4FFEE0BF204D126D00F6D520 /* WWCenterButton.m in Sources */,
+				4F1AF2A1205BA80600D8419C /* UITextField+Addition.m in Sources */,
 				4FFEE0BD204D126D00F6D520 /* WWTabBar.m in Sources */,
+				4F1AF2A8205BA80600D8419C /* NSString+Addition.m in Sources */,
 				4FFEE0D2204D126D00F6D520 /* WXSTransitionManager+FlipAnimation.m in Sources */,
+				4F1AF2A4205BA80600D8419C /* UIViewController+Addition.m in Sources */,
+				4F1AF299205BA80600D8419C /* NSString+Check.m in Sources */,
+				4F1AF297205BA80600D8419C /* NSArray+Combinations.m in Sources */,
 				4FFEE0DA204D126D00F6D520 /* WXSTransitionManager+SystermAnimation.m in Sources */,
+				4F1AF2A3205BA80600D8419C /* NSString+MD5.m in Sources */,
 				4FFEE0D6204D126D00F6D520 /* WXSTransitionManager+TypeTool.m in Sources */,
+				4F1AF298205BA80600D8419C /* UIView+NIB.m in Sources */,
 				4FFEE0C2204D126D00F6D520 /* PlusAnimate.m in Sources */,
 				4FFEE0CE204D126D00F6D520 /* WXSTransitionManager+BoomAnimation.m in Sources */,
+				4F1AF296205BA80600D8419C /* UITextView+Addition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
