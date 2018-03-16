@@ -14,30 +14,41 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (5.0.7)
+  - BmobSDK (2.2.8)
+  - IQKeyboardManager (5.0.8)
+  - MJRefresh (3.1.15.3)
   - ReactiveObjC (2.1.2)
+  - Realm (3.1.1):
+    - Realm/Headers (= 3.1.1)
+  - Realm/Headers (3.1.1)
   - SDCycleScrollView (1.75):
     - SDWebImage (>= 4.0.0)
-  - SDWebImage (4.3.2):
-    - SDWebImage/Core (= 4.3.2)
-  - SDWebImage/Core (4.3.2)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
   - UICKeyChainStore (2.1.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - BmobSDK
   - IQKeyboardManager
+  - MJRefresh
   - ReactiveObjC (~> 2.1.2)
+  - Realm
   - SDCycleScrollView (~> 1.66)
   - UICKeyChainStore (~> 2.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
-  IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
+  BmobSDK: 8ee987736c9b766a688ea8e0274ce4748db2255e
+  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
+  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
-  SDWebImage: 29bd3c0bc1f01e5eb59720847c64ad4c4ca1af5d
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
 
-PODFILE CHECKSUM: c56cec72f567d7def237ebe262ffbb34a4e2a109
+PODFILE CHECKSUM: 65f63c194f1b3faf11a9f6e62f6ccca57440e865
 
 COCOAPODS: 1.4.0.rc.1

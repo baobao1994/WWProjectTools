@@ -19,9 +19,9 @@
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()<WSRefreshDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) WSRefreshTableView *tableView;
 @property (nonatomic, strong) NSArray *arr;
 @property (nonatomic, strong) WWGifLoadingView *gifLoadingView;
 
@@ -44,15 +44,34 @@
     return _gifLoadingView;
 }
 
-- (UITableView *)tableView {
+- (WSRefreshTableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
+        _tableView = [[WSRefreshTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.customTableDelegate = self;
+        [_tableView setRefreshCategory:BothRefresh]; // 上下拉刷新
         [self.view addSubview:_tableView];
     }
     return _tableView;
 }
+
+#pragma -mark WSRefreshDelegate
+
+- (void)getHeaderDataSoure { // 下拉刷新代理
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"下拉刷新代理");
+        [self.tableView doneLoadingTableViewData];
+    });
+}
+
+- (void)getFooterDataSoure { //上拉刷新代理
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"上拉刷新代理");
+        [self.tableView doneLoadingTableViewData];
+    });
+}
+
 #pragma mark - 设置导航
 - (void)initNavigation{
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
@@ -93,7 +112,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, CGFLOAT_MIN)];
-    footerView.backgroundColor = [UIColor clearColor];
+    footerView.backgroundColor = [UIColor yellowColor];
     return footerView;
 }
 

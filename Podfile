@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '11.0'
 
 target 'WWProjectTools' do
     pod 'ReactiveObjC', '~> 2.1.2'
@@ -7,5 +7,7 @@ target 'WWProjectTools' do
     pod 'IQKeyboardManager'
     pod 'SDCycleScrollView','~> 1.66'
     pod 'AFNetworking'
-
+    pod 'MJRefresh'
+    pod 'Realm'
+    pod 'BmobSDK'
 end

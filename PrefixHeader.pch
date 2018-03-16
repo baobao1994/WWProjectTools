@@ -8,6 +8,13 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <BmobSDK/Bmob.h>
+#import <Realm/Realm.h>
+#import "WSRefreshTableView.h"
+#import "WSRefreshCollectionView.h"
+#import "ConstString.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
@@ -15,14 +22,28 @@
 //GCD - 在Main线程上运行
 #define kDISPATCH_MAIN_THREAD(mainQueueBlock) dispatch_async(dispatch_get_main_queue(), mainQueueBlock);
 
-//主窗口
+// Delegate
+#define DELEGATE_CALLBACK(DELEGATE, SEL) if (DELEGATE && [DELEGATE respondsToSelector:SEL]) [DELEGATE performSelector:SEL]
+#define DELEGATE_CALLBACK_ONE_PARAMETER(DELEGATE, SEL, X) if (DELEGATE && [DELEGATE respondsToSelector:SEL]) [DELEGATE performSelector:SEL withObject:X]
+#define DELEGATE_CALLBACK_TWO_PARAMETER(DELEGATE, SEL, X, Y) if (DELEGATE && [DELEGATE respondsToSelector:SEL]) [DELEGATE performSelector:SEL withObject:X withObject:Y]
 
+#define isEmptyString(obj) ([(obj) respondsToSelector:@selector(length)]==NO || (obj)==nil || [(obj) isEqual:[NSNull null]] || [(obj) length]==0)
+#define isSafeArray(obj) ((obj != nil && [(obj) respondsToSelector:@selector(objectAtIndex:)]) ? (obj) : nil)
+#define isSafeDictionary(obj) ((obj != nil && [(obj) respondsToSelector:@selector(objectForKey:)]) ? (obj) : nil)
+
+// Safe releases
+#define RELEASE_SAFELY(__POINTER) { [__POINTER release]; __POINTER = nil; }
+#define INVALIDATE_TIMER(__TIMER) {if([__TIMER isValid]) {[__TIMER invalidate]; __TIMER = nil;} }
+
+//主窗口
 #define KEY_WINDOW [UIApplication sharedApplication].windows.lastObject
 
 //系统版本
 #define IOS_VERSION   floorf([[UIDevice currentDevice].systemVersion floatValue])
 
 // UIColor
+#define MAIN_COLOR [UIColor colorWithRed:228.f/255.f green:185.f/255.f blue:110.f/255.f alpha:1]
+#define MAIN_BLACK_COLOR [UIColor colorWithRed:32.f/255.f green:32.f/255.f blue:32.f/255.f alpha:1]
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 #define UIColorFromHexColor(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:1.0]
 #define UIColorFromHexColorA(hexValue,alp) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:alp]
