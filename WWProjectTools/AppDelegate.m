@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "ViewController2.h"
 #import "ViewController3.h"
+#import "HomeViewController.h"
 #import "TabBarController.h"
 #import "WWTabBarConfig.h"
 
@@ -23,7 +24,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Bmob registerWithAppKey:BmobKey];
-    [self migrationRealm];
+//    [self migrationRealm];
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     self.window.rootViewController = self.tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
@@ -85,7 +86,7 @@
 
 - (void)style1:(WWTabBarController *)tabbar {
     [WWTabBarConfig shared].tabBarCount = 3;
-    UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:[ViewController2 new]];
+    UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:[HomeViewController new]];
     [tabbar addChildController:nav1 title:@"小窝" imageName:@"Btn01" selectedImageName:@"SelectBtn01"];
     [tabbar addCenterController:nil bulge:YES title:@"发布点滴" imageName:@"post_normal" selectedImageName:@"post_animate_add"];
     UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:[ViewController new]];

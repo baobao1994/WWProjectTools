@@ -13,7 +13,9 @@
 
 + (id)loadCellOfType: (Class)tp fromNib: (NSString*)nibName withId: (NSString*)reuseId;
 + (id)dequeInTable:(UITableView*)tableView;
++ (id)dequeOrCreateInTable:(UITableView*)tableView selectedBackgroundViewColor:(UIColor *)color;
 + (id)loadFromNib;
++ (id)loadFromNibWithSuperNib:(NSString *)superNib;
 + (id)loadFromNibWithReuseFlag: (BOOL)toBeReused;
 
 + (id)dequeOrCreateInTable:(UITableView*)tableView withId: (NSString*)reuseId andStyle:(UITableViewCellStyle)style;
@@ -21,3 +23,4 @@
 - (void)setSelectedBackgroundViewColor:(UIColor *)color;
 
 @end
+
