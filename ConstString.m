@@ -17,6 +17,8 @@ uint64_t const kDBVersion = 100002;
 
 NSString *const ClassNameKey = @"class_name";
 NSString *const TitleNameKey = @"title_name";
+NSString *const DataKey = @"data";
+NSString *const FileNameKey = @"filename";
 
 #pragma mark - motherNoteKey
 

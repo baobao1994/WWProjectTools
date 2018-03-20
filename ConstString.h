@@ -15,6 +15,8 @@ extern uint64_t const kDBVersion;
 
 extern NSString *const ClassNameKey;
 extern NSString *const TitleNameKey;
+extern NSString *const DataKey;
+extern NSString *const FileNameKey;
 
 #pragma mark - motherNoteKey
 

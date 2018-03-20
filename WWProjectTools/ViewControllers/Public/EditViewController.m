@@ -11,10 +11,10 @@
 #import "UIViewController+Addition.h"
 #import "StaticImageCollectionViewCell.h"
 #import "WWPictureSelect.h"
-#import "ESPictureBrowser.h"
 #import "UIImage+Addition.h"
+#import "NSDate+Addition.h"
 
-@interface EditViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,ESPictureBrowserDelegate>
+@interface EditViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) QMUITextView *textInputView;
 @property (nonatomic, assign) CGFloat textViewMinimumHeight;
@@ -60,36 +60,38 @@
 
 - (void)selectedNavigationRightItem:(id)sender {
     [WWHUD showLoadingWithText:@"图片上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
-    
-//    NSData *date = [UIImage zipNSDataWithImage:self.photosArr]
-//    BmobFile *file = [BmobFile alloc] initWithFileName:@"" withFileData:<#(NSData *)#>
-    //文件IMG_1471.jpg的路径
-    NSString *fileString = [[NSBundle mainBundle] pathForResource:@"IMG_1471" ofType:@"JPG"];
-    //文件text.txt的路径
-    NSString *fileString2 = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"txt"];
-    /**
-     *  批量上传文件
-     *
-     *  @param dataArray 数组中存放的NSDictionary，NSDictionary里面的格式为@{@"filename":@"你的文件名",@"data":图片的data}
-     *  文件名需要带后缀
-     *  @param progress  当前第几个，当前文件的进度
-     *  @param block     BmobFile数组，上传结果和失败信息
-     */http://doc.bmob.cn/data/ios/develop_doc/#_80
-    [BmobFile filesUploadBatchWithDataArray:@[fileString,fileString2]
+    NSMutableArray *imageDataArr = [[NSMutableArray alloc] init];
+//    for (UIImage *image in self.photosArr) {
+//        [imageDataArr addObject:[NSDictionary dictionaryWithObjectsAndKeys:FileNameKey,FileNameKey,[UIImage zipNSDataWithImage:image],DataKey, nil]];
+//    }
+    UIImage *image = [UIImage imageNamed:@"ad_bg"];
+    NSData *data = UIImageJPEGRepresentation(image,1);
+    [imageDataArr addObject:[NSDictionary dictionaryWithObjectsAndKeys:FileNameKey,@"xxx.png",data,DataKey, nil]];
+    [BmobFile filesUploadBatchWithDataArray:imageDataArr
                           progressBlock:^(int index, float progress) {
                               //index 上传数组的下标，progress当前文件的进度
                               NSLog(@"index %d progress %f",index,progress);
                           } resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
                               //array 文件数组，isSuccessful 成功或者失败,error 错误信息
-                              BmobObject *obj = [[BmobObject alloc] initWithClassName:@"gameScoreFile"];
+                              BmobObject *obj = [[BmobObject alloc] initWithClassName:@"mother"];
                               //存放文件URL的数组
                               NSMutableArray *fileArray = [NSMutableArray array];
                               for (int i = 0 ; i < array.count ;i ++) {
                                   BmobFile *file = array [i];
                                   [fileArray addObject:file.url];
                               }
-                              [obj setObject:fileArray  forKey:fileUrlArray];
+                              [obj setObject:fileArray forKey:PhotosKey];
+                              NSDate *date = [NSDate date];
+                              NSString *publicTime = [date formateDate:@"yyyy-MM-dd"];
+                              [obj setObject:publicTime forKey:PublicTimeKey];
+                              [obj setObject:self.textInputView.text forKey:NoteKey];
                               [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                                  [WWHUD hideAllTipsInView:NavigationControllerView];
+                                  if (isSuccessful) {
+                                      [WWHUD showLoadingWithText:@"图片上传成功" inView:NavigationControllerView afterDelay:2];
+                                  } else {
+                                      [WWHUD showLoadingWithErrorInView:NavigationControllerView afterDelay:2];
+                                  }
                               }];
                           }];
     NSLog(@"发布");
