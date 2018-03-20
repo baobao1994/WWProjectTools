@@ -63,6 +63,7 @@
 		4F794F182060ED3200EB4E25 /* QDCustomToastContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F162060ED3100EB4E25 /* QDCustomToastContentView.m */; };
 		4F794F1F2060EDA300EB4E25 /* WWHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F1E2060EDA300EB4E25 /* WWHUD.m */; };
 		4F794F222060F88D00EB4E25 /* MotherNoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F212060F88D00EB4E25 /* MotherNoteModel.m */; };
+		4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F24206112EF00EB4E25 /* UIImage+Addition.m */; };
 		4FACE842200E01A000CCC34D /* WWProjectDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE841200E01A000CCC34D /* WWProjectDemoTests.m */; };
 		4FACE84D200E01A000CCC34D /* WWProjectDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE84C200E01A000CCC34D /* WWProjectDemoUITests.m */; };
 		4FC68978205FAEAD00D199AC /* StackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC68976205FAEAD00D199AC /* StackViewController.m */; };
@@ -378,6 +379,8 @@
 		4F794F1E2060EDA300EB4E25 /* WWHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWHUD.m; sourceTree = "<group>"; };
 		4F794F202060F88D00EB4E25 /* MotherNoteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotherNoteModel.h; sourceTree = "<group>"; };
 		4F794F212060F88D00EB4E25 /* MotherNoteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotherNoteModel.m; sourceTree = "<group>"; };
+		4F794F23206112EF00EB4E25 /* UIImage+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Addition.h"; sourceTree = "<group>"; };
+		4F794F24206112EF00EB4E25 /* UIImage+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Addition.m"; sourceTree = "<group>"; };
 		4FACE825200E019F00CCC34D /* WWProjectTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWProjectTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACE83D200E01A000CCC34D /* WWProjectToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWProjectToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACE841200E01A000CCC34D /* WWProjectDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWProjectDemoTests.m; sourceTree = "<group>"; };
@@ -702,6 +705,8 @@
 				4F1AF294205BA80600D8419C /* UITabBar+Badge.m */,
 				4F1AF281205BA80600D8419C /* UIImage+PixelColor.h */,
 				4F1AF291205BA80600D8419C /* UIImage+PixelColor.m */,
+				4F794F23206112EF00EB4E25 /* UIImage+Addition.h */,
+				4F794F24206112EF00EB4E25 /* UIImage+Addition.m */,
 				4F1AF283205BA80600D8419C /* UITableView+TableHeadView.h */,
 				4F1AF274205BA80600D8419C /* UITableView+TableHeadView.m */,
 				4F1AF279205BA80600D8419C /* UITableViewCell+Addition.h */,
@@ -1748,6 +1753,7 @@
 				4FFEE0A8204D126D00F6D520 /* WXSBaseViewController.m in Sources */,
 				4FFEE0D4204D126D00F6D520 /* UIViewController+WXSTransition.m in Sources */,
 				4FFEE0CD204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
+				4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */,
 				4F1AF29A205BA80600D8419C /* UITableView+TableHeadView.m in Sources */,
 				4F794EEF2060C16400EB4E25 /* QDMultipleImagePickerPreviewViewController.m in Sources */,
 				4FFEE0C7204D126D00F6D520 /* ViewController.m in Sources */,

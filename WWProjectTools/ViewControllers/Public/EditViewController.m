@@ -11,8 +11,10 @@
 #import "UIViewController+Addition.h"
 #import "StaticImageCollectionViewCell.h"
 #import "WWPictureSelect.h"
+#import "ESPictureBrowser.h"
+#import "UIImage+Addition.h"
 
-@interface EditViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface EditViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,ESPictureBrowserDelegate>
 
 @property (nonatomic, strong) QMUITextView *textInputView;
 @property (nonatomic, assign) CGFloat textViewMinimumHeight;
@@ -20,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectButtonTopConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) NSMutableArray *imagesArr;
+@property (nonatomic, strong) NSMutableArray *photosArr;
 @property (nonatomic, strong) WWPictureSelect *pictureSelect;
 
 @end
@@ -40,11 +42,11 @@
     self.textViewMinimumHeight = 150;
     self.textViewMaximumHeight = 200;
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([StaticImageCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class])];
-    self.imagesArr = [[NSMutableArray alloc] init];
+    self.photosArr = [[NSMutableArray alloc] init];
     self.pictureSelect = [[WWPictureSelect alloc] initWithController:self];
     kWeakSelf;
     self.pictureSelect.selectImages = ^(NSMutableArray *imagesArr) {
-        weakSelf.imagesArr = imagesArr;
+        weakSelf.photosArr = imagesArr;
         [weakSelf.collectionView reloadData];
     };
 }
@@ -57,6 +59,39 @@
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
+    [WWHUD showLoadingWithText:@"图片上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
+    
+//    NSData *date = [UIImage zipNSDataWithImage:self.photosArr]
+//    BmobFile *file = [BmobFile alloc] initWithFileName:@"" withFileData:<#(NSData *)#>
+    //文件IMG_1471.jpg的路径
+    NSString *fileString = [[NSBundle mainBundle] pathForResource:@"IMG_1471" ofType:@"JPG"];
+    //文件text.txt的路径
+    NSString *fileString2 = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"txt"];
+    /**
+     *  批量上传文件
+     *
+     *  @param dataArray 数组中存放的NSDictionary，NSDictionary里面的格式为@{@"filename":@"你的文件名",@"data":图片的data}
+     *  文件名需要带后缀
+     *  @param progress  当前第几个，当前文件的进度
+     *  @param block     BmobFile数组，上传结果和失败信息
+     */http://doc.bmob.cn/data/ios/develop_doc/#_80
+    [BmobFile filesUploadBatchWithDataArray:@[fileString,fileString2]
+                          progressBlock:^(int index, float progress) {
+                              //index 上传数组的下标，progress当前文件的进度
+                              NSLog(@"index %d progress %f",index,progress);
+                          } resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
+                              //array 文件数组，isSuccessful 成功或者失败,error 错误信息
+                              BmobObject *obj = [[BmobObject alloc] initWithClassName:@"gameScoreFile"];
+                              //存放文件URL的数组
+                              NSMutableArray *fileArray = [NSMutableArray array];
+                              for (int i = 0 ; i < array.count ;i ++) {
+                                  BmobFile *file = array [i];
+                                  [fileArray addObject:file.url];
+                              }
+                              [obj setObject:fileArray  forKey:fileUrlArray];
+                              [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                              }];
+                          }];
     NSLog(@"发布");
 }
 
@@ -121,12 +156,12 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.imagesArr.count;
+    return self.photosArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     StaticImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class]) forIndexPath:indexPath];
-    cell.itemImageView.image = self.imagesArr[indexPath.row];
+    cell.itemImageView.image = self.photosArr[indexPath.row];
     return cell;
 }
 
@@ -154,6 +189,10 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     return CGSizeMake(UIScreenWidth, CGFLOAT_MIN);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 @end
