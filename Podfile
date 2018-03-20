@@ -12,4 +12,5 @@ target 'WWProjectTools' do
     pod 'BmobSDK'
     pod 'ESPictureBrowser'
     pod 'AsyncDisplayKit', '~> 1.9.90'
+    pod 'QMUIKit'
 end

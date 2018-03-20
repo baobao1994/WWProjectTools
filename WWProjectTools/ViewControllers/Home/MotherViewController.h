@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MotherViewController : UIViewController
+@interface MotherViewController : BasicViewController
+
+@property (nonatomic,copy) void (^pushViewControllerBlock)(UIViewController *);
 
 @end

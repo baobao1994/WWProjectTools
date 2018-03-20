@@ -33,6 +33,7 @@
 - (void)createNavigationRightItemWithTitle:(NSString *)title {
     UIButton *helpBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     [helpBtn setTitle:title forState:UIControlStateNormal];
+    [helpBtn setTitleColor:UIColorFromHexColor(0X1AA0F8) forState:UIControlStateNormal];
     helpBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [helpBtn addTarget:self action:@selector(selectedNavigationRightItem:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:helpBtn];

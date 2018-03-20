@@ -13,6 +13,8 @@
 #import "HomeViewController.h"
 #import "TabBarController.h"
 #import "WWTabBarConfig.h"
+#import "WWNavigationController.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +26,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Bmob registerWithAppKey:BmobKey];
+    [IQKeyboardManager sharedManager].enable = YES;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    [IQKeyboardManager sharedManager].toolbarDoneBarButtonItemText = @"完成";
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside =YES;//控制点击背景是否收起键盘
+    [IQKeyboardManager sharedManager].toolbarManageBehaviour =IQAutoToolbarByTag;
 //    [self migrationRealm];
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     self.window.rootViewController = self.tabBarController;
@@ -86,10 +93,10 @@
 
 - (void)style1:(WWTabBarController *)tabbar {
     [WWTabBarConfig shared].tabBarCount = 3;
-    UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:[HomeViewController new]];
+    WWNavigationController *nav1 = [[WWNavigationController alloc] initWithRootViewController:[HomeViewController new]];
     [tabbar addChildController:nav1 title:@"小窝" imageName:@"Btn01" selectedImageName:@"SelectBtn01"];
     [tabbar addCenterController:nil bulge:YES title:@"发布点滴" imageName:@"post_normal" selectedImageName:@"post_animate_add"];
-    UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:[ViewController new]];
+    WWNavigationController *nav2 = [[WWNavigationController alloc] initWithRootViewController:[ViewController new]];
     [tabbar addChildController:nav2 title:@"宝宝" imageName:@"Btn02" selectedImageName:@"SelectBtn02"];
 }
 

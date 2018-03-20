@@ -16,6 +16,7 @@
 @property (nonatomic, strong) CustomSegmentedControlView *customSegmentView;
 @property (nonatomic, strong) SmallFamilyViewController *smallFamilyVC;
 @property (nonatomic, strong) MotherViewController *motherVC;
+@property (nonatomic,copy) void (^pushViewControllerBlock)(UIViewController *);
 
 @end
 
@@ -28,7 +29,7 @@
 }
 
 - (void)setUp {
-    self.customSegmentView = [[CustomSegmentedControlView alloc] initWithFrame:CGRectMake(0, 0, 105 * ScreenScale * 2, 35)];
+    self.customSegmentView = [[CustomSegmentedControlView alloc] initWithFrame:CGRectMake(0, 0, 105 * UIScreenScale * 2, 35)];
     self.customSegmentView.count = 2;
     self.customSegmentView.cornerRadius = 13;
     self.customSegmentView.borderWidth = 1;
@@ -41,6 +42,11 @@
     self.navigationItem.titleView = self.customSegmentView;
     [self.view addSubview:self.smallFamilyVC.view];
     [self.view addSubview:self.motherVC.view];
+    void (^pushViewControllerBlock)(UIViewController *) = ^(UIViewController *controller) {
+        [weakSelf.navigationController pushViewController:controller animated:YES];
+    };
+    self.smallFamilyVC.pushViewControllerBlock = pushViewControllerBlock;
+    self.motherVC.pushViewControllerBlock = pushViewControllerBlock;
 }
 
 - (SmallFamilyViewController *)smallFamilyVC {
@@ -55,7 +61,7 @@
 - (MotherViewController *)motherVC {
     if (!_motherVC) {
         _motherVC = [[MotherViewController alloc] init];
-        _motherVC.view.frame = CGRectMake(0, 64, UIScreenWidth, [UIScreen mainScreen].bounds.size.height);
+        _motherVC.view.frame = CGRectMake(0, 64, UIScreenWidth, UIScreenHeight - 64 - 44);
         _motherVC.view.hidden = YES;
     }
     return _motherVC;

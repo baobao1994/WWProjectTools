@@ -50,6 +50,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="timeLabel" destination="07U-Bc-STq" id="LQv-9d-bUd"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

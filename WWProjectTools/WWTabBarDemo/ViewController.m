@@ -133,9 +133,9 @@
     NSInteger row = indexPath.row;
     if (row == 3 || row == 4) {
         if (row == 3) {
-            self.gifLoadingView.imageViewRect = CGRectMake(0, 0, 175 * ScreenScale, 175 * ScreenScale);
+            self.gifLoadingView.imageViewRect = CGRectMake(0, 0, 175 * UIScreenScale, 175 * UIScreenScale);
             self.gifLoadingView.needBackTap = YES;
-            UILabel *tipTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake((ScreenWidth - 250 * ScreenScale ) / 2, _gifLoadingView.frame.size.height / 2 + 30 * ScreenScale, 250 * ScreenScale, 20)];
+            UILabel *tipTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake((ScreenWidth - 250 * UIScreenScale ) / 2, _gifLoadingView.frame.size.height / 2 + 30 * UIScreenScale, 250 * UIScreenScale, 20)];
             tipTitleLabel.font = [UIFont boldSystemFontOfSize:15.0f];
             tipTitleLabel.textColor = [UIColor blackColor];
             tipTitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -143,9 +143,9 @@
             self.gifLoadingView.tipTitleLabel = tipTitleLabel;
             [self.gifLoadingView showLoading];
         } else {
-            self.gifLoadingView.imageViewRect = CGRectMake(0, 0, 175 * ScreenScale, 175 * ScreenScale);
+            self.gifLoadingView.imageViewRect = CGRectMake(0, 0, 175 * UIScreenScale, 175 * UIScreenScale);
             self.gifLoadingView.needBackTap = YES;
-            UILabel *tipTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake((ScreenWidth - 175 * ScreenScale) / 2, _gifLoadingView.frame.size.height / 2 + 80 * ScreenScale, 175 * ScreenScale, 20)];
+            UILabel *tipTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake((ScreenWidth - 175 * UIScreenScale) / 2, _gifLoadingView.frame.size.height / 2 + 80 * UIScreenScale, 175 * UIScreenScale, 20)];
             tipTitleLabel.font = [UIFont boldSystemFontOfSize:15.0f];
             tipTitleLabel.textColor = [UIColor blackColor];
             tipTitleLabel.textAlignment = NSTextAlignmentCenter;

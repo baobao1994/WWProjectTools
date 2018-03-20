@@ -10,4 +10,6 @@
 
 @interface StaticImageCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
+
 @end

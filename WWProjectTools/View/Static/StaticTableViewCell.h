@@ -10,4 +10,6 @@
 
 @interface StaticTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *itemNameLabel;
+
 @end

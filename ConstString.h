@@ -11,6 +11,17 @@
 extern NSString *const BmobKey;
 extern uint64_t const kDBVersion;
 
+#pragma mark - static
+
+extern NSString *const ClassNameKey;
+extern NSString *const TitleNameKey;
+
+#pragma mark - motherNoteKey
+
+extern NSString *const PublicTimeKey;
+extern NSString *const NoteKey;
+extern NSString *const PhotosKey;
+
 #pragma mark - Scrollow
 
 extern NSString *const kIsCanScroll;

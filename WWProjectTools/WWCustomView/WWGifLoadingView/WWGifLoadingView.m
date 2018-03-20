@@ -39,7 +39,7 @@
 #pragma mark - Public Method
 
 - (void)addLoadingLabel {
-    UILabel *tipTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake((UIScreenWidth - 175 * ScreenScale) / 2, self.frame.size.height / 2 + 80 * ScreenScale - self.offsetY, 175 * ScreenScale, 20)];
+    UILabel *tipTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake((UIScreenWidth - 175 * UIScreenScale) / 2, self.frame.size.height / 2 + 80 * UIScreenScale - self.offsetY, 175 * UIScreenScale, 20)];
     tipTitleLabel.font = [UIFont boldSystemFontOfSize:15.0f];
     tipTitleLabel.textColor = [UIColor blackColor];
     tipTitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -48,7 +48,7 @@
 }
 
 - (void)addBounceLabel {
-    UILabel *tipTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake((10 * ScreenScale), self.frame.size.height / 2 + 20 * ScreenScale - self.offsetY, 230 * ScreenScale, 20)];
+    UILabel *tipTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake((10 * UIScreenScale), self.frame.size.height / 2 + 20 * UIScreenScale - self.offsetY, 230 * UIScreenScale, 20)];
     tipTitleLabel.font = [UIFont boldSystemFontOfSize:15.0f];
     tipTitleLabel.textColor = [UIColor blackColor];
     tipTitleLabel.textAlignment = NSTextAlignmentCenter;

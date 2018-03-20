@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "StaticImageCollectionViewCell.h"
 
+@class MotherNoteModel;
+
 @interface MotherNoteTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-- (void) setContent;
+- (void) setContent:(MotherNoteModel *)noteModel;
 
 @end

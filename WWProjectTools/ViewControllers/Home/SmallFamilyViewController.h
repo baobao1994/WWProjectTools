@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SmallFamilyViewController : UIViewController
+@interface SmallFamilyViewController : BasicViewController
+
+@property (nonatomic,copy) void (^pushViewControllerBlock)(UIViewController *);
 
 @end

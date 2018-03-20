@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PictureBrowserViewController : UIViewController
+@interface PictureBrowserViewController : BasicViewController
 
 @end

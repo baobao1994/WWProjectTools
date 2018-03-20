@@ -10,6 +10,8 @@
 
 @interface UIButton(Addition)
 
+@property (nonatomic) CGSize  size;        ///< Shortcut for frame.size.
+
 - (void)setRoundCorner:(float)radius;
 - (void)verticalImageAndTitle:(CGFloat)spacing;
 - (void)horizontalImageAndTitle:(CGFloat)spacing;

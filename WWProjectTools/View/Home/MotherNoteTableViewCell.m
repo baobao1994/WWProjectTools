@@ -8,18 +8,27 @@
 
 #import "MotherNoteTableViewCell.h"
 #import <ESPictureBrowser/ESPictureBrowser.h>
+#import <YYImage/YYAnimatedImageView.h>
+#import <YYWebImage/YYWebImage.h>
+#import "MotherNoteModel.h"
 
-@interface MotherNoteTableViewCell ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout/*,ESPictureBrowserDelegate*/>
+@interface MotherNoteTableViewCell ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,ESPictureBrowserDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionHeightConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *noteLabel;
+@property (nonatomic, strong) NSArray *photosArr;
 
 @end
 
 @implementation MotherNoteTableViewCell
 
-- (void) setContent {
+- (void) setContent:(MotherNoteModel *)noteModel {
+    self.noteLabel.text = noteModel.note;
+    self.photosArr = [[NSArray alloc] initWithArray:noteModel.photos];
+    NSInteger count = (NSInteger)(noteModel.photos.count - 1) < 0? 1:noteModel.photos.count - 1;
+    NSInteger rowCount = count / 3 + 1;
+    self.collectionHeightConstraint.constant = ((UIScreenWidth - 43.5 - 45) / 3) * rowCount + 20 + rowCount * 10;
     [self.collectionView reloadData];
-    self.collectionHeightConstraint.constant = ((UIScreenWidth - 43.5 - 45) / 3) * 2 + 30;
 }
 
 #pragma mark ---- UICollectionViewDataSource
@@ -29,12 +38,12 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
+    return self.photosArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     StaticImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class]) forIndexPath:indexPath];
-    cell.contentView.backgroundColor = RandomColor;
+    [cell.itemImageView yy_setImageWithURL:[NSURL URLWithString:self.photosArr[indexPath.row]] placeholder:nil];
     return cell;
 }
 
@@ -66,6 +75,24 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    ESPictureBrowser *browser = [[ESPictureBrowser alloc] init];
+    [browser setDelegate:self];
+    [browser setLongPressBlock:^(NSInteger index) {
+        NSLog(@"%zd", index);
+    }];
+    [browser showFromView:collectionView picturesCount:self.photosArr.count currentPictureIndex:indexPath.row];
+}
+
+/**
+ 获取对应索引的高质量图片地址字符串
+ 
+ @param pictureBrowser 图片浏览器
+ @param index          索引
+ 
+ @return 图片的 url 字符串
+ */
+- (NSString *)pictureView:(ESPictureBrowser *)pictureBrowser highQualityUrlStringForIndex:(NSInteger)index {
+    return [self.photosArr objectAtIndex:index];
 }
 
 @end

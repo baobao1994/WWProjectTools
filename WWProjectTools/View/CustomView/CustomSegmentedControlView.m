@@ -64,7 +64,7 @@
         [button addTarget:self action:@selector(didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
         [_bgView addSubview:button];
         
-        UILabel *pointLabel = [[UILabel alloc] initWithFrame:CGRectMake(button.frame.size.width + button.frame.origin.x - 10 * ScreenScale, 10, 5, 5)];
+        UILabel *pointLabel = [[UILabel alloc] initWithFrame:CGRectMake(button.frame.size.width + button.frame.origin.x - 10 * UIScreenScale, 10, 5, 5)];
         pointLabel.backgroundColor = UIColorFromHexColor(0XFF0000);
         pointLabel.layer.cornerRadius = 3;
         pointLabel.layer.masksToBounds = YES;

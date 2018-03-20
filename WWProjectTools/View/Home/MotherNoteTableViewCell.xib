@@ -33,7 +33,7 @@
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="H1S-ss-QKo">
                         <rect key="frame" x="33.5" y="64" width="276.5" height="80"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="66o-UC-UBN"/>
                         </constraints>
@@ -65,6 +65,7 @@
             <connections>
                 <outlet property="collectionHeightConstraint" destination="66o-UC-UBN" id="F3L-gC-4Li"/>
                 <outlet property="collectionView" destination="H1S-ss-QKo" id="EPh-Rt-e8G"/>
+                <outlet property="noteLabel" destination="OiL-EL-EAs" id="ngG-Je-G6t"/>
             </connections>
             <point key="canvasLocation" x="-219" y="15.5"/>
         </tableViewCell>

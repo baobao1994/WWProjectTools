@@ -10,4 +10,6 @@
 
 @interface TimeHeaderTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 @end

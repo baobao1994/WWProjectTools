@@ -47,6 +47,22 @@
 		4F45EC00205B6DFD008AE38D /* WSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBF8205B6DFD008AE38D /* WSRefreshHeader.m */; };
 		4F45EC01205B6DFD008AE38D /* WSRefreshCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBF9205B6DFD008AE38D /* WSRefreshCollectionView.m */; };
 		4F45EC02205B6DFD008AE38D /* WSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBFC205B6DFD008AE38D /* WSCollectionViewController.m */; };
+		4F794ED22060A11B00EB4E25 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794ED02060A11B00EB4E25 /* EditViewController.m */; };
+		4F794ED32060A11B00EB4E25 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F794ED12060A11B00EB4E25 /* EditViewController.xib */; };
+		4F794ED82060A3F600EB4E25 /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794ED72060A3F500EB4E25 /* QMUIConfigurationTemplate.m */; };
+		4F794EE52060A9CB00EB4E25 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794EE42060A9CB00EB4E25 /* BasicViewController.m */; };
+		4F794EE82060B03A00EB4E25 /* WWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794EE72060B03A00EB4E25 /* WWNavigationController.m */; };
+		4F794EEC2060B0A300EB4E25 /* RxWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794EEB2060B0A300EB4E25 /* RxWebViewController.m */; };
+		4F794EEF2060C16400EB4E25 /* QDMultipleImagePickerPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794EEE2060C16400EB4E25 /* QDMultipleImagePickerPreviewViewController.m */; };
+		4F794EF62060C23D00EB4E25 /* QDCommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794EF22060C23D00EB4E25 /* QDCommonUI.m */; };
+		4F794EF72060C23D00EB4E25 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794EF32060C23D00EB4E25 /* UIImageEffects.m */; };
+		4F794EF82060C23D00EB4E25 /* QDUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794EF52060C23D00EB4E25 /* QDUIHelper.m */; };
+		4F794F0D2060D68F00EB4E25 /* WWPictureSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F0C2060D68F00EB4E25 /* WWPictureSelect.m */; };
+		4F794F112060D97C00EB4E25 /* QDSingleImagePickerPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F0F2060D97C00EB4E25 /* QDSingleImagePickerPreviewViewController.m */; };
+		4F794F172060ED3200EB4E25 /* QDCustomToastAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F142060ED3100EB4E25 /* QDCustomToastAnimator.m */; };
+		4F794F182060ED3200EB4E25 /* QDCustomToastContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F162060ED3100EB4E25 /* QDCustomToastContentView.m */; };
+		4F794F1F2060EDA300EB4E25 /* WWHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F1E2060EDA300EB4E25 /* WWHUD.m */; };
+		4F794F222060F88D00EB4E25 /* MotherNoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F212060F88D00EB4E25 /* MotherNoteModel.m */; };
 		4FACE842200E01A000CCC34D /* WWProjectDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE841200E01A000CCC34D /* WWProjectDemoTests.m */; };
 		4FACE84D200E01A000CCC34D /* WWProjectDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE84C200E01A000CCC34D /* WWProjectDemoUITests.m */; };
 		4FC68978205FAEAD00D199AC /* StackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC68976205FAEAD00D199AC /* StackViewController.m */; };
@@ -331,6 +347,37 @@
 		4F45EBFB205B6DFD008AE38D /* WSRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRefreshTableView.h; sourceTree = "<group>"; };
 		4F45EBFC205B6DFD008AE38D /* WSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCollectionViewController.m; sourceTree = "<group>"; };
 		4F790462200F391A00CA7DF3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4F794ECF2060A11B00EB4E25 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		4F794ED02060A11B00EB4E25 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		4F794ED12060A11B00EB4E25 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		4F794ED62060A3F500EB4E25 /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
+		4F794ED72060A3F500EB4E25 /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
+		4F794EE32060A9CB00EB4E25 /* BasicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
+		4F794EE42060A9CB00EB4E25 /* BasicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
+		4F794EE62060B03A00EB4E25 /* WWNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWNavigationController.h; sourceTree = "<group>"; };
+		4F794EE72060B03A00EB4E25 /* WWNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWNavigationController.m; sourceTree = "<group>"; };
+		4F794EEA2060B0A300EB4E25 /* RxWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RxWebViewController.h; sourceTree = "<group>"; };
+		4F794EEB2060B0A300EB4E25 /* RxWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RxWebViewController.m; sourceTree = "<group>"; };
+		4F794EED2060C16300EB4E25 /* QDMultipleImagePickerPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDMultipleImagePickerPreviewViewController.h; sourceTree = "<group>"; };
+		4F794EEE2060C16400EB4E25 /* QDMultipleImagePickerPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDMultipleImagePickerPreviewViewController.m; sourceTree = "<group>"; };
+		4F794EF02060C23C00EB4E25 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
+		4F794EF12060C23C00EB4E25 /* QDCommonUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCommonUI.h; sourceTree = "<group>"; };
+		4F794EF22060C23D00EB4E25 /* QDCommonUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCommonUI.m; sourceTree = "<group>"; };
+		4F794EF32060C23D00EB4E25 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
+		4F794EF42060C23D00EB4E25 /* QDUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDUIHelper.h; sourceTree = "<group>"; };
+		4F794EF52060C23D00EB4E25 /* QDUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDUIHelper.m; sourceTree = "<group>"; };
+		4F794F0B2060D68F00EB4E25 /* WWPictureSelect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWPictureSelect.h; sourceTree = "<group>"; };
+		4F794F0C2060D68F00EB4E25 /* WWPictureSelect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWPictureSelect.m; sourceTree = "<group>"; };
+		4F794F0F2060D97C00EB4E25 /* QDSingleImagePickerPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDSingleImagePickerPreviewViewController.m; sourceTree = "<group>"; };
+		4F794F102060D97C00EB4E25 /* QDSingleImagePickerPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDSingleImagePickerPreviewViewController.h; sourceTree = "<group>"; };
+		4F794F132060ED3100EB4E25 /* QDCustomToastAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCustomToastAnimator.h; sourceTree = "<group>"; };
+		4F794F142060ED3100EB4E25 /* QDCustomToastAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCustomToastAnimator.m; sourceTree = "<group>"; };
+		4F794F152060ED3100EB4E25 /* QDCustomToastContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCustomToastContentView.h; sourceTree = "<group>"; };
+		4F794F162060ED3100EB4E25 /* QDCustomToastContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCustomToastContentView.m; sourceTree = "<group>"; };
+		4F794F1D2060EDA300EB4E25 /* WWHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWHUD.h; sourceTree = "<group>"; };
+		4F794F1E2060EDA300EB4E25 /* WWHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWHUD.m; sourceTree = "<group>"; };
+		4F794F202060F88D00EB4E25 /* MotherNoteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotherNoteModel.h; sourceTree = "<group>"; };
+		4F794F212060F88D00EB4E25 /* MotherNoteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotherNoteModel.m; sourceTree = "<group>"; };
 		4FACE825200E019F00CCC34D /* WWProjectTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWProjectTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACE83D200E01A000CCC34D /* WWProjectToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWProjectToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACE841200E01A000CCC34D /* WWProjectDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWProjectDemoTests.m; sourceTree = "<group>"; };
@@ -615,6 +662,7 @@
 		4F1AF26B205BA44C00D8419C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F794ECD20609A7300EB4E25 /* Home */,
 				4F1AF26C205BA46800D8419C /* DBModels.h */,
 				4F1AF26D205BA46800D8419C /* DBModels.m */,
 			);
@@ -710,6 +758,7 @@
 		4F45EB93205B5C8E008AE38D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4F794EE22060A9BB00EB4E25 /* Basic */,
 				4FCEABC0205FA6E10045AB0C /* Home */,
 				4F45EB95205B5C8E008AE38D /* Public */,
 				4F45EB96205B5C8E008AE38D /* Baby */,
@@ -723,6 +772,9 @@
 				4F1AF2A9205BB70100D8419C /* PictureBrowserViewController.h */,
 				4F1AF2AA205BB70100D8419C /* PictureBrowserViewController.m */,
 				4F1AF2AB205BB70100D8419C /* PictureBrowserViewController.xib */,
+				4F794ECF2060A11B00EB4E25 /* EditViewController.h */,
+				4F794ED02060A11B00EB4E25 /* EditViewController.m */,
+				4F794ED12060A11B00EB4E25 /* EditViewController.xib */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -762,6 +814,74 @@
 				4F45EBF6205B6DFD008AE38D /* WSRefreshFooter.m */,
 			);
 			path = WSTableViewController;
+			sourceTree = "<group>";
+		};
+		4F794ECD20609A7300EB4E25 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4F794F202060F88D00EB4E25 /* MotherNoteModel.h */,
+				4F794F212060F88D00EB4E25 /* MotherNoteModel.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4F794ED52060A3F500EB4E25 /* QMUIConfigurationTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				4F794F132060ED3100EB4E25 /* QDCustomToastAnimator.h */,
+				4F794F142060ED3100EB4E25 /* QDCustomToastAnimator.m */,
+				4F794F152060ED3100EB4E25 /* QDCustomToastContentView.h */,
+				4F794F162060ED3100EB4E25 /* QDCustomToastContentView.m */,
+				4F794EF12060C23C00EB4E25 /* QDCommonUI.h */,
+				4F794EF22060C23D00EB4E25 /* QDCommonUI.m */,
+				4F794EF42060C23D00EB4E25 /* QDUIHelper.h */,
+				4F794EF52060C23D00EB4E25 /* QDUIHelper.m */,
+				4F794EF02060C23C00EB4E25 /* UIImageEffects.h */,
+				4F794EF32060C23D00EB4E25 /* UIImageEffects.m */,
+				4F794F102060D97C00EB4E25 /* QDSingleImagePickerPreviewViewController.h */,
+				4F794F0F2060D97C00EB4E25 /* QDSingleImagePickerPreviewViewController.m */,
+				4F794EED2060C16300EB4E25 /* QDMultipleImagePickerPreviewViewController.h */,
+				4F794EEE2060C16400EB4E25 /* QDMultipleImagePickerPreviewViewController.m */,
+				4F794ED62060A3F500EB4E25 /* QMUIConfigurationTemplate.h */,
+				4F794ED72060A3F500EB4E25 /* QMUIConfigurationTemplate.m */,
+			);
+			path = QMUIConfigurationTemplate;
+			sourceTree = "<group>";
+		};
+		4F794EE22060A9BB00EB4E25 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				4F794EE32060A9CB00EB4E25 /* BasicViewController.h */,
+				4F794EE42060A9CB00EB4E25 /* BasicViewController.m */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		4F794EE92060B0A300EB4E25 /* RxWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4F794EEA2060B0A300EB4E25 /* RxWebViewController.h */,
+				4F794EEB2060B0A300EB4E25 /* RxWebViewController.m */,
+			);
+			path = RxWebViewController;
+			sourceTree = "<group>";
+		};
+		4F794F0A2060D67E00EB4E25 /* WWPictureSelect */ = {
+			isa = PBXGroup;
+			children = (
+				4F794F0B2060D68F00EB4E25 /* WWPictureSelect.h */,
+				4F794F0C2060D68F00EB4E25 /* WWPictureSelect.m */,
+			);
+			path = WWPictureSelect;
+			sourceTree = "<group>";
+		};
+		4F794F1C2060ED9100EB4E25 /* WWHUD */ = {
+			isa = PBXGroup;
+			children = (
+				4F794F1D2060EDA300EB4E25 /* WWHUD.h */,
+				4F794F1E2060EDA300EB4E25 /* WWHUD.m */,
+			);
+			path = WWHUD;
 			sourceTree = "<group>";
 		};
 		4FACE81C200E019F00CCC34D = {
@@ -952,6 +1072,8 @@
 		4FFEE04A204D126D00F6D520 /* WWCustomView */ = {
 			isa = PBXGroup;
 			children = (
+				4F794F1C2060ED9100EB4E25 /* WWHUD */,
+				4F794F0A2060D67E00EB4E25 /* WWPictureSelect */,
 				4FFEE04B204D126D00F6D520 /* WWPushAnimated */,
 				4FFEE050204D126D00F6D520 /* WWGifLoadingView */,
 				4FFEE053204D126D00F6D520 /* WWTabBar */,
@@ -1003,6 +1125,8 @@
 				4FFEE05D204D126D00F6D520 /* UITabBarItem+BadgeColor.m */,
 				4FFEE05C204D126D00F6D520 /* main_badge@2x.png */,
 				4FFEE05E204D126D00F6D520 /* main_badge@3x.png */,
+				4F794EE62060B03A00EB4E25 /* WWNavigationController.h */,
+				4F794EE72060B03A00EB4E25 /* WWNavigationController.m */,
 				4FFEE067204D126D00F6D520 /* PublishAnimate */,
 			);
 			path = WWTabBar;
@@ -1051,6 +1175,8 @@
 		4FFEE079204D126D00F6D520 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4F794EE92060B0A300EB4E25 /* RxWebViewController */,
+				4F794ED52060A3F500EB4E25 /* QMUIConfigurationTemplate */,
 				4F1AF2BE205BBD2100D8419C /* ESPPictureBrowser */,
 				4F45EBEF205B6DFD008AE38D /* WSTableViewController */,
 				4FFEE07F204D126D00F6D520 /* WXSTransition */,
@@ -1417,6 +1543,7 @@
 				4FFEE1AD204D12DC00F6D520 /* loading_32.png in Resources */,
 				4F1AF2C9205BBD2100D8419C /* ESPPictureBrowserViewController.xib in Resources */,
 				4FFEE1A7204D12DC00F6D520 /* loading_25.png in Resources */,
+				4F794ED32060A11B00EB4E25 /* EditViewController.xib in Resources */,
 				4FFEE1A0204D12DC00F6D520 /* loading_40.png in Resources */,
 				4FFEE193204D12DC00F6D520 /* loading_4.png in Resources */,
 				4FFEE15D204D12DC00F6D520 /* bounce_21.png in Resources */,
@@ -1530,11 +1657,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QMUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1556,6 +1685,7 @@
 				4FFEE0B8204D126D00F6D520 /* UINavigationController+hidesBottomBarWhenPushed.m in Sources */,
 				4FFEE0D9204D126D00F6D520 /* WXSTransitionManager.m in Sources */,
 				4FFEE0AE204D126D00F6D520 /* SecondViewController.m in Sources */,
+				4F794F1F2060EDA300EB4E25 /* WWHUD.m in Sources */,
 				4FCEABCA205FA6E10045AB0C /* HomeViewController.m in Sources */,
 				4FFEE0AD204D126D00F6D520 /* CollectionViewController.m in Sources */,
 				4FFEE0D0204D126D00F6D520 /* WXSTransitionManager+PageAnimation.m in Sources */,
@@ -1565,6 +1695,7 @@
 				4F1AF2B6205BB98B00D8419C /* MD5Encryption.m in Sources */,
 				4FFEE0AA204D126D00F6D520 /* DetailViewController.m in Sources */,
 				4FFEE0AF204D126D00F6D520 /* TableViewController.m in Sources */,
+				4F794EE52060A9CB00EB4E25 /* BasicViewController.m in Sources */,
 				4FFEE0C8204D126D00F6D520 /* ViewController3.m in Sources */,
 				4FFEE0A4204D126D00F6D520 /* PopViewController.m in Sources */,
 				4F45EC02205B6DFD008AE38D /* WSCollectionViewController.m in Sources */,
@@ -1573,7 +1704,9 @@
 				4FCEABCE205FA6E10045AB0C /* SmallFamilyViewController.m in Sources */,
 				4F1AF2CC205BBD2100D8419C /* ESPictureModel.m in Sources */,
 				4FFEE0B9204D126D00F6D520 /* WWBadgeView.m in Sources */,
+				4F794EF82060C23D00EB4E25 /* QDUIHelper.m in Sources */,
 				4FFEE0D3204D126D00F6D520 /* UINavigationController+WXSTransition.m in Sources */,
+				4F794ED22060A11B00EB4E25 /* EditViewController.m in Sources */,
 				4FC68981205FB1AB00D199AC /* TimeHeaderTableViewCell.m in Sources */,
 				4FFEE0CF204D126D00F6D520 /* UIViewController+WXSTransitionProperty.m in Sources */,
 				4F1AF2B8205BB98B00D8419C /* Base64Util.m in Sources */,
@@ -1606,27 +1739,34 @@
 				4F1AF2A0205BA80600D8419C /* UITableViewCell+Addition.m in Sources */,
 				4FC68987205FB52A00D199AC /* StaticTableViewCell.m in Sources */,
 				4FFEE0AB204D126D00F6D520 /* WXSViewController.m in Sources */,
+				4F794F222060F88D00EB4E25 /* MotherNoteModel.m in Sources */,
 				4FFEE0D1204D126D00F6D520 /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				4FFEE0C0204D126D00F6D520 /* WWTabBarConfig.m in Sources */,
 				4FFEE0AC204D126D00F6D520 /* PresentViewController.m in Sources */,
+				4F794F0D2060D68F00EB4E25 /* WWPictureSelect.m in Sources */,
 				4FFEE0B6204D126D00F6D520 /* WWGifLoadingView.m in Sources */,
 				4FFEE0A8204D126D00F6D520 /* WXSBaseViewController.m in Sources */,
 				4FFEE0D4204D126D00F6D520 /* UIViewController+WXSTransition.m in Sources */,
 				4FFEE0CD204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				4F1AF29A205BA80600D8419C /* UITableView+TableHeadView.m in Sources */,
+				4F794EEF2060C16400EB4E25 /* QDMultipleImagePickerPreviewViewController.m in Sources */,
 				4FFEE0C7204D126D00F6D520 /* ViewController.m in Sources */,
 				4F45EBFD205B6DFD008AE38D /* WSTableViewController.m in Sources */,
 				4FFEE0CC204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
+				4F794EEC2060B0A300EB4E25 /* RxWebViewController.m in Sources */,
+				4F794EE82060B03A00EB4E25 /* WWNavigationController.m in Sources */,
 				4F45EBFF205B6DFD008AE38D /* WSRefreshFooter.m in Sources */,
 				4FFEE0B1204D126D00F6D520 /* main.m in Sources */,
 				4F1AF29F205BA80600D8419C /* NSDate+Addition.m in Sources */,
 				4FFEE0A9204D126D00F6D520 /* WXSTestViewController.m in Sources */,
 				4FFEE0D5204D126D00F6D520 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				4F1AF2CE205BBD2100D8419C /* ESCellNode.m in Sources */,
+				4F794F182060ED3200EB4E25 /* QDCustomToastContentView.m in Sources */,
 				4F1AF2A2205BA80600D8419C /* NSArray+Permutation.m in Sources */,
 				4FFEE0BF204D126D00F6D520 /* WWCenterButton.m in Sources */,
 				4F1AF2A1205BA80600D8419C /* UITextField+Addition.m in Sources */,
 				4FFEE0BD204D126D00F6D520 /* WWTabBar.m in Sources */,
+				4F794F112060D97C00EB4E25 /* QDSingleImagePickerPreviewViewController.m in Sources */,
 				4F1AF2B7205BB98B00D8419C /* GTMBase64.m in Sources */,
 				4F1AF2A8205BA80600D8419C /* NSString+Addition.m in Sources */,
 				4FFEE0D2204D126D00F6D520 /* WXSTransitionManager+FlipAnimation.m in Sources */,
@@ -1634,13 +1774,17 @@
 				4F1AF299205BA80600D8419C /* NSString+Check.m in Sources */,
 				4F1AF297205BA80600D8419C /* NSArray+Combinations.m in Sources */,
 				4FFEE0DA204D126D00F6D520 /* WXSTransitionManager+SystermAnimation.m in Sources */,
+				4F794ED82060A3F600EB4E25 /* QMUIConfigurationTemplate.m in Sources */,
 				4F1AF2A3205BA80600D8419C /* NSString+MD5.m in Sources */,
 				4FFEE0D6204D126D00F6D520 /* WXSTransitionManager+TypeTool.m in Sources */,
+				4F794F172060ED3200EB4E25 /* QDCustomToastAnimator.m in Sources */,
 				4F1AF298205BA80600D8419C /* UIView+NIB.m in Sources */,
 				4F1AF2CB205BBD2100D8419C /* ESPPictureBrowserViewController.m in Sources */,
 				4FFEE0C2204D126D00F6D520 /* PlusAnimate.m in Sources */,
 				4FFEE0CE204D126D00F6D520 /* WXSTransitionManager+BoomAnimation.m in Sources */,
 				4F1AF296205BA80600D8419C /* UITextView+Addition.m in Sources */,
+				4F794EF72060C23D00EB4E25 /* UIImageEffects.m in Sources */,
+				4F794EF62060C23D00EB4E25 /* QDCommonUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

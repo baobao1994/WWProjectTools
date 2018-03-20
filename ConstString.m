@@ -12,6 +12,18 @@
 
 NSString *const BmobKey = @"7ff96c3a0695e837ccbb9ceb213a6865";
 uint64_t const kDBVersion = 100002;
+
+#pragma mark - static
+
+NSString *const ClassNameKey = @"class_name";
+NSString *const TitleNameKey = @"title_name";
+
+#pragma mark - motherNoteKey
+
+NSString *const PublicTimeKey = @"public_time";
+NSString *const NoteKey = @"note";
+NSString *const PhotosKey = @"photos";
+
 #pragma mark - Scrollow
 
 NSString *const kIsCanScroll = @"isCanScroll";
