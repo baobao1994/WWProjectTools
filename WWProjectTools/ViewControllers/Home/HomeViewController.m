@@ -28,6 +28,11 @@
     [self setUp];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.motherVC viewWillAppear:animated];
+}
+
 - (void)setUp {
     self.customSegmentView = [[CustomSegmentedControlView alloc] initWithFrame:CGRectMake(0, 0, 105 * UIScreenScale * 2, 35)];
     self.customSegmentView.count = 2;

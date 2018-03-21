@@ -13,6 +13,12 @@
 NSString *const BmobKey = @"7ff96c3a0695e837ccbb9ceb213a6865";
 uint64_t const kDBVersion = 100002;
 
+#pragma mark - bmob
+
+NSString *const ObjectIdKey = @"objectId";
+NSString *const CreatedAtKey = @"createdAt";
+NSString *const UpdatedAtKey = @"updatedAt";
+
 #pragma mark - static
 
 NSString *const ClassNameKey = @"class_name";

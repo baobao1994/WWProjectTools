@@ -60,5 +60,6 @@
 #define HideKeyBoard [[[UIApplication sharedApplication] keyWindow] endEditing:YES]
 
 #define NavigationControllerView self.navigationController.view
+#define SelfViewControllerView self.view
 
 #endif /* PrefixHeader_pch */

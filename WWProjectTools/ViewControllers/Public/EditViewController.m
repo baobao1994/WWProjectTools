@@ -13,6 +13,7 @@
 #import "WWPictureSelect.h"
 #import "UIImage+Addition.h"
 #import "NSDate+Addition.h"
+#import "WWFile.h"
 
 @interface EditViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *photosArr;
 @property (nonatomic, strong) WWPictureSelect *pictureSelect;
+@property (nonatomic, strong) NSMutableArray *filePathArr;
 
 @end
 
@@ -43,11 +45,24 @@
     self.textViewMaximumHeight = 200;
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([StaticImageCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class])];
     self.photosArr = [[NSMutableArray alloc] init];
+    self.filePathArr = [[NSMutableArray alloc] init];
     self.pictureSelect = [[WWPictureSelect alloc] initWithController:self];
     kWeakSelf;
     self.pictureSelect.selectImages = ^(NSMutableArray *imagesArr) {
         weakSelf.photosArr = imagesArr;
         [weakSelf.collectionView reloadData];
+        [weakSelf.filePathArr removeAllObjects];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSLog(@"// 处理耗时操作的代码块...");
+            for (QMUIAsset *asset in imagesArr) {
+                [WWFile saveFileToDocument:asset block:^(BOOL isSuccess, NSString *tip, NSString *filePath) {
+                    [weakSelf.filePathArr addObject:filePath];
+                }];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"//回调或者说是通知主线程刷新");
+            });
+        });
     };
 }
 
@@ -59,42 +74,44 @@
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
-    [WWHUD showLoadingWithText:@"图片上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
-    NSMutableArray *imageDataArr = [[NSMutableArray alloc] init];
-//    for (UIImage *image in self.photosArr) {
-//        [imageDataArr addObject:[NSDictionary dictionaryWithObjectsAndKeys:FileNameKey,FileNameKey,[UIImage zipNSDataWithImage:image],DataKey, nil]];
-//    }
-    UIImage *image = [UIImage imageNamed:@"ad_bg"];
-    NSData *data = UIImageJPEGRepresentation(image,1);
-    [imageDataArr addObject:[NSDictionary dictionaryWithObjectsAndKeys:FileNameKey,@"xxx.png",data,DataKey, nil]];
-    [BmobFile filesUploadBatchWithDataArray:imageDataArr
-                          progressBlock:^(int index, float progress) {
-                              //index 上传数组的下标，progress当前文件的进度
-                              NSLog(@"index %d progress %f",index,progress);
-                          } resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
-                              //array 文件数组，isSuccessful 成功或者失败,error 错误信息
-                              BmobObject *obj = [[BmobObject alloc] initWithClassName:@"mother"];
-                              //存放文件URL的数组
-                              NSMutableArray *fileArray = [NSMutableArray array];
-                              for (int i = 0 ; i < array.count ;i ++) {
-                                  BmobFile *file = array [i];
-                                  [fileArray addObject:file.url];
-                              }
-                              [obj setObject:fileArray forKey:PhotosKey];
-                              NSDate *date = [NSDate date];
-                              NSString *publicTime = [date formateDate:@"yyyy-MM-dd"];
-                              [obj setObject:publicTime forKey:PublicTimeKey];
-                              [obj setObject:self.textInputView.text forKey:NoteKey];
-                              [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-                                  [WWHUD hideAllTipsInView:NavigationControllerView];
-                                  if (isSuccessful) {
-                                      [WWHUD showLoadingWithText:@"图片上传成功" inView:NavigationControllerView afterDelay:2];
-                                  } else {
-                                      [WWHUD showLoadingWithErrorInView:NavigationControllerView afterDelay:2];
+    [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
+    if (self.filePathArr.count) {
+        [BmobFile filesUploadBatchWithPaths:self.filePathArr
+                              progressBlock:^(int index, float progress) {
+                                  //index 上传数组的下标，progress当前文件的进度
+                                  NSLog(@"index %d progress %f",index,progress);
+                              } resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
+                                  //array 文件数组，isSuccessful 成功或者失败,error 错误信息
+                                  //存放文件URL的数组
+                                  NSMutableArray *fileArray = [NSMutableArray array];
+                                  for (int i = 0 ; i < array.count ;i ++) {
+                                      BmobFile *file = array [i];
+                                      [fileArray addObject:file.url];
                                   }
-                              }];
-                          }];
-    NSLog(@"发布");
+                                  [self saveBmobDataWithPhotosUrlArr:fileArray];
+                              }
+         ];
+    } else {
+        [self saveBmobDataWithPhotosUrlArr:[[NSMutableArray alloc] init]];
+    }
+}
+
+- (void)saveBmobDataWithPhotosUrlArr:(NSMutableArray *)photosUrlArr {
+    BmobObject *obj = [[BmobObject alloc] initWithClassName:@"mother"];
+    [obj setObject:photosUrlArr forKey:PhotosKey];
+    NSDate *date = [NSDate date];
+    NSString *publicTime = [date formateDate:@"yyyy-MM-dd"];
+    [obj setObject:publicTime forKey:PublicTimeKey];
+    [obj setObject:self.textInputView.text forKey:NoteKey];
+    [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        [WWHUD hideAllTipsInView:NavigationControllerView];
+        if (isSuccessful) {
+            [WWHUD showLoadingWithText:@"发布成功" inView:NavigationControllerView afterDelay:2];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [WWHUD showLoadingWithErrorInView:NavigationControllerView afterDelay:2];
+        }
+    }];
 }
 
 - (QMUITextView *)textInputView {
@@ -121,11 +138,6 @@
     CGSize textViewSize = [_textInputView sizeThatFits:CGSizeMake(textInputRect.size.width, CGFLOAT_MAX)];
     _textInputView.frame = CGRectMake(textInputRect.origin.x, textInputRect.origin.y, textInputRect.size.width, fmin(self.textViewMaximumHeight, fmax(textViewSize.height, self.textViewMinimumHeight)));
     self.selectButtonTopConstraint.constant = _textInputView.frame.size.height + 15;
-}
-
-- (BOOL)shouldHideKeyboardWhenTouchInView:(UIView *)view {
-    // 表示点击空白区域都会降下键盘
-    return YES;
 }
 
 #pragma mark - <QMUITextViewDelegate>
@@ -163,7 +175,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     StaticImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class]) forIndexPath:indexPath];
-    cell.itemImageView.image = self.photosArr[indexPath.row];
+    QMUIAsset *asset = self.photosArr[indexPath.row];
+    cell.itemImageView.image = asset.originImage;
     return cell;
 }
 

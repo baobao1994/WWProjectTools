@@ -11,6 +11,12 @@
 extern NSString *const BmobKey;
 extern uint64_t const kDBVersion;
 
+#pragma mark - bmob
+
+extern NSString *const ObjectIdKey;
+extern NSString *const CreatedAtKey;
+extern NSString *const UpdatedAtKey;
+
 #pragma mark - static
 
 extern NSString *const ClassNameKey;

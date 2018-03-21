@@ -13,6 +13,7 @@
 #import "MotherNoteTableViewCell.h"
 #import "NSString+Addition.h"
 #import "MotherNoteModel.h"
+#import "MotherNoteListViewController.h"
 
 @interface MotherViewController ()<WSRefreshDelegate>
 
@@ -28,6 +29,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setUp];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self requestMotherList];
 }
 
@@ -38,22 +43,14 @@
 }
 
 - (void)requestMotherList {
-    [WWHUD showLoadingWithText:@"加载中..." inView:self.view afterDelay:30];
     BmobQuery *bquery = [BmobQuery queryWithClassName:@"mother"];
     bquery.limit = 1;
+    [bquery orderByDescending:CreatedAtKey];
     //查找GameScore表的数据
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         for (BmobObject *obj in array) {
             self.motherNoteModel = [[MotherNoteModel alloc] initWithDictionary:obj];
-            //打印playerName
-            NSLog(@"obj.note = %@", [obj objectForKey:@"note"]);
-            //打印objectId,createdAt,updatedAt
-            NSLog(@"obj.objectId = %@", [obj objectId]);
-            NSLog(@"obj.createdAt = %@", [obj createdAt]);
-            NSLog(@"obj.updatedAt = %@", [obj updatedAt]);
         }
-        [WWHUD hideAllTipsInView:self.view];
-        [WWHUD showLoadingWithSucceedInView:self.view afterDelay:2];
         [self.tableView doneLoadingTableViewData];
         [self.tableView reloadData];
     }];
@@ -63,20 +60,7 @@
 
 - (void)getHeaderDataSoure { // 下拉刷新代理
     [self requestMotherList];
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSLog(@"下拉刷新代理");
-//        [self.tableView doneLoadingTableViewData];
-//        [self.tableView reloadData];
-//    });
 }
-
-//- (void)getFooterDataSoure { //上拉刷新代理
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSLog(@"上拉刷新代理");
-//        [self.tableView doneLoadingTableViewData];
-//        [self.tableView reloadData];
-//    });
-//}
 
 #pragma mark - Table view delegate
 
@@ -88,9 +72,12 @@
         if (row == 0) {
             height = 27;
         } else if (row == 1) {
-            NSInteger count = (NSInteger)(self.motherNoteModel.photos.count - 1) < 0? 1:self.motherNoteModel.photos.count - 1;
-            NSInteger rowCount = count / 3 + 1;
-            height = ((UIScreenWidth - 43.5 - 45) / 3) * rowCount + 20 + rowCount * 10 + 74 ;
+            height = 74;
+            if (self.motherNoteModel.photos.count) {
+                NSInteger count = (NSInteger)(self.motherNoteModel.photos.count - 1) < 0? 1:self.motherNoteModel.photos.count - 1;
+                NSInteger rowCount = count / 3 + 1;
+                height += ((UIScreenWidth - 43.5 - 45) / 3) * rowCount + 20 + rowCount * 10;
+            }
         }
     } else {
         height = 45;
@@ -162,7 +149,11 @@
     NSInteger row = indexPath.row;
     NSInteger section = indexPath.section;
     if (section == 0) {
-        
+        MotherNoteListViewController *noteListVC = [[MotherNoteListViewController alloc] init];
+        noteListVC.title = @"日记列表";
+        if (_pushViewControllerBlock) {
+            _pushViewControllerBlock(noteListVC);
+        }
     } else {
         [self jumpVCWithIndex:row];
     }

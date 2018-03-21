@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditViewController : QMUICommonViewController
+@interface EditViewController : BasicViewController
 
 @end

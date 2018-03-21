@@ -78,11 +78,7 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
     [QMUIImagePickerHelper updateLastestAlbumWithAssetsGroup:imagePickerViewController.assetsGroup ablumContentType:kAlbumContentType userIdentify:nil];
     [self sendImageWithImagesAssetArray:imagesAssetArray];
     if (self.selectImages) {
-        NSMutableArray *images = [[NSMutableArray alloc] init];
-        for (QMUIAsset *asset in imagesAssetArray) {
-            [images addObject:asset.originImage];
-        }
-        self.selectImages(images);
+        self.selectImages(imagesAssetArray);
     }
 }
 
@@ -179,11 +175,11 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
 
 - (void)sendImageWithImagesAssetArrayIfDownloadStatusSucceed:(NSMutableArray<QMUIAsset *> *)imagesAssetArray {
     if ([QMUIImagePickerHelper imageAssetsDownloaded:imagesAssetArray]) {
-        // 所有资源从 iCloud 下载成功，模拟发送图片到服务器
-        // 显示发送中
-        [self showTipLabelWithText:@"发送中"];
-        // 使用 delay 模拟网络请求时长
-        [self performSelector:@selector(showTipLabelWithText:) withObject:[NSString stringWithFormat:@"成功发送%@个资源", @([imagesAssetArray count])] afterDelay:1.5];
+//        // 所有资源从 iCloud 下载成功，模拟发送图片到服务器
+//        // 显示发送中
+//        [self showTipLabelWithText:@"发送中"];
+//        // 使用 delay 模拟网络请求时长
+//        [self performSelector:@selector(showTipLabelWithText:) withObject:[NSString stringWithFormat:@"成功发送%@个资源", @([imagesAssetArray count])] afterDelay:1.5];
     }
 }
 
