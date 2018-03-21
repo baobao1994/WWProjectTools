@@ -39,7 +39,7 @@
 - (void)setUp {
     self.tableView.customTableDelegate = self;
     [self.tableView setRefreshCategory:DropdownRefresh];
-    self.vcArray = @[@{ClassNameKey:@"EditViewController",TitleNameKey:@"基础数值"}];
+    self.vcArray = @[@{ClassNameKey:@"VariousIndicatorsViewController",TitleNameKey:@"30天基础数值"}];
 }
 
 - (void)requestMotherList {
