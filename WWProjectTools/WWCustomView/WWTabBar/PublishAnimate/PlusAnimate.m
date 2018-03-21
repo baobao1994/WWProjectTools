@@ -28,7 +28,7 @@
 /**
  *  show view
  */
-+ (PlusAnimate *)standardPublishAnimateWithView:(UIView *)view{
++ (PlusAnimate *)standardPublishAnimateWithView:(UIView *)view didSelectButtonBlock:(didSelectButtonBlock)block {
     PlusAnimate * animateView = [[PlusAnimate alloc]init];
     CGFloat h = ((UIView *)[view valueForKeyPath:@"imageView"]).frame.size.height;
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
@@ -41,9 +41,12 @@
     animateView.rect = rect;
     
     //Add button
-    [animateView CrentBtnImageName:@"post_animate_camera" Title:@"拍照" tag:0];
-    [animateView CrentBtnImageName:@"post_animate_album" Title:@"相册" tag:1];
-    [animateView CrentBtnImageName:@"post_animate_akey" Title:@"一键转卖" tag:2];
+    [animateView CrentBtnImageName:@"post_animate_camera" Title:@"拍照" tag:0 didSelectButtonBlock:block];
+    [animateView CrentBtnImageName:@"post_animate_album" Title:@"相册" tag:1 didSelectButtonBlock:block];
+    [animateView CrentBtnImageName:@"post_animate_akey" Title:@"一键转卖" tag:2 didSelectButtonBlock:block];
+//    [animateView CrentBtnImageName:@"post_animate_camera" Title:@"拍照" tag:3 didSelectButtonBlock:block];
+//    [animateView CrentBtnImageName:@"post_animate_album" Title:@"相册" tag:4 didSelectButtonBlock:block];
+//    [animateView CrentBtnImageName:@"post_animate_akey" Title:@"一键转卖" tag:5 didSelectButtonBlock:block];
     //Add center button
     [animateView CrentCenterBtnImageName:@"post_animate_add" tag:3];
     //Do animation
@@ -70,7 +73,7 @@
 /**
  *  creat button
  */
-- (void)CrentBtnImageName:(NSString *)ImageName Title:(NSString *)Title tag:(int)tag{
+- (void)CrentBtnImageName:(NSString *)ImageName Title:(NSString *)Title tag:(int)tag didSelectButtonBlock:(didSelectButtonBlock)block {
     if (_BtnItem.count >= 3)  return;
     CGRect rect = self.rect;
     rect.size = CGSizeMake(rect.size.width-10, rect.size.height-10);
@@ -79,7 +82,9 @@
     btn.tag = tag;
     [btn setImage:[UIImage imageNamed:ImageName] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(BtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        block(btn.tag);
+    }];
     [self addSubview:btn];
     [self.BtnItem addObject:btn];
     [self.BtnItemTitle addObject:[self CrenterBtnTitle:Title]];
@@ -143,7 +148,6 @@
     [self.delegate didSelectBtnWithBtnTag:btn.tag];
     [self removeFromSuperview];
 }
-
 
 /**
  *  Do animation

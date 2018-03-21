@@ -9,10 +9,13 @@
 #import "TabBarController.h"
 #import "PlusAnimate.h"
 #import "WWTabBarConfig.h"
+#import "EditViewController.h"
+#import "WWNavigationController.h"
 
 @interface TabBarController ()<WWTabBarDelegate>
 
 @property (nonatomic, assign) NSInteger indexFlag;
+@property (nonatomic, strong) PlusAnimate *plusAnimateView;
 
 @end
 
@@ -31,7 +34,14 @@
 #pragma mark - WWTabBarDelegate
 //中间按钮点击 有动画 需自定义
 - (void)tabbar:(WWTabBar *)tabbar clickForCenterButton:(WWCenterButton *)centerButton{
-    [PlusAnimate standardPublishAnimateWithView:(UIView *)centerButton];
+    [PlusAnimate standardPublishAnimateWithView:(UIView *)centerButton didSelectButtonBlock:^(NSInteger tag) {
+        NSLog(@"tag = %ld",tag);
+        WWNavigationController *navigationController = self.selectedViewController;
+        UIViewController *rootVC = navigationController.viewControllers[0];
+        EditViewController *editVC = [[EditViewController alloc] init];
+        editVC.title = @"发布新笔记";
+        [rootVC.navigationController pushViewController:editVC animated:YES];
+    }];
 }
 
 //是否允许切换

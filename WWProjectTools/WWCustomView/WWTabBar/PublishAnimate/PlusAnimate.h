@@ -8,6 +8,8 @@
 //  源代码地址: https://github.com/zhangchunyu2016/CYTabbar
 #import <UIKit/UIKit.h>
 
+typedef void(^didSelectButtonBlock)(NSInteger tag);
+
 //通知点击按钮协议
 @protocol PublishAnimateDelegate <NSObject>
 
@@ -20,6 +22,6 @@
 //通知点击按钮代理人
 @property(weak,nonatomic) id<PublishAnimateDelegate> delegate;
 //弹出动画view
-+(PlusAnimate *)standardPublishAnimateWithView:(UIView *)view;
++ (PlusAnimate *)standardPublishAnimateWithView:(UIView *)view didSelectButtonBlock:(didSelectButtonBlock)block;
 
 @end
