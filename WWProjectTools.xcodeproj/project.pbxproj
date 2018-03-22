@@ -47,8 +47,8 @@
 		4F45EC00205B6DFD008AE38D /* WSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBF8205B6DFD008AE38D /* WSRefreshHeader.m */; };
 		4F45EC01205B6DFD008AE38D /* WSRefreshCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBF9205B6DFD008AE38D /* WSRefreshCollectionView.m */; };
 		4F45EC02205B6DFD008AE38D /* WSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBFC205B6DFD008AE38D /* WSCollectionViewController.m */; };
-		4F794ED22060A11B00EB4E25 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794ED02060A11B00EB4E25 /* EditViewController.m */; };
-		4F794ED32060A11B00EB4E25 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F794ED12060A11B00EB4E25 /* EditViewController.xib */; };
+		4F794ED22060A11B00EB4E25 /* EditMotherNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794ED02060A11B00EB4E25 /* EditMotherNoteViewController.m */; };
+		4F794ED32060A11B00EB4E25 /* EditMotherNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F794ED12060A11B00EB4E25 /* EditMotherNoteViewController.xib */; };
 		4F794ED82060A3F600EB4E25 /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794ED72060A3F500EB4E25 /* QMUIConfigurationTemplate.m */; };
 		4F794EE52060A9CB00EB4E25 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794EE42060A9CB00EB4E25 /* BasicViewController.m */; };
 		4F794EE82060B03A00EB4E25 /* WWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794EE72060B03A00EB4E25 /* WWNavigationController.m */; };
@@ -391,9 +391,9 @@
 		4F45EBFB205B6DFD008AE38D /* WSRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRefreshTableView.h; sourceTree = "<group>"; };
 		4F45EBFC205B6DFD008AE38D /* WSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCollectionViewController.m; sourceTree = "<group>"; };
 		4F790462200F391A00CA7DF3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		4F794ECF2060A11B00EB4E25 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
-		4F794ED02060A11B00EB4E25 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
-		4F794ED12060A11B00EB4E25 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		4F794ECF2060A11B00EB4E25 /* EditMotherNoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMotherNoteViewController.h; sourceTree = "<group>"; };
+		4F794ED02060A11B00EB4E25 /* EditMotherNoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMotherNoteViewController.m; sourceTree = "<group>"; };
+		4F794ED12060A11B00EB4E25 /* EditMotherNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMotherNoteViewController.xib; sourceTree = "<group>"; };
 		4F794ED62060A3F500EB4E25 /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
 		4F794ED72060A3F500EB4E25 /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
 		4F794EE32060A9CB00EB4E25 /* BasicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
@@ -906,9 +906,9 @@
 				4F1AF2A9205BB70100D8419C /* PictureBrowserViewController.h */,
 				4F1AF2AA205BB70100D8419C /* PictureBrowserViewController.m */,
 				4F1AF2AB205BB70100D8419C /* PictureBrowserViewController.xib */,
-				4F794ECF2060A11B00EB4E25 /* EditViewController.h */,
-				4F794ED02060A11B00EB4E25 /* EditViewController.m */,
-				4F794ED12060A11B00EB4E25 /* EditViewController.xib */,
+				4F794ECF2060A11B00EB4E25 /* EditMotherNoteViewController.h */,
+				4F794ED02060A11B00EB4E25 /* EditMotherNoteViewController.m */,
+				4F794ED12060A11B00EB4E25 /* EditMotherNoteViewController.xib */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -1901,7 +1901,7 @@
 				4FFEE1AD204D12DC00F6D520 /* loading_32.png in Resources */,
 				4F1AF2C9205BBD2100D8419C /* ESPPictureBrowserViewController.xib in Resources */,
 				4FFEE1A7204D12DC00F6D520 /* loading_25.png in Resources */,
-				4F794ED32060A11B00EB4E25 /* EditViewController.xib in Resources */,
+				4F794ED32060A11B00EB4E25 /* EditMotherNoteViewController.xib in Resources */,
 				4FFEE1A0204D12DC00F6D520 /* loading_40.png in Resources */,
 				4FFEE193204D12DC00F6D520 /* loading_4.png in Resources */,
 				4FFEE15D204D12DC00F6D520 /* bounce_21.png in Resources */,
@@ -2075,7 +2075,7 @@
 				4FD1EEB82062386B0086B94C /* ZFLabel.m in Sources */,
 				4FFEE0D3204D126D00F6D520 /* UINavigationController+WXSTransition.m in Sources */,
 				4FD1EEAB2062386B0086B94C /* ZFCirque.m in Sources */,
-				4F794ED22060A11B00EB4E25 /* EditViewController.m in Sources */,
+				4F794ED22060A11B00EB4E25 /* EditMotherNoteViewController.m in Sources */,
 				4FC68981205FB1AB00D199AC /* TimeHeaderTableViewCell.m in Sources */,
 				4FFEE0CF204D126D00F6D520 /* UIViewController+WXSTransitionProperty.m in Sources */,
 				4FD1EEB42062386B0086B94C /* ZFLine.m in Sources */,

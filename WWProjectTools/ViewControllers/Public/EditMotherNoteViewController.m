@@ -6,7 +6,7 @@
 //  Copyright © 2018年 baobao. All rights reserved.
 //
 
-#import "EditViewController.h"
+#import "EditMotherNoteViewController.h"
 #import "UIView+Addtion.h"
 #import "UIViewController+Addition.h"
 #import "StaticImageCollectionViewCell.h"
@@ -14,8 +14,9 @@
 #import "UIImage+Addition.h"
 #import "NSDate+Addition.h"
 #import "WWFile.h"
+#import "UIView+Addtion.h"
 
-@interface EditViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface EditMotherNoteViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) QMUITextView *textInputView;
 @property (nonatomic, assign) CGFloat textViewMinimumHeight;
@@ -29,7 +30,7 @@
 
 @end
 
-@implementation EditViewController
+@implementation EditMotherNoteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +42,7 @@
 }
 
 - (void)setUp {
+    [self.selectButton setCornerRadius:5];
     self.textViewMinimumHeight = 150;
     self.textViewMaximumHeight = 200;
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([StaticImageCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class])];

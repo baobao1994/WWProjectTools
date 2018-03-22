@@ -9,7 +9,7 @@
 #import "TabBarController.h"
 #import "PlusAnimate.h"
 #import "WWTabBarConfig.h"
-#import "EditViewController.h"
+#import "EditMotherNoteViewController.h"
 #import "WWNavigationController.h"
 
 @interface TabBarController ()<WWTabBarDelegate>
@@ -38,7 +38,7 @@
         NSLog(@"tag = %ld",tag);
         WWNavigationController *navigationController = self.selectedViewController;
         UIViewController *rootVC = navigationController.viewControllers[0];
-        EditViewController *editVC = [[EditViewController alloc] init];
+        EditMotherNoteViewController *editVC = [[EditMotherNoteViewController alloc] init];
         editVC.title = @"发布新笔记";
         [rootVC.navigationController pushViewController:editVC animated:YES];
     }];

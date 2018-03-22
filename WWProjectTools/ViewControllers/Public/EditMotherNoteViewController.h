@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditViewController : BasicViewController
+@interface EditMotherNoteViewController : BasicViewController
 
 @end

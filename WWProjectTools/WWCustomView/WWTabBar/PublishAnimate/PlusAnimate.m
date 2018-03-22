@@ -41,12 +41,12 @@
     animateView.rect = rect;
     
     //Add button
-    [animateView CrentBtnImageName:@"post_animate_camera" Title:@"拍照" tag:0 didSelectButtonBlock:block];
-    [animateView CrentBtnImageName:@"post_animate_album" Title:@"相册" tag:1 didSelectButtonBlock:block];
-    [animateView CrentBtnImageName:@"post_animate_akey" Title:@"一键转卖" tag:2 didSelectButtonBlock:block];
-//    [animateView CrentBtnImageName:@"post_animate_camera" Title:@"拍照" tag:3 didSelectButtonBlock:block];
-//    [animateView CrentBtnImageName:@"post_animate_album" Title:@"相册" tag:4 didSelectButtonBlock:block];
-//    [animateView CrentBtnImageName:@"post_animate_akey" Title:@"一键转卖" tag:5 didSelectButtonBlock:block];
+    [animateView CrentBtnImageName:@"post_animate_camera" Title:@"宝妈日记" tag:0 didSelectButtonBlock:block];
+    [animateView CrentBtnImageName:@"post_animate_album" Title:@"宝妈基础数值" tag:1 didSelectButtonBlock:block];
+    [animateView CrentBtnImageName:@"post_animate_akey" Title:@"宝妈检查大事件" tag:2 didSelectButtonBlock:block];
+    [animateView CrentBtnImageName:@"post_animate_camera" Title:@"宝宝日记" tag:3 didSelectButtonBlock:block];
+    [animateView CrentBtnImageName:@"post_animate_album" Title:@"宝宝基础数值" tag:4 didSelectButtonBlock:block];
+    [animateView CrentBtnImageName:@"post_animate_akey" Title:@"宝宝检查大事件" tag:5 didSelectButtonBlock:block];
     //Add center button
     [animateView CrentCenterBtnImageName:@"post_animate_add" tag:3];
     //Do animation
@@ -74,7 +74,7 @@
  *  creat button
  */
 - (void)CrentBtnImageName:(NSString *)ImageName Title:(NSString *)Title tag:(int)tag didSelectButtonBlock:(didSelectButtonBlock)block {
-    if (_BtnItem.count >= 3)  return;
+//    if (_BtnItem.count >= 3)  return;
     CGRect rect = self.rect;
     rect.size = CGSizeMake(rect.size.width-10, rect.size.height-10);
     rect.origin = CGPointMake(rect.origin.x+5, rect.origin.y+5);
@@ -171,9 +171,9 @@
     for (UIView *  btn in _BtnItem) {
         //rotation
         [UIView animateWithDuration:0.7 delay:i*0.14 usingSpringWithDamping:0.46 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-            btn.transform = CGAffineTransformScale(btn.transform, 1.2734*bl, 1.2734*bl);//缩放
-            btn.center = CGPointMake((74+i++*113)*bl, self.frame.size.height-165*bl);
-            
+            btn.transform = CGAffineTransformScale(btn.transform, 1.2734 * bl, 1.2734 * bl);//缩放
+            btn.center = CGPointMake((74 + i%3 * 113) * bl, self.frame.size.height - (165 + (btn.frame.size.height + 40) * (i/3)) * bl);
+            i ++;
         } completion:nil];
 
         //move
@@ -193,8 +193,6 @@
             }];
         }];
     }
-    
-
 }
 
 
