@@ -10,6 +10,7 @@
 #import "PlusAnimate.h"
 #import "WWTabBarConfig.h"
 #import "EditMotherNoteViewController.h"
+#import "EditVariousIndicatorsViewController.h"
 #import "WWNavigationController.h"
 
 @interface TabBarController ()<WWTabBarDelegate>
@@ -38,9 +39,15 @@
         NSLog(@"tag = %ld",tag);
         WWNavigationController *navigationController = self.selectedViewController;
         UIViewController *rootVC = navigationController.viewControllers[0];
-        EditMotherNoteViewController *editVC = [[EditMotherNoteViewController alloc] init];
-        editVC.title = @"发布新笔记";
-        [rootVC.navigationController pushViewController:editVC animated:YES];
+        UIViewController *vc;
+        if (tag == 0) {
+            vc = [[EditMotherNoteViewController alloc] init];
+            vc.title = @"发布新笔记";
+        } else {
+            vc = [[EditVariousIndicatorsViewController alloc] init];
+            vc.title = @"发布基本数值";
+        }
+        [rootVC.navigationController pushViewController:vc animated:YES];
     }];
 }
 

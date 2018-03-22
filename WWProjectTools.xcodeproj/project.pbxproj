@@ -71,6 +71,16 @@
 		4FB8116E20638BAE000B03C6 /* RHDeviceAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8116C20638BAD000B03C6 /* RHDeviceAuthTool.m */; };
 		4FB811712063947E000B03C6 /* VariousIndicatorsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811702063947E000B03C6 /* VariousIndicatorsViewModel.m */; };
 		4FB81174206394D9000B03C6 /* VariousIndicatorsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */; };
+		4FB811782063ABBE000B03C6 /* EditVariousIndicatorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811762063ABBE000B03C6 /* EditVariousIndicatorsViewController.m */; };
+		4FB811792063ABBE000B03C6 /* EditVariousIndicatorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB811772063ABBE000B03C6 /* EditVariousIndicatorsViewController.xib */; };
+		4FB811852063AD28000B03C6 /* YLWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8117F2063AD27000B03C6 /* YLWaterFlowLayout.m */; };
+		4FB811862063AD28000B03C6 /* YLTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811802063AD27000B03C6 /* YLTag.m */; };
+		4FB811872063AD28000B03C6 /* YLTagsChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811812063AD27000B03C6 /* YLTagsChooser.m */; };
+		4FB811882063AD28000B03C6 /* YLCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811832063AD27000B03C6 /* YLCollectionReusableView.m */; };
+		4FB811892063AD28000B03C6 /* NSArray+YLBoundsCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811842063AD27000B03C6 /* NSArray+YLBoundsCheck.m */; };
+		4FB8118D2063B461000B03C6 /* CustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8118A2063B461000B03C6 /* CustomPickerView.m */; };
+		4FB8118E2063B461000B03C6 /* CustomPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB8118B2063B461000B03C6 /* CustomPickerView.xib */; };
+		4FB811912063B617000B03C6 /* CustomKeyWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811902063B617000B03C6 /* CustomKeyWindowView.m */; };
 		4FC68978205FAEAD00D199AC /* StackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC68976205FAEAD00D199AC /* StackViewController.m */; };
 		4FC6897C205FB18400D199AC /* MotherNoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6897A205FB18400D199AC /* MotherNoteTableViewCell.m */; };
 		4FC6897D205FB18400D199AC /* MotherNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FC6897B205FB18400D199AC /* MotherNoteTableViewCell.xib */; };
@@ -444,6 +454,24 @@
 		4FB811702063947E000B03C6 /* VariousIndicatorsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VariousIndicatorsViewModel.m; sourceTree = "<group>"; };
 		4FB81172206394D9000B03C6 /* VariousIndicatorsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VariousIndicatorsModel.h; sourceTree = "<group>"; };
 		4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VariousIndicatorsModel.m; sourceTree = "<group>"; };
+		4FB811752063ABBE000B03C6 /* EditVariousIndicatorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditVariousIndicatorsViewController.h; sourceTree = "<group>"; };
+		4FB811762063ABBE000B03C6 /* EditVariousIndicatorsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditVariousIndicatorsViewController.m; sourceTree = "<group>"; };
+		4FB811772063ABBE000B03C6 /* EditVariousIndicatorsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditVariousIndicatorsViewController.xib; sourceTree = "<group>"; };
+		4FB8117B2063AD27000B03C6 /* YLTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTag.h; sourceTree = "<group>"; };
+		4FB8117C2063AD27000B03C6 /* YLTagsChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLTagsChooser.h; sourceTree = "<group>"; };
+		4FB8117D2063AD27000B03C6 /* NSArray+YLBoundsCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+YLBoundsCheck.h"; sourceTree = "<group>"; };
+		4FB8117E2063AD27000B03C6 /* YLCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCollectionReusableView.h; sourceTree = "<group>"; };
+		4FB8117F2063AD27000B03C6 /* YLWaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLWaterFlowLayout.m; sourceTree = "<group>"; };
+		4FB811802063AD27000B03C6 /* YLTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTag.m; sourceTree = "<group>"; };
+		4FB811812063AD27000B03C6 /* YLTagsChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLTagsChooser.m; sourceTree = "<group>"; };
+		4FB811822063AD27000B03C6 /* YLWaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLWaterFlowLayout.h; sourceTree = "<group>"; };
+		4FB811832063AD27000B03C6 /* YLCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLCollectionReusableView.m; sourceTree = "<group>"; };
+		4FB811842063AD27000B03C6 /* NSArray+YLBoundsCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+YLBoundsCheck.m"; sourceTree = "<group>"; };
+		4FB8118A2063B461000B03C6 /* CustomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPickerView.m; sourceTree = "<group>"; };
+		4FB8118B2063B461000B03C6 /* CustomPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPickerView.xib; sourceTree = "<group>"; };
+		4FB8118C2063B461000B03C6 /* CustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPickerView.h; sourceTree = "<group>"; };
+		4FB8118F2063B616000B03C6 /* CustomKeyWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomKeyWindowView.h; sourceTree = "<group>"; };
+		4FB811902063B617000B03C6 /* CustomKeyWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomKeyWindowView.m; sourceTree = "<group>"; };
 		4FC68976205FAEAD00D199AC /* StackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackViewController.m; sourceTree = "<group>"; };
 		4FC68977205FAEAD00D199AC /* StackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackViewController.h; sourceTree = "<group>"; };
 		4FC68979205FB18400D199AC /* MotherNoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotherNoteTableViewCell.h; sourceTree = "<group>"; };
@@ -918,6 +946,9 @@
 				4F794ECF2060A11B00EB4E25 /* EditMotherNoteViewController.h */,
 				4F794ED02060A11B00EB4E25 /* EditMotherNoteViewController.m */,
 				4F794ED12060A11B00EB4E25 /* EditMotherNoteViewController.xib */,
+				4FB811752063ABBE000B03C6 /* EditVariousIndicatorsViewController.h */,
+				4FB811762063ABBE000B03C6 /* EditVariousIndicatorsViewController.m */,
+				4FB811772063ABBE000B03C6 /* EditVariousIndicatorsViewController.xib */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -1086,6 +1117,23 @@
 			path = Basic;
 			sourceTree = "<group>";
 		};
+		4FB8117A2063AD27000B03C6 /* TagsChooser */ = {
+			isa = PBXGroup;
+			children = (
+				4FB8117B2063AD27000B03C6 /* YLTag.h */,
+				4FB8117C2063AD27000B03C6 /* YLTagsChooser.h */,
+				4FB8117D2063AD27000B03C6 /* NSArray+YLBoundsCheck.h */,
+				4FB8117E2063AD27000B03C6 /* YLCollectionReusableView.h */,
+				4FB8117F2063AD27000B03C6 /* YLWaterFlowLayout.m */,
+				4FB811802063AD27000B03C6 /* YLTag.m */,
+				4FB811812063AD27000B03C6 /* YLTagsChooser.m */,
+				4FB811822063AD27000B03C6 /* YLWaterFlowLayout.h */,
+				4FB811832063AD27000B03C6 /* YLCollectionReusableView.m */,
+				4FB811842063AD27000B03C6 /* NSArray+YLBoundsCheck.m */,
+			);
+			path = TagsChooser;
+			sourceTree = "<group>";
+		};
 		4FC68974205FAEAD00D199AC /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1149,6 +1197,11 @@
 		4FCEABD0205FA7C00045AB0C /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				4FB8118F2063B616000B03C6 /* CustomKeyWindowView.h */,
+				4FB811902063B617000B03C6 /* CustomKeyWindowView.m */,
+				4FB8118C2063B461000B03C6 /* CustomPickerView.h */,
+				4FB8118A2063B461000B03C6 /* CustomPickerView.m */,
+				4FB8118B2063B461000B03C6 /* CustomPickerView.xib */,
 				4FCEABD2205FA7C00045AB0C /* CustomSegmentedControlView.h */,
 				4FCEABD3205FA7C00045AB0C /* CustomSegmentedControlView.m */,
 				4FCEABD1205FA7C00045AB0C /* CustomSegmentedControlView.xib */,
@@ -1545,6 +1598,7 @@
 		4FFEE079204D126D00F6D520 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4FB8117A2063AD27000B03C6 /* TagsChooser */,
 				4FD1EE4F2062386B0086B94C /* ZFChart */,
 				4F794EE92060B0A300EB4E25 /* RxWebViewController */,
 				4F794ED52060A3F500EB4E25 /* QMUIConfigurationTemplate */,
@@ -1909,6 +1963,7 @@
 				4FFEE178204D12DC00F6D520 /* bounce_16.png in Resources */,
 				4FFEE1A2204D12DC00F6D520 /* loading_55.png in Resources */,
 				4FFEE181204D12DC00F6D520 /* loading_11.png in Resources */,
+				4FB811792063ABBE000B03C6 /* EditVariousIndicatorsViewController.xib in Resources */,
 				4FFEE168204D12DC00F6D520 /* bounce_4.png in Resources */,
 				4FFEE19D204D12DC00F6D520 /* loading_44.png in Resources */,
 				4FFEE175204D12DC00F6D520 /* bounce_39.png in Resources */,
@@ -1922,6 +1977,7 @@
 				4FFEE15D204D12DC00F6D520 /* bounce_21.png in Resources */,
 				4FFEE176204D12DC00F6D520 /* bounce_13.png in Resources */,
 				4FFEE14F204D12DC00F6D520 /* bounce_30.png in Resources */,
+				4FB8118E2063B461000B03C6 /* CustomPickerView.xib in Resources */,
 				4FCEABCF205FA6E10045AB0C /* SmallFamilyViewController.xib in Resources */,
 				4FFEE190204D12DC00F6D520 /* loading_7.png in Resources */,
 				4FFEE165204D12DC00F6D520 /* bounce_8.png in Resources */,
@@ -2059,6 +2115,7 @@
 				4FD1EEAD2062386B0086B94C /* ZFConst.m in Sources */,
 				4FFEE0B8204D126D00F6D520 /* UINavigationController+hidesBottomBarWhenPushed.m in Sources */,
 				4FFEE0D9204D126D00F6D520 /* WXSTransitionManager.m in Sources */,
+				4FB811912063B617000B03C6 /* CustomKeyWindowView.m in Sources */,
 				4FD1EEAC2062386B0086B94C /* ZFHorizontalAxis.m in Sources */,
 				4FFEE0AE204D126D00F6D520 /* SecondViewController.m in Sources */,
 				4F794F1F2060EDA300EB4E25 /* WWHUD.m in Sources */,
@@ -2068,6 +2125,7 @@
 				4FFEE0AD204D126D00F6D520 /* CollectionViewController.m in Sources */,
 				4FFEE0D0204D126D00F6D520 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				4FCEABCB205FA6E10045AB0C /* MotherViewController.m in Sources */,
+				4FB811852063AD28000B03C6 /* YLWaterFlowLayout.m in Sources */,
 				4F1AF29B205BA80600D8419C /* NSString+DES.m in Sources */,
 				4FD1EEB02062386B0086B94C /* ZFPie.m in Sources */,
 				4FFEE0B7204D126D00F6D520 /* TabBarController.m in Sources */,
@@ -2083,6 +2141,7 @@
 				4F45EC01205B6DFD008AE38D /* WSRefreshCollectionView.m in Sources */,
 				4F1AF29D205BA80600D8419C /* UIButton+Addition.m in Sources */,
 				4FCEABCE205FA6E10045AB0C /* SmallFamilyViewController.m in Sources */,
+				4FB811882063AD28000B03C6 /* YLCollectionReusableView.m in Sources */,
 				4F1AF2CC205BBD2100D8419C /* ESPictureModel.m in Sources */,
 				4FFEE0B9204D126D00F6D520 /* WWBadgeView.m in Sources */,
 				4FD1EED020624B870086B94C /* PhysicalStateIndicatorsViewController.m in Sources */,
@@ -2094,12 +2153,14 @@
 				4FC68981205FB1AB00D199AC /* TimeHeaderTableViewCell.m in Sources */,
 				4FFEE0CF204D126D00F6D520 /* UIViewController+WXSTransitionProperty.m in Sources */,
 				4FD1EEB42062386B0086B94C /* ZFLine.m in Sources */,
+				4FB811872063AD28000B03C6 /* YLTagsChooser.m in Sources */,
 				4F1AF2B8205BB98B00D8419C /* Base64Util.m in Sources */,
 				4FFEE0C6204D126D00F6D520 /* ViewController2.m in Sources */,
 				4FFEE0B5204D126D00F6D520 /* WWPushTransition.m in Sources */,
 				4FC6897C205FB18400D199AC /* MotherNoteTableViewCell.m in Sources */,
 				4FFEE0B4204D126D00F6D520 /* WWPopTransition.m in Sources */,
 				4FFEE0C1204D126D00F6D520 /* WWTabBarController.m in Sources */,
+				4FB811782063ABBE000B03C6 /* EditVariousIndicatorsViewController.m in Sources */,
 				4FB811662063413F000B03C6 /* MotherNoteListViewModel.m in Sources */,
 				4FFEE0BB204D126D00F6D520 /* UITabBarItem+BadgeColor.m in Sources */,
 				4FFEE0B3204D126D00F6D520 /* AppDelegate.m in Sources */,
@@ -2109,7 +2170,9 @@
 				4FFEE0DC204D126D00F6D520 /* WXSTransitionProperty.m in Sources */,
 				4FFEE0D7204D126D00F6D520 /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				4FFEE0DB204D126D00F6D520 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
+				4FB811892063AD28000B03C6 /* NSArray+YLBoundsCheck.m in Sources */,
 				4FFEE0C3204D126D00F6D520 /* WWTextInputBarView.m in Sources */,
+				4FB8118D2063B461000B03C6 /* CustomPickerView.m in Sources */,
 				4FFEE0A3204D126D00F6D520 /* PushViewController.m in Sources */,
 				4FC6898C205FBCD200D199AC /* StaticImageCollectionViewCell.m in Sources */,
 				4F1AF2A5205BA80600D8419C /* UIImage+PixelColor.m in Sources */,
@@ -2159,6 +2222,7 @@
 				4FFEE0C7204D126D00F6D520 /* ViewController.m in Sources */,
 				4F45EBFD205B6DFD008AE38D /* WSTableViewController.m in Sources */,
 				4FFEE0CC204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
+				4FB811862063AD28000B03C6 /* YLTag.m in Sources */,
 				4FD1EEB32062386B0086B94C /* ZFCircle.m in Sources */,
 				4FD1EEAA2062386B0086B94C /* ZFCirqueChart.m in Sources */,
 				4F794EEC2060B0A300EB4E25 /* RxWebViewController.m in Sources */,
