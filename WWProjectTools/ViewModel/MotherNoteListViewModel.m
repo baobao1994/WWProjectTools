@@ -21,10 +21,9 @@
     __weak __typeof(self)weakSelf = self;
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         
-        BmobQuery *bquery = [BmobQuery queryWithClassName:@"mother"];
+        BmobQuery *bquery = [BmobQuery queryWithClassName:MotherTable];
         bquery.limit = weakSelf.pageLimit;
         [bquery orderByDescending:CreatedAtKey];
-        //查找GameScore表的数据
         [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
             if (error.code == 0) {
                 NSMutableArray *listArr = [[NSMutableArray alloc] init];

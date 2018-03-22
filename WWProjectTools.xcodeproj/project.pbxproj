@@ -68,6 +68,9 @@
 		4FACE84D200E01A000CCC34D /* WWProjectDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE84C200E01A000CCC34D /* WWProjectDemoUITests.m */; };
 		4FB811662063413F000B03C6 /* MotherNoteListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811652063413F000B03C6 /* MotherNoteListViewModel.m */; };
 		4FB8116A206341AF000B03C6 /* BasicListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB81169206341AF000B03C6 /* BasicListViewModel.m */; };
+		4FB8116E20638BAE000B03C6 /* RHDeviceAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8116C20638BAD000B03C6 /* RHDeviceAuthTool.m */; };
+		4FB811712063947E000B03C6 /* VariousIndicatorsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811702063947E000B03C6 /* VariousIndicatorsViewModel.m */; };
+		4FB81174206394D9000B03C6 /* VariousIndicatorsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */; };
 		4FC68978205FAEAD00D199AC /* StackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC68976205FAEAD00D199AC /* StackViewController.m */; };
 		4FC6897C205FB18400D199AC /* MotherNoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6897A205FB18400D199AC /* MotherNoteTableViewCell.m */; };
 		4FC6897D205FB18400D199AC /* MotherNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FC6897B205FB18400D199AC /* MotherNoteTableViewCell.xib */; };
@@ -435,6 +438,12 @@
 		4FB811652063413F000B03C6 /* MotherNoteListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotherNoteListViewModel.m; sourceTree = "<group>"; };
 		4FB81168206341AF000B03C6 /* BasicListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicListViewModel.h; sourceTree = "<group>"; };
 		4FB81169206341AF000B03C6 /* BasicListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicListViewModel.m; sourceTree = "<group>"; };
+		4FB8116C20638BAD000B03C6 /* RHDeviceAuthTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHDeviceAuthTool.m; sourceTree = "<group>"; };
+		4FB8116D20638BAE000B03C6 /* RHDeviceAuthTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHDeviceAuthTool.h; sourceTree = "<group>"; };
+		4FB8116F2063947E000B03C6 /* VariousIndicatorsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VariousIndicatorsViewModel.h; sourceTree = "<group>"; };
+		4FB811702063947E000B03C6 /* VariousIndicatorsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VariousIndicatorsViewModel.m; sourceTree = "<group>"; };
+		4FB81172206394D9000B03C6 /* VariousIndicatorsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VariousIndicatorsModel.h; sourceTree = "<group>"; };
+		4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VariousIndicatorsModel.m; sourceTree = "<group>"; };
 		4FC68976205FAEAD00D199AC /* StackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackViewController.m; sourceTree = "<group>"; };
 		4FC68977205FAEAD00D199AC /* StackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackViewController.h; sourceTree = "<group>"; };
 		4FC68979205FB18400D199AC /* MotherNoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotherNoteTableViewCell.h; sourceTree = "<group>"; };
@@ -929,6 +938,8 @@
 				4FB811672063419E000B03C6 /* Basic */,
 				4FB811642063413F000B03C6 /* MotherNoteListViewModel.h */,
 				4FB811652063413F000B03C6 /* MotherNoteListViewModel.m */,
+				4FB8116F2063947E000B03C6 /* VariousIndicatorsViewModel.h */,
+				4FB811702063947E000B03C6 /* VariousIndicatorsViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -958,6 +969,8 @@
 			children = (
 				4F794F202060F88D00EB4E25 /* MotherNoteModel.h */,
 				4F794F212060F88D00EB4E25 /* MotherNoteModel.m */,
+				4FB81172206394D9000B03C6 /* VariousIndicatorsModel.h */,
+				4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1076,6 +1089,8 @@
 		4FC68974205FAEAD00D199AC /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				4FB8116D20638BAE000B03C6 /* RHDeviceAuthTool.h */,
+				4FB8116C20638BAD000B03C6 /* RHDeviceAuthTool.m */,
 				4FC68975205FAEAD00D199AC /* StackViewController */,
 			);
 			path = Utility;
@@ -2100,6 +2115,7 @@
 				4F1AF2A5205BA80600D8419C /* UIImage+PixelColor.m in Sources */,
 				4FFEE0BE204D126D00F6D520 /* WWButton.m in Sources */,
 				4FD1EE4D206220E30086B94C /* MotherNoteListViewController.m in Sources */,
+				4FB8116E20638BAE000B03C6 /* RHDeviceAuthTool.m in Sources */,
 				4FD1EEB12062386B0086B94C /* ZFTranslucencePath.m in Sources */,
 				4FD1EEC02062386B0086B94C /* ZFWave.m in Sources */,
 				4F1AF29E205BA80600D8419C /* UIView+Layout.m in Sources */,
@@ -2111,6 +2127,7 @@
 				4F1AF2A7205BA80600D8419C /* UITabBar+Badge.m in Sources */,
 				4FC68978205FAEAD00D199AC /* StackViewController.m in Sources */,
 				4FB8116A206341AF000B03C6 /* BasicListViewModel.m in Sources */,
+				4FB81174206394D9000B03C6 /* VariousIndicatorsModel.m in Sources */,
 				4F45EBA0205B5D20008AE38D /* BabyViewController.m in Sources */,
 				4FD1EEB22062386B0086B94C /* ZFLineChart.m in Sources */,
 				4FD1EE492061F0530086B94C /* WWFile.m in Sources */,
@@ -2134,6 +2151,7 @@
 				4FD1EEA92062386B0086B94C /* NSNumber+Zirkfied.m in Sources */,
 				4FFEE0D4204D126D00F6D520 /* UIViewController+WXSTransition.m in Sources */,
 				4FD1EEB72062386B0086B94C /* ZFPopoverLabel.m in Sources */,
+				4FB811712063947E000B03C6 /* VariousIndicatorsViewModel.m in Sources */,
 				4FFEE0CD204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */,
 				4F1AF29A205BA80600D8419C /* UITableView+TableHeadView.m in Sources */,

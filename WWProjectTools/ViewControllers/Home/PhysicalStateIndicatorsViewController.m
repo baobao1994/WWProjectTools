@@ -29,35 +29,36 @@
 
 - (void)setUp{
     _height = SCREEN_HEIGHT - NAVIGATIONBAR_HEIGHT;
+    self.physicalStateArr = [[NSMutableArray alloc] init];
+    self.publicTimeArr = [[NSMutableArray alloc] init];
     self.barChart = [[ZFBarChart alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, _height)];
     self.barChart.dataSource = self;
     self.barChart.delegate = self;
-    self.barChart.topicLabel.text = @"xx小学各年级男女人数";
+    self.barChart.topicLabel.text = @"近30天身体状态";
     self.barChart.unit = @"人";
     self.barChart.isShowYLineSeparate = YES;
     self.barChart.isShowXLineSeparate = YES;
-    
     self.barChart.valueType = kValueTypeDecimal;
     self.barChart.numberOfDecimal = 2;
-    
-    [self.barChart strokePath];
     [self.view addSubview:self.barChart];
+}
+
+- (void)strokePath {
+    [self.barChart strokePath];
 }
 
 #pragma mark - ZFGenericChartDataSource
 
 - (NSArray *)valueArrayInGenericChart:(ZFGenericChart *)chart{
-    return @[@[@"123", @"300", @"490", @"380", @"167", @"235"],
-             @[@"256", @"283", @"236", @"240", @"183", @"200"],
-             @[@"256", @"256", @"256", @"256", @"256", @"256"]];
+    return self.physicalStateArr;
 }
 
 - (NSArray *)nameArrayInGenericChart:(ZFGenericChart *)chart{
-    return @[@"一年级", @"二年级", @"三年级", @"四年级", @"五年级", @"六年级"];
+    return self.publicTimeArr;
 }
 
 - (NSArray *)colorArrayInGenericChart:(ZFGenericChart *)chart{
-    return @[ZFColor(71, 204, 255, 1), ZFGold, ZFColor(16, 140, 39, 1)];
+    return @[ZFColor(71, 204, 255, 1)];
 }
 
 - (CGFloat)axisLineMaxValueInGenericChart:(ZFGenericChart *)chart{
@@ -101,7 +102,7 @@
     gradientAttribute3.startPoint = CGPointMake(0, 0.5);
     gradientAttribute3.endPoint = CGPointMake(1, 0.5);
     
-    return [NSArray arrayWithObjects:gradientAttribute1, gradientAttribute2, gradientAttribute3, nil];
+    return [NSArray arrayWithObjects:gradientAttribute1/*, gradientAttribute2, gradientAttribute3*/, nil];
 }
 
 - (void)barChart:(ZFBarChart *)barChart didSelectBarAtGroupIndex:(NSInteger)groupIndex barIndex:(NSInteger)barIndex bar:(ZFBar *)bar popoverLabel:(ZFPopoverLabel *)popoverLabel{
@@ -117,6 +118,7 @@
     
     //可将isShowAxisLineValue设置为NO，然后执行下句代码进行点击才显示数值
     //    popoverLabel.hidden = NO;
+    [WWHUD showWithText:self.noteArr[barIndex] inView:SelfViewControllerView afterDelay:2];
 }
 
 - (void)barChart:(ZFBarChart *)barChart didSelectPopoverLabelAtGroupIndex:(NSInteger)groupIndex labelIndex:(NSInteger)labelIndex popoverLabel:(ZFPopoverLabel *)popoverLabel{

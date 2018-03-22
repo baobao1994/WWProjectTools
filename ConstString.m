@@ -13,6 +13,14 @@
 NSString *const BmobKey = @"7ff96c3a0695e837ccbb9ceb213a6865";
 uint64_t const kDBVersion = 100002;
 
+#pragma mark - bmobTable
+
+NSString *const FamilyTable = @"family";
+NSString *const BabyTable = @"baby";
+NSString *const MotherTable = @"mother";
+NSString *const VariousIndicatorsTable = @"various_indicators";
+NSString *const FoodsTable = @"foods";
+
 #pragma mark - bmob
 
 NSString *const ObjectIdKey = @"objectId";
@@ -31,6 +39,9 @@ NSString *const FileNameKey = @"filename";
 NSString *const PublicTimeKey = @"public_time";
 NSString *const NoteKey = @"note";
 NSString *const PhotosKey = @"photos";
+NSString *const MoodKey = @"mood";
+NSString *const PhysicalStateKey = @"physical_state";
+NSString *const WeightKey = @"weight";
 
 #pragma mark - Scrollow
 

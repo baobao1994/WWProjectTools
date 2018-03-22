@@ -45,16 +45,16 @@
 }
 
 - (void)requestMotherList {
-    BmobQuery *bquery = [BmobQuery queryWithClassName:@"mother"];
+    kWeakSelf;
+    BmobQuery *bquery = [BmobQuery queryWithClassName:MotherTable];
     bquery.limit = 1;
     [bquery orderByDescending:CreatedAtKey];
-    //查找GameScore表的数据
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         for (BmobObject *obj in array) {
-            self.motherNoteModel = [[MotherNoteModel alloc] initWithDictionary:obj];
+            weakSelf.motherNoteModel = [[MotherNoteModel alloc] initWithDictionary:obj];
         }
-        [self.tableView doneLoadingTableViewData];
-        [self.tableView reloadData];
+        [weakSelf.tableView doneLoadingTableViewData];
+        [weakSelf.tableView reloadData];
         [WWHUD hideAllTipsInView:SelfViewControllerView];
     }];
 }

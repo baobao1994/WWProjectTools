@@ -10,10 +10,12 @@
 
 @interface WWHUD : NSObject
 
++ (void)showWithText:(NSString *)text inView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay;
 + (void)showLoadingWithInView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay;
 + (void)showLoadingWithText:(NSString *)text inView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay;
 + (void)showLoadingWithSucceedInView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay;
 + (void)showLoadingWithErrorInView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay;
++ (void)showLoadingWithErrorText:(NSString *)text inView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay;
 + (void)showLoadingWithInfo:(NSString *)info detailText:(NSString *)detailText styleColor:(UIColor *)styleColor isAnimate:(BOOL)isAnimate inView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay;
 + (void)showLoadingWithCustomContentView:(UIView *)customView inView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay;
 + (void)hideAllTipsInView;

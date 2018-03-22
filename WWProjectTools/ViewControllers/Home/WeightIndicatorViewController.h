@@ -10,4 +10,9 @@
 
 @interface WeightIndicatorViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *weightArr;
+@property (nonatomic, strong) NSMutableArray *publicTimeArr;
+
+- (void)strokePath;
+
 @end

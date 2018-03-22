@@ -10,4 +10,9 @@
 
 @interface MoodIndicatorsViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *moodArr;
+@property (nonatomic, strong) NSMutableArray *publicTimeArr;
+
+- (void)strokePath;
+
 @end

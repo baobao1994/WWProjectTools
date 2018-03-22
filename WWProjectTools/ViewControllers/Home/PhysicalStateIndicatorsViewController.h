@@ -10,4 +10,10 @@
 
 @interface PhysicalStateIndicatorsViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *physicalStateArr;
+@property (nonatomic, strong) NSMutableArray *noteArr;
+@property (nonatomic, strong) NSMutableArray *publicTimeArr;
+
+- (void)strokePath;
+
 @end

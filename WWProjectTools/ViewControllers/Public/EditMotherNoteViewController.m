@@ -15,6 +15,7 @@
 #import "NSDate+Addition.h"
 #import "WWFile.h"
 #import "UIView+Addtion.h"
+#import "RHDeviceAuthTool.h"
 
 @interface EditMotherNoteViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -71,7 +72,9 @@
 - (void)bind {
     kWeakSelf;
     [[self.selectButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf.pictureSelect presentAlbumViewControllerWithTitle:@"选择图片"];
+        [RHDeviceAuthTool photoAuth:^{
+           [weakSelf.pictureSelect presentAlbumViewControllerWithTitle:@"选择图片"];
+        }];
     }];
 }
 

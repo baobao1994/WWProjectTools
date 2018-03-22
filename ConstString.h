@@ -11,6 +11,14 @@
 extern NSString *const BmobKey;
 extern uint64_t const kDBVersion;
 
+#pragma mark - bmobTable
+
+extern NSString *const FamilyTable;
+extern NSString *const BabyTable;
+extern NSString *const MotherTable;
+extern NSString *const VariousIndicatorsTable;
+extern NSString *const FoodsTable;
+
 #pragma mark - bmob
 
 extern NSString *const ObjectIdKey;
@@ -29,6 +37,9 @@ extern NSString *const FileNameKey;
 extern NSString *const PublicTimeKey;
 extern NSString *const NoteKey;
 extern NSString *const PhotosKey;
+extern NSString *const MoodKey;
+extern NSString *const PhysicalStateKey;
+extern NSString *const WeightKey;
 
 #pragma mark - Scrollow
 

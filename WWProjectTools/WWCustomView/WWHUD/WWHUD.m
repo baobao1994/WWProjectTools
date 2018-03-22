@@ -12,6 +12,10 @@
 
 @implementation WWHUD
 
++ (void)showWithText:(NSString *)text inView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay {
+    [QMUITips showWithText:text inView:view hideAfterDelay:afterDelay];
+}
+
 + (void)showLoadingWithInView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay {
     // 如果不需要修改contentView的样式，可以直接使用下面这个工具方法
     //         QMUITips *tips = [QMUITips showLoadingInView:view hideAfterDelay:2];
@@ -45,6 +49,10 @@
 
 + (void)showLoadingWithErrorInView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay {
     [QMUITips showError:@"加载失败，请检查网络情况" inView:view hideAfterDelay:afterDelay];
+}
+
++ (void)showLoadingWithErrorText:(NSString *)text inView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay {
+    [QMUITips showError:text inView:view hideAfterDelay:afterDelay];
 }
 
 + (void)showLoadingWithInfo:(NSString *)info detailText:(NSString *)detailText styleColor:(UIColor *)styleColor isAnimate:(BOOL)isAnimate inView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay {

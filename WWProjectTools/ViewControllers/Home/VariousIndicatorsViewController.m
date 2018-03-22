@@ -11,6 +11,7 @@
 #import "WeightIndicatorViewController.h"
 #import "MoodIndicatorsViewController.h"
 #import "PhysicalStateIndicatorsViewController.h"
+#import "VariousIndicatorsViewModel.h"
 
 @interface VariousIndicatorsViewController ()
 
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) WeightIndicatorViewController *weightIndicatorVC;
 @property (nonatomic, strong) MoodIndicatorsViewController *moodIndicatorsVC;
 @property (nonatomic, strong) PhysicalStateIndicatorsViewController *physicalStateIndicatorsVC;
+@property (nonatomic, strong) VariousIndicatorsViewModel *viewModel;
 
 @end
 
@@ -40,20 +42,45 @@
             weakSelf.weightIndicatorVC.view.hidden = NO;
             weakSelf.moodIndicatorsVC.view.hidden = YES;
             weakSelf.physicalStateIndicatorsVC.view.hidden = YES;
+            [weakSelf.weightIndicatorVC strokePath];
         } else if (current == 1) {
             weakSelf.weightIndicatorVC.view.hidden = YES;
             weakSelf.moodIndicatorsVC.view.hidden = NO;
             weakSelf.physicalStateIndicatorsVC.view.hidden = YES;
+            [weakSelf.moodIndicatorsVC strokePath];
         } else {
             weakSelf.weightIndicatorVC.view.hidden = YES;
             weakSelf.moodIndicatorsVC.view.hidden = YES;
             weakSelf.physicalStateIndicatorsVC.view.hidden = NO;
+            [weakSelf.physicalStateIndicatorsVC strokePath];
         }
     };
     self.navigationItem.titleView = self.customSegmentView;
     [self.view addSubview:self.weightIndicatorVC.view];
     [self.view addSubview:self.moodIndicatorsVC.view];
     [self.view addSubview:self.physicalStateIndicatorsVC.view];
+    self.viewModel = [[VariousIndicatorsViewModel alloc] init];
+    [[self.viewModel.requestVariousIndicatorsCommand executionSignals] subscribeNext:^(RACSignal *x) {
+        [WWHUD showLoadingWithInView:NavigationControllerView afterDelay:30];
+        [x subscribeNext:^(id x) {
+            [WWHUD hideAllTipsInView:NavigationControllerView];
+            [WWHUD showLoadingWithSucceedInView:NavigationControllerView afterDelay:1];
+            weakSelf.weightIndicatorVC.weightArr = weakSelf.viewModel.weightArr;
+            weakSelf.weightIndicatorVC.publicTimeArr = weakSelf.viewModel.publicTimeArr;
+            [weakSelf.weightIndicatorVC strokePath];
+            weakSelf.moodIndicatorsVC.moodArr = weakSelf.viewModel.moodArr;
+            weakSelf.moodIndicatorsVC.publicTimeArr = weakSelf.viewModel.publicTimeArr;
+            weakSelf.physicalStateIndicatorsVC.physicalStateArr = weakSelf.viewModel.physicalStateArr;
+            weakSelf.physicalStateIndicatorsVC.publicTimeArr = weakSelf.viewModel.publicTimeArr;
+            weakSelf.physicalStateIndicatorsVC.noteArr = weakSelf.viewModel.noteArr;
+        }];
+    }];
+    
+    [self.viewModel.requestVariousIndicatorsCommand.errors subscribeNext:^(NSError * _Nullable x) {
+        [WWHUD hideAllTipsInView:NavigationControllerView];
+        [WWHUD showLoadingWithErrorInView:SelfViewControllerView afterDelay:1];
+    }];
+    [[self.viewModel requestVariousIndicatorsCommand] execute:nil];
 }
 
 - (WeightIndicatorViewController *)weightIndicatorVC {
@@ -61,7 +88,6 @@
         _weightIndicatorVC = [[WeightIndicatorViewController alloc] init];
         _weightIndicatorVC.view.frame = CGRectMake(0, 64, UIScreenWidth, [UIScreen mainScreen].bounds.size.height);
         _weightIndicatorVC.view.backgroundColor = RandomColor;
-        _weightIndicatorVC.view.hidden = NO;
     }
     return _weightIndicatorVC;
 }

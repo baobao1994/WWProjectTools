@@ -24,30 +24,34 @@
 }
 
 - (void)setUp{
+    self.weightArr = [[NSMutableArray alloc] init];
+    self.publicTimeArr = [[NSMutableArray alloc] init];
     _height = SCREEN_HEIGHT - NAVIGATIONBAR_HEIGHT;
     self.lineChart = [[ZFLineChart alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, _height)];
     self.lineChart.dataSource = self;
     self.lineChart.delegate = self;
     self.lineChart.valueType = kValueTypeDecimal;
     self.lineChart.numberOfDecimal = 2;
-    self.lineChart.topicLabel.text = @"近30天体重";
+    self.lineChart.topicLabel.text = @"近30天体重状态";
     self.lineChart.unit = @"kg";
     self.lineChart.isShowYLineSeparate = YES;
     self.lineChart.isResetAxisLineMinValue = YES;
     self.lineChart.isShadow = NO;
-    self.lineChart.xLineNameLabelToXAxisLinePadding = 20;
     [self.view addSubview:self.lineChart];
+}
+
+- (void)strokePath {
     [self.lineChart strokePath];
 }
 
 #pragma mark - ZFGenericChartDataSource
 
 - (NSArray *)valueArrayInGenericChart:(ZFGenericChart *)chart{
-    return @[@[@"50.42", @"51.99", @"52.90", @"45.65", @"56.33", @"62.00", @"53.89"]];
+    return self.weightArr;
 }
 
 - (NSArray *)nameArrayInGenericChart:(ZFGenericChart *)chart{
-    return @[@"一年级", @"二年级", @"三年级", @"四年级", @"五年级", @"六年级", @"七年级"];
+    return self.publicTimeArr;
 }
 
 - (NSArray *)colorArrayInGenericChart:(ZFGenericChart *)chart{

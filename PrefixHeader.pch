@@ -60,6 +60,7 @@
 
 #define HideKeyBoard [[[UIApplication sharedApplication] keyWindow] endEditing:YES]
 
+#define KeyWindow [UIApplication sharedApplication].keyWindow
 #define NavigationControllerView self.navigationController.view
 #define SelfViewControllerView self.view
 
