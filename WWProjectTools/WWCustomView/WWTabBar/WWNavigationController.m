@@ -30,6 +30,8 @@
         self.interactivePopGestureRecognizer.delegate = weakSelf;
     }
     // Do any additional setup after loading the view.
+    self.navigationBar.barTintColor = UIColorMake(249, 204, 226);
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorFromHexColor(0X1AA0F8)}];
 }
 
 - (void)didReceiveMemoryWarning {

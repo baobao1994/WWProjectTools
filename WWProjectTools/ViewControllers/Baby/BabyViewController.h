@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BabyViewController : UIViewController
+@interface BabyViewController : BasicViewController
 
 @end

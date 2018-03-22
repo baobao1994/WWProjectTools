@@ -7,9 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "ViewController2.h"
-#import "ViewController3.h"
+#import "BabyViewController.h"
 #import "HomeViewController.h"
 #import "TabBarController.h"
 #import "WWTabBarConfig.h"
@@ -96,8 +94,8 @@
     WWNavigationController *nav1 = [[WWNavigationController alloc] initWithRootViewController:[HomeViewController new]];
     [tabbar addChildController:nav1 title:@"小窝" imageName:@"Btn01" selectedImageName:@"SelectBtn01"];
     [tabbar addCenterController:nil bulge:YES title:@"发布点滴" imageName:@"post_normal" selectedImageName:@"post_animate_add"];
-    WWNavigationController *nav2 = [[WWNavigationController alloc] initWithRootViewController:[ViewController new]];
-    [tabbar addChildController:nav2 title:@"宝宝" imageName:@"Btn02" selectedImageName:@"SelectBtn02"];
+    WWNavigationController *nav2 = [[WWNavigationController alloc] initWithRootViewController:[BabyViewController new]];
+    [tabbar addChildController:nav2 title:@"小宝" imageName:@"Btn02" selectedImageName:@"SelectBtn02"];
 }
 
 //数据库realm配置

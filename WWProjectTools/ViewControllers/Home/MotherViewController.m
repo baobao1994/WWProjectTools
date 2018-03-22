@@ -29,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setUp];
+    [WWHUD showLoadingWithInView:SelfViewControllerView afterDelay:90];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,6 +55,7 @@
         }
         [self.tableView doneLoadingTableViewData];
         [self.tableView reloadData];
+        [WWHUD hideAllTipsInView:SelfViewControllerView];
     }];
 }
 
