@@ -7,12 +7,19 @@
 //
 
 #import "TimeHeaderTableViewCell.h"
+#import "UIView+Addtion.h"
+
+@interface TimeHeaderTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *pointImageView;
+
+@end
 
 @implementation TimeHeaderTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    [self.pointImageView setCornerRadius:7.5];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

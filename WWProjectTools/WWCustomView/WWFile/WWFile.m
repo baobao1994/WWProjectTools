@@ -9,6 +9,7 @@
 #import "WWFile.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
+#import "UIImage+Addition.h"
 
 //Home目录
 #define HomePath NSHomeDirectory()
@@ -56,7 +57,7 @@
         // 如果没有下载文件的话，就创建一个文件。如果有下载文件的话，则不用重新创建(不然会覆盖掉之前的文件)
         [manager createFileAtPath:path contents:nil attributes:nil];
         if ([saveFile isKindOfClass:[UIImage class]]) {
-            NSData *data = UIImageJPEGRepresentation(saveFile, 1);
+            NSData *data = [UIImage zipNSDataWithImage:saveFile];
             isSaveSuccess = [data writeToFile:filePath atomically:YES];
         }
         if (isSaveSuccess) {

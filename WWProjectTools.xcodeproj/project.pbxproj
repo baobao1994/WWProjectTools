@@ -66,6 +66,8 @@
 		4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F24206112EF00EB4E25 /* UIImage+Addition.m */; };
 		4FACE842200E01A000CCC34D /* WWProjectDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE841200E01A000CCC34D /* WWProjectDemoTests.m */; };
 		4FACE84D200E01A000CCC34D /* WWProjectDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE84C200E01A000CCC34D /* WWProjectDemoUITests.m */; };
+		4FB811662063413F000B03C6 /* MotherNoteListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811652063413F000B03C6 /* MotherNoteListViewModel.m */; };
+		4FB8116A206341AF000B03C6 /* BasicListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB81169206341AF000B03C6 /* BasicListViewModel.m */; };
 		4FC68978205FAEAD00D199AC /* StackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC68976205FAEAD00D199AC /* StackViewController.m */; };
 		4FC6897C205FB18400D199AC /* MotherNoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6897A205FB18400D199AC /* MotherNoteTableViewCell.m */; };
 		4FC6897D205FB18400D199AC /* MotherNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FC6897B205FB18400D199AC /* MotherNoteTableViewCell.xib */; };
@@ -429,6 +431,10 @@
 		4FACE848200E01A000CCC34D /* WWProjectToolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWProjectToolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACE84C200E01A000CCC34D /* WWProjectDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWProjectDemoUITests.m; sourceTree = "<group>"; };
 		4FACE84E200E01A000CCC34D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FB811642063413F000B03C6 /* MotherNoteListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotherNoteListViewModel.h; sourceTree = "<group>"; };
+		4FB811652063413F000B03C6 /* MotherNoteListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotherNoteListViewModel.m; sourceTree = "<group>"; };
+		4FB81168206341AF000B03C6 /* BasicListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicListViewModel.h; sourceTree = "<group>"; };
+		4FB81169206341AF000B03C6 /* BasicListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicListViewModel.m; sourceTree = "<group>"; };
 		4FC68976205FAEAD00D199AC /* StackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackViewController.m; sourceTree = "<group>"; };
 		4FC68977205FAEAD00D199AC /* StackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackViewController.h; sourceTree = "<group>"; };
 		4FC68979205FB18400D199AC /* MotherNoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotherNoteTableViewCell.h; sourceTree = "<group>"; };
@@ -920,6 +926,9 @@
 		4F45EB97205B5C8E008AE38D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4FB811672063419E000B03C6 /* Basic */,
+				4FB811642063413F000B03C6 /* MotherNoteListViewModel.h */,
+				4FB811652063413F000B03C6 /* MotherNoteListViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1053,6 +1062,15 @@
 				4FACE84E200E01A000CCC34D /* Info.plist */,
 			);
 			path = WWProjectDemoUITests;
+			sourceTree = "<group>";
+		};
+		4FB811672063419E000B03C6 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				4FB81168206341AF000B03C6 /* BasicListViewModel.h */,
+				4FB81169206341AF000B03C6 /* BasicListViewModel.m */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 		4FC68974205FAEAD00D199AC /* Utility */ = {
@@ -2067,6 +2085,7 @@
 				4FC6897C205FB18400D199AC /* MotherNoteTableViewCell.m in Sources */,
 				4FFEE0B4204D126D00F6D520 /* WWPopTransition.m in Sources */,
 				4FFEE0C1204D126D00F6D520 /* WWTabBarController.m in Sources */,
+				4FB811662063413F000B03C6 /* MotherNoteListViewModel.m in Sources */,
 				4FFEE0BB204D126D00F6D520 /* UITabBarItem+BadgeColor.m in Sources */,
 				4FFEE0B3204D126D00F6D520 /* AppDelegate.m in Sources */,
 				4FD1EECD20624AED0086B94C /* MoodIndicatorsViewController.m in Sources */,
@@ -2091,6 +2110,7 @@
 				4F1AF2A6205BA80600D8419C /* NSString+Random.m in Sources */,
 				4F1AF2A7205BA80600D8419C /* UITabBar+Badge.m in Sources */,
 				4FC68978205FAEAD00D199AC /* StackViewController.m in Sources */,
+				4FB8116A206341AF000B03C6 /* BasicListViewModel.m in Sources */,
 				4F45EBA0205B5D20008AE38D /* BabyViewController.m in Sources */,
 				4FD1EEB22062386B0086B94C /* ZFLineChart.m in Sources */,
 				4FD1EE492061F0530086B94C /* WWFile.m in Sources */,

@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *publicTime;
 @property (nonatomic, copy) NSString *note;
 @property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, assign) BOOL isTop;//界面UI需要
 
 - (id)initWithDictionary:(BmobObject *)object;
 

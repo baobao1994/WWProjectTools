@@ -18,39 +18,46 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fib-v9-0DR">
-                        <rect key="frame" x="15" y="14.5" width="15" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="HgR-Ws-cqC"/>
-                            <constraint firstAttribute="width" constant="15" id="wWs-YJ-jie"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-03-03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07U-Bc-STq">
-                        <rect key="frame" x="40" y="13.5" width="85" height="18"/>
+                        <rect key="frame" x="40" y="12.5" width="85" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cgY-7S-3bd">
-                        <rect key="frame" x="22.5" y="31.5" width="1" height="12"/>
+                        <rect key="frame" x="22.5" y="29.5" width="1" height="14"/>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.45098039220000002" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="APz-AR-Cnh"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fib-v9-0DR">
+                        <rect key="frame" x="15" y="14" width="15" height="15"/>
+                        <color key="backgroundColor" red="0.15094602109999999" green="0.62796700000000005" blue="0.97218507529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="HgR-Ws-cqC"/>
+                            <constraint firstAttribute="width" constant="15" id="wWs-YJ-jie"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="qmui_borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cgY-7S-3bd" firstAttribute="centerX" secondItem="Fib-v9-0DR" secondAttribute="centerX" id="5ft-eY-03G"/>
                     <constraint firstItem="07U-Bc-STq" firstAttribute="centerY" secondItem="Fib-v9-0DR" secondAttribute="centerY" id="79h-7h-ubM"/>
                     <constraint firstItem="Fib-v9-0DR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QGh-9i-h3w"/>
+                    <constraint firstItem="cgY-7S-3bd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22.5" id="b3h-1I-fBU"/>
                     <constraint firstItem="07U-Bc-STq" firstAttribute="leading" secondItem="Fib-v9-0DR" secondAttribute="trailing" constant="10" id="caZ-Z7-9Zz"/>
                     <constraint firstItem="Fib-v9-0DR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="d6D-dC-ndi"/>
-                    <constraint firstItem="cgY-7S-3bd" firstAttribute="top" secondItem="07U-Bc-STq" secondAttribute="bottom" id="fSI-UI-gbz"/>
+                    <constraint firstItem="cgY-7S-3bd" firstAttribute="top" secondItem="07U-Bc-STq" secondAttribute="bottom" constant="-1" id="fSI-UI-gbz"/>
                     <constraint firstAttribute="bottom" secondItem="cgY-7S-3bd" secondAttribute="bottom" id="scX-A3-vA9"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="pointImageView" destination="Fib-v9-0DR" id="LnS-Z7-xfh"/>
                 <outlet property="timeLabel" destination="07U-Bc-STq" id="LQv-9d-bUd"/>
             </connections>
         </tableViewCell>

@@ -11,7 +11,7 @@
 @interface UIImage (Addition)
 
 + (UIImage *)thumbnailWithImageWithoutScale:(UIImage *)image size:(CGSize)asize;
-+ (UIImage *) scaleFromImage: (UIImage *) image toSize: (CGSize) size;
++ (UIImage *)scaleFromImage: (UIImage *) image toSize: (CGSize) size;
 + (NSData *)zipNSDataWithImage:(UIImage *)sourceImage;
 
 @end

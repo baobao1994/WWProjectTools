@@ -28,7 +28,7 @@
     if (self.photosArr.count) {
         NSInteger count = (NSInteger)(noteModel.photos.count - 1) < 0? 1:noteModel.photos.count - 1;
         NSInteger rowCount = count / 3 + 1;
-        self.collectionHeightConstraint.constant = ((UIScreenWidth - 43.5 - 45) / 3) * rowCount + 20 + rowCount * 10;
+        self.collectionHeightConstraint.constant = ((UIScreenWidth - 43.5 - 45) / 3) * rowCount + 10 + rowCount * 10;
     } else {
         self.collectionHeightConstraint.constant = 0;
     }

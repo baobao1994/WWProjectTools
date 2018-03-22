@@ -81,16 +81,16 @@
     
     //进行图像的画面质量压缩
     NSData *data=UIImageJPEGRepresentation(newImage, 1.0);
-//    if (data.length > 100*1024) {
-//        if (data.length > 1024*1024) {//1M以及以上
-//            data=UIImageJPEGRepresentation(newImage, 0.7);
-//        }else if (data.length > 512*1024) {//0.5M-1M
-//            data=UIImageJPEGRepresentation(newImage, 0.8);
-//        }else if (data.length > 200*1024) {
-//            //0.25M-0.5M
-//            data=UIImageJPEGRepresentation(newImage, 0.9);
-//        }
-//    }
+    if (data.length > 100*1024) {
+        if (data.length > 1024*1024) {//1M以及以上
+            data=UIImageJPEGRepresentation(newImage, 0.7);
+        }else if (data.length > 512*1024) {//0.5M-1M
+            data=UIImageJPEGRepresentation(newImage, 0.8);
+        }else if (data.length > 200*1024) {
+            //0.25M-0.5M
+            data=UIImageJPEGRepresentation(newImage, 0.9);
+        }
+    }
     return data;
 }
 

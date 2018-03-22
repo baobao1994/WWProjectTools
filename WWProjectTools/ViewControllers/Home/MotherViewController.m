@@ -34,6 +34,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self requestMotherList];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)setUp {
@@ -72,11 +73,13 @@
         if (row == 0) {
             height = 27;
         } else if (row == 1) {
-            height = 74;
+            CGSize size = [self.motherNoteModel.note adaptSizeWithFont:[UIFont systemFontOfSize:15.0] constrainedToSize:CGSizeMake(UIScreenWidth - 43.5, CGFLOAT_MAX)];
+            height = size.height + 20;
             if (self.motherNoteModel.photos.count) {
+                height += 10;
                 NSInteger count = (NSInteger)(self.motherNoteModel.photos.count - 1) < 0? 1:self.motherNoteModel.photos.count - 1;
                 NSInteger rowCount = count / 3 + 1;
-                height += ((UIScreenWidth - 43.5 - 45) / 3) * rowCount + 20 + rowCount * 10;
+                height += ((UIScreenWidth - 43.5 - 45) / 3) * rowCount + 10 + rowCount * 10;
             }
         }
     } else {
@@ -126,6 +129,7 @@
     if (section == 0) {
         if (row == 0) {
             TimeHeaderTableViewCell * cell = [TimeHeaderTableViewCell dequeOrCreateInTable:tableView selectedBackgroundViewColor:UIColorFromHexColor(0xCCC2C2)];
+            cell.timeLabel.text = self.motherNoteModel.publicTime;
             return cell;
         } else {
             MotherNoteTableViewCell * cell = [MotherNoteTableViewCell dequeInTable:tableView];

@@ -12,11 +12,13 @@
 #import "StaticImageCollectionViewCell.h"
 #import "TimeHeaderTableViewCell.h"
 #import "MotherNoteModel.h"
+#import "MotherNoteListViewModel.h"
+#import "NSString+Addition.h"
 
 @interface MotherNoteListViewController ()<WSRefreshDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet WSRefreshTableView *tableView;
-@property (nonatomic, strong) NSMutableArray *noteArr;
+@property (nonatomic, strong) MotherNoteListViewModel *listViewModel;
 
 @end
 
@@ -24,72 +26,64 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     [self setUp];
-    [self requestMotherList];
 }
 
 - (void)setUp {
     self.tableView.customTableDelegate = self;
     [self.tableView setRefreshCategory:BothRefresh];
-    self.noteArr = [[NSMutableArray alloc] init];
+    self.listViewModel = [[MotherNoteListViewModel alloc] init];
+    kWeakSelf;
+    [[self.listViewModel.loadCommand executionSignals] subscribeNext:^(RACSignal *x) {
+        [x subscribeNext:^(id x) {
+            [weakSelf.tableView doneLoadingTableViewData];
+            [weakSelf.tableView reloadData];
+            weakSelf.tableView.isLoadedAllTheData = weakSelf.listViewModel.isLoadedAllTheData;
+        }];
+    }];
+    
+    [self.listViewModel.loadCommand.errors subscribeNext:^(NSError * _Nullable x) {
+        [WWHUD showLoadingWithErrorInView:SelfViewControllerView afterDelay:2];
+    }];
+    
+    [[self.listViewModel.loadMoreCommand executionSignals] subscribeNext:^(RACSignal *x) {
+        [x subscribeNext:^(id x) {
+            [weakSelf.tableView doneLoadingTableViewData];
+            [weakSelf.tableView reloadData];
+            weakSelf.tableView.isLoadedAllTheData = weakSelf.listViewModel.isLoadedAllTheData;
+        }];
+    }];
+    
+    [self.listViewModel.loadMoreCommand.errors subscribeNext:^(NSError * _Nullable x) {
+        [WWHUD showLoadingWithErrorInView:SelfViewControllerView afterDelay:2];
+    }];
+    [[self.listViewModel loadCommand] execute:nil];
 }
 
 #pragma -mark WSRefreshDelegate
 
 - (void)getHeaderDataSoure { // 下拉刷新代理
-    [self requestMotherList];
+    [[self.listViewModel loadCommand] execute:nil];
 }
 
 - (void)getFooterDataSoure { //上拉刷新代理
-    [self requestMoreMotherList];
-}
-
-- (void)requestMoreMotherList {
-    [WWHUD showLoadingWithText:@"加载中..." inView:self.view afterDelay:30];
-    BmobQuery *bquery = [BmobQuery queryWithClassName:@"mother"];
-    bquery.limit = self.noteArr.count + 10;
-    bquery.skip = self.noteArr.count;
-    [bquery orderByDescending:CreatedAtKey];
-    //查找GameScore表的数据
-    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        for (BmobObject *obj in array) {
-            [self.noteArr addObject:[[MotherNoteModel alloc] initWithDictionary:obj]];
-        }
-        [WWHUD hideAllTipsInView:self.view];
-        [WWHUD showLoadingWithSucceedInView:self.view afterDelay:2];
-        [self.tableView doneLoadingTableViewData];
-        [self.tableView reloadData];
-    }];
-}
-
-- (void)requestMotherList {
-    [WWHUD showLoadingWithText:@"加载中..." inView:self.view afterDelay:30];
-    BmobQuery *bquery = [BmobQuery queryWithClassName:@"mother"];
-    bquery.limit = 10;
-    [bquery orderByDescending:CreatedAtKey];
-    [self.noteArr removeAllObjects];
-    //查找GameScore表的数据
-    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        for (BmobObject *obj in array) {
-            [self.noteArr addObject:[[MotherNoteModel alloc] initWithDictionary:obj]];
-        }
-        [WWHUD hideAllTipsInView:self.view];
-        [WWHUD showLoadingWithSucceedInView:self.view afterDelay:2];
-        [self.tableView doneLoadingTableViewData];
-        [self.tableView reloadData];
-    }];
+    [[self.listViewModel loadMoreCommand] execute:nil];
 }
 
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MotherNoteModel *noteModel = self.noteArr[indexPath.row];
-    CGFloat height = 74;
-    if (noteModel.photos.count) {
-        NSInteger count = (NSInteger)(noteModel.photos.count - 1) < 0? 1:noteModel.photos.count - 1;
-        NSInteger rowCount = count / 3 + 1;
-        height += ((UIScreenWidth - 43.5 - 45) / 3) * rowCount + 20 + rowCount * 10;
+    MotherNoteModel *noteModel = self.listViewModel.arrRecords[indexPath.row];
+    CGFloat height = 27;
+    if (!noteModel.isTop) {
+        CGSize size = [noteModel.note adaptSizeWithFont:[UIFont systemFontOfSize:15.0] constrainedToSize:CGSizeMake(UIScreenWidth - 43.5, CGFLOAT_MAX)];
+        height = size.height + 20;
+        if (noteModel.photos.count) {
+            height += 10;
+            NSInteger count = (NSInteger)(noteModel.photos.count - 1) < 0? 1:noteModel.photos.count - 1;
+            NSInteger rowCount = count / 3 + 1;
+            height += ((UIScreenWidth - 43.5 - 45) / 3) * rowCount + 10 + rowCount * 10;
+        }
     }
     return height;
 }
@@ -109,7 +103,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.noteArr.count;
+    return self.listViewModel.arrRecords.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -125,13 +119,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MotherNoteTableViewCell * cell = [MotherNoteTableViewCell dequeInTable:tableView];
-    if (!cell) {
-        cell = [MotherNoteTableViewCell loadFromNib];
-        [cell.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([StaticImageCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell  class])];
+    MotherNoteModel *noteModel = self.listViewModel.arrRecords[indexPath.row];
+    if (noteModel.isTop) {
+        TimeHeaderTableViewCell * cell = [TimeHeaderTableViewCell dequeOrCreateInTable:tableView selectedBackgroundViewColor:UIColorFromHexColor(0xCCC2C2)];
+        cell.timeLabel.text = noteModel.publicTime;
+        return cell;
+    } else {
+        MotherNoteTableViewCell * cell = [MotherNoteTableViewCell dequeInTable:tableView];
+        if (!cell) {
+            cell = [MotherNoteTableViewCell loadFromNib];
+            [cell.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([StaticImageCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell  class])];
+        }
+        [cell setContent:noteModel];
+        return cell;
     }
-    [cell setContent:self.noteArr[indexPath.row]];
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
