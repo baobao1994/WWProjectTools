@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSArray *educationArr;//学历要求
 @property (nonatomic, strong) NSArray *experienceArr;//经验要求
 @property (nonatomic, strong) NSArray *monthlySalaryArr;//月薪范围
+@property (nonatomic, strong) NSMutableArray *weight1Arr;//体重范围1
+@property (nonatomic, strong) NSMutableArray *weight2Arr;//体重范围2
 
 @property (nonatomic, strong) NSArray *firArr;
 @property (nonatomic, strong) NSArray *secArr;
@@ -61,6 +63,14 @@
     self.educationArr = [NSArray arrayWithObjects:@"学历不限",@"大专",@"本科",@"硕士",@"博士", nil];
     self.experienceArr = [NSArray arrayWithObjects:@"经验不限",@"应届生",@"1-3年",@"3-5年",@"5-10年",@"10年以上", nil];
     self.monthlySalaryArr = [NSArray arrayWithObjects:@"面议",@"1k-2k",@"2k-4k",@"4k-6k",@"6k-8k",@"8k-10k",@"10k-15k",@"15k-20k",@"20k-25k",@"25k-50k",@"50k以上", nil];
+    self.weight1Arr = [[NSMutableArray alloc] init];
+    for (int i = 40; i < 80; i ++) {
+        [self.weight1Arr addObject:[NSString stringWithFormat:@"%d",i]];
+    }
+    self.weight2Arr = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 100; i ++ ) {
+        [self.weight2Arr addObject:[NSString stringWithFormat:@"%02d",i]];
+    }
     [self initTime];
 }
 
@@ -178,6 +188,13 @@
             _firArr = [_monthlySalaryArr copy];
             _secArr = nil;
             _thiArr = nil;
+            break;
+        case ShowPickerViewTypeOfWeight:
+            self.showTitleLabel.text = @"请选择体重";
+            self.numberOfComponents = 3;
+            _firArr = [self.weight1Arr copy];
+            _secArr = @[@"."];
+            _thiArr = [self.weight2Arr copy];
             break;
         default:
             break;
@@ -361,6 +378,9 @@
         } else {
             pickerLabel.text = [self pickerView:pickerView titleForRow:row forComponent:component];
         }
+        if (self.pickerViewType == ShowPickerViewTypeOfWeight) {
+            pickerLabel.textAlignment = NSTextAlignmentRight;
+        }
     } else if (component == 1) {
         if (row == _secSelectIndex){
             [pickerLabel setFont:[UIFont systemFontOfSize:19.0f]];
@@ -374,6 +394,9 @@
             pickerLabel.attributedText  = [self pickerView:pickerView attributedTitleForRow:_thiSelectIndex forComponent:component];
         } else {
             pickerLabel.text = [self pickerView:pickerView titleForRow:row forComponent:component];
+        }
+        if (self.pickerViewType == ShowPickerViewTypeOfWeight) {
+            pickerLabel.textAlignment = NSTextAlignmentLeft;
         }
     }
     return pickerLabel;

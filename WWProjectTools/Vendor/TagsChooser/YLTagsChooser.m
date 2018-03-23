@@ -23,7 +23,7 @@ static NSString *footerIdentifier = @"YLCollectionReusableView";
 static NSString *cellIdentifier = @"YLTagsCollectionViewCell";
 
 static NSTimeInterval const kSheetAnimationDuration = 0.25;
-static CGFloat const kBottomBtnHeight = 44.f;
+static CGFloat const kBottomBtnHeight = 40.f;
 static CGFloat const kBottomGap = 24.f;
 static CGFloat const kYGap = 10.f;
 
@@ -39,8 +39,8 @@ static CGFloat const kYGap = 10.f;
 
 @end
 
-
 @implementation YLTagsChooser
+
 -(instancetype)initWithBottomHeight:(CGFloat)bHeight
                      maxSelectCount:(CGFloat)maxCount
                            delegate:(id<YLTagsChooserDelegate>)aDelegate
@@ -48,6 +48,7 @@ static CGFloat const kYGap = 10.f;
     if(self = [super initWithFrame:CGRectMake(0, 0, kFrameWidth, kFrameHeight)]){
         _orignalTags = [NSMutableArray array];
         _selectedTags = [NSMutableArray array];
+        _sectionHeadTitleArr = @[];
         self.alpha = 0.f;
         self.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.5];
         
@@ -114,7 +115,7 @@ static CGFloat const kYGap = 10.f;
 {
     if(!_ensureBtn){
         _ensureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _ensureBtn.backgroundColor = HEXCOLOR(0x25c5b6);
+        _ensureBtn.backgroundColor = UIColorFromHexColor(0X1AA0F8);
         _ensureBtn.layer.cornerRadius = 5;
         _ensureBtn.layer.masksToBounds = YES;
         _ensureBtn.titleLabel.font = [UIFont systemFontOfSize:16];
@@ -156,7 +157,12 @@ static CGFloat const kYGap = 10.f;
 {
     if([kind isEqualToString:UICollectionElementKindSectionHeader]){
         YLCollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
-        [header setTitle:[NSString stringWithFormat:@"Section Header %li",(long)indexPath.section]];
+        NSString *title = self.sectionHeadTitleArr[indexPath.section];
+        if (title.length) {
+            [header setTitle:title];
+        } else {
+            [header setTitle:@"标题"];
+        }
         return header;
     }else{
         YLCollectionReusableView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footerIdentifier forIndexPath:indexPath];

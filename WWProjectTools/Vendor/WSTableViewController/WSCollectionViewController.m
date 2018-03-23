@@ -28,12 +28,8 @@ static NSString * CollectionViewCellID = @"collectionViewCellID";
     _collectionView.dataSource = self;
     _collectionView.customTableDelegate = self;
     _collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    if (@available(iOS 11.0, *)) {
-        //解决滑动动画卡顿问题以及头部偏移20问题
-        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//UIScrollView也适用
-    }else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    //解决滑动动画卡顿问题以及头部偏移20问题
+    self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//UIScrollView也适用
 }
 
 - (void)didReceiveMemoryWarning {

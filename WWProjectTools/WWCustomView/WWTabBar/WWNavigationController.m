@@ -24,14 +24,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.shouldPopItemAfterPopViewController = NO;
-    __weak typeof (self) weakSelf = self;
-    //解决因为自定义导航栏按钮,滑动返回失效的问题
-    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.interactivePopGestureRecognizer.delegate = weakSelf;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //设置导航条透明度
+    self.navigationController.navigationBar.translucent = NO;//不透明
+    [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:1];
+    //图标颜色为黑色
+    [self.navigationBar setTintColor:[UIColor whiteColor]];
+    //导航栏背景颜色
+    [self.navigationBar setBarTintColor:UIColorMake(249, 204, 226)];
+    //导航栏title颜色
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    //导航条下面的黑线
+    self.navigationBar.clipsToBounds = NO;
+    //刷新状态栏背景颜色
+     [self setNeedsStatusBarAppearanceUpdate];
+    //设置状态栏颜色
+    [self setStatusBarBackgroundColor:[UIColor clearColor]];
+}
+
+//一定要在viewWillDisappear里面写，如果写在viewDidDisappear里面会出问题！！！！
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    //为了不影响其他页面在viewDidDisappear做以下设置
+    self.navigationBar.translucent = YES;//透明
+    [self setStatusBarBackgroundColor:[UIColor clearColor]];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+//设置状态栏颜色
+- (void)setStatusBarBackgroundColor:(UIColor *)color {
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    NSLog(@"statusBar.backgroundColor--->%@",statusBar.backgroundColor);
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        statusBar.backgroundColor = color;
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     }
-    // Do any additional setup after loading the view.
-    self.navigationBar.barTintColor = UIColorMake(249, 204, 226);
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorFromHexColor(0X1AA0F8)}];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;//白色
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,7 +150,7 @@
     if (self.childViewControllers.count > 0) { // 如果push进来的不是第一个控制器
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:@" 返回" forState:UIControlStateNormal];
-        [button setTitleColor:UIColorFromHexColor(0x1AA0F8) forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
         button.size = CGSizeMake(80, 30);
         // 让按钮内部的所有内容左对齐

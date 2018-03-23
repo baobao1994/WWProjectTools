@@ -33,7 +33,7 @@
     self.minimumLineSpacing = 10;//行间距
     //support set sectionheader and sectionfooter at the same time
     self.headerReferenceSize = CGSizeMake(CGRectGetWidth(self.collectionView.frame), 50);//设置section header 固定高度，如果需要的话
-    self.footerReferenceSize = CGSizeMake(CGRectGetWidth(self.collectionView.frame), 30);//设置section footer 固定高度，如果需要的话
+    self.footerReferenceSize = CGSizeMake(CGRectGetWidth(self.collectionView.frame), CGFLOAT_MIN);//设置section footer 固定高度，如果需要的话
     self.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     self.scrollDirection = UICollectionViewScrollDirectionVertical;
 }

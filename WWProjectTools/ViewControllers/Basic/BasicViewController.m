@@ -8,7 +8,7 @@
 
 #import "BasicViewController.h"
 
-@interface BasicViewController ()
+@interface BasicViewController ()<UIGestureRecognizerDelegate>
 
 @end
 
@@ -16,28 +16,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    if (@available(iOS 11.0, *)) {
-        //解决滑动动画卡顿问题以及头部偏移20问题
-//        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//UIScrollView也适用
-    }else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+}
+
+#pragma mark - UIGestureRecognizer Delegate
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    //判断是否是一级视图，若是则关闭滑动返回手势
+    if (self.navigationController.viewControllers.count == 1) {
+        return NO;
+    } else {
+        return YES;
     }
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

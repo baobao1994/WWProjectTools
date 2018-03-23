@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, ShowPickerViewType) {
     ShowPickerViewTypeOfEducation,//学历
     ShowPickerViewTypeOfExperience,//经验
     ShowPickerViewTypeOfMonthlySalary,//月薪
+    ShowPickerViewTypeOfWeight,//体重
 };
 
 @interface CustomPickerView : UIView

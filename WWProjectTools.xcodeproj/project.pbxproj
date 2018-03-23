@@ -47,6 +47,8 @@
 		4F45EC00205B6DFD008AE38D /* WSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBF8205B6DFD008AE38D /* WSRefreshHeader.m */; };
 		4F45EC01205B6DFD008AE38D /* WSRefreshCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBF9205B6DFD008AE38D /* WSRefreshCollectionView.m */; };
 		4F45EC02205B6DFD008AE38D /* WSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBFC205B6DFD008AE38D /* WSCollectionViewController.m */; };
+		4F6974912064D00B00B9C38A /* EditVariousIndicatorsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6974902064D00B00B9C38A /* EditVariousIndicatorsViewModel.m */; };
+		4F6974942064D01D00B9C38A /* EditMotherNoteViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6974932064D01D00B9C38A /* EditMotherNoteViewModel.m */; };
 		4F794ED22060A11B00EB4E25 /* EditMotherNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794ED02060A11B00EB4E25 /* EditMotherNoteViewController.m */; };
 		4F794ED32060A11B00EB4E25 /* EditMotherNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F794ED12060A11B00EB4E25 /* EditMotherNoteViewController.xib */; };
 		4F794ED82060A3F600EB4E25 /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794ED72060A3F500EB4E25 /* QMUIConfigurationTemplate.m */; };
@@ -403,6 +405,10 @@
 		4F45EBFA205B6DFD008AE38D /* WSRefreshDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRefreshDelegate.h; sourceTree = "<group>"; };
 		4F45EBFB205B6DFD008AE38D /* WSRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRefreshTableView.h; sourceTree = "<group>"; };
 		4F45EBFC205B6DFD008AE38D /* WSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCollectionViewController.m; sourceTree = "<group>"; };
+		4F69748F2064D00B00B9C38A /* EditVariousIndicatorsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditVariousIndicatorsViewModel.h; sourceTree = "<group>"; };
+		4F6974902064D00B00B9C38A /* EditVariousIndicatorsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditVariousIndicatorsViewModel.m; sourceTree = "<group>"; };
+		4F6974922064D01D00B9C38A /* EditMotherNoteViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMotherNoteViewModel.h; sourceTree = "<group>"; };
+		4F6974932064D01D00B9C38A /* EditMotherNoteViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMotherNoteViewModel.m; sourceTree = "<group>"; };
 		4F790462200F391A00CA7DF3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		4F794ECF2060A11B00EB4E25 /* EditMotherNoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMotherNoteViewController.h; sourceTree = "<group>"; };
 		4F794ED02060A11B00EB4E25 /* EditMotherNoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMotherNoteViewController.m; sourceTree = "<group>"; };
@@ -831,6 +837,7 @@
 		4F1AF26B205BA44C00D8419C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F69748E2064CF3F00B9C38A /* Public */,
 				4F794ECD20609A7300EB4E25 /* Home */,
 				4F1AF26C205BA46800D8419C /* DBModels.h */,
 				4F1AF26D205BA46800D8419C /* DBModels.m */,
@@ -995,6 +1002,17 @@
 			path = WSTableViewController;
 			sourceTree = "<group>";
 		};
+		4F69748E2064CF3F00B9C38A /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				4F6974922064D01D00B9C38A /* EditMotherNoteViewModel.h */,
+				4F6974932064D01D00B9C38A /* EditMotherNoteViewModel.m */,
+				4F69748F2064D00B00B9C38A /* EditVariousIndicatorsViewModel.h */,
+				4F6974902064D00B00B9C38A /* EditVariousIndicatorsViewModel.m */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
 		4F794ECD20609A7300EB4E25 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1121,14 +1139,14 @@
 			isa = PBXGroup;
 			children = (
 				4FB8117B2063AD27000B03C6 /* YLTag.h */,
-				4FB8117C2063AD27000B03C6 /* YLTagsChooser.h */,
-				4FB8117D2063AD27000B03C6 /* NSArray+YLBoundsCheck.h */,
-				4FB8117E2063AD27000B03C6 /* YLCollectionReusableView.h */,
-				4FB8117F2063AD27000B03C6 /* YLWaterFlowLayout.m */,
 				4FB811802063AD27000B03C6 /* YLTag.m */,
+				4FB8117C2063AD27000B03C6 /* YLTagsChooser.h */,
 				4FB811812063AD27000B03C6 /* YLTagsChooser.m */,
 				4FB811822063AD27000B03C6 /* YLWaterFlowLayout.h */,
+				4FB8117F2063AD27000B03C6 /* YLWaterFlowLayout.m */,
+				4FB8117E2063AD27000B03C6 /* YLCollectionReusableView.h */,
 				4FB811832063AD27000B03C6 /* YLCollectionReusableView.m */,
+				4FB8117D2063AD27000B03C6 /* NSArray+YLBoundsCheck.h */,
 				4FB811842063AD27000B03C6 /* NSArray+YLBoundsCheck.m */,
 			);
 			path = TagsChooser;
@@ -2118,6 +2136,7 @@
 				4FB811912063B617000B03C6 /* CustomKeyWindowView.m in Sources */,
 				4FD1EEAC2062386B0086B94C /* ZFHorizontalAxis.m in Sources */,
 				4FFEE0AE204D126D00F6D520 /* SecondViewController.m in Sources */,
+				4F6974912064D00B00B9C38A /* EditVariousIndicatorsViewModel.m in Sources */,
 				4F794F1F2060EDA300EB4E25 /* WWHUD.m in Sources */,
 				4FD1EEB92062386B0086B94C /* ZFRadar.m in Sources */,
 				4FCEABCA205FA6E10045AB0C /* HomeViewController.m in Sources */,
@@ -2141,6 +2160,7 @@
 				4F45EC01205B6DFD008AE38D /* WSRefreshCollectionView.m in Sources */,
 				4F1AF29D205BA80600D8419C /* UIButton+Addition.m in Sources */,
 				4FCEABCE205FA6E10045AB0C /* SmallFamilyViewController.m in Sources */,
+				4F6974942064D01D00B9C38A /* EditMotherNoteViewModel.m in Sources */,
 				4FB811882063AD28000B03C6 /* YLCollectionReusableView.m in Sources */,
 				4F1AF2CC205BBD2100D8419C /* ESPictureModel.m in Sources */,
 				4FFEE0B9204D126D00F6D520 /* WWBadgeView.m in Sources */,

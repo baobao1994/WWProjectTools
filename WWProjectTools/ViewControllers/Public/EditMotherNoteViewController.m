@@ -16,6 +16,7 @@
 #import "WWFile.h"
 #import "UIView+Addtion.h"
 #import "RHDeviceAuthTool.h"
+#import "EditMotherNoteViewModel.h"
 
 @interface EditMotherNoteViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) NSMutableArray *photosArr;
 @property (nonatomic, strong) WWPictureSelect *pictureSelect;
 @property (nonatomic, strong) NSMutableArray *filePathArr;
+@property (nonatomic, strong) EditMotherNoteViewModel *viewModel;
 
 @end
 
@@ -50,6 +52,7 @@
     self.photosArr = [[NSMutableArray alloc] init];
     self.filePathArr = [[NSMutableArray alloc] init];
     self.pictureSelect = [[WWPictureSelect alloc] initWithController:self];
+    self.viewModel = [[EditMotherNoteViewModel alloc] init];
     kWeakSelf;
     self.pictureSelect.selectImages = ^(NSMutableArray *imagesArr) {
         weakSelf.photosArr = imagesArr;
@@ -76,10 +79,23 @@
            [weakSelf.pictureSelect presentAlbumViewControllerWithTitle:@"选择图片"];
         }];
     }];
+    [[self.viewModel.publicEditMotherNoteCommand executionSignals] subscribeNext:^(RACSignal *x) {
+        [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
+        [x subscribeNext:^(id x) {
+            [WWHUD hideAllTipsInView:NavigationControllerView];
+            [WWHUD showLoadingWithText:@"发布成功" inView:NavigationControllerView afterDelay:1];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }];
+    }];
+    
+    [self.viewModel.publicEditMotherNoteCommand.errors subscribeNext:^(NSError * _Nullable x) {
+        [WWHUD hideAllTipsInView:NavigationControllerView];
+        [WWHUD showLoadingWithErrorInView:NavigationControllerView afterDelay:2];
+    }];
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
-    [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
+    self.viewModel.note = self.textInputView.text;
     if (self.filePathArr.count) {
         [BmobFile filesUploadBatchWithPaths:self.filePathArr
                               progressBlock:^(int index, float progress) {
@@ -93,30 +109,14 @@
                                       BmobFile *file = array [i];
                                       [fileArray addObject:file.url];
                                   }
-                                  [self saveBmobDataWithPhotosUrlArr:fileArray];
+                                  self.viewModel.photosArr = [fileArray copy];
+                                  [[self.viewModel publicEditMotherNoteCommand] execute:nil];
                               }
          ];
     } else {
-        [self saveBmobDataWithPhotosUrlArr:[[NSMutableArray alloc] init]];
+        self.viewModel.photosArr = @[];
+        [[self.viewModel publicEditMotherNoteCommand] execute:nil];
     }
-}
-
-- (void)saveBmobDataWithPhotosUrlArr:(NSMutableArray *)photosUrlArr {
-    BmobObject *obj = [[BmobObject alloc] initWithClassName:@"mother"];
-    [obj setObject:photosUrlArr forKey:PhotosKey];
-    NSDate *date = [NSDate date];
-    NSString *publicTime = [date formateDate:@"yyyy-MM-dd"];
-    [obj setObject:publicTime forKey:PublicTimeKey];
-    [obj setObject:self.textInputView.text forKey:NoteKey];
-    [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-        [WWHUD hideAllTipsInView:NavigationControllerView];
-        if (isSuccessful) {
-            [WWHUD showLoadingWithText:@"发布成功" inView:NavigationControllerView afterDelay:2];
-            [self.navigationController popViewControllerAnimated:YES];
-        } else {
-            [WWHUD showLoadingWithErrorInView:NavigationControllerView afterDelay:2];
-        }
-    }];
 }
 
 - (QMUITextView *)textInputView {

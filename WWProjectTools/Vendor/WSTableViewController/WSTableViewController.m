@@ -26,15 +26,11 @@
     self.tableView.customTableDelegate = self;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    if (@available(iOS 11.0, *)) {
-        //解决滑动动画卡顿问题以及头部偏移20问题
-        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//UIScrollView也适用
-        self.tableView.estimatedRowHeight = 0;
-        self.tableView.estimatedSectionHeaderHeight = 0;
-        self.tableView.estimatedSectionFooterHeight = 0;
-    }else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    //解决滑动动画卡顿问题以及头部偏移20问题
+    self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//UIScrollView也适用
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
 }
 
 - (void)didReceiveMemoryWarning {

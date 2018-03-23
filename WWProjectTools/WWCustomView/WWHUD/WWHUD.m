@@ -48,7 +48,7 @@
 }
 
 + (void)showLoadingWithErrorInView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay {
-    [QMUITips showError:@"加载失败，请检查网络情况" inView:view hideAfterDelay:afterDelay];
+    [QMUITips showError:@"请检查网络情况" inView:view hideAfterDelay:afterDelay];
 }
 
 + (void)showLoadingWithErrorText:(NSString *)text inView:(UIView *)view afterDelay:(NSTimeInterval)afterDelay {
