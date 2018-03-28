@@ -22,4 +22,6 @@
 
 - (NSString *)timeIntervalFromTime:(NSString *)time;
 
++ (NSString *)cTimestampFromString:(NSString *)theTime;
+
 @end

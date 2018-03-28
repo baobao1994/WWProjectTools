@@ -14,6 +14,7 @@
 #import "UIView+Addtion.h"
 #import "UIViewController+Addition.h"
 #import "EditVariousIndicatorsViewModel.h"
+#import "NSDate+Addition.h"
 
 @interface EditVariousIndicatorsViewController ()<YLTagsChooserDelegate>
 
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *weightButton;
 @property (weak, nonatomic) IBOutlet UIButton *moodButton;
 @property (weak, nonatomic) IBOutlet UIButton *physicalStateButton;
+@property (weak, nonatomic) IBOutlet UIButton *publicTimeButton;
 @property (weak, nonatomic) IBOutlet QMUITextView *noteTextView;
 @property (nonatomic, copy) NSString *weightStr;
 @property (nonatomic, copy) NSString *moodStr;
@@ -37,14 +39,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"发布基本数值";
     [self setUp];
     [self createNavigationRightItemWithTitle:@"发布"];
     [self bind];
-//    //创建一个高20的假状态栏
-//    UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, self.view.bounds.size.width, 20)];
-//    statusBarView.backgroundColor = UIColorMake(249, 204, 226);
-//    // 添加到 navigationBar 上
-//    [self.navigationController.navigationBar addSubview:statusBarView];
 }
 
 - (void)setUp {
@@ -57,10 +55,13 @@
     [self.moodButton setCornerRadius:5];
     [self.weightButton setCornerRadius:5];
     [self.physicalStateButton setCornerRadius:5];
-    [self.noteTextView setBorderLineWithColor:UIColorFromHexColor(0X909090)];
+    [self.publicTimeButton setCornerRadius:5];
     self.showView = [[CustomKeyWindowView alloc] init];
     [self.showView setCustomContentView:self.pickerView backGroundColor:[UIColor blackColor] Alpha:0.5];
     self.viewModel = [[EditVariousIndicatorsViewModel alloc] init];
+    NSDate *nowDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSString *dateString = [nowDate formateDate:@"yyyy-MM-dd"];
+    [self.publicTimeButton setTitle:[NSString stringWithFormat:@"发布时间:%@",dateString] forState:UIControlStateNormal];
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
@@ -68,6 +69,7 @@
     self.viewModel.mood = self.moodStr;
     self.viewModel.physicalState = self.physicalStateStr;
     self.viewModel.note = self.noteTextView.text;
+    self.viewModel.publicTime = [self.publicTimeButton.titleLabel.text substringFromIndex:5];
     [[self.viewModel publicEditVariousIndicatorsCommand] execute:nil];
 }
 
@@ -75,7 +77,17 @@
     kWeakSelf;
     [[self.weightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         NSArray *weightArr = [weakSelf.weightStr componentsSeparatedByString:@"."];
+        weakSelf.pickerView.pickerViewType = ShowPickerViewTypeOfWeight;
         weakSelf.pickerView.defaultSelectedArr = @[weightArr[0],@".",weightArr[1]];
+        [weakSelf.showView showDirection:DirectionTypeOfTop animateWithDuration:0.35];
+    }];
+    [[self.publicTimeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSString *timeString = [weakSelf.publicTimeButton.titleLabel.text substringFromIndex:5];
+        NSArray *timeArr = [timeString componentsSeparatedByString:@"-"];
+        weakSelf.pickerView.pickerViewType = ShowPickerViewTypeOfTime;
+        weakSelf.pickerView.defaultSelectedArr = @[[NSString stringWithFormat:@"%@年",timeArr[0]],
+                                                       [NSString stringWithFormat:@"%@月",timeArr[1]],
+                                                       [NSString stringWithFormat:@"%@日",timeArr[2]]];
         [weakSelf.showView showDirection:DirectionTypeOfTop animateWithDuration:0.35];
     }];
     [[self.moodButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -164,12 +176,21 @@
         _pickerView.numberOfComponents = 3;
         _pickerView.pickerViewType = ShowPickerViewTypeOfWeight;
         [_pickerView setSelectedPickerData:^(NSArray *selectedArr, ShowPickerViewType pickerViewType) {
-            NSMutableString *choseString = [[NSMutableString alloc] init];
-            for (NSString *choose in selectedArr) {
-                [choseString appendString:choose];
+            if (pickerViewType == ShowPickerViewTypeOfWeight) {
+                NSMutableString *choseString = [[NSMutableString alloc] init];
+                for (NSString *choose in selectedArr) {
+                    [choseString appendString:choose];
+                }
+                weakSelf.weightStr = choseString;
+                [weakSelf.weightButton setTitle:[NSString stringWithFormat:@"体重:%@",choseString] forState:UIControlStateNormal];
+            } else {
+                [weakSelf.publicTimeButton setTitle:[NSString stringWithFormat:@"发布时间:%ld-%02ld-%02ld",
+                                                     [selectedArr[0] integerValue],
+                                                     [selectedArr[1] integerValue],
+                                                     [selectedArr[2] integerValue]]
+                                           forState:UIControlStateNormal];
+
             }
-            weakSelf.weightStr = choseString;
-            [weakSelf.weightButton setTitle:[NSString stringWithFormat:@"体重:%@",choseString] forState:UIControlStateNormal];
         }];
     }
     return _pickerView;

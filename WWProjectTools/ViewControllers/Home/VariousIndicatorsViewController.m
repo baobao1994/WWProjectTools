@@ -12,6 +12,8 @@
 #import "MoodIndicatorsViewController.h"
 #import "PhysicalStateIndicatorsViewController.h"
 #import "VariousIndicatorsViewModel.h"
+#import "UIViewController+Addition.h"
+#import "EditVariousIndicatorsViewController.h"
 
 @interface VariousIndicatorsViewController ()
 
@@ -28,6 +30,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
+    [self createNavigationRightItemWithTitle:@"发布"];
+}
+- (void)selectedNavigationRightItem:(id)sender {
+    EditVariousIndicatorsViewController *editVC = [[EditVariousIndicatorsViewController alloc] init];
+    [self.navigationController pushViewController:editVC animated:YES];
 }
 
 - (void)setUp {

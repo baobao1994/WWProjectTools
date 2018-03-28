@@ -33,7 +33,7 @@
     //图标颜色为白色
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     //导航栏背景颜色
-    [self.navigationBar setBarTintColor:UIColorMake(249, 204, 226)];
+    [self.navigationBar setBarTintColor:UIColorFromHexColor(0XEC7D8A)];
     //导航栏title颜色
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     //导航条下面的黑线
@@ -152,7 +152,7 @@
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateHighlighted];
-        button.size = CGSizeMake(80, 30);
+        button.size = CGSizeMake(60, 30);
         // 让按钮内部的所有内容左对齐
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         // 让按钮的内容往左边偏移10

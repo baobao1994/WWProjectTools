@@ -26,9 +26,7 @@
         kWeakSelf;
         BmobObject *obj = [[BmobObject alloc] initWithClassName:MotherTable];
         [obj setObject:weakSelf.photosArr forKey:PhotosKey];
-        NSDate *date = [NSDate date];
-        NSString *publicTime = [date formateDate:@"yyyy-MM-dd"];
-        [obj setObject:publicTime forKey:PublicTimeKey];
+        [obj setObject:[NSDate cTimestampFromString:weakSelf.publicTime] forKey:PublicTimeKey];
         [obj setObject:weakSelf.note forKey:NoteKey];
         [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
             if (isSuccessful) {

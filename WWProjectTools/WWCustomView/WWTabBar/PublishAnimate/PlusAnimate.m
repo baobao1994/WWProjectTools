@@ -169,29 +169,36 @@
     
     __block int  i = 0 , k = 0;
     for (UIView *  btn in _BtnItem) {
+        btn.transform = CGAffineTransformScale(btn.transform, 1.2734 * bl, 1.2734 * bl);//缩放
+        btn.center = CGPointMake((74 + i%3 * 113) * bl, self.frame.size.height - (165 + (btn.frame.size.height + 40) * (i/3)) * bl);
+        i ++;
+        UILabel * lab = (UILabel *)_BtnItemTitle[k++];
+        lab.frame = CGRectMake(0, 0, W/3-20, 30);
+        lab.center = CGPointMake(btn.center.x, CGRectGetMaxY(btn.frame)+10);
+
         //rotation
-        [UIView animateWithDuration:0.7 delay:i*0.14 usingSpringWithDamping:0.46 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-            btn.transform = CGAffineTransformScale(btn.transform, 1.2734 * bl, 1.2734 * bl);//缩放
-            btn.center = CGPointMake((74 + i%3 * 113) * bl, self.frame.size.height - (165 + (btn.frame.size.height + 40) * (i/3)) * bl);
-            i ++;
-        } completion:nil];
+//        [UIView animateWithDuration:0.7 delay:i*0.14 usingSpringWithDamping:0.46 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+//            btn.transform = CGAffineTransformScale(btn.transform, 1.2734 * bl, 1.2734 * bl);//缩放
+//            btn.center = CGPointMake((74 + i%3 * 113) * bl, self.frame.size.height - (165 + (btn.frame.size.height + 40) * (i/3)) * bl);
+//            i ++;
+//        } completion:nil];
 
         //move
-        [UIView animateWithDuration:0.2 delay:i*0.1 options:UIViewAnimationOptionTransitionNone animations:^{
-            btn.transform = CGAffineTransformRotate (btn.transform, -M_2_PI);
-        } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionTransitionNone animations:^{
-                btn.transform = CGAffineTransformRotate (btn.transform, M_2_PI+M_LOG10E);
-            } completion:^(BOOL finished) {
-                [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionTransitionNone animations:^{
-                    btn.transform = CGAffineTransformRotate (btn.transform, -M_LOG10E);
-                } completion:^(BOOL finished) {
-                    UILabel * lab = (UILabel *)_BtnItemTitle[k++];
-                    lab.frame = CGRectMake(0, 0, W/3-30, 30);
-                    lab.center = CGPointMake(btn.center.x, CGRectGetMaxY(btn.frame)+10);
-                }];
-            }];
-        }];
+//        [UIView animateWithDuration:0.2 delay:i*0.1 options:UIViewAnimationOptionTransitionNone animations:^{
+//            btn.transform = CGAffineTransformRotate (btn.transform, -M_2_PI);
+//        } completion:^(BOOL finished) {
+//            [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionTransitionNone animations:^{
+//                btn.transform = CGAffineTransformRotate (btn.transform, M_2_PI+M_LOG10E);
+//            } completion:^(BOOL finished) {
+//                [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionTransitionNone animations:^{
+//                    btn.transform = CGAffineTransformRotate (btn.transform, -M_LOG10E);
+//                } completion:^(BOOL finished) {
+//                    UILabel * lab = (UILabel *)_BtnItemTitle[k++];
+//                    lab.frame = CGRectMake(0, 0, W/3-30, 30);
+//                    lab.center = CGPointMake(btn.center.x, CGRectGetMaxY(btn.frame)+10);
+//                }];
+//            }];
+//        }];
     }
 }
 
@@ -200,30 +207,30 @@
  *  Cancle animation
  */
 - (void)cancelAnimation{
+    [self removeFromSuperview];
     //rotation
-    [UIView animateWithDuration:0.1 animations:^{
-        _CenterBtn.transform = CGAffineTransformIdentity;
-    }completion:^(BOOL finished) {
-        //move
-        int n = (int)_BtnItem.count;
-        for (int i = n-1; i>=0; i--){
-            UIButton *btn = _BtnItem[i];
-            [UIButton animateWithDuration:0.2 delay:0.1*(n-i) options:UIViewAnimationOptionTransitionCurlDown animations:^{
-                btn.center = self.CenterBtn.center;
-                btn.transform = CGAffineTransformMakeScale(1, 1);
-                btn.transform = CGAffineTransformRotate(btn.transform, -M_PI_4);
-                
-                UILabel * lab = (UILabel *)_BtnItemTitle[i];
-                [lab removeFromSuperview];
-            } completion:^(BOOL finished) {
-                [btn removeFromSuperview];
-                if (i==0) {
-                    [self removeFromSuperview];
-                }
-            }];
-        }
-    }];
-    
+//    [UIView animateWithDuration:0.1 animations:^{
+//        _CenterBtn.transform = CGAffineTransformIdentity;
+//    }completion:^(BOOL finished) {
+//        //move
+//        int n = (int)_BtnItem.count;
+//        for (int i = n-1; i>=0; i--){
+//            UIButton *btn = _BtnItem[i];
+//            [UIButton animateWithDuration:0.2 delay:0.1*(n-i) options:UIViewAnimationOptionTransitionCurlDown animations:^{
+//                btn.center = self.CenterBtn.center;
+//                btn.transform = CGAffineTransformMakeScale(1, 1);
+//                btn.transform = CGAffineTransformRotate(btn.transform, -M_PI_4);
+//
+//                UILabel * lab = (UILabel *)_BtnItemTitle[i];
+//                [lab removeFromSuperview];
+//            } completion:^(BOOL finished) {
+//                [btn removeFromSuperview];
+//                if (i==0) {
+//                    [self removeFromSuperview];
+//                }
+//            }];
+//        }
+//    }];
 }
 
 

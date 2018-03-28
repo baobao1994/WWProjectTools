@@ -14,6 +14,9 @@
 #import "MotherNoteModel.h"
 #import "MotherNoteListViewModel.h"
 #import "NSString+Addition.h"
+#import "NSDate+Addition.h"
+#import "UIViewController+Addition.h"
+#import "EditMotherNoteViewController.h"
 
 @interface MotherNoteListViewController ()<WSRefreshDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -27,7 +30,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
+    [self createNavigationRightItemWithTitle:@"发布"];
     [WWHUD showLoadingWithInView:SelfViewControllerView afterDelay:30];
+}
+
+- (void)selectedNavigationRightItem:(id)sender {
+    EditMotherNoteViewController *editVC = [[EditMotherNoteViewController alloc] init];
+    [self.navigationController pushViewController:editVC animated:YES];
 }
 
 - (void)setUp {
@@ -125,7 +134,7 @@
     MotherNoteModel *noteModel = self.listViewModel.arrRecords[indexPath.row];
     if (noteModel.isTop) {
         TimeHeaderTableViewCell * cell = [TimeHeaderTableViewCell dequeOrCreateInTable:tableView selectedBackgroundViewColor:UIColorFromHexColor(0xCCC2C2)];
-        cell.timeLabel.text = noteModel.publicTime;
+        cell.timeLabel.text = [[NSDate alloc] setTimeInterval:noteModel.publicTime formateDate:@"yyyy-MM-dd"];
         return cell;
     } else {
         MotherNoteTableViewCell * cell = [MotherNoteTableViewCell dequeInTable:tableView];

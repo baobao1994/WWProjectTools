@@ -34,6 +34,8 @@ typedef NS_ENUM(NSInteger, ShowPickerViewType) {
 @property (nonatomic, assign) ShowPickerViewType pickerViewType;
 @property (nonatomic, strong) NSArray *defaultSelectedArr;
 @property (nonatomic, assign) NSInteger numberOfComponents;//列数
+//@property (nonatomic, assign) double minTime;//限制最低时间
+//@property (nonatomic, assign) double maxTime;//限制最高时间
 
 @property (nonatomic, copy) void (^selectedPickerData)(NSArray *selectedArr,ShowPickerViewType pickerViewType);
 

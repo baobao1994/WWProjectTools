@@ -8,6 +8,7 @@
 
 #import "VariousIndicatorsViewModel.h"
 #import "VariousIndicatorsModel.h"
+#import "NSDate+Addition.h"
 
 @implementation VariousIndicatorsViewModel
 
@@ -38,6 +39,7 @@
         kWeakSelf;
         BmobQuery *bquery = [BmobQuery queryWithClassName:VariousIndicatorsTable];
         bquery.limit = 30;
+        [bquery orderByDescending:PublicTimeKey];
         [bquery orderByDescending:CreatedAtKey];
         [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
             if (error.code == 0) {
@@ -71,7 +73,7 @@
                         default:
                             break;
                     }
-                    [weakSelf.publicTimeArr addObject:variousIndicatorsModel.publicTime];
+                    [weakSelf.publicTimeArr addObject:[[NSDate alloc] setTimeInterval:variousIndicatorsModel.publicTime formateDate:@"MM-dd"]];
                     NSArray *physicalStateArr = [variousIndicatorsModel.physicalState componentsSeparatedByString:@","];
                     NSInteger badStateCount = 0;
                     for (int i = 0; i < physicalStateArr.count; i ++) {

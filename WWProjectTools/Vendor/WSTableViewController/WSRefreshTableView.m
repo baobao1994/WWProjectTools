@@ -24,7 +24,7 @@
 @implementation WSRefreshTableView
 
 @synthesize customTableDelegate = _customTableDelegate;
-@synthesize isLoadedAllTheData = _isLoadedAllTheData;
+//@synthesize isLoadedAllTheData = _isLoadedAllTheData;
 
 #pragma mark - view lifestyle
 
@@ -63,6 +63,11 @@
     else {
         [self.mj_footer resetNoMoreData];
     }
+}
+
+- (void)setIsLoadedAllTheData:(BOOL)isLoadedAllTheData {
+    _isLoadedAllTheData = isLoadedAllTheData;
+    [self setLoadedAllTheData];
 }
 
 - (void)showNoDataViewWithImage:(UIImage *)image tips:(NSString *)tips {

@@ -27,9 +27,7 @@
         BmobObject *obj = [[BmobObject alloc] initWithClassName:VariousIndicatorsTable];
         [obj setObject:weakSelf.weight forKey:WeightKey];
         [obj setObject:weakSelf.note forKey:NoteKey];
-        NSDate *date = [NSDate date];
-        NSString *publicTime = [date formateDate:@"MM.dd"];
-        [obj setObject:publicTime forKey:PublicTimeKey];
+        [obj setObject:[NSDate cTimestampFromString:weakSelf.publicTime] forKey:PublicTimeKey];
         NSString *moodType = @"";
         if ([weakSelf.mood isEqualToString:@"非常好"]) {
             moodType = @"0";

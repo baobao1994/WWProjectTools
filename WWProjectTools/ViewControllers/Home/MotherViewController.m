@@ -14,6 +14,7 @@
 #import "NSString+Addition.h"
 #import "MotherNoteModel.h"
 #import "MotherNoteListViewController.h"
+#import "NSDate+Addition.h"
 
 @interface MotherViewController ()<WSRefreshDelegate>
 
@@ -48,6 +49,7 @@
     kWeakSelf;
     BmobQuery *bquery = [BmobQuery queryWithClassName:MotherTable];
     bquery.limit = 1;
+    [bquery orderByDescending:PublicTimeKey];
     [bquery orderByDescending:CreatedAtKey];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         for (BmobObject *obj in array) {
@@ -131,7 +133,7 @@
     if (section == 0) {
         if (row == 0) {
             TimeHeaderTableViewCell * cell = [TimeHeaderTableViewCell dequeOrCreateInTable:tableView selectedBackgroundViewColor:UIColorFromHexColor(0xCCC2C2)];
-            cell.timeLabel.text = self.motherNoteModel.publicTime;
+            cell.timeLabel.text = [[NSDate alloc] setTimeInterval:self.motherNoteModel.publicTime formateDate:@"yyyy-MM-dd"];
             return cell;
         } else {
             MotherNoteTableViewCell * cell = [MotherNoteTableViewCell dequeInTable:tableView];

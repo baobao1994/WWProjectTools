@@ -66,7 +66,8 @@
             tip = @"保存失败";
         }
     } else {
-        tip = @"已存在";
+        isSaveSuccess = YES;
+        tip = @"已存在,无需保存";
     }
     //返回主线程
     dispatch_async(dispatch_get_main_queue(), ^{

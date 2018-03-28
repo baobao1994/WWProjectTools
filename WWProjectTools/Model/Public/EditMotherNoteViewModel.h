@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSArray *photosArr;
 @property (nonatomic, copy) NSString *note;
+@property (nonatomic, copy) NSString *publicTime;
 
 @property (nonatomic, strong) RACCommand *publicEditMotherNoteCommand;
 

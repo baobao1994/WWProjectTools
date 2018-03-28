@@ -148,7 +148,7 @@
             self.numberOfComponents = 1;
             break;
         case ShowPickerViewTypeOfTime:
-            self.showTitleLabel.text = @"选择出生日期";
+            self.showTitleLabel.text = @"选择发布时间";
             self.numberOfComponents = 3;
             _firArr = [_timeArr[0] copy];
             _secArr = [_timeArr[1] copy];;

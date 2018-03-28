@@ -17,19 +17,25 @@
 #import "UIView+Addtion.h"
 #import "RHDeviceAuthTool.h"
 #import "EditMotherNoteViewModel.h"
+#import "CustomPickerView.h"
+#import "CustomKeyWindowView.h"
+#import "NSDate+Addition.h"
 
 @interface EditMotherNoteViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) QMUITextView *textInputView;
 @property (nonatomic, assign) CGFloat textViewMinimumHeight;
 @property (nonatomic, assign) CGFloat textViewMaximumHeight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectButtonTopConstraint;
-@property (weak, nonatomic) IBOutlet UIButton *selectButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *selectTimeButton;
 @property (nonatomic, strong) NSMutableArray *photosArr;
 @property (nonatomic, strong) WWPictureSelect *pictureSelect;
 @property (nonatomic, strong) NSMutableArray *filePathArr;
 @property (nonatomic, strong) EditMotherNoteViewModel *viewModel;
+@property (nonatomic, strong) CustomPickerView *timePickerView;
+@property (nonatomic, strong) CustomKeyWindowView *showView;
 
 @end
 
@@ -37,7 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"发布新笔记";
     [self setUp];
     [self bind];
     [self.view addSubview:self.textInputView];
@@ -45,40 +51,21 @@
 }
 
 - (void)setUp {
-    [self.selectButton setCornerRadius:5];
     self.textViewMinimumHeight = 150;
     self.textViewMaximumHeight = 200;
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([StaticImageCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class])];
     self.photosArr = [[NSMutableArray alloc] init];
     self.filePathArr = [[NSMutableArray alloc] init];
-    self.pictureSelect = [[WWPictureSelect alloc] initWithController:self];
     self.viewModel = [[EditMotherNoteViewModel alloc] init];
-    kWeakSelf;
-    self.pictureSelect.selectImages = ^(NSMutableArray *imagesArr) {
-        weakSelf.photosArr = imagesArr;
-        [weakSelf.collectionView reloadData];
-        [weakSelf.filePathArr removeAllObjects];
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            NSLog(@"// 处理耗时操作的代码块...");
-            for (QMUIAsset *asset in imagesArr) {
-                [WWFile saveFileToDocument:asset block:^(BOOL isSuccess, NSString *tip, NSString *filePath) {
-                    [weakSelf.filePathArr addObject:filePath];
-                }];
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"//回调或者说是通知主线程刷新");
-            });
-        });
-    };
+    self.showView = [[CustomKeyWindowView alloc] init];
+    [self.showView setCustomContentView:self.timePickerView backGroundColor:[UIColor blackColor] Alpha:0.5];
+    NSDate *nowDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSString *dateString = [nowDate formateDate:@"yyyy-MM-dd"];
+    self.timeLabel.text = dateString;
 }
 
 - (void)bind {
     kWeakSelf;
-    [[self.selectButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [RHDeviceAuthTool photoAuth:^{
-           [weakSelf.pictureSelect presentAlbumViewControllerWithTitle:@"选择图片"];
-        }];
-    }];
     [[self.viewModel.publicEditMotherNoteCommand executionSignals] subscribeNext:^(RACSignal *x) {
         [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
         [x subscribeNext:^(id x) {
@@ -92,10 +79,18 @@
         [WWHUD hideAllTipsInView:NavigationControllerView];
         [WWHUD showLoadingWithErrorInView:NavigationControllerView afterDelay:2];
     }];
+    [[self.selectTimeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSArray *timeArr = [self.timeLabel.text componentsSeparatedByString:@"-"];
+        weakSelf.timePickerView.defaultSelectedArr = @[[NSString stringWithFormat:@"%@年",timeArr[0]],
+                                                       [NSString stringWithFormat:@"%@月",timeArr[1]],
+                                                       [NSString stringWithFormat:@"%@日",timeArr[2]]];
+        [weakSelf.showView showDirection:DirectionTypeOfTop animateWithDuration:0.35];
+    }];
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
     self.viewModel.note = self.textInputView.text;
+    self.viewModel.publicTime = self.timeLabel.text;
     if (self.filePathArr.count) {
         [BmobFile filesUploadBatchWithPaths:self.filePathArr
                               progressBlock:^(int index, float progress) {
@@ -119,6 +114,51 @@
     }
 }
 
+- (CustomPickerView *)timePickerView {
+    if (!_timePickerView) {
+        kWeakSelf;
+        _timePickerView = [CustomPickerView shareCustomPickerView];
+        _timePickerView.pickerViewType = ShowPickerViewTypeOfTime;
+        [[_timePickerView.cancleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            [weakSelf.showView hide];
+        }];
+        [[_timePickerView.sureButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            [weakSelf.showView hide];
+        }];
+        [_timePickerView setSelectedPickerData:^(NSArray *selectedArr, ShowPickerViewType pickerViewType) {
+            weakSelf.timeLabel.text = [NSString stringWithFormat:@"%ld-%02ld-%02ld",[selectedArr[0] integerValue],[selectedArr[1] integerValue],[selectedArr[2] integerValue]];
+        }];
+    }
+    return _timePickerView;
+}
+
+- (WWPictureSelect *)pictureSelect {
+    if (!_pictureSelect) {
+        kWeakSelf;
+        _pictureSelect = [[WWPictureSelect alloc] initWithController:self];
+        _pictureSelect.selectImages = ^(NSMutableArray *imagesArr) {
+            for (QMUIAsset *asset in imagesArr) {
+                [weakSelf.photosArr addObject:asset];
+            }
+            [weakSelf.collectionView reloadData];
+            [weakSelf.filePathArr removeAllObjects];
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSLog(@"// 处理耗时操作的代码块...");
+                for (QMUIAsset *asset in imagesArr) {
+                    [WWFile saveFileToDocument:asset block:^(BOOL isSuccess, NSString *tip, NSString *filePath) {
+                        NSLog(@"tip = %@",tip);
+                        [weakSelf.filePathArr addObject:filePath];
+                    }];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"//回调或者说是通知主线程刷新");
+                });
+            });
+        };
+    }
+    return _pictureSelect;
+}
+
 - (QMUITextView *)textInputView {
     if (!_textInputView) {
         _textInputView = [[QMUITextView alloc] initWithFrame:CGRectMake(5, 64 + 5, UIScreenWidth - 10, self.textViewMinimumHeight)];
@@ -131,8 +171,7 @@
         _textInputView.enablesReturnKeyAutomatically = YES;
         // 限制可输入的字符长度
         _textInputView.maximumTextLength = NSUIntegerMax;
-        [_textInputView setBorderLineWithColor:UIColorFromHexColor(0X909090)];
-        self.selectButtonTopConstraint.constant = self.textViewMinimumHeight + 15;
+        self.topConstraint.constant = self.textViewMinimumHeight + 15;
     }
     return _textInputView;
 }
@@ -142,7 +181,7 @@
     CGRect textInputRect = self.textInputView.frame;
     CGSize textViewSize = [_textInputView sizeThatFits:CGSizeMake(textInputRect.size.width, CGFLOAT_MAX)];
     _textInputView.frame = CGRectMake(textInputRect.origin.x, textInputRect.origin.y, textInputRect.size.width, fmin(self.textViewMaximumHeight, fmax(textViewSize.height, self.textViewMinimumHeight)));
-    self.selectButtonTopConstraint.constant = _textInputView.frame.size.height + 15;
+    self.topConstraint.constant = _textInputView.frame.size.height + 15;
 }
 
 #pragma mark - <QMUITextViewDelegate>
@@ -175,13 +214,19 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.photosArr.count;
+    return self.photosArr.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger row = indexPath.row;
     StaticImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class]) forIndexPath:indexPath];
-    QMUIAsset *asset = self.photosArr[indexPath.row];
-    cell.itemImageView.image = asset.originImage;
+    if (row == self.photosArr.count) {
+        cell.itemImageView.image = [UIImage imageNamed:@"picture_add"];
+    } else {
+        QMUIAsset *asset = self.photosArr[indexPath.row];
+        cell.itemImageView.image = asset.originImage;
+    }
+    
     return cell;
 }
 
@@ -213,6 +258,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    NSInteger row = indexPath.row;
+    if (row == self.photosArr.count) {
+        [RHDeviceAuthTool photoAuth:^{
+            [self.pictureSelect presentAlbumViewControllerWithTitle:@"选择图片"];
+        }];
+    }
 }
 
 @end

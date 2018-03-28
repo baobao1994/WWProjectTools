@@ -35,7 +35,7 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
     // 创建一个 QMUIAlbumViewController 实例用于呈现相簿列表
     QMUIAlbumViewController *albumViewController = [[QMUIAlbumViewController alloc] init];
     albumViewController.albumViewControllerDelegate = self;
-    albumViewController.contentType = kAlbumContentType;
+    albumViewController.contentType = QMUIAlbumContentTypeOnlyPhoto;
     albumViewController.title = title;
     if (self.maxSelectedImageCount == 1) {
         albumViewController.view.tag = SingleImagePickingTag;

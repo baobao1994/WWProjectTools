@@ -24,7 +24,7 @@
     if (self = [super initWithFrame:frame]) {
         self.frame = frame;
         self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 5, self.frame.size.width, self.frame.size.height - 5)];
-        self.bgView.layer.borderColor = UIColorFromHexColor(0X01AAF8).CGColor;
+        self.bgView.layer.borderColor = [UIColor clearColor].CGColor;
         self.bgView.layer.masksToBounds = YES;
         self.bgView.clipsToBounds = YES;
         [self addSubview:self.bgView];

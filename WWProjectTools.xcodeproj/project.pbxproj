@@ -177,7 +177,6 @@
 		4FFEE0C6204D126D00F6D520 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEE072204D126D00F6D520 /* ViewController2.m */; };
 		4FFEE0C7204D126D00F6D520 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEE073204D126D00F6D520 /* ViewController.m */; };
 		4FFEE0C8204D126D00F6D520 /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEE076204D126D00F6D520 /* ViewController3.m */; };
-		4FFEE0C9204D126D00F6D520 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE078204D126D00F6D520 /* Info.plist */; };
 		4FFEE0CC204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEE081204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.m */; };
 		4FFEE0CD204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEE084204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m */; };
 		4FFEE0CE204D126D00F6D520 /* WXSTransitionManager+BoomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEE085204D126D00F6D520 /* WXSTransitionManager+BoomAnimation.m */; };
@@ -1914,7 +1913,6 @@
 				4FFEE19E204D12DC00F6D520 /* loading_50.png in Resources */,
 				4FFEE1B6204D12DC00F6D520 /* loading_34.png in Resources */,
 				4FFEE1B8204D12DC00F6D520 /* loading_21.png in Resources */,
-				4FFEE0C9204D126D00F6D520 /* Info.plist in Resources */,
 				4FC68982205FB1AB00D199AC /* TimeHeaderTableViewCell.xib in Resources */,
 				4FFEE17E204D12DC00F6D520 /* loading_10.png in Resources */,
 				4FFEE16A204D12DC00F6D520 /* bounce_7.png in Resources */,
@@ -2450,6 +2448,7 @@
 			baseConfigurationReference = 0C583A231EE4DCC195D760DA /* Pods-WWProjectTools.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4T5GA24FX8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2468,6 +2467,7 @@
 			baseConfigurationReference = 3413E42F67456B02EE442D7E /* Pods-WWProjectTools.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4T5GA24FX8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

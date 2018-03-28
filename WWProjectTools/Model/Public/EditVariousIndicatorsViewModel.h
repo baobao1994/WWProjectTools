@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *mood;
 @property (nonatomic, copy) NSString *physicalState;
 @property (nonatomic, copy) NSString *note;
+@property (nonatomic, copy) NSString *publicTime;
 
 @property (nonatomic, strong) RACCommand *publicEditVariousIndicatorsCommand;
 
