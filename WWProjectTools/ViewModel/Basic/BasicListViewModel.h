@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign) int pageNumber;
 @property (nonatomic, assign) NSInteger pageLimit;//defalue 10
+@property (nonatomic, assign) NSInteger skip;//defalue 0
 @property (nonatomic, strong) NSArray *arrRecords;
 @property (nonatomic, assign) BOOL isLoadedAllTheData;
 @property (nonatomic, strong) RACSignal *loadSignal;

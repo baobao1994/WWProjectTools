@@ -16,6 +16,7 @@
         _pageNumber = 0;
         _arrRecords = @[];
         _pageLimit = 10;
+        _skip = 0;
         _isLoadedAllTheData = NO;
     }
     return self;
@@ -23,6 +24,7 @@
 
 - (RACCommand *)loadCommand{
     _pageNumber = 0;
+    _skip = 0;
     _isLoadedAllTheData = NO;
     if (_loadCommand == nil) {
         __weak __typeof(self)weakSelf = self;

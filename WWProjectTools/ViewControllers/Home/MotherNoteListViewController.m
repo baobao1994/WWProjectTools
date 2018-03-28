@@ -27,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
+    [WWHUD showLoadingWithInView:SelfViewControllerView afterDelay:30];
 }
 
 - (void)setUp {
@@ -39,10 +40,12 @@
             [weakSelf.tableView doneLoadingTableViewData];
             [weakSelf.tableView reloadData];
             weakSelf.tableView.isLoadedAllTheData = weakSelf.listViewModel.isLoadedAllTheData;
+            [WWHUD hideAllTipsInView:SelfViewControllerView];
         }];
     }];
     
     [self.listViewModel.loadCommand.errors subscribeNext:^(NSError * _Nullable x) {
+        [WWHUD hideAllTipsInView:SelfViewControllerView];
         [WWHUD showLoadingWithErrorInView:SelfViewControllerView afterDelay:2];
     }];
     

@@ -11,7 +11,6 @@
 #import "UIButton+Addition.h"
 
 @interface WWNavigationController ()<UINavigationBarDelegate,UIGestureRecognizerDelegate>
-
 /**
  *  由于 popViewController 会触发 shouldPopItems，因此用该布尔值记录是否应该正确 popItems
  */
@@ -30,8 +29,8 @@
     [super viewWillAppear:animated];
     //设置导航条透明度
     self.navigationController.navigationBar.translucent = NO;//不透明
-    [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:1];
-    //图标颜色为黑色
+    [[[self.navigationBar subviews] objectAtIndex:0] setAlpha:1];
+    //图标颜色为白色
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     //导航栏背景颜色
     [self.navigationBar setBarTintColor:UIColorMake(249, 204, 226)];
@@ -152,17 +151,15 @@
         [button setTitle:@" 返回" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateHighlighted];
         button.size = CGSizeMake(80, 30);
         // 让按钮内部的所有内容左对齐
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         // 让按钮的内容往左边偏移10
         button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-        
         // 更简单的处理方式：
         // [button sizeToFit]; // 让按钮的尺寸跟随内容而变化
-        
-        [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        
+        [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         // 隐藏tabbar
         viewController.hidesBottomBarWhenPushed = YES;
@@ -171,7 +168,7 @@
     [super pushViewController:viewController animated:animated];
 }
 
-- (void)back {
+- (void)back:(UIButton *)sender {
     [self popViewControllerAnimated:YES];
 }
 

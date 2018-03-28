@@ -127,6 +127,9 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
     // 储存最近选择了图片的相册，方便下次直接进入该相册
     [QMUIImagePickerHelper updateLastestAlbumWithAssetsGroup:imagePickerPreviewViewController.assetsGroup ablumContentType:kAlbumContentType userIdentify:nil];
     [self sendImageWithImagesAssetArray:imagesAssetArray];
+    if (self.selectImages) {
+        self.selectImages(imagesAssetArray);
+    }
 }
 
 #pragma mark - <QDSingleImagePickerPreviewViewControllerDelegate>

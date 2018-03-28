@@ -23,6 +23,7 @@
         
         BmobQuery *bquery = [BmobQuery queryWithClassName:MotherTable];
         bquery.limit = weakSelf.pageLimit;
+        bquery.skip = weakSelf.skip;
         [bquery orderByDescending:CreatedAtKey];
         [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
             if (error.code == 0) {
@@ -44,6 +45,7 @@
                 } else {
                     weakSelf.isLoadedAllTheData = YES;
                 }
+                weakSelf.skip = weakSelf.oldArr.count;
                 [subscriber sendNext:@(listArr.count >= weakSelf.pageLimit)];
                 [subscriber sendCompleted];
             } else {
