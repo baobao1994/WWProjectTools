@@ -66,7 +66,7 @@
 - (MotherViewController *)motherVC {
     if (!_motherVC) {
         _motherVC = [[MotherViewController alloc] init];
-        _motherVC.view.frame = CGRectMake(0, 64, self.view.frame.size.width, UIScreenHeight - 64 - 44);
+        _motherVC.view.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64 - 44);
         _motherVC.view.hidden = YES;
     }
     return _motherVC;
