@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YCt-Dp-EMM">
-                    <rect key="frame" x="10" y="280" width="355" height="377"/>
+                    <rect key="frame" x="10" y="271" width="355" height="386"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XQ0-iR-dNu">
                         <size key="itemSize" width="50" height="50"/>
@@ -38,14 +38,14 @@
                     </connections>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClR-pk-vz0">
-                    <rect key="frame" x="0.0" y="220" width="375" height="5"/>
+                    <rect key="frame" x="0.0" y="220" width="375" height="0.5"/>
                     <color key="backgroundColor" red="0.92549019607843142" green="0.49019607843137253" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="5" id="czN-7k-Nhz"/>
+                        <constraint firstAttribute="height" constant="0.5" id="czN-7k-Nhz"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZp-k6-Q0c">
-                    <rect key="frame" x="0.0" y="225" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="220.5" width="375" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择发布时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QP-ye-0ME">
                             <rect key="frame" x="10" y="0.0" width="86" height="40"/>
@@ -80,10 +80,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKl-k4-sYT">
-                    <rect key="frame" x="0.0" y="265" width="375" height="5"/>
+                    <rect key="frame" x="0.0" y="260.5" width="375" height="0.5"/>
                     <color key="backgroundColor" red="0.92549019610000005" green="0.49019607840000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="5" id="jHA-le-Ec4"/>
+                        <constraint firstAttribute="height" constant="0.5" id="jHA-le-Ec4"/>
                     </constraints>
                 </view>
             </subviews>

@@ -100,4 +100,8 @@
     NSLog(@"%@",[dateFormatter stringFromDate:date]);//2015-11-20 08:24:04
 }
 
+- (void)goBackToday {
+    [_calendar setCurrentPage:[NSDate date] animated:YES];
+}
+
 @end

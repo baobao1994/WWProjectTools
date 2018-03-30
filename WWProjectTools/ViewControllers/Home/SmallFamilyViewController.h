@@ -12,4 +12,6 @@
 
 @property (nonatomic,copy) void (^pushViewControllerBlock)(UIViewController *);
 
+- (void)goBackToday;
+
 @end

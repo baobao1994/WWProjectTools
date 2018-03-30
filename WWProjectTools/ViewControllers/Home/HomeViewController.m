@@ -10,6 +10,7 @@
 #import "CustomSegmentedControlView.h"
 #import "SmallFamilyViewController.h"
 #import "MotherViewController.h"
+#import "UIViewController+Addition.h"
 
 @interface HomeViewController ()
 
@@ -24,13 +25,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self createNavigationLeftItemWithTitle:@"今日"];
     [self setUp];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.motherVC viewWillAppear:animated];
+}
+
+- (void)selectedNavigationLeftItem:(id)sender {
+    [self.smallFamilyVC goBackToday];
 }
 
 - (void)setUp {
