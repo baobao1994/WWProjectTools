@@ -18,6 +18,8 @@ extern NSString *const BabyTable;
 extern NSString *const MotherTable;
 extern NSString *const VariousIndicatorsTable;
 extern NSString *const FoodsTable;
+extern NSString *const EventTable;
+extern NSString *const ImportantDatesTable;
 
 #pragma mark - bmob
 
@@ -31,6 +33,13 @@ extern NSString *const ClassNameKey;
 extern NSString *const TitleNameKey;
 extern NSString *const DataKey;
 extern NSString *const FileNameKey;
+
+#pragma mark - eventKey
+
+extern NSString *const ContentKey;
+extern NSString *const RemindTimeKey;
+extern NSString *const IsRemindKey;
+extern NSString *const LevelKey;
 
 #pragma mark - motherNoteKey
 

@@ -20,6 +20,8 @@ NSString *const BabyTable = @"baby";
 NSString *const MotherTable = @"mother";
 NSString *const VariousIndicatorsTable = @"various_indicators";
 NSString *const FoodsTable = @"foods";
+NSString *const EventTable = @"event";
+NSString *const ImportantDatesTable = @"important_dates";
 
 #pragma mark - bmob
 
@@ -33,6 +35,13 @@ NSString *const ClassNameKey = @"class_name";
 NSString *const TitleNameKey = @"title_name";
 NSString *const DataKey = @"data";
 NSString *const FileNameKey = @"filename";
+
+#pragma mark - eventKey
+
+NSString *const ContentKey = @"content";
+NSString *const RemindTimeKey = @"remind_time";
+NSString *const IsRemindKey = @"is_remind";
+NSString *const LevelKey = @"level";
 
 #pragma mark - motherNoteKey
 
