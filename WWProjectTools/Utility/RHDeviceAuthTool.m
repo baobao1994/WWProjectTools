@@ -11,7 +11,7 @@
 
 @implementation RHDeviceAuthTool
 
-+ (void)photoAuth:(CamAuthResutlBlock)resultBlock{
++ (void)photoAuth:(AuthResutlBlock)resultBlock{
     
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
     switch (status){
@@ -37,7 +37,7 @@
     }
 }
 
-+ (void)camAuth:(CamAuthResutlBlock)resultBlock{
++ (void)camAuth:(AuthResutlBlock)resultBlock{
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     
     switch (status) {
@@ -70,6 +70,29 @@
             break;
         default:
             break;
+    }
+}
+
++ (void)calendarAuth:(AuthResutlBlock)resultBlock {
+    EKAuthorizationStatus EKstatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+    if (EKstatus == EKAuthorizationStatusAuthorized) {
+        NSLog(@"Authorized");
+        resultBlock();
+    } else if (EKstatus == EKAuthorizationStatusDenied || EKstatus == EKAuthorizationStatusRestricted) {
+        NSLog(@"Denied'");
+        NSLog(@"Restricted");
+        [WWHUD showLoadingWithErrorText:@"请在iPhone的“设置-隐私-日历”选项中，允许访问你的日历" inView:KeyWindow afterDelay:2];
+    } else if (EKstatus == EKAuthorizationStatusNotDetermined) {
+        EKEventStore *store = [[EKEventStore alloc]init];
+        [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
+            if (granted) {
+                //第一次用户接受
+                resultBlock();
+            }else{
+                //用户拒绝
+                [WWHUD showLoadingWithErrorText:@"请在iPhone的“设置-隐私-日历”选项中，允许访问你的日历" inView:KeyWindow afterDelay:2];
+            }
+        }];
     }
 }
 

@@ -303,7 +303,7 @@
 		4FFEE1B6204D12DC00F6D520 /* loading_34.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE149204D12DC00F6D520 /* loading_34.png */; };
 		4FFEE1B7204D12DC00F6D520 /* loading_35.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE14A204D12DC00F6D520 /* loading_35.png */; };
 		4FFEE1B8204D12DC00F6D520 /* loading_21.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE14B204D12DC00F6D520 /* loading_21.png */; };
-		968003FD671C2A7E62652FC9 /* libPods-WWProjectTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1A7DA76EF63F8E98EE9F60 /* libPods-WWProjectTools.a */; };
+		70BE1824F67A7A1E8DF09524 /* Pods_WWProjectTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAF738558B0BB10C37677EA /* Pods_WWProjectTools.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -796,7 +796,7 @@
 		4FFEE149204D12DC00F6D520 /* loading_34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_34.png; sourceTree = "<group>"; };
 		4FFEE14A204D12DC00F6D520 /* loading_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_35.png; sourceTree = "<group>"; };
 		4FFEE14B204D12DC00F6D520 /* loading_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_21.png; sourceTree = "<group>"; };
-		AA1A7DA76EF63F8E98EE9F60 /* libPods-WWProjectTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WWProjectTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BAF738558B0BB10C37677EA /* Pods_WWProjectTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WWProjectTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -804,7 +804,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				968003FD671C2A7E62652FC9 /* libPods-WWProjectTools.a in Frameworks */,
+				70BE1824F67A7A1E8DF09524 /* Pods_WWProjectTools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,7 +828,7 @@
 		10EEEFB96FF4CE351034ED5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA1A7DA76EF63F8E98EE9F60 /* libPods-WWProjectTools.a */,
+				6BAF738558B0BB10C37677EA /* Pods_WWProjectTools.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2084,9 +2084,44 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/AsyncDisplayKit/AsyncDisplayKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ESPictureBrowser/ESPictureBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
+				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
+				"${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
+				"${BUILT_PRODUCTS_DIR}/YYWebImage/YYWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncDisplayKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPictureBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QMUIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

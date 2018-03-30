@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 #import <MobileCoreServices/MobileCoreServices.h>
-
-typedef void(^CamAuthResutlBlock)(void);
+#import <EventKit/EventKit.h>
+//https://www.cnblogs.com/junhuawang/p/5996699.html 所有权限检查
+typedef void(^AuthResutlBlock)(void);
 
 @interface RHDeviceAuthTool : NSObject
 
-+ (void)photoAuth:(CamAuthResutlBlock)resultBlock;
-+ (void)camAuth:(CamAuthResutlBlock)resultBlock;
++ (void)photoAuth:(AuthResutlBlock)resultBlock;
++ (void)camAuth:(AuthResutlBlock)resultBlock;
++ (void)calendarAuth:(AuthResutlBlock)resultBlock;
 
 @end

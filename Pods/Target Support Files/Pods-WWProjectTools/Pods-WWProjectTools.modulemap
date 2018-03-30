@@ -1,0 +1,6 @@
+framework module Pods_WWProjectTools {
+  umbrella header "Pods-WWProjectTools-umbrella.h"
+
+  export *
+  module * { export * }
+}

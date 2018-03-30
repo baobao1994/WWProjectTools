@@ -9,7 +9,7 @@
 #import "ESCellNode.h"
 #import "ESPictureModel.h"
 #import "ESCellLayout.h"
-#import <AsyncDisplayKit.h>
+#import "AsyncDisplayKit.h"
 #import "ESPictureBrowser.h"
 #import <YYImage/YYAnimatedImageView.h>
 #import <YYWebImage/YYWebImage.h>
