@@ -141,7 +141,7 @@
                 [weakSelf.photosArr addObject:asset];
             }
             [weakSelf.collectionView reloadData];
-            [weakSelf.filePathArr removeAllObjects];
+//            [weakSelf.filePathArr removeAllObjects];
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 NSLog(@"// 处理耗时操作的代码块...");
                 for (QMUIAsset *asset in imagesArr) {

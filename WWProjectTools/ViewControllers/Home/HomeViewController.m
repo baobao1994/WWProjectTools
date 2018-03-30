@@ -48,6 +48,11 @@
     self.customSegmentView.didChangeSelect = ^(NSInteger current) {
         weakSelf.smallFamilyVC.view.hidden = (current == 0)? NO:YES;
         weakSelf.motherVC.view.hidden  = (current == 1)? NO:YES;
+        if (current == 0) {
+            [weakSelf createNavigationLeftItemWithTitle:@"今日"];
+        } else {
+            weakSelf.navigationItem.leftBarButtonItem = nil;
+        }
     };
     self.navigationItem.titleView = self.customSegmentView;
     [self.view addSubview:self.smallFamilyVC.view];
