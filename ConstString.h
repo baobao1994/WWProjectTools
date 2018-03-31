@@ -38,8 +38,7 @@ extern NSString *const FileNameKey;
 
 extern NSString *const ContentKey;
 extern NSString *const RemindTimeKey;
-extern NSString *const IsRemindKey;
-extern NSString *const LevelKey;
+extern NSString *const IsLateKey;
 
 #pragma mark - motherNoteKey
 

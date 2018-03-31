@@ -37,15 +37,8 @@
                         <outlet property="delegate" destination="-1" id="lyn-dW-Sae"/>
                     </connections>
                 </collectionView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClR-pk-vz0">
-                    <rect key="frame" x="0.0" y="220" width="375" height="0.5"/>
-                    <color key="backgroundColor" red="0.92549019607843142" green="0.49019607843137253" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="0.5" id="czN-7k-Nhz"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZp-k6-Q0c">
-                    <rect key="frame" x="0.0" y="220.5" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="220" width="375" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择发布时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QP-ye-0ME">
                             <rect key="frame" x="10" y="0.0" width="86" height="40"/>
@@ -79,11 +72,18 @@
                         <constraint firstAttribute="trailing" secondItem="O7H-RU-Z8F" secondAttribute="trailing" constant="10" id="wMy-cT-pIh"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClR-pk-vz0">
+                    <rect key="frame" x="0.0" y="220" width="375" height="0.5"/>
+                    <color key="backgroundColor" red="0.92549019607843142" green="0.49019607843137253" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="czN-7k-Nhz"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKl-k4-sYT">
                     <rect key="frame" x="0.0" y="260.5" width="375" height="0.5"/>
                     <color key="backgroundColor" red="0.92549019610000005" green="0.49019607840000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="0.5" id="jHA-le-Ec4"/>
+                        <constraint firstAttribute="height" constant="1" id="jHA-le-Ec4"/>
                     </constraints>
                 </view>
             </subviews>

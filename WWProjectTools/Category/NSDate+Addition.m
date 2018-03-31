@@ -11,7 +11,7 @@
 @implementation NSDate (Addition)
 
 - (NSString *)weekDay {
-    NSDateComponents *components = [[NSCalendar autoupdatingCurrentCalendar] components:NSWeekdayCalendarUnit fromDate:self];
+    NSDateComponents *components = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:self];
     NSInteger weekday = [components weekday];
     NSDictionary *weekdayDic = @{@(1) : @"周日",
                                  @(2) : @"周一",
@@ -58,8 +58,6 @@
     return timeStr;
 }
 
-
-
 - (NSString *)setTimeInterval:(NSString *)timeInterval formateDate:(NSString *)formate {
     NSTimeInterval interval = [timeInterval longLongValue];
     NSDate *currentDate = [[NSDate alloc] initWithTimeIntervalSince1970:interval];
@@ -67,7 +65,7 @@
     return changedStr;
 }
 
-+ (NSString *)cTimestampFromString:(NSString *)theTime {
++ (NSString *)cTimestampFromString:(NSString *)time {
     //theTime __@"%04d-%02d-%02d %02d:%02d:00"
     //装换为时间戳
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -78,10 +76,39 @@
 
     //        NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
     //        [formatter setTimeZone:timeZone];
-    NSDate* dateTodo = [formatter dateFromString:theTime];
+    NSDate* dateTodo = [formatter dateFromString:time];
     NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[dateTodo timeIntervalSince1970]];
     
     return timeSp;
+}
+
++ (NSString *)getMonthBeginAndEndWithDate:(NSDate *)date {
+    double interval = 0;
+    NSDate *beginDate = nil;
+    NSDate *endDate = nil;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    //    [calendar setFirstWeekday:2];//设定周一为周首日 默认设定周日为首日1
+    BOOL ok = [calendar rangeOfUnit:NSCalendarUnitMonth startDate:&beginDate interval:&interval forDate:date];
+    //分别修改为 NSDayCalendarUnit NSWeekCalendarUnit NSYearCalendarUnit
+    if (ok) {
+        endDate = [beginDate dateByAddingTimeInterval:interval-1];
+    }else {
+        return @"";
+    }
+    NSDateFormatter *myDateFormatter = [[NSDateFormatter alloc] init];
+    [myDateFormatter setDateFormat:@"YYYY.MM.dd"];
+    NSString *beginString = [myDateFormatter stringFromDate:beginDate];
+    NSString *endString = [myDateFormatter stringFromDate:endDate];
+    NSString *dateBounce = [NSString stringWithFormat:@"%@-%@",beginString,endString];
+    return dateBounce;
+}
+
++ (NSString *)getMonthBeginAndEndWithDateStr:(NSString *)dateStr {
+    NSDateFormatter *format=[[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy-MM"];
+    NSDate *newDate=[format dateFromString:dateStr];
+    return [self getMonthBeginAndEndWithDate:newDate];
 }
 
 @end

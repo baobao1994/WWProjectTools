@@ -22,6 +22,9 @@
 
 - (NSString *)timeIntervalFromTime:(NSString *)time;
 
-+ (NSString *)cTimestampFromString:(NSString *)theTime;
++ (NSString *)cTimestampFromString:(NSString *)time;
+
++ (NSString *)getMonthBeginAndEndWithDate:(NSDate *)date;
++ (NSString *)getMonthBeginAndEndWithDateStr:(NSString *)dateStr;
 
 @end

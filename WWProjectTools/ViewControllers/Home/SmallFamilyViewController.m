@@ -10,6 +10,13 @@
 #import <FSCalendar/FSCalendar.h>
 #import <EventKit/EventKit.h>
 #import "RHDeviceAuthTool.h"
+#import "EventsViewModel.h"
+#import "NSDate+Addition.h"
+#import "EventModel.h"
+
+#import "UIColor+Wonderful.h"
+#import "SXMarquee.h"
+#import "SXHeadLine.h"
 
 #define KDay (3600 * 24)
 #define KMonth (KDay * 30)
@@ -25,6 +32,8 @@
 @property (strong, nonatomic) NSCalendar *chineseCalendar;//显示中国地区
 @property (strong, nonatomic) NSArray<NSString *> *lunarChars;//农历日历
 @property (strong, nonatomic) NSArray<EKEvent *> *events;//事件
+@property (nonatomic, strong) EventsViewModel *viewModel;
+@property (weak, nonatomic) IBOutlet UIView *eventView;
 
 @end
 
@@ -33,6 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
+    [self bind];
 }
 
 - (void)setUp {
@@ -44,6 +54,7 @@
     self.calendar.appearance.caseOptions = FSCalendarCaseOptionsHeaderUsesDefaultCase;
     self.calendar.appearance.headerDateFormat = @"yyyy年MM月";
     self.calendar.appearance.headerMinimumDissolvedAlpha = 0;
+    [self.calendar selectDate:[NSDate date]];
     kWeakSelf;
     [RHDeviceAuthTool calendarAuth:^{
         EKEventStore *eventStore = [[EKEventStore alloc] init];
@@ -63,6 +74,68 @@
             }
         }];
     }];
+}
+
+- (void)bind {
+    kWeakSelf;
+    self.viewModel = [[EventsViewModel alloc] init];
+    [[self.viewModel.requestEventsCommand executionSignals] subscribeNext:^(RACSignal *x) {
+        [x subscribeNext:^(id x) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf.calendar reloadData];
+                [weakSelf reSetScrollLabel:nil];
+            });
+        }];
+    }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.viewModel.dateTime = [self.calendar.currentPage formateDate:@"yyyy.MM"];
+        NSArray *timeArr = [[NSDate getMonthBeginAndEndWithDate:self.calendar.currentPage] componentsSeparatedByString:@"-"];
+        self.viewModel.beginTime = [[NSDate cTimestampFromString:timeArr[0]] doubleValue];
+        self.viewModel.endTime = [[NSDate cTimestampFromString:timeArr[1]] doubleValue];
+        [[self.viewModel requestEventsCommand] execute:nil];
+    });
+}
+
+- (void)reSetScrollLabel:(NSDate *)seletDate {
+    [self.eventView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    NSMutableArray *eventList = [self.viewModel.eventDic objectForKey:[self.calendar.currentPage formateDate:@"yyyy.MM"]];
+    if (seletDate) {
+        NSString *eventString = @"";
+        for (EventModel *model in eventList) {
+            if ([model.publicTime isEqualToDate:seletDate]) {
+                eventString = [eventString stringByAppendingString:[NSString stringWithFormat:@"%@ %@。",model.publicTimeString,model.content]];
+            }
+        }
+        SXMarquee *mar = [[SXMarquee alloc]initWithFrame:CGRectMake(0, 0, self.eventView.frame.size.width, self.eventView.frame.size.height) speed:2 Msg:eventString bgColor:[UIColor salmonColor] txtColor:[UIColor whiteColor]];
+        [mar changeMarqueeLabelFont:[UIFont systemFontOfSize:26]];
+        [mar changeTapMarqueeAction:^{
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"点击事件" message:@"可以设置弹窗，当然也能设置别的" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//            [alert show];
+            NSLog(@"你点击了第 1 个button！内容");
+        }];
+        [mar start];
+        [self.eventView addSubview:mar];
+    } else {
+        NSInteger i = 1;
+        NSMutableArray *msgArr = [[NSMutableArray alloc] init];
+        for (EventModel *model in eventList) {
+            [msgArr addObject:[NSString stringWithFormat:@"%ld.%@",i++,model.content]];
+        }
+        SXHeadLine *headLine = [[SXHeadLine alloc]initWithFrame:CGRectMake(0, 0, self.eventView.frame.size.width, self.eventView.frame.size.height)];
+        headLine.messageArray = [msgArr copy];
+        [headLine setBgColor:[UIColor salmonColor] textColor:[UIColor whiteColor] textFont:[UIFont systemFontOfSize:26]];
+        [headLine setScrollDuration:0.5 stayDuration:3];
+        headLine.hasGradient = YES;
+        
+        [headLine changeTapMarqueeAction:^(NSInteger index) {
+            NSLog(@"你点击了第 %ld 个button！内容：%@", index, headLine.messageArray[index]);
+        }];
+        [headLine start];
+        [self.eventView addSubview:headLine];
+
+    }
+    
 }
 
 //显示副标题
@@ -85,19 +158,48 @@
 
 //显示事件圆点 最多3个圆点
 - (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date {
+    NSMutableArray *eventList = [self.viewModel.eventDic objectForKey:[self.calendar.currentPage formateDate:@"yyyy.MM"]];
+    for (EventModel *model in eventList) {
+        if ([model.publicTime isEqualToDate:date]) {
+            return 0;
+        }
+    }
+    NSInteger count = 0;
     NSArray<EKEvent *> *events = [self eventsForDate:date];
-    return events.count;
+    count += events.count;
+    return count;
 }
 
 //显示事件圆点自定义图片
-//- (UIImage *)calendar:(FSCalendar *)calendar imageForDate:(NSDate *)date {
-//    
-//}
+- (UIImage *)calendar:(FSCalendar *)calendar imageForDate:(NSDate *)date {
+    BOOL isEventDay = NO;
+    NSMutableArray *eventList = [self.viewModel.eventDic objectForKey:[self.calendar.currentPage formateDate:@"yyyy.MM"]];
+    for (EventModel *model in eventList) {
+        if ([model.publicTime isEqualToDate:date]) {
+            isEventDay = YES;
+        }
+    }
+    if (isEventDay) {
+        return [UIImage imageNamed:@"event_tip"];
+    } else {
+        return nil;
+    }
+}
 
+//点击日期
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition {
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];//创建一个日期格式化器
     dateFormatter.dateFormat=@"yyyy-MM-dd hh:mm:ss";//指定转date得日期格式化形式
     NSLog(@"%@",[dateFormatter stringFromDate:date]);//2015-11-20 08:24:04
+}
+
+//切换月份
+- (void)calendarCurrentPageDidChange:(FSCalendar *)calendar {
+    self.viewModel.dateTime = [calendar.currentPage formateDate:@"yyyy.MM"];
+    NSArray *timeArr = [[NSDate getMonthBeginAndEndWithDate:calendar.currentPage] componentsSeparatedByString:@"-"];
+    self.viewModel.beginTime = [[NSDate cTimestampFromString:timeArr[0]] doubleValue];
+    self.viewModel.endTime = [[NSDate cTimestampFromString:timeArr[1]] doubleValue];
+    [[self.viewModel requestEventsCommand] execute:nil];
 }
 
 - (void)goBackToday {

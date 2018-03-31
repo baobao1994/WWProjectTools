@@ -40,8 +40,7 @@ NSString *const FileNameKey = @"filename";
 
 NSString *const ContentKey = @"content";
 NSString *const RemindTimeKey = @"remind_time";
-NSString *const IsRemindKey = @"is_remind";
-NSString *const LevelKey = @"level";
+NSString *const IsLateKey = @"is_late";
 
 #pragma mark - motherNoteKey
 

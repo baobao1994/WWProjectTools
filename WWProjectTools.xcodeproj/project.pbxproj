@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F0EB448206F2F6000274C86 /* EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB447206F2F6000274C86 /* EventModel.m */; };
+		4F0EB450206F305900274C86 /* EventsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB44B206F305900274C86 /* EventsViewModel.m */; };
+		4F0EB451206F305900274C86 /* MotherNoteListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB44E206F305900274C86 /* MotherNoteListViewModel.m */; };
+		4F0EB452206F305900274C86 /* VariousIndicatorsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB44F206F305900274C86 /* VariousIndicatorsViewModel.m */; };
+		4F0EB462206F83A400274C86 /* SXHeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB457206F83A400274C86 /* SXHeadLine.m */; };
+		4F0EB463206F83A400274C86 /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB459206F83A400274C86 /* UIColor+Wonderful.m */; };
+		4F0EB464206F83A400274C86 /* SXColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB45B206F83A400274C86 /* SXColorLabel.m */; };
+		4F0EB465206F83A400274C86 /* SXMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB45C206F83A400274C86 /* SXMarquee.m */; };
+		4F0EB466206F83A400274C86 /* UIColor+Separate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB45E206F83A400274C86 /* UIColor+Separate.m */; };
+		4F0EB467206F83A400274C86 /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB45F206F83A400274C86 /* UILabel+Wonderful.m */; };
+		4F0EB468206F83A400274C86 /* SXColorGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EB461206F83A400274C86 /* SXColorGradientView.m */; };
 		4F1AF26E205BA46800D8419C /* DBModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF26D205BA46800D8419C /* DBModels.m */; };
 		4F1AF296205BA80600D8419C /* UITextView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF270205BA80600D8419C /* UITextView+Addition.m */; };
 		4F1AF297205BA80600D8419C /* NSArray+Combinations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF271205BA80600D8419C /* NSArray+Combinations.m */; };
@@ -68,10 +79,8 @@
 		4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F24206112EF00EB4E25 /* UIImage+Addition.m */; };
 		4FACE842200E01A000CCC34D /* WWProjectDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE841200E01A000CCC34D /* WWProjectDemoTests.m */; };
 		4FACE84D200E01A000CCC34D /* WWProjectDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE84C200E01A000CCC34D /* WWProjectDemoUITests.m */; };
-		4FB811662063413F000B03C6 /* MotherNoteListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811652063413F000B03C6 /* MotherNoteListViewModel.m */; };
 		4FB8116A206341AF000B03C6 /* BasicListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB81169206341AF000B03C6 /* BasicListViewModel.m */; };
 		4FB8116E20638BAE000B03C6 /* RHDeviceAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8116C20638BAD000B03C6 /* RHDeviceAuthTool.m */; };
-		4FB811712063947E000B03C6 /* VariousIndicatorsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811702063947E000B03C6 /* VariousIndicatorsViewModel.m */; };
 		4FB81174206394D9000B03C6 /* VariousIndicatorsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */; };
 		4FB811782063ABBE000B03C6 /* EditVariousIndicatorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB811762063ABBE000B03C6 /* EditVariousIndicatorsViewController.m */; };
 		4FB811792063ABBE000B03C6 /* EditVariousIndicatorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB811772063ABBE000B03C6 /* EditVariousIndicatorsViewController.xib */; };
@@ -326,6 +335,28 @@
 /* Begin PBXFileReference section */
 		0C583A231EE4DCC195D760DA /* Pods-WWProjectTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWProjectTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools.debug.xcconfig"; sourceTree = "<group>"; };
 		3413E42F67456B02EE442D7E /* Pods-WWProjectTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWProjectTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools.release.xcconfig"; sourceTree = "<group>"; };
+		4F0EB446206F2F6000274C86 /* EventModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventModel.h; sourceTree = "<group>"; };
+		4F0EB447206F2F6000274C86 /* EventModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventModel.m; sourceTree = "<group>"; };
+		4F0EB44A206F305900274C86 /* MotherNoteListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotherNoteListViewModel.h; sourceTree = "<group>"; };
+		4F0EB44B206F305900274C86 /* EventsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewModel.m; sourceTree = "<group>"; };
+		4F0EB44C206F305900274C86 /* VariousIndicatorsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariousIndicatorsViewModel.h; sourceTree = "<group>"; };
+		4F0EB44D206F305900274C86 /* EventsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewModel.h; sourceTree = "<group>"; };
+		4F0EB44E206F305900274C86 /* MotherNoteListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotherNoteListViewModel.m; sourceTree = "<group>"; };
+		4F0EB44F206F305900274C86 /* VariousIndicatorsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariousIndicatorsViewModel.m; sourceTree = "<group>"; };
+		4F0EB454206F83A400274C86 /* SXMarquee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXMarquee.h; sourceTree = "<group>"; };
+		4F0EB455206F83A400274C86 /* SXColorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorLabel.h; sourceTree = "<group>"; };
+		4F0EB456206F83A400274C86 /* UIColor+Separate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Separate.h"; sourceTree = "<group>"; };
+		4F0EB457206F83A400274C86 /* SXHeadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXHeadLine.m; sourceTree = "<group>"; };
+		4F0EB458206F83A400274C86 /* SXColorGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorGradientView.h; sourceTree = "<group>"; };
+		4F0EB459206F83A400274C86 /* UIColor+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Wonderful.m"; sourceTree = "<group>"; };
+		4F0EB45A206F83A400274C86 /* UILabel+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Wonderful.h"; sourceTree = "<group>"; };
+		4F0EB45B206F83A400274C86 /* SXColorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorLabel.m; sourceTree = "<group>"; };
+		4F0EB45C206F83A400274C86 /* SXMarquee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXMarquee.m; sourceTree = "<group>"; };
+		4F0EB45D206F83A400274C86 /* SXHeadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXHeadLine.h; sourceTree = "<group>"; };
+		4F0EB45E206F83A400274C86 /* UIColor+Separate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Separate.m"; sourceTree = "<group>"; };
+		4F0EB45F206F83A400274C86 /* UILabel+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Wonderful.m"; sourceTree = "<group>"; };
+		4F0EB460206F83A400274C86 /* UIColor+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Wonderful.h"; sourceTree = "<group>"; };
+		4F0EB461206F83A400274C86 /* SXColorGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorGradientView.m; sourceTree = "<group>"; };
 		4F1AF26C205BA46800D8419C /* DBModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBModels.h; sourceTree = "<group>"; };
 		4F1AF26D205BA46800D8419C /* DBModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBModels.m; sourceTree = "<group>"; };
 		4F1AF270205BA80600D8419C /* UITextView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Addition.m"; sourceTree = "<group>"; };
@@ -449,14 +480,10 @@
 		4FACE848200E01A000CCC34D /* WWProjectToolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWProjectToolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACE84C200E01A000CCC34D /* WWProjectDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWProjectDemoUITests.m; sourceTree = "<group>"; };
 		4FACE84E200E01A000CCC34D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FB811642063413F000B03C6 /* MotherNoteListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotherNoteListViewModel.h; sourceTree = "<group>"; };
-		4FB811652063413F000B03C6 /* MotherNoteListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotherNoteListViewModel.m; sourceTree = "<group>"; };
 		4FB81168206341AF000B03C6 /* BasicListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicListViewModel.h; sourceTree = "<group>"; };
 		4FB81169206341AF000B03C6 /* BasicListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicListViewModel.m; sourceTree = "<group>"; };
 		4FB8116C20638BAD000B03C6 /* RHDeviceAuthTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHDeviceAuthTool.m; sourceTree = "<group>"; };
 		4FB8116D20638BAE000B03C6 /* RHDeviceAuthTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHDeviceAuthTool.h; sourceTree = "<group>"; };
-		4FB8116F2063947E000B03C6 /* VariousIndicatorsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VariousIndicatorsViewModel.h; sourceTree = "<group>"; };
-		4FB811702063947E000B03C6 /* VariousIndicatorsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VariousIndicatorsViewModel.m; sourceTree = "<group>"; };
 		4FB81172206394D9000B03C6 /* VariousIndicatorsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VariousIndicatorsModel.h; sourceTree = "<group>"; };
 		4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VariousIndicatorsModel.m; sourceTree = "<group>"; };
 		4FB811752063ABBE000B03C6 /* EditVariousIndicatorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditVariousIndicatorsViewController.h; sourceTree = "<group>"; };
@@ -833,6 +860,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4F0EB449206F305900274C86 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4F0EB44D206F305900274C86 /* EventsViewModel.h */,
+				4F0EB44B206F305900274C86 /* EventsViewModel.m */,
+				4F0EB44A206F305900274C86 /* MotherNoteListViewModel.h */,
+				4F0EB44E206F305900274C86 /* MotherNoteListViewModel.m */,
+				4F0EB44C206F305900274C86 /* VariousIndicatorsViewModel.h */,
+				4F0EB44F206F305900274C86 /* VariousIndicatorsViewModel.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4F0EB453206F83A400274C86 /* MarqueeScrollLabel */ = {
+			isa = PBXGroup;
+			children = (
+				4F0EB454206F83A400274C86 /* SXMarquee.h */,
+				4F0EB45C206F83A400274C86 /* SXMarquee.m */,
+				4F0EB455206F83A400274C86 /* SXColorLabel.h */,
+				4F0EB45B206F83A400274C86 /* SXColorLabel.m */,
+				4F0EB456206F83A400274C86 /* UIColor+Separate.h */,
+				4F0EB45E206F83A400274C86 /* UIColor+Separate.m */,
+				4F0EB45D206F83A400274C86 /* SXHeadLine.h */,
+				4F0EB457206F83A400274C86 /* SXHeadLine.m */,
+				4F0EB458206F83A400274C86 /* SXColorGradientView.h */,
+				4F0EB461206F83A400274C86 /* SXColorGradientView.m */,
+				4F0EB45A206F83A400274C86 /* UILabel+Wonderful.h */,
+				4F0EB45F206F83A400274C86 /* UILabel+Wonderful.m */,
+				4F0EB460206F83A400274C86 /* UIColor+Wonderful.h */,
+				4F0EB459206F83A400274C86 /* UIColor+Wonderful.m */,
+			);
+			path = MarqueeScrollLabel;
+			sourceTree = "<group>";
+		};
 		4F1AF26B205BA44C00D8419C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -973,10 +1034,7 @@
 			isa = PBXGroup;
 			children = (
 				4FB811672063419E000B03C6 /* Basic */,
-				4FB811642063413F000B03C6 /* MotherNoteListViewModel.h */,
-				4FB811652063413F000B03C6 /* MotherNoteListViewModel.m */,
-				4FB8116F2063947E000B03C6 /* VariousIndicatorsViewModel.h */,
-				4FB811702063947E000B03C6 /* VariousIndicatorsViewModel.m */,
+				4F0EB449206F305900274C86 /* Home */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1019,6 +1077,8 @@
 				4F794F212060F88D00EB4E25 /* MotherNoteModel.m */,
 				4FB81172206394D9000B03C6 /* VariousIndicatorsModel.h */,
 				4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */,
+				4F0EB446206F2F6000274C86 /* EventModel.h */,
+				4F0EB447206F2F6000274C86 /* EventModel.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1615,6 +1675,7 @@
 		4FFEE079204D126D00F6D520 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4F0EB453206F83A400274C86 /* MarqueeScrollLabel */,
 				4FB8117A2063AD27000B03C6 /* TagsChooser */,
 				4FD1EE4F2062386B0086B94C /* ZFChart */,
 				4F794EE92060B0A300EB4E25 /* RxWebViewController */,
@@ -2168,6 +2229,7 @@
 				4FFEE0D9204D126D00F6D520 /* WXSTransitionManager.m in Sources */,
 				4FB811912063B617000B03C6 /* CustomKeyWindowView.m in Sources */,
 				4FD1EEAC2062386B0086B94C /* ZFHorizontalAxis.m in Sources */,
+				4F0EB468206F83A400274C86 /* SXColorGradientView.m in Sources */,
 				4FFEE0AE204D126D00F6D520 /* SecondViewController.m in Sources */,
 				4F6974912064D00B00B9C38A /* EditVariousIndicatorsViewModel.m in Sources */,
 				4F794F1F2060EDA300EB4E25 /* WWHUD.m in Sources */,
@@ -2191,11 +2253,13 @@
 				4FFEE0A4204D126D00F6D520 /* PopViewController.m in Sources */,
 				4F45EC02205B6DFD008AE38D /* WSCollectionViewController.m in Sources */,
 				4F45EC01205B6DFD008AE38D /* WSRefreshCollectionView.m in Sources */,
+				4F0EB452206F305900274C86 /* VariousIndicatorsViewModel.m in Sources */,
 				4F1AF29D205BA80600D8419C /* UIButton+Addition.m in Sources */,
 				4FCEABCE205FA6E10045AB0C /* SmallFamilyViewController.m in Sources */,
 				4F6974942064D01D00B9C38A /* EditMotherNoteViewModel.m in Sources */,
 				4FB811882063AD28000B03C6 /* YLCollectionReusableView.m in Sources */,
 				4F1AF2CC205BBD2100D8419C /* ESPictureModel.m in Sources */,
+				4F0EB465206F83A400274C86 /* SXMarquee.m in Sources */,
 				4FFEE0B9204D126D00F6D520 /* WWBadgeView.m in Sources */,
 				4FD1EED020624B870086B94C /* PhysicalStateIndicatorsViewController.m in Sources */,
 				4F794EF82060C23D00EB4E25 /* QDUIHelper.m in Sources */,
@@ -2204,7 +2268,10 @@
 				4FD1EEAB2062386B0086B94C /* ZFCirque.m in Sources */,
 				4F794ED22060A11B00EB4E25 /* EditMotherNoteViewController.m in Sources */,
 				4FC68981205FB1AB00D199AC /* TimeHeaderTableViewCell.m in Sources */,
+				4F0EB448206F2F6000274C86 /* EventModel.m in Sources */,
 				4FFEE0CF204D126D00F6D520 /* UIViewController+WXSTransitionProperty.m in Sources */,
+				4F0EB451206F305900274C86 /* MotherNoteListViewModel.m in Sources */,
+				4F0EB464206F83A400274C86 /* SXColorLabel.m in Sources */,
 				4FD1EEB42062386B0086B94C /* ZFLine.m in Sources */,
 				4FB811872063AD28000B03C6 /* YLTagsChooser.m in Sources */,
 				4F1AF2B8205BB98B00D8419C /* Base64Util.m in Sources */,
@@ -2214,7 +2281,6 @@
 				4FFEE0B4204D126D00F6D520 /* WWPopTransition.m in Sources */,
 				4FFEE0C1204D126D00F6D520 /* WWTabBarController.m in Sources */,
 				4FB811782063ABBE000B03C6 /* EditVariousIndicatorsViewController.m in Sources */,
-				4FB811662063413F000B03C6 /* MotherNoteListViewModel.m in Sources */,
 				4FFEE0BB204D126D00F6D520 /* UITabBarItem+BadgeColor.m in Sources */,
 				4FFEE0B3204D126D00F6D520 /* AppDelegate.m in Sources */,
 				4FD1EECD20624AED0086B94C /* MoodIndicatorsViewController.m in Sources */,
@@ -2225,6 +2291,9 @@
 				4FFEE0DB204D126D00F6D520 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				4FB811892063AD28000B03C6 /* NSArray+YLBoundsCheck.m in Sources */,
 				4FFEE0C3204D126D00F6D520 /* WWTextInputBarView.m in Sources */,
+				4F0EB450206F305900274C86 /* EventsViewModel.m in Sources */,
+				4F0EB463206F83A400274C86 /* UIColor+Wonderful.m in Sources */,
+				4F0EB467206F83A400274C86 /* UILabel+Wonderful.m in Sources */,
 				4FB8118D2063B461000B03C6 /* CustomPickerView.m in Sources */,
 				4FFEE0A3204D126D00F6D520 /* PushViewController.m in Sources */,
 				4FC6898C205FBCD200D199AC /* StaticImageCollectionViewCell.m in Sources */,
@@ -2239,6 +2308,7 @@
 				4FD1EEBD2062386B0086B94C /* ZFGradientAttribute.m in Sources */,
 				4FFEE0B2204D126D00F6D520 /* TextViewViewController.m in Sources */,
 				4F45EBFE205B6DFD008AE38D /* WSRefreshTableView.m in Sources */,
+				4F0EB466206F83A400274C86 /* UIColor+Separate.m in Sources */,
 				4F1AF2A6205BA80600D8419C /* NSString+Random.m in Sources */,
 				4F1AF2A7205BA80600D8419C /* UITabBar+Badge.m in Sources */,
 				4FC68978205FAEAD00D199AC /* StackViewController.m in Sources */,
@@ -2267,7 +2337,6 @@
 				4FD1EEA92062386B0086B94C /* NSNumber+Zirkfied.m in Sources */,
 				4FFEE0D4204D126D00F6D520 /* UIViewController+WXSTransition.m in Sources */,
 				4FD1EEB72062386B0086B94C /* ZFPopoverLabel.m in Sources */,
-				4FB811712063947E000B03C6 /* VariousIndicatorsViewModel.m in Sources */,
 				4FFEE0CD204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */,
 				4F1AF29A205BA80600D8419C /* UITableView+TableHeadView.m in Sources */,
@@ -2289,6 +2358,7 @@
 				4FFEE0A9204D126D00F6D520 /* WXSTestViewController.m in Sources */,
 				4FFEE0D5204D126D00F6D520 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				4F1AF2CE205BBD2100D8419C /* ESCellNode.m in Sources */,
+				4F0EB462206F83A400274C86 /* SXHeadLine.m in Sources */,
 				4FD1EEC12062386B0086B94C /* ZFHorizontalBarChart.m in Sources */,
 				4F794F182060ED3200EB4E25 /* QDCustomToastContentView.m in Sources */,
 				4F1AF2A2205BA80600D8419C /* NSArray+Permutation.m in Sources */,
