@@ -32,6 +32,7 @@
 @property (nonatomic, copy) NSString *physicalStateStr;
 @property (nonatomic, assign) BOOL isMoodType;
 @property (nonatomic, strong) EditVariousIndicatorsViewModel *viewModel;
+@property (nonatomic, copy) NSString *publicTime;
 
 @end
 
@@ -61,6 +62,7 @@
     self.viewModel = [[EditVariousIndicatorsViewModel alloc] init];
     NSDate *nowDate = [NSDate dateWithTimeIntervalSinceNow:0];
     NSString *dateString = [nowDate formateDate:@"yyyy-MM-dd"];
+    self.publicTime = [nowDate formateDate:@"yyyy-MM-dd HH:mm"];
     [self.publicTimeButton setTitle:[NSString stringWithFormat:@"发布时间:%@",dateString] forState:UIControlStateNormal];
 }
 
@@ -69,7 +71,7 @@
     self.viewModel.mood = self.moodStr;
     self.viewModel.physicalState = self.physicalStateStr;
     self.viewModel.note = self.noteTextView.text;
-    self.viewModel.publicTime = [self.publicTimeButton.titleLabel.text substringFromIndex:5];
+    self.viewModel.publicTime = self.publicTime;
     [[self.viewModel publicEditVariousIndicatorsCommand] execute:nil];
 }
 
@@ -189,7 +191,7 @@
                                                      [selectedArr[1] integerValue],
                                                      [selectedArr[2] integerValue]]
                                            forState:UIControlStateNormal];
-
+                weakSelf.publicTime = [NSString stringWithFormat:@"%@-%@-%@ 00:00",selectedArr[0],selectedArr[1],selectedArr[2]];
             }
         }];
     }

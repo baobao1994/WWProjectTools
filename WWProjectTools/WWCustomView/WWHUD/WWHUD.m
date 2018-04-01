@@ -25,16 +25,16 @@
     QMUIToastContentView *contentView = (QMUIToastContentView *)tips.contentView;
     contentView.minimumSize = CGSizeMake(90, 90);
     tips.willShowBlock = ^(UIView *showInView, BOOL animated) {
-        NSLog(@"tips calling willShowBlock");
+//        NSLog(@"tips calling willShowBlock");
     };
     tips.didShowBlock = ^(UIView *showInView, BOOL animated) {
-        NSLog(@"tips calling didShowBlock");
+//        NSLog(@"tips calling didShowBlock");
     };
     tips.willHideBlock = ^(UIView *hideInView, BOOL animated) {
-        NSLog(@"tips calling willHideBlock");
+//        NSLog(@"tips calling willHideBlock");
     };
     tips.didHideBlock = ^(UIView *hideInView, BOOL animated) {
-        NSLog(@"tips calling didHideBlock");
+//        NSLog(@"tips calling didHideBlock");
     };
     [tips showLoadingHideAfterDelay:afterDelay];
 }

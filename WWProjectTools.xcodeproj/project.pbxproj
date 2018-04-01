@@ -38,8 +38,6 @@
 		4F1AF2A6205BA80600D8419C /* NSString+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF292205BA80600D8419C /* NSString+Random.m */; };
 		4F1AF2A7205BA80600D8419C /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF294205BA80600D8419C /* UITabBar+Badge.m */; };
 		4F1AF2A8205BA80600D8419C /* NSString+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF295205BA80600D8419C /* NSString+Addition.m */; };
-		4F1AF2AC205BB70100D8419C /* PictureBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF2AA205BB70100D8419C /* PictureBrowserViewController.m */; };
-		4F1AF2AD205BB70100D8419C /* PictureBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AF2AB205BB70100D8419C /* PictureBrowserViewController.xib */; };
 		4F1AF2B6205BB98B00D8419C /* MD5Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF2B1205BB98B00D8419C /* MD5Encryption.m */; };
 		4F1AF2B7205BB98B00D8419C /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF2B3205BB98B00D8419C /* GTMBase64.m */; };
 		4F1AF2B8205BB98B00D8419C /* Base64Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF2B5205BB98B00D8419C /* Base64Util.m */; };
@@ -58,8 +56,6 @@
 		4F45EC00205B6DFD008AE38D /* WSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBF8205B6DFD008AE38D /* WSRefreshHeader.m */; };
 		4F45EC01205B6DFD008AE38D /* WSRefreshCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBF9205B6DFD008AE38D /* WSRefreshCollectionView.m */; };
 		4F45EC02205B6DFD008AE38D /* WSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBFC205B6DFD008AE38D /* WSCollectionViewController.m */; };
-		4F6974912064D00B00B9C38A /* EditVariousIndicatorsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6974902064D00B00B9C38A /* EditVariousIndicatorsViewModel.m */; };
-		4F6974942064D01D00B9C38A /* EditMotherNoteViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6974932064D01D00B9C38A /* EditMotherNoteViewModel.m */; };
 		4F794ED22060A11B00EB4E25 /* EditMotherNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794ED02060A11B00EB4E25 /* EditMotherNoteViewController.m */; };
 		4F794ED32060A11B00EB4E25 /* EditMotherNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F794ED12060A11B00EB4E25 /* EditMotherNoteViewController.xib */; };
 		4F794ED82060A3F600EB4E25 /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794ED72060A3F500EB4E25 /* QMUIConfigurationTemplate.m */; };
@@ -313,6 +309,11 @@
 		4FFEE1B7204D12DC00F6D520 /* loading_35.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE14A204D12DC00F6D520 /* loading_35.png */; };
 		4FFEE1B8204D12DC00F6D520 /* loading_21.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE14B204D12DC00F6D520 /* loading_21.png */; };
 		70BE1824F67A7A1E8DF09524 /* Pods_WWProjectTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAF738558B0BB10C37677EA /* Pods_WWProjectTools.framework */; };
+		A5FD128F2070D4CE0043CA27 /* EditEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD128D2070D4CE0043CA27 /* EditEventViewController.m */; };
+		A5FD12902070D4CE0043CA27 /* EditEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5FD128E2070D4CE0043CA27 /* EditEventViewController.xib */; };
+		A5FD12962070DA5B0043CA27 /* EditMotherNoteViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD12922070DA5B0043CA27 /* EditMotherNoteViewModel.m */; };
+		A5FD12972070DA5B0043CA27 /* EditVariousIndicatorsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD12952070DA5B0043CA27 /* EditVariousIndicatorsViewModel.m */; };
+		A5FD129A2070DA810043CA27 /* EditEventViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD12992070DA810043CA27 /* EditEventViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -397,9 +398,6 @@
 		4F1AF293205BA80600D8419C /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
 		4F1AF294205BA80600D8419C /* UITabBar+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
 		4F1AF295205BA80600D8419C /* NSString+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addition.m"; sourceTree = "<group>"; };
-		4F1AF2A9205BB70100D8419C /* PictureBrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureBrowserViewController.h; sourceTree = "<group>"; };
-		4F1AF2AA205BB70100D8419C /* PictureBrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureBrowserViewController.m; sourceTree = "<group>"; };
-		4F1AF2AB205BB70100D8419C /* PictureBrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureBrowserViewController.xib; sourceTree = "<group>"; };
 		4F1AF2AF205BB98B00D8419C /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		4F1AF2B0205BB98B00D8419C /* Base64Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Util.h; sourceTree = "<group>"; };
 		4F1AF2B1205BB98B00D8419C /* MD5Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encryption.m; sourceTree = "<group>"; };
@@ -435,10 +433,6 @@
 		4F45EBFA205B6DFD008AE38D /* WSRefreshDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRefreshDelegate.h; sourceTree = "<group>"; };
 		4F45EBFB205B6DFD008AE38D /* WSRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRefreshTableView.h; sourceTree = "<group>"; };
 		4F45EBFC205B6DFD008AE38D /* WSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCollectionViewController.m; sourceTree = "<group>"; };
-		4F69748F2064D00B00B9C38A /* EditVariousIndicatorsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditVariousIndicatorsViewModel.h; sourceTree = "<group>"; };
-		4F6974902064D00B00B9C38A /* EditVariousIndicatorsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditVariousIndicatorsViewModel.m; sourceTree = "<group>"; };
-		4F6974922064D01D00B9C38A /* EditMotherNoteViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMotherNoteViewModel.h; sourceTree = "<group>"; };
-		4F6974932064D01D00B9C38A /* EditMotherNoteViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMotherNoteViewModel.m; sourceTree = "<group>"; };
 		4F790462200F391A00CA7DF3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		4F794ECF2060A11B00EB4E25 /* EditMotherNoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMotherNoteViewController.h; sourceTree = "<group>"; };
 		4F794ED02060A11B00EB4E25 /* EditMotherNoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMotherNoteViewController.m; sourceTree = "<group>"; };
@@ -824,6 +818,15 @@
 		4FFEE14A204D12DC00F6D520 /* loading_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_35.png; sourceTree = "<group>"; };
 		4FFEE14B204D12DC00F6D520 /* loading_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_21.png; sourceTree = "<group>"; };
 		6BAF738558B0BB10C37677EA /* Pods_WWProjectTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WWProjectTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5FD128C2070D4CE0043CA27 /* EditEventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditEventViewController.h; sourceTree = "<group>"; };
+		A5FD128D2070D4CE0043CA27 /* EditEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditEventViewController.m; sourceTree = "<group>"; };
+		A5FD128E2070D4CE0043CA27 /* EditEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditEventViewController.xib; sourceTree = "<group>"; };
+		A5FD12922070DA5B0043CA27 /* EditMotherNoteViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMotherNoteViewModel.m; sourceTree = "<group>"; };
+		A5FD12932070DA5B0043CA27 /* EditVariousIndicatorsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditVariousIndicatorsViewModel.h; sourceTree = "<group>"; };
+		A5FD12942070DA5B0043CA27 /* EditMotherNoteViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMotherNoteViewModel.h; sourceTree = "<group>"; };
+		A5FD12952070DA5B0043CA27 /* EditVariousIndicatorsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditVariousIndicatorsViewModel.m; sourceTree = "<group>"; };
+		A5FD12982070DA810043CA27 /* EditEventViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditEventViewModel.h; sourceTree = "<group>"; };
+		A5FD12992070DA810043CA27 /* EditEventViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditEventViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -897,7 +900,6 @@
 		4F1AF26B205BA44C00D8419C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4F69748E2064CF3F00B9C38A /* Public */,
 				4F794ECD20609A7300EB4E25 /* Home */,
 				4F1AF26C205BA46800D8419C /* DBModels.h */,
 				4F1AF26D205BA46800D8419C /* DBModels.m */,
@@ -1007,15 +1009,15 @@
 		4F45EB95205B5C8E008AE38D /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				4F1AF2A9205BB70100D8419C /* PictureBrowserViewController.h */,
-				4F1AF2AA205BB70100D8419C /* PictureBrowserViewController.m */,
-				4F1AF2AB205BB70100D8419C /* PictureBrowserViewController.xib */,
 				4F794ECF2060A11B00EB4E25 /* EditMotherNoteViewController.h */,
 				4F794ED02060A11B00EB4E25 /* EditMotherNoteViewController.m */,
 				4F794ED12060A11B00EB4E25 /* EditMotherNoteViewController.xib */,
 				4FB811752063ABBE000B03C6 /* EditVariousIndicatorsViewController.h */,
 				4FB811762063ABBE000B03C6 /* EditVariousIndicatorsViewController.m */,
 				4FB811772063ABBE000B03C6 /* EditVariousIndicatorsViewController.xib */,
+				A5FD128C2070D4CE0043CA27 /* EditEventViewController.h */,
+				A5FD128D2070D4CE0043CA27 /* EditEventViewController.m */,
+				A5FD128E2070D4CE0043CA27 /* EditEventViewController.xib */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -1035,6 +1037,7 @@
 			children = (
 				4FB811672063419E000B03C6 /* Basic */,
 				4F0EB449206F305900274C86 /* Home */,
+				A5FD12912070DA5B0043CA27 /* Public */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1057,17 +1060,6 @@
 				4F45EBF6205B6DFD008AE38D /* WSRefreshFooter.m */,
 			);
 			path = WSTableViewController;
-			sourceTree = "<group>";
-		};
-		4F69748E2064CF3F00B9C38A /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				4F6974922064D01D00B9C38A /* EditMotherNoteViewModel.h */,
-				4F6974932064D01D00B9C38A /* EditMotherNoteViewModel.m */,
-				4F69748F2064D00B00B9C38A /* EditVariousIndicatorsViewModel.h */,
-				4F6974902064D00B00B9C38A /* EditVariousIndicatorsViewModel.m */,
-			);
-			path = Public;
 			sourceTree = "<group>";
 		};
 		4F794ECD20609A7300EB4E25 /* Home */ = {
@@ -1861,6 +1853,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A5FD12912070DA5B0043CA27 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				A5FD12942070DA5B0043CA27 /* EditMotherNoteViewModel.h */,
+				A5FD12922070DA5B0043CA27 /* EditMotherNoteViewModel.m */,
+				A5FD12932070DA5B0043CA27 /* EditVariousIndicatorsViewModel.h */,
+				A5FD12952070DA5B0043CA27 /* EditVariousIndicatorsViewModel.m */,
+				A5FD12982070DA810043CA27 /* EditEventViewModel.h */,
+				A5FD12992070DA810043CA27 /* EditEventViewModel.m */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2018,7 +2023,6 @@
 				4FFEE14E204D12DC00F6D520 /* bounce_31.png in Resources */,
 				4FFEE17B204D12DC00F6D520 /* bounce_29.png in Resources */,
 				4FFEE183204D12DC00F6D520 /* loading_12.png in Resources */,
-				4F1AF2AD205BB70100D8419C /* PictureBrowserViewController.xib in Resources */,
 				4FFEE187204D12DC00F6D520 /* loading_15.png in Resources */,
 				4FFEE172204D12DC00F6D520 /* bounce_38.png in Resources */,
 				4FCEABCC205FA6E10045AB0C /* HomeViewController.xib in Resources */,
@@ -2073,6 +2077,7 @@
 				4FFEE159204D12DC00F6D520 /* bounce_36.png in Resources */,
 				4FFEE164204D12DC00F6D520 /* bounce_43.png in Resources */,
 				4FFEE1AB204D12DC00F6D520 /* loading_30.png in Resources */,
+				A5FD12902070D4CE0043CA27 /* EditEventViewController.xib in Resources */,
 				4FFEE19C204D12DC00F6D520 /* loading_45.png in Resources */,
 				4FFEE15C204D12DC00F6D520 /* bounce_35.png in Resources */,
 				4FFEE156204D12DC00F6D520 /* bounce_37.png in Resources */,
@@ -2231,7 +2236,6 @@
 				4FD1EEAC2062386B0086B94C /* ZFHorizontalAxis.m in Sources */,
 				4F0EB468206F83A400274C86 /* SXColorGradientView.m in Sources */,
 				4FFEE0AE204D126D00F6D520 /* SecondViewController.m in Sources */,
-				4F6974912064D00B00B9C38A /* EditVariousIndicatorsViewModel.m in Sources */,
 				4F794F1F2060EDA300EB4E25 /* WWHUD.m in Sources */,
 				4FD1EEB92062386B0086B94C /* ZFRadar.m in Sources */,
 				4FCEABCA205FA6E10045AB0C /* HomeViewController.m in Sources */,
@@ -2248,6 +2252,7 @@
 				4FFEE0AA204D126D00F6D520 /* DetailViewController.m in Sources */,
 				4FFEE0AF204D126D00F6D520 /* TableViewController.m in Sources */,
 				4F794EE52060A9CB00EB4E25 /* BasicViewController.m in Sources */,
+				A5FD128F2070D4CE0043CA27 /* EditEventViewController.m in Sources */,
 				4FFEE0C8204D126D00F6D520 /* ViewController3.m in Sources */,
 				4FD1EEC22062386B0086B94C /* ZFHorizontalBar.m in Sources */,
 				4FFEE0A4204D126D00F6D520 /* PopViewController.m in Sources */,
@@ -2256,7 +2261,6 @@
 				4F0EB452206F305900274C86 /* VariousIndicatorsViewModel.m in Sources */,
 				4F1AF29D205BA80600D8419C /* UIButton+Addition.m in Sources */,
 				4FCEABCE205FA6E10045AB0C /* SmallFamilyViewController.m in Sources */,
-				4F6974942064D01D00B9C38A /* EditMotherNoteViewModel.m in Sources */,
 				4FB811882063AD28000B03C6 /* YLCollectionReusableView.m in Sources */,
 				4F1AF2CC205BBD2100D8419C /* ESPictureModel.m in Sources */,
 				4F0EB465206F83A400274C86 /* SXMarquee.m in Sources */,
@@ -2275,6 +2279,7 @@
 				4FD1EEB42062386B0086B94C /* ZFLine.m in Sources */,
 				4FB811872063AD28000B03C6 /* YLTagsChooser.m in Sources */,
 				4F1AF2B8205BB98B00D8419C /* Base64Util.m in Sources */,
+				A5FD12962070DA5B0043CA27 /* EditMotherNoteViewModel.m in Sources */,
 				4FFEE0C6204D126D00F6D520 /* ViewController2.m in Sources */,
 				4FFEE0B5204D126D00F6D520 /* WWPushTransition.m in Sources */,
 				4FC6897C205FB18400D199AC /* MotherNoteTableViewCell.m in Sources */,
@@ -2287,9 +2292,11 @@
 				4FCEABD5205FA7C00045AB0C /* CustomSegmentedControlView.m in Sources */,
 				4FD1EEBF2062386B0086B94C /* ZFWaveChart.m in Sources */,
 				4FFEE0DC204D126D00F6D520 /* WXSTransitionProperty.m in Sources */,
+				A5FD129A2070DA810043CA27 /* EditEventViewModel.m in Sources */,
 				4FFEE0D7204D126D00F6D520 /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				4FFEE0DB204D126D00F6D520 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				4FB811892063AD28000B03C6 /* NSArray+YLBoundsCheck.m in Sources */,
+				A5FD12972070DA5B0043CA27 /* EditVariousIndicatorsViewModel.m in Sources */,
 				4FFEE0C3204D126D00F6D520 /* WWTextInputBarView.m in Sources */,
 				4F0EB450206F305900274C86 /* EventsViewModel.m in Sources */,
 				4F0EB463206F83A400274C86 /* UIColor+Wonderful.m in Sources */,
@@ -2320,7 +2327,6 @@
 				4F45EC00205B6DFD008AE38D /* WSRefreshHeader.m in Sources */,
 				4FD1EECA20624A1D0086B94C /* WeightIndicatorViewController.m in Sources */,
 				4FD1EEA82062386B0086B94C /* NSString+Zirkfied.m in Sources */,
-				4F1AF2AC205BB70100D8419C /* PictureBrowserViewController.m in Sources */,
 				4F1AF2A0205BA80600D8419C /* UITableViewCell+Addition.m in Sources */,
 				4FC68987205FB52A00D199AC /* StaticTableViewCell.m in Sources */,
 				4FFEE0AB204D126D00F6D520 /* WXSViewController.m in Sources */,

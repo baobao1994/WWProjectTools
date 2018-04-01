@@ -71,8 +71,8 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
-//    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+//    [formatter setDateFormat:@"-MM-dd"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
 
     //        NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
     //        [formatter setTimeZone:timeZone];
@@ -97,18 +97,39 @@
         return @"";
     }
     NSDateFormatter *myDateFormatter = [[NSDateFormatter alloc] init];
-    [myDateFormatter setDateFormat:@"YYYY.MM.dd"];
+    [myDateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *beginString = [myDateFormatter stringFromDate:beginDate];
     NSString *endString = [myDateFormatter stringFromDate:endDate];
-    NSString *dateBounce = [NSString stringWithFormat:@"%@-%@",beginString,endString];
+    NSString *dateBounce = [NSString stringWithFormat:@"%@,%@",beginString,endString];
     return dateBounce;
 }
 
 + (NSString *)getMonthBeginAndEndWithDateStr:(NSString *)dateStr {
     NSDateFormatter *format=[[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyy-MM"];
+    [format setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSDate *newDate=[format dateFromString:dateStr];
     return [self getMonthBeginAndEndWithDate:newDate];
+}
+
+/**
+ *  判断当前时间是否处于某个时间段内
+ *
+ *  @param startTime        开始时间
+ *  @param expireTime       结束时间
+ */
+
+- (BOOL)validateWithStartTime:(NSString *)startTime withExpireTime:(NSString *)expireTime {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    // 时间格式,此处遇到过坑,建议时间HH大写,手机24小时进制和12小时禁止都可以完美格式化
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm"];
+    
+    NSDate *start = [dateFormat dateFromString:startTime];
+    NSDate *expire = [dateFormat dateFromString:expireTime];
+    
+    if ([self compare:start] == NSOrderedDescending && [self compare:expire] == NSOrderedAscending) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

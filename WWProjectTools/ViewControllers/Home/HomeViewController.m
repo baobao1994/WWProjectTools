@@ -31,7 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.motherVC viewWillAppear:animated];
+    [_motherVC viewWillAppear:animated];
 }
 
 - (void)selectedNavigationLeftItem:(id)sender {
@@ -39,12 +39,15 @@
 }
 
 - (void)setUp {
+    kWeakSelf;
+    self.pushViewControllerBlock = ^(UIViewController *controller) {
+        [weakSelf.navigationController pushViewController:controller animated:YES];
+    };
     self.customSegmentView = [[CustomSegmentedControlView alloc] initWithFrame:CGRectMake(0, 0, 105 * UIScreenScale * 2, 35)];
     self.customSegmentView.count = 2;
     self.customSegmentView.cornerRadius = 13;
     self.customSegmentView.borderWidth = 1;
     [self.customSegmentView initWithDataArr:@[@"小窝",@"宝妈"]];
-    kWeakSelf;
     self.customSegmentView.didChangeSelect = ^(NSInteger current) {
         weakSelf.smallFamilyVC.view.hidden = (current == 0)? NO:YES;
         weakSelf.motherVC.view.hidden  = (current == 1)? NO:YES;
@@ -56,12 +59,6 @@
     };
     self.navigationItem.titleView = self.customSegmentView;
     [self.view addSubview:self.smallFamilyVC.view];
-    [self.view addSubview:self.motherVC.view];
-    void (^pushViewControllerBlock)(UIViewController *) = ^(UIViewController *controller) {
-        [weakSelf.navigationController pushViewController:controller animated:YES];
-    };
-    self.smallFamilyVC.pushViewControllerBlock = pushViewControllerBlock;
-    self.motherVC.pushViewControllerBlock = pushViewControllerBlock;
 }
 
 - (SmallFamilyViewController *)smallFamilyVC {
@@ -69,6 +66,7 @@
         _smallFamilyVC = [[SmallFamilyViewController alloc] init];
         _smallFamilyVC.view.frame = CGRectMake(0, 64, self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height);
         _smallFamilyVC.view.backgroundColor = RandomColor;
+        _smallFamilyVC.pushViewControllerBlock = self.pushViewControllerBlock;
     }
     return _smallFamilyVC;
 }
@@ -77,7 +75,8 @@
     if (!_motherVC) {
         _motherVC = [[MotherViewController alloc] init];
         _motherVC.view.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64 - 44);
-        _motherVC.view.hidden = YES;
+        _motherVC.pushViewControllerBlock = self.pushViewControllerBlock;
+        [self.view addSubview:_motherVC.view];
     }
     return _motherVC;
 }

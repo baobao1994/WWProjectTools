@@ -43,7 +43,7 @@
     //Add button
     [animateView CrentBtnImageName:@"post_animate_camera" Title:@"宝妈日记" tag:0 didSelectButtonBlock:block];
     [animateView CrentBtnImageName:@"post_animate_album" Title:@"宝妈基础数值" tag:1 didSelectButtonBlock:block];
-    [animateView CrentBtnImageName:@"post_animate_akey" Title:@"宝妈检查大事件" tag:2 didSelectButtonBlock:block];
+    [animateView CrentBtnImageName:@"post_animate_akey" Title:@"日历事件" tag:2 didSelectButtonBlock:block];
     [animateView CrentBtnImageName:@"post_animate_camera" Title:@"宝宝日记" tag:3 didSelectButtonBlock:block];
     [animateView CrentBtnImageName:@"post_animate_album" Title:@"宝宝基础数值" tag:4 didSelectButtonBlock:block];
     [animateView CrentBtnImageName:@"post_animate_akey" Title:@"宝宝检查大事件" tag:5 didSelectButtonBlock:block];

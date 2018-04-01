@@ -11,6 +11,7 @@
 #import "WWTabBarConfig.h"
 #import "EditMotherNoteViewController.h"
 #import "EditVariousIndicatorsViewController.h"
+#import "EditEventViewController.h"
 #import "WWNavigationController.h"
 
 @interface TabBarController ()<WWTabBarDelegate>
@@ -42,10 +43,10 @@
         UIViewController *vc;
         if (tag == 0) {
             vc = [[EditMotherNoteViewController alloc] init];
-            vc.title = @"发布新笔记";
-        } else {
+        } else if (tag == 1) {
             vc = [[EditVariousIndicatorsViewController alloc] init];
-            vc.title = @"发布基本数值";
+        } else {
+            vc = [[EditEventViewController alloc] init];
         }
         [rootVC.navigationController pushViewController:vc animated:YES];
     }];

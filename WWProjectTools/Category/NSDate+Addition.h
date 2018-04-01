@@ -27,4 +27,6 @@
 + (NSString *)getMonthBeginAndEndWithDate:(NSDate *)date;
 + (NSString *)getMonthBeginAndEndWithDateStr:(NSString *)dateStr;
 
+- (BOOL)validateWithStartTime:(NSString *)startTime withExpireTime:(NSString *)expireTime;
+
 @end

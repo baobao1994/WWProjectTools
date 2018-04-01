@@ -36,6 +36,7 @@
 @property (nonatomic, strong) EditMotherNoteViewModel *viewModel;
 @property (nonatomic, strong) CustomPickerView *timePickerView;
 @property (nonatomic, strong) CustomKeyWindowView *showView;
+@property (nonatomic, copy) NSString *publicTime;
 
 @end
 
@@ -61,6 +62,7 @@
     [self.showView setCustomContentView:self.timePickerView backGroundColor:[UIColor blackColor] Alpha:0.5];
     NSDate *nowDate = [NSDate dateWithTimeIntervalSinceNow:0];
     NSString *dateString = [nowDate formateDate:@"yyyy-MM-dd"];
+    self.publicTime = [nowDate formateDate:@"yyyy-MM-dd HH:mm"];
     self.timeLabel.text = dateString;
 }
 
@@ -90,7 +92,7 @@
 
 - (void)selectedNavigationRightItem:(id)sender {
     self.viewModel.note = self.textInputView.text;
-    self.viewModel.publicTime = self.timeLabel.text;
+    self.viewModel.publicTime = self.publicTime;
     if (self.filePathArr.count) {
         [BmobFile filesUploadBatchWithPaths:self.filePathArr
                               progressBlock:^(int index, float progress) {
@@ -127,6 +129,7 @@
         }];
         [_timePickerView setSelectedPickerData:^(NSArray *selectedArr, ShowPickerViewType pickerViewType) {
             weakSelf.timeLabel.text = [NSString stringWithFormat:@"%ld-%02ld-%02ld",[selectedArr[0] integerValue],[selectedArr[1] integerValue],[selectedArr[2] integerValue]];
+            weakSelf.publicTime = [NSString stringWithFormat:@"%@-%@-%@ 00:00",selectedArr[0],selectedArr[1],selectedArr[2]];
         }];
     }
     return _timePickerView;

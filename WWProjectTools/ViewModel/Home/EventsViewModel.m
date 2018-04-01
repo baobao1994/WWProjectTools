@@ -14,7 +14,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.eventDic = [[NSMutableDictionary alloc] init];
+        self.eventList = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -33,15 +33,13 @@
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         kWeakSelf;
         BmobQuery *bquery = [BmobQuery queryWithClassName:EventTable];
-        NSArray *sortArr = @[@{PublicTimeKey:@{@"$gt":@(weakSelf.beginTime)}},@{PublicTimeKey:@{@"$lt":@(weakSelf.endTime)}}];
-        [bquery addTheConstraintByAndOperationWithArray:sortArr];
+//        NSArray *sortArr = @[@{PublicTimeKey:@{@"$gt":@(weakSelf.beginTime)}},@{PublicTimeKey:@{@"$lt":@(weakSelf.endTime)}}];
+//        [bquery addTheConstraintByAndOperationWithArray:sortArr];
         [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
             if (error.code == 0) {
-                NSMutableArray<EventModel *> *eventList = [[NSMutableArray alloc] init];
                 for (BmobObject *obj in array) {
-                    [eventList addObject:[[EventModel alloc] initWithDictionary:obj]];
+                    [weakSelf.eventList addObject:[[EventModel alloc] initWithDictionary:obj]];
                 }
-                [weakSelf.eventDic setObject:eventList forKey:weakSelf.dateTime];
                 [subscriber sendNext:@"success"];
                 [subscriber sendCompleted];
             } else {

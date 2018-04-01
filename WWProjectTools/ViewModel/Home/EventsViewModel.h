@@ -14,7 +14,7 @@
 @property (nonatomic, assign) long long beginTime;
 @property (nonatomic, assign) long long endTime;
 @property (nonatomic, assign) NSString *dateTime;
-@property (nonatomic, strong) NSMutableDictionary *eventDic;
+@property (nonatomic, strong) NSMutableArray *eventList;
 @property (nonatomic, strong) RACCommand *requestEventsCommand;
 
 @end
