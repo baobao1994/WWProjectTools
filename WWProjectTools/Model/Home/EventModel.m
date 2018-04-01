@@ -13,8 +13,9 @@
 
 - (id)initWithDictionary:(BmobObject *)object {
     if (self = [super init]) {
+        self.title = [object objectForKey:TitleKey];
         self.content = [object objectForKey:ContentKey];
-        self.isLate = [object objectForKey:IsLateKey];
+        self.isRemind = [object objectForKey:IsRemindKey];
         self.remindTime = [object objectForKey:RemindTimeKey];
         self.publicTime = [NSDate dateWithTimeIntervalSince1970:[[object objectForKey:PublicTimeKey] doubleValue]];
         self.publicTimeString = [self.publicTime formateDate:@"MM-dd"];

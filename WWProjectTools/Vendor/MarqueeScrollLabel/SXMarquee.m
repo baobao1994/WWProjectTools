@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, SXMarqueeTapMode) {
 
 - (instancetype)initWithFrame:(CGRect)frame speed:(SXMarqueeSpeedLevel)speed Msg:(NSString *)msg bgColor:(UIColor *)bgColor txtColor:(UIColor *)txtColor{
     if (self = [super initWithFrame:frame]) {
-        self.layer.cornerRadius = 2;
+        self.layer.cornerRadius = 0;
         if(bgColor){
             self.bgColor = bgColor;
         }else{

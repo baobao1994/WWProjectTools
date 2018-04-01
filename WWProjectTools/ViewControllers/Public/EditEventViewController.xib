@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGf-cn-PQA" customClass="QMUITextView">
-                    <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                    <rect key="frame" x="5" y="20" width="365" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="xuF-ZW-pZL"/>
@@ -45,10 +45,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eGf-cn-PQA" secondAttribute="trailing" id="24w-2u-8QC"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eGf-cn-PQA" secondAttribute="trailing" constant="5" id="24w-2u-8QC"/>
                 <constraint firstItem="cd4-8r-SjM" firstAttribute="top" secondItem="eGf-cn-PQA" secondAttribute="bottom" constant="20" id="6Nk-jc-fBf"/>
                 <constraint firstItem="eGf-cn-PQA" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="fTX-7Y-nOo"/>
-                <constraint firstItem="eGf-cn-PQA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gYI-1N-8dL"/>
+                <constraint firstItem="eGf-cn-PQA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="gYI-1N-8dL"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="cd4-8r-SjM" secondAttribute="trailing" constant="20" id="mtq-Ts-P4B"/>
                 <constraint firstItem="cd4-8r-SjM" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="oS1-UJ-Puf"/>
             </constraints>

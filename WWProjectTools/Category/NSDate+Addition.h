@@ -29,4 +29,8 @@
 
 - (BOOL)validateWithStartTime:(NSString *)startTime withExpireTime:(NSString *)expireTime;
 
++ (NSTimeInterval)pleaseInsertStarTime:(NSString *)starTime andInsertEndTime:(NSString *)endTime;
+
++ (NSDateComponents *)pleaseInsertStarTimeo:(NSString *)time1 andInsertEndTime:(NSString *)time2;
+
 @end

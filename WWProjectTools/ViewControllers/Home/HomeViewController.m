@@ -31,6 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [_smallFamilyVC viewWillAppear:animated];
     [_motherVC viewWillAppear:animated];
 }
 

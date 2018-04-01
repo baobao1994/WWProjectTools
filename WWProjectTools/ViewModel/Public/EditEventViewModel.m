@@ -8,6 +8,7 @@
 
 #import "EditEventViewModel.h"
 #import "NSDate+Addition.h"
+#import "WWLocalNotificationCenterModel.h"
 
 @implementation EditEventViewModel
 
@@ -29,6 +30,11 @@
         [obj setObject:[NSDate cTimestampFromString:weakSelf.publicTime] forKey:PublicTimeKey];
         [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
             if (isSuccessful) {
+                WWLocalNotificationCenterModel *notification = [[WWLocalNotificationCenterModel alloc] init];
+                notification.content = weakSelf.content;
+                notification.alertTime = [NSDate pleaseInsertStarTime:[[NSDate date] formateDate:@"yyyy-MM-dd HH:mm"] andInsertEndTime:weakSelf.publicTime];
+                notification.time = weakSelf.publicTime;
+                [notification setNotification];
                 [subscriber sendNext:@"success"];
                 [subscriber sendCompleted];
             } else {

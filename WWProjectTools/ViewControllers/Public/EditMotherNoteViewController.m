@@ -129,7 +129,7 @@
         }];
         [_timePickerView setSelectedPickerData:^(NSArray *selectedArr, ShowPickerViewType pickerViewType) {
             weakSelf.timeLabel.text = [NSString stringWithFormat:@"%ld-%02ld-%02ld",[selectedArr[0] integerValue],[selectedArr[1] integerValue],[selectedArr[2] integerValue]];
-            weakSelf.publicTime = [NSString stringWithFormat:@"%@-%@-%@ 00:00",selectedArr[0],selectedArr[1],selectedArr[2]];
+            weakSelf.publicTime = [NSString stringWithFormat:@"%ld-%ld-%ld 00:00",[selectedArr[0] integerValue],[selectedArr[1] integerValue],[selectedArr[2] integerValue]];
         }];
     }
     return _timePickerView;

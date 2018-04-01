@@ -47,6 +47,13 @@
     [self bind];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.calendar.selectedDate) {
+        [self reSetScrollLabel:self.calendar.selectedDate];
+    }
+}
+
 - (void)setUp {
     //NSCalendarIdentifierGregorian 公历
     //NSCalendarIdentifierChinese 农历
@@ -56,7 +63,7 @@
     self.calendar.appearance.caseOptions = FSCalendarCaseOptionsHeaderUsesDefaultCase;
     self.calendar.appearance.headerDateFormat = @"yyyy年MM月";
     self.calendar.appearance.headerMinimumDissolvedAlpha = 0;
-    [self.calendar selectDate:[NSDate date]];
+//    [self.calendar selectDate:[NSDate date]];
     kWeakSelf;
     [RHDeviceAuthTool calendarAuth:^{
         EKEventStore *eventStore = [[EKEventStore alloc] init];

@@ -38,9 +38,10 @@ NSString *const FileNameKey = @"filename";
 
 #pragma mark - eventKey
 
-NSString *const ContentKey = @"content";
+NSString *const TitleKey = @"title";
+NSString *const IsRemindKey = @"is_remind";
 NSString *const RemindTimeKey = @"remind_time";
-NSString *const IsLateKey = @"is_late";
+NSString *const ContentKey = @"content";
 
 #pragma mark - motherNoteKey
 

@@ -314,6 +314,7 @@
 		A5FD12962070DA5B0043CA27 /* EditMotherNoteViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD12922070DA5B0043CA27 /* EditMotherNoteViewModel.m */; };
 		A5FD12972070DA5B0043CA27 /* EditVariousIndicatorsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD12952070DA5B0043CA27 /* EditVariousIndicatorsViewModel.m */; };
 		A5FD129A2070DA810043CA27 /* EditEventViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD12992070DA810043CA27 /* EditEventViewModel.m */; };
+		A5FD129D207116010043CA27 /* WWLocalNotificationCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD129C207116010043CA27 /* WWLocalNotificationCenterModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -827,6 +828,8 @@
 		A5FD12952070DA5B0043CA27 /* EditVariousIndicatorsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditVariousIndicatorsViewModel.m; sourceTree = "<group>"; };
 		A5FD12982070DA810043CA27 /* EditEventViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditEventViewModel.h; sourceTree = "<group>"; };
 		A5FD12992070DA810043CA27 /* EditEventViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditEventViewModel.m; sourceTree = "<group>"; };
+		A5FD129B207116010043CA27 /* WWLocalNotificationCenterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWLocalNotificationCenterModel.h; sourceTree = "<group>"; };
+		A5FD129C207116010043CA27 /* WWLocalNotificationCenterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWLocalNotificationCenterModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -903,6 +906,8 @@
 				4F794ECD20609A7300EB4E25 /* Home */,
 				4F1AF26C205BA46800D8419C /* DBModels.h */,
 				4F1AF26D205BA46800D8419C /* DBModels.m */,
+				A5FD129B207116010043CA27 /* WWLocalNotificationCenterModel.h */,
+				A5FD129C207116010043CA27 /* WWLocalNotificationCenterModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2308,6 +2313,7 @@
 				4FFEE0BE204D126D00F6D520 /* WWButton.m in Sources */,
 				4FD1EE4D206220E30086B94C /* MotherNoteListViewController.m in Sources */,
 				4FB8116E20638BAE000B03C6 /* RHDeviceAuthTool.m in Sources */,
+				A5FD129D207116010043CA27 /* WWLocalNotificationCenterModel.m in Sources */,
 				4FD1EEB12062386B0086B94C /* ZFTranslucencePath.m in Sources */,
 				4FD1EEC02062386B0086B94C /* ZFWave.m in Sources */,
 				4F1AF29E205BA80600D8419C /* UIView+Layout.m in Sources */,

@@ -10,8 +10,9 @@
 
 @interface EventModel : BmobObject
 
+@property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *content;
-@property (nonatomic, copy) NSString *isLate;
+@property (nonatomic, copy) NSString *isRemind;
 @property (nonatomic, copy) NSString *remindTime;
 @property (nonatomic, strong) NSDate *publicTime;
 @property (nonatomic, copy) NSString *publicTimeString;
