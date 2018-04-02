@@ -43,7 +43,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGf-cn-PQA" customClass="QMUITextView">
-                    <rect key="frame" x="5" y="128.5" width="365" height="40"/>
+                    <rect key="frame" x="0.0" y="128.5" width="375" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="xuF-ZW-pZL"/>
@@ -89,7 +89,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eGf-cn-PQA" secondAttribute="trailing" constant="5" id="24w-2u-8QC"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eGf-cn-PQA" secondAttribute="trailing" id="24w-2u-8QC"/>
                 <constraint firstItem="wqS-Jh-h8u" firstAttribute="top" secondItem="6cS-EX-4gn" secondAttribute="bottom" constant="10" id="8XR-by-ciM"/>
                 <constraint firstItem="wVe-8I-kKY" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="9hK-uY-ocX"/>
                 <constraint firstItem="IEj-Ve-8Fl" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="5" id="FKo-ie-axU"/>
@@ -99,11 +99,9 @@
                 <constraint firstItem="6cS-EX-4gn" firstAttribute="top" secondItem="wVe-8I-kKY" secondAttribute="bottom" constant="10" id="Lp6-fp-wxE"/>
                 <constraint firstItem="wVe-8I-kKY" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="5" id="RP6-Lp-yNE"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="6cS-EX-4gn" secondAttribute="trailing" constant="5" id="V09-2N-E0h"/>
-                <constraint firstItem="eGf-cn-PQA" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="5" id="aXO-ye-eyY"/>
                 <constraint firstItem="BBT-Dq-vdC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="5" id="brc-Jc-UqE"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eGf-cn-PQA" secondAttribute="trailing" constant="5" id="cvK-HH-C9E"/>
                 <constraint firstItem="IEj-Ve-8Fl" firstAttribute="top" secondItem="eGf-cn-PQA" secondAttribute="bottom" constant="10" id="cz4-TJ-N2z"/>
-                <constraint firstItem="eGf-cn-PQA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="gYI-1N-8dL"/>
+                <constraint firstItem="eGf-cn-PQA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gYI-1N-8dL"/>
                 <constraint firstItem="eGf-cn-PQA" firstAttribute="top" secondItem="wqS-Jh-h8u" secondAttribute="bottom" constant="10" id="hpb-aV-KSa"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ZgV-Xh-8GV" secondAttribute="trailing" constant="20" id="m79-QM-hMW"/>
                 <constraint firstItem="ZgV-Xh-8GV" firstAttribute="top" secondItem="BBT-Dq-vdC" secondAttribute="bottom" constant="10" id="vXV-i0-7q0"/>

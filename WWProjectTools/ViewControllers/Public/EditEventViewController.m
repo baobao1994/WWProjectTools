@@ -111,7 +111,7 @@
     //NSDate格式转换为NSString格式
     NSDate *pickerDate = [self.datePicker date];
     NSDateFormatter *pickerFormatter = [[NSDateFormatter alloc] init];
-    [pickerFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
+    [pickerFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *dateString = [pickerFormatter stringFromDate:pickerDate];
     self.remindTime = dateString;
 }
