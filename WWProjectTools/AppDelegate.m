@@ -15,6 +15,8 @@
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <UserNotifications/UserNotifications.h>
 
+//https://blog.csdn.net/u011146511/article/details/51226879 本地推送学习资料
+
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @property (nonatomic, strong) WWTabBarController *tabBarController;
@@ -57,13 +59,17 @@
 
 // 处理完成后调用 completionHandler ，用于指示在前台显示通知的形式
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    NSDictionary *userInfo = notification.request.content.userInfo;
+    [WWHUD showWithText:[NSString stringWithFormat:@"前台%@",userInfo] inView:_window afterDelay:2];
     completionHandler(UNNotificationPresentationOptionSound);
 }
 
 //后台
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Title" message:@"message" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Title" message:@"message" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
+//    [alert show];
+    NSDictionary *userInfo = response.notification.request.content.userInfo;
+    [WWHUD showWithText:[NSString stringWithFormat:@"后台%@",userInfo] inView:_window afterDelay:2];
     completionHandler();
 }
 
