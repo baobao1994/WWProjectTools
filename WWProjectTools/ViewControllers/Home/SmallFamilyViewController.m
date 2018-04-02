@@ -114,7 +114,7 @@
     
     [[self.addEventButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         EditEventViewController *editEventVC = [[EditEventViewController alloc] init];
-        editEventVC.publicDate = weakSelf.calendar.selectedDate;
+        editEventVC.remindDate = weakSelf.calendar.selectedDate;
         if (weakSelf.pushViewControllerBlock) {
             weakSelf.pushViewControllerBlock(editEventVC);
         }
@@ -126,16 +126,17 @@
     NSMutableArray *monthEventList = [[NSMutableArray alloc] init];
     NSArray *timeArr = [[NSDate getMonthBeginAndEndWithDate:self.calendar.currentPage] componentsSeparatedByString:@","];
     for (EventModel *model in self.eventViewModel.eventList) {
-        if ([model.publicTime validateWithStartTime:timeArr[0] withExpireTime:timeArr[1]]) {
+        if ([model.remindTime validateWithStartTime:timeArr[0] withExpireTime:timeArr[1]]) {
             [monthEventList addObject:model];
         }
     }
     if (seletDate || monthEventList.count == 0) {
         NSString *eventString = @"";
         for (EventModel *model in monthEventList) {
-            if ([model.publicTime isEqualToDate:seletDate]) {
-                eventString = [eventString stringByAppendingString:[NSString stringWithFormat:@"%@ %@",model.publicTimeString,model.content]];
+            if ([NSDate isSameDay:model.remindTime date2:seletDate]) {
+                eventString = [eventString stringByAppendingString:[NSString stringWithFormat:@"%@ %@   ",[model.remindTime formateDate:@"HH:mm"],model.content]];
             }
+            
         }
         if (isEmptyString(eventString)) {
             if (monthEventList.count == 0) {
@@ -154,7 +155,7 @@
     } else {
         NSMutableArray *msgArr = [[NSMutableArray alloc] init];
         for (EventModel *model in monthEventList) {
-            [msgArr addObject:[NSString stringWithFormat:@"%@ %@",model.publicTimeString,model.content]];
+            [msgArr addObject:[NSString stringWithFormat:@"%@ %@",model.remindTimeString,model.content]];
         }
         SXHeadLine *headLine = [[SXHeadLine alloc]initWithFrame:CGRectMake(0, 0, self.eventView.frame.size.width, self.eventView.frame.size.height)];
         headLine.messageArray = [msgArr copy];
@@ -190,9 +191,8 @@
 
 //显示事件圆点 最多3个圆点
 - (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date {
-//    NSMutableArray *eventList = [self.viewModel.eventDic objectForKey:[self.calendar.currentPage formateDate:@"yyyy.MM"]];
     for (EventModel *model in self.eventViewModel.eventList) {
-        if ([model.publicTime isEqualToDate:date]) {
+        if ([model.remindTime isEqualToDate:date]) {
             return 0;
         }
     }
@@ -205,9 +205,8 @@
 //显示事件圆点自定义图片
 - (UIImage *)calendar:(FSCalendar *)calendar imageForDate:(NSDate *)date {
     BOOL isEventDay = NO;
-//    NSMutableArray *eventList = [self.viewModel.eventDic objectForKey:[self.calendar.currentPage formateDate:@"yyyy.MM"]];
     for (EventModel *model in self.eventViewModel.eventList) {
-        if ([model.publicTime isEqualToDate:date]) {
+        if ([NSDate isSameDay:model.remindTime date2:date]) {
             isEventDay = YES;
         }
     }

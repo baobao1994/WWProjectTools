@@ -16,9 +16,8 @@
         self.title = [object objectForKey:TitleKey];
         self.content = [object objectForKey:ContentKey];
         self.isRemind = [object objectForKey:IsRemindKey];
-        self.remindTime = [object objectForKey:RemindTimeKey];
-        self.publicTime = [NSDate dateWithTimeIntervalSince1970:[[object objectForKey:PublicTimeKey] doubleValue]];
-        self.publicTimeString = [self.publicTime formateDate:@"MM-dd"];
+        self.remindTime = [NSDate dateWithTimeIntervalSince1970:[[object objectForKey:RemindTimeKey] doubleValue]];
+        self.remindTimeString = [self.remindTime formateDate:@"MM-dd"];
     }
     return self;
 }

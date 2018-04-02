@@ -13,9 +13,8 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *isRemind;
-@property (nonatomic, copy) NSString *remindTime;
-@property (nonatomic, strong) NSDate *publicTime;
-@property (nonatomic, copy) NSString *publicTimeString;
+@property (nonatomic, strong) NSDate *remindTime;
+@property (nonatomic, copy) NSString *remindTimeString;
 
 - (id)initWithDictionary:(BmobObject *)object;
 

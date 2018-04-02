@@ -35,6 +35,7 @@
         BmobQuery *bquery = [BmobQuery queryWithClassName:EventTable];
 //        NSArray *sortArr = @[@{PublicTimeKey:@{@"$gt":@(weakSelf.beginTime)}},@{PublicTimeKey:@{@"$lt":@(weakSelf.endTime)}}];
 //        [bquery addTheConstraintByAndOperationWithArray:sortArr];
+        [weakSelf.eventList removeAllObjects];
         [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
             if (error.code == 0) {
                 for (BmobObject *obj in array) {

@@ -94,6 +94,7 @@
     self.viewModel.note = self.textInputView.text;
     self.viewModel.publicTime = self.publicTime;
     if (self.filePathArr.count) {
+        [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
         [BmobFile filesUploadBatchWithPaths:self.filePathArr
                               progressBlock:^(int index, float progress) {
                                   //index 上传数组的下标，progress当前文件的进度

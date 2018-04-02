@@ -158,4 +158,13 @@
     return cmps;
 }
 
+// 判断是否是同一天
++ (BOOL)isSameDay:(NSDate *)date1 date2:(NSDate *)date2 {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    unsigned unitFlag = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSDateComponents *comp1 = [calendar components:unitFlag fromDate:date1];
+    NSDateComponents *comp2 = [calendar components:unitFlag fromDate:date2];
+    return (([comp1 day] == [comp2 day]) && ([comp1 month] == [comp2 month]) && ([comp1 year] == [comp2 year]));
+}
+
 @end

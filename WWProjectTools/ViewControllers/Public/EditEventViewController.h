@@ -10,6 +10,6 @@
 
 @interface EditEventViewController : UIViewController
 
-@property (nonatomic, strong) NSDate *publicDate;
+@property (nonatomic, strong) NSDate *remindDate;
 
 @end

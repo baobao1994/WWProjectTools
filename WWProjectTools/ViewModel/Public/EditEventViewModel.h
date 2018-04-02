@@ -10,10 +10,10 @@
 
 @interface EditEventViewModel : NSObject
 
-@property (nonatomic, copy) NSString *remindTime;//暂时不用
-@property (nonatomic, copy) NSString *isLate;//暂时不用
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *remindTime;
+@property (nonatomic, assign) BOOL isRemind;
 @property (nonatomic, copy) NSString *content;
-@property (nonatomic, copy) NSString *publicTime;
 
 @property (nonatomic, strong) RACCommand *publicEditEventCommand;
 

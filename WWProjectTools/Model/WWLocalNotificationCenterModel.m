@@ -17,7 +17,7 @@
     
     //需创建一个包含待通知内容的 UNMutableNotificationContent 对象，注意不是 UNNotificationContent ,此对象为不可变对象。
     UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
-    content.title = self.time;//[NSString localizedUserNotificationStringForKey:@"本地推送Title" arguments:nil];
+    content.title = self.title;//[NSString localizedUserNotificationStringForKey:@"本地推送Title" arguments:nil];
     content.body = self.content;//[NSString localizedUserNotificationStringForKey:@"本地推送Body" arguments:nil];
     content.sound = [UNNotificationSound defaultSound];
     

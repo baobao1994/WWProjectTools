@@ -27,14 +27,19 @@
         kWeakSelf;
         BmobObject *obj = [[BmobObject alloc] initWithClassName:EventTable];
         [obj setObject:weakSelf.content forKey:ContentKey];
-        [obj setObject:[NSDate cTimestampFromString:weakSelf.publicTime] forKey:PublicTimeKey];
+        [obj setObject:[NSDate cTimestampFromString:weakSelf.remindTime] forKey:RemindTimeKey];
+        [obj setObject:weakSelf.title forKey:TitleKey];
+        [obj setObject:[NSNumber numberWithBool:weakSelf.isRemind] forKey:IsRemindKey];
         [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
             if (isSuccessful) {
-                WWLocalNotificationCenterModel *notification = [[WWLocalNotificationCenterModel alloc] init];
-                notification.content = weakSelf.content;
-                notification.alertTime = [NSDate pleaseInsertStarTime:[[NSDate date] formateDate:@"yyyy-MM-dd HH:mm"] andInsertEndTime:weakSelf.publicTime];
-                notification.time = weakSelf.publicTime;
-                [notification setNotification];
+                if (weakSelf.isRemind) {
+                    WWLocalNotificationCenterModel *notification = [[WWLocalNotificationCenterModel alloc] init];
+                    notification.content = weakSelf.content;
+                    notification.title = weakSelf.title;
+                    notification.alertTime = [NSDate pleaseInsertStarTime:[[NSDate date] formateDate:@"yyyy-MM-dd HH:mm"] andInsertEndTime:weakSelf.remindTime];
+                    notification.time = weakSelf.remindTime;
+                    [notification setNotification];
+                }
                 [subscriber sendNext:@"success"];
                 [subscriber sendCompleted];
             } else {

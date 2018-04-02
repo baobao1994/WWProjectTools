@@ -33,4 +33,6 @@
 
 + (NSDateComponents *)pleaseInsertStarTimeo:(NSString *)time1 andInsertEndTime:(NSString *)time2;
 
++ (BOOL)isSameDay:(NSDate *)date1 date2:(NSDate *)date2;
+
 @end
