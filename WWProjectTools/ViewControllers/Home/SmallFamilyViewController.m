@@ -19,6 +19,9 @@
 #import "SXMarquee.h"
 #import "SXHeadLine.h"
 
+#import "WeatherView.h"
+#import "WeatherViewModel.h"
+
 #define KDay (3600 * 24)
 #define KMonth (KDay * 30)
 #define KYear (KMonth * 12)
@@ -45,6 +48,8 @@
     [super viewDidLoad];
     [self setUp];
     [self bind];
+    WeatherViewModel *ddd = [[WeatherViewModel alloc] init];
+    [[ddd requestWeatherCommand] execute:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

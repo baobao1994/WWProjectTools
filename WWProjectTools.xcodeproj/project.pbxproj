@@ -47,6 +47,9 @@
 		4F1AF2CC205BBD2100D8419C /* ESPictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF2C3205BBD2100D8419C /* ESPictureModel.m */; };
 		4F1AF2CD205BBD2100D8419C /* list.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AF2C4205BBD2100D8419C /* list.json */; };
 		4F1AF2CE205BBD2100D8419C /* ESCellNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF2C5205BBD2100D8419C /* ESCellNode.m */; };
+		4F338917207376590067315E /* WeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F338916207376590067315E /* WeatherView.m */; };
+		4F338919207376620067315E /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F338918207376620067315E /* WeatherView.xib */; };
+		4F33891C20737A8A0067315E /* WeatherViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F33891B20737A8A0067315E /* WeatherViewModel.m */; };
 		4F45EBA0205B5D20008AE38D /* BabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EB9E205B5D20008AE38D /* BabyViewController.m */; };
 		4F45EBA1205B5D20008AE38D /* BabyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F45EB9F205B5D20008AE38D /* BabyViewController.xib */; };
 		4F45EBEE205B638C008AE38D /* ConstString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBED205B638C008AE38D /* ConstString.m */; };
@@ -416,6 +419,11 @@
 		4F1AF2C6205BBD2100D8419C /* ESCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESCellLayout.h; sourceTree = "<group>"; };
 		4F1AF2C7205BBD2100D8419C /* ESPPictureBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPPictureBrowserViewController.h; sourceTree = "<group>"; };
 		4F1AF2C8205BBD2100D8419C /* ESPictureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPictureModel.h; sourceTree = "<group>"; };
+		4F338915207376590067315E /* WeatherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherView.h; sourceTree = "<group>"; };
+		4F338916207376590067315E /* WeatherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherView.m; sourceTree = "<group>"; };
+		4F338918207376620067315E /* WeatherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
+		4F33891A20737A8A0067315E /* WeatherViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherViewModel.h; sourceTree = "<group>"; };
+		4F33891B20737A8A0067315E /* WeatherViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherViewModel.m; sourceTree = "<group>"; };
 		4F45EB9D205B5D20008AE38D /* BabyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BabyViewController.h; sourceTree = "<group>"; };
 		4F45EB9E205B5D20008AE38D /* BabyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyViewController.m; sourceTree = "<group>"; };
 		4F45EB9F205B5D20008AE38D /* BabyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BabyViewController.xib; sourceTree = "<group>"; };
@@ -1076,6 +1084,8 @@
 				4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */,
 				4F0EB446206F2F6000274C86 /* EventModel.h */,
 				4F0EB447206F2F6000274C86 /* EventModel.m */,
+				4F33891A20737A8A0067315E /* WeatherViewModel.h */,
+				4F33891B20737A8A0067315E /* WeatherViewModel.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1292,6 +1302,9 @@
 				4FC68979205FB18400D199AC /* MotherNoteTableViewCell.h */,
 				4FC6897A205FB18400D199AC /* MotherNoteTableViewCell.m */,
 				4FC6897B205FB18400D199AC /* MotherNoteTableViewCell.xib */,
+				4F338915207376590067315E /* WeatherView.h */,
+				4F338916207376590067315E /* WeatherView.m */,
+				4F338918207376620067315E /* WeatherView.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2019,6 +2032,7 @@
 				4FFEE152204D12DC00F6D520 /* bounce_32.png in Resources */,
 				4FFEE18D204D12DC00F6D520 /* loading_58.png in Resources */,
 				4FFEE0A5204D126D00F6D520 /* Assets.xcassets in Resources */,
+				4F338919207376620067315E /* WeatherView.xib in Resources */,
 				4FFEE1A9204D12DC00F6D520 /* loading_19.png in Resources */,
 				4FFEE182204D12DC00F6D520 /* loading_13.png in Resources */,
 				4FFEE197204D12DC00F6D520 /* loading_8.png in Resources */,
@@ -2246,6 +2260,7 @@
 				4FCEABCA205FA6E10045AB0C /* HomeViewController.m in Sources */,
 				4FD1EEA22062386B0086B94C /* ZFGenericChart.m in Sources */,
 				4FFEE0AD204D126D00F6D520 /* CollectionViewController.m in Sources */,
+				4F338917207376590067315E /* WeatherView.m in Sources */,
 				4FFEE0D0204D126D00F6D520 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				4FCEABCB205FA6E10045AB0C /* MotherViewController.m in Sources */,
 				4FB811852063AD28000B03C6 /* YLWaterFlowLayout.m in Sources */,
@@ -2348,6 +2363,7 @@
 				4FD1EEBC2062386B0086B94C /* ZFGenericAxis.m in Sources */,
 				4FD1EEA92062386B0086B94C /* NSNumber+Zirkfied.m in Sources */,
 				4FFEE0D4204D126D00F6D520 /* UIViewController+WXSTransition.m in Sources */,
+				4F33891C20737A8A0067315E /* WeatherViewModel.m in Sources */,
 				4FD1EEB72062386B0086B94C /* ZFPopoverLabel.m in Sources */,
 				4FFEE0CD204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */,

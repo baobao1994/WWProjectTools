@@ -13,6 +13,12 @@
 NSString *const BmobKey = @"7ff96c3a0695e837ccbb9ceb213a6865";
 uint64_t const kDBVersion = 100002;
 
+#pragma mark - heweather
+
+NSString *const HeWeatherUrl = @"https://free-api.heweather.com/s6/weather?";
+NSString *const HeWeatherIdKey = @"f8e853ca81cc4141af568c0d6263a6f3";
+NSString *const HeWeatherTitleKey = @"HeWeather6";
+
 #pragma mark - bmobTable
 
 NSString *const FamilyTable = @"family";

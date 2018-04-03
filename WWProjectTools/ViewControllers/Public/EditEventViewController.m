@@ -97,9 +97,9 @@
 
 - (void)setMinTime {
     long long dateTime = [[NSDate date] timeIntervalSince1970];
-    dateTime += 60 * 60 * 8;
+    dateTime += 5 * 60;
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [format setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSDate * date = [NSDate dateWithTimeIntervalSince1970:dateTime];
     self.datePicker.minimumDate = date;
 }

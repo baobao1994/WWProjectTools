@@ -11,6 +11,12 @@
 extern NSString *const BmobKey;
 extern uint64_t const kDBVersion;
 
+#pragma mark - heweather
+
+extern NSString *const HeWeatherUrl;
+extern NSString *const HeWeatherIdKey;
+extern NSString *const HeWeatherTitleKey;
+
 #pragma mark - bmobTable
 
 extern NSString *const FamilyTable;
