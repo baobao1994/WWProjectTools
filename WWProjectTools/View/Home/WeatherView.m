@@ -7,12 +7,21 @@
 //
 
 #import "WeatherView.h"
-#import "WeatherViewModel.h"
+#import "WeatherBasicViewModel.h"
+#import "WeatherAirViewModel.h"
+
+@interface WeatherView ()
+
+@property (nonatomic, strong) WeatherAirViewModel *weatherViewModel;
+
+@end
 
 @implementation WeatherView
 
 - (void)loadWeather {
-    
+//    self.weatherViewModel = [[WeatherAirViewModel alloc] init];
+//    [[self.weatherViewModel requestWeatherBasicCommand] execute:nil];
+//    [[self.weatherViewModel requestWeatherAirCommand] execute:nil];
 }
 
 @end

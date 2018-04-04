@@ -49,7 +49,6 @@
 		4F1AF2CE205BBD2100D8419C /* ESCellNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AF2C5205BBD2100D8419C /* ESCellNode.m */; };
 		4F338917207376590067315E /* WeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F338916207376590067315E /* WeatherView.m */; };
 		4F338919207376620067315E /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F338918207376620067315E /* WeatherView.xib */; };
-		4F33891C20737A8A0067315E /* WeatherViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F33891B20737A8A0067315E /* WeatherViewModel.m */; };
 		4F45EBA0205B5D20008AE38D /* BabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EB9E205B5D20008AE38D /* BabyViewController.m */; };
 		4F45EBA1205B5D20008AE38D /* BabyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F45EB9F205B5D20008AE38D /* BabyViewController.xib */; };
 		4F45EBEE205B638C008AE38D /* ConstString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F45EBED205B638C008AE38D /* ConstString.m */; };
@@ -76,6 +75,12 @@
 		4F794F1F2060EDA300EB4E25 /* WWHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F1E2060EDA300EB4E25 /* WWHUD.m */; };
 		4F794F222060F88D00EB4E25 /* MotherNoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F212060F88D00EB4E25 /* MotherNoteModel.m */; };
 		4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F24206112EF00EB4E25 /* UIImage+Addition.m */; };
+		4F88A46A2074760600C9F098 /* WeatherBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F88A4692074760600C9F098 /* WeatherBasicModel.m */; };
+		4F88A4722074ACC500C9F098 /* WeatherAirViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F88A46E2074ACC500C9F098 /* WeatherAirViewModel.m */; };
+		4F88A4732074ACC500C9F098 /* WeatherBasicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F88A4702074ACC500C9F098 /* WeatherBasicViewModel.m */; };
+		4F88A4762074ADB300C9F098 /* WeatherAirModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F88A4752074ADB300C9F098 /* WeatherAirModel.m */; };
+		4F88A47A2074C77000C9F098 /* WWCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F88A4792074C77000C9F098 /* WWCalendarView.m */; };
+		4F88A47C2074C77700C9F098 /* WWCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F88A47B2074C77700C9F098 /* WWCalendarView.xib */; };
 		4FACE842200E01A000CCC34D /* WWProjectDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE841200E01A000CCC34D /* WWProjectDemoTests.m */; };
 		4FACE84D200E01A000CCC34D /* WWProjectDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FACE84C200E01A000CCC34D /* WWProjectDemoUITests.m */; };
 		4FB8116A206341AF000B03C6 /* BasicListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB81169206341AF000B03C6 /* BasicListViewModel.m */; };
@@ -422,8 +427,6 @@
 		4F338915207376590067315E /* WeatherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherView.h; sourceTree = "<group>"; };
 		4F338916207376590067315E /* WeatherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherView.m; sourceTree = "<group>"; };
 		4F338918207376620067315E /* WeatherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
-		4F33891A20737A8A0067315E /* WeatherViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherViewModel.h; sourceTree = "<group>"; };
-		4F33891B20737A8A0067315E /* WeatherViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherViewModel.m; sourceTree = "<group>"; };
 		4F45EB9D205B5D20008AE38D /* BabyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BabyViewController.h; sourceTree = "<group>"; };
 		4F45EB9E205B5D20008AE38D /* BabyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyViewController.m; sourceTree = "<group>"; };
 		4F45EB9F205B5D20008AE38D /* BabyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BabyViewController.xib; sourceTree = "<group>"; };
@@ -476,6 +479,17 @@
 		4F794F212060F88D00EB4E25 /* MotherNoteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotherNoteModel.m; sourceTree = "<group>"; };
 		4F794F23206112EF00EB4E25 /* UIImage+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Addition.h"; sourceTree = "<group>"; };
 		4F794F24206112EF00EB4E25 /* UIImage+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Addition.m"; sourceTree = "<group>"; };
+		4F88A4682074760600C9F098 /* WeatherBasicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherBasicModel.h; sourceTree = "<group>"; };
+		4F88A4692074760600C9F098 /* WeatherBasicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherBasicModel.m; sourceTree = "<group>"; };
+		4F88A46E2074ACC500C9F098 /* WeatherAirViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAirViewModel.m; sourceTree = "<group>"; };
+		4F88A46F2074ACC500C9F098 /* WeatherAirViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAirViewModel.h; sourceTree = "<group>"; };
+		4F88A4702074ACC500C9F098 /* WeatherBasicViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherBasicViewModel.m; sourceTree = "<group>"; };
+		4F88A4712074ACC500C9F098 /* WeatherBasicViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherBasicViewModel.h; sourceTree = "<group>"; };
+		4F88A4742074ADB300C9F098 /* WeatherAirModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherAirModel.h; sourceTree = "<group>"; };
+		4F88A4752074ADB300C9F098 /* WeatherAirModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherAirModel.m; sourceTree = "<group>"; };
+		4F88A4782074C77000C9F098 /* WWCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWCalendarView.h; sourceTree = "<group>"; };
+		4F88A4792074C77000C9F098 /* WWCalendarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWCalendarView.m; sourceTree = "<group>"; };
+		4F88A47B2074C77700C9F098 /* WWCalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WWCalendarView.xib; sourceTree = "<group>"; };
 		4FACE825200E019F00CCC34D /* WWProjectTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWProjectTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACE83D200E01A000CCC34D /* WWProjectToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWProjectToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACE841200E01A000CCC34D /* WWProjectDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWProjectDemoTests.m; sourceTree = "<group>"; };
@@ -883,6 +897,10 @@
 				4F0EB44E206F305900274C86 /* MotherNoteListViewModel.m */,
 				4F0EB44C206F305900274C86 /* VariousIndicatorsViewModel.h */,
 				4F0EB44F206F305900274C86 /* VariousIndicatorsViewModel.m */,
+				4F88A4712074ACC500C9F098 /* WeatherBasicViewModel.h */,
+				4F88A4702074ACC500C9F098 /* WeatherBasicViewModel.m */,
+				4F88A46F2074ACC500C9F098 /* WeatherAirViewModel.h */,
+				4F88A46E2074ACC500C9F098 /* WeatherAirViewModel.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1084,8 +1102,10 @@
 				4FB81173206394D9000B03C6 /* VariousIndicatorsModel.m */,
 				4F0EB446206F2F6000274C86 /* EventModel.h */,
 				4F0EB447206F2F6000274C86 /* EventModel.m */,
-				4F33891A20737A8A0067315E /* WeatherViewModel.h */,
-				4F33891B20737A8A0067315E /* WeatherViewModel.m */,
+				4F88A4682074760600C9F098 /* WeatherBasicModel.h */,
+				4F88A4692074760600C9F098 /* WeatherBasicModel.m */,
+				4F88A4742074ADB300C9F098 /* WeatherAirModel.h */,
+				4F88A4752074ADB300C9F098 /* WeatherAirModel.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1147,6 +1167,16 @@
 				4F794F1E2060EDA300EB4E25 /* WWHUD.m */,
 			);
 			path = WWHUD;
+			sourceTree = "<group>";
+		};
+		4F88A4772074C76400C9F098 /* WWCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				4F88A4782074C77000C9F098 /* WWCalendarView.h */,
+				4F88A4792074C77000C9F098 /* WWCalendarView.m */,
+				4F88A47B2074C77700C9F098 /* WWCalendarView.xib */,
+			);
+			path = WWCalendarView;
 			sourceTree = "<group>";
 		};
 		4FACE81C200E019F00CCC34D = {
@@ -1581,6 +1611,7 @@
 		4FFEE04A204D126D00F6D520 /* WWCustomView */ = {
 			isa = PBXGroup;
 			children = (
+				4F88A4772074C76400C9F098 /* WWCalendarView */,
 				4FD1EE462061F0490086B94C /* WWFile */,
 				4F794F1C2060ED9100EB4E25 /* WWHUD */,
 				4F794F0A2060D67E00EB4E25 /* WWPictureSelect */,
@@ -2088,6 +2119,7 @@
 				4FFEE166204D12DC00F6D520 /* bounce_9.png in Resources */,
 				4FFEE17F204D12DC00F6D520 /* loading_38.png in Resources */,
 				4FFEE192204D12DC00F6D520 /* loading_48.png in Resources */,
+				4F88A47C2074C77700C9F098 /* WWCalendarView.xib in Resources */,
 				4FFEE15E204D12DC00F6D520 /* bounce_46.png in Resources */,
 				4FFEE170204D12DC00F6D520 /* bounce_1.png in Resources */,
 				4FFEE0A6204D126D00F6D520 /* LaunchScreen.storyboard in Resources */,
@@ -2175,6 +2207,7 @@
 				"${BUILT_PRODUCTS_DIR}/ESPictureBrowser/ESPictureBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
@@ -2195,6 +2228,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPictureBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
@@ -2272,6 +2306,7 @@
 				4FFEE0AA204D126D00F6D520 /* DetailViewController.m in Sources */,
 				4FFEE0AF204D126D00F6D520 /* TableViewController.m in Sources */,
 				4F794EE52060A9CB00EB4E25 /* BasicViewController.m in Sources */,
+				4F88A4762074ADB300C9F098 /* WeatherAirModel.m in Sources */,
 				A5FD128F2070D4CE0043CA27 /* EditEventViewController.m in Sources */,
 				4FFEE0C8204D126D00F6D520 /* ViewController3.m in Sources */,
 				4FD1EEC22062386B0086B94C /* ZFHorizontalBar.m in Sources */,
@@ -2363,7 +2398,6 @@
 				4FD1EEBC2062386B0086B94C /* ZFGenericAxis.m in Sources */,
 				4FD1EEA92062386B0086B94C /* NSNumber+Zirkfied.m in Sources */,
 				4FFEE0D4204D126D00F6D520 /* UIViewController+WXSTransition.m in Sources */,
-				4F33891C20737A8A0067315E /* WeatherViewModel.m in Sources */,
 				4FD1EEB72062386B0086B94C /* ZFPopoverLabel.m in Sources */,
 				4FFEE0CD204D126D00F6D520 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */,
@@ -2374,7 +2408,9 @@
 				4FFEE0CC204D126D00F6D520 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				4FB811862063AD28000B03C6 /* YLTag.m in Sources */,
 				4FD1EEB32062386B0086B94C /* ZFCircle.m in Sources */,
+				4F88A4732074ACC500C9F098 /* WeatherBasicViewModel.m in Sources */,
 				4FD1EEAA2062386B0086B94C /* ZFCirqueChart.m in Sources */,
+				4F88A47A2074C77000C9F098 /* WWCalendarView.m in Sources */,
 				4F794EEC2060B0A300EB4E25 /* RxWebViewController.m in Sources */,
 				4FD1EEC62062403C0086B94C /* VariousIndicatorsViewController.m in Sources */,
 				4FD1EEAE2062386B0086B94C /* ZFMethod.m in Sources */,
@@ -2405,6 +2441,7 @@
 				4F1AF297205BA80600D8419C /* NSArray+Combinations.m in Sources */,
 				4FFEE0DA204D126D00F6D520 /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				4F794ED82060A3F600EB4E25 /* QMUIConfigurationTemplate.m in Sources */,
+				4F88A4722074ACC500C9F098 /* WeatherAirViewModel.m in Sources */,
 				4F1AF2A3205BA80600D8419C /* NSString+MD5.m in Sources */,
 				4FD1EEAF2062386B0086B94C /* ZFPieChart.m in Sources */,
 				4FFEE0D6204D126D00F6D520 /* WXSTransitionManager+TypeTool.m in Sources */,
@@ -2416,6 +2453,7 @@
 				4FD1EEB52062386B0086B94C /* ZFXAxisLine.m in Sources */,
 				4F1AF296205BA80600D8419C /* UITextView+Addition.m in Sources */,
 				4FD1EEA62062386B0086B94C /* UIBezierPath+Zirkfied.m in Sources */,
+				4F88A46A2074760600C9F098 /* WeatherBasicModel.m in Sources */,
 				4F794EF72060C23D00EB4E25 /* UIImageEffects.m in Sources */,
 				4F794EF62060C23D00EB4E25 /* QDCommonUI.m in Sources */,
 			);

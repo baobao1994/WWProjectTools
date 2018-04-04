@@ -13,7 +13,8 @@ extern uint64_t const kDBVersion;
 
 #pragma mark - heweather
 
-extern NSString *const HeWeatherUrl;
+extern NSString *const HeWeatherBasicUrl;
+extern NSString *const HeWeatherAirUrl;
 extern NSString *const HeWeatherIdKey;
 extern NSString *const HeWeatherTitleKey;
 

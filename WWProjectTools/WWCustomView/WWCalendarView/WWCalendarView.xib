@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="WWCalendarView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAe-dQ-k6o" customClass="FSCalendar">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="350" id="DS3-Jq-5UX"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="lwf-Bq-79q"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="9Jo-Lm-CVL"/>
+                    </connections>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTo-nh-n0Y">
+                    <rect key="frame" x="295" y="0.0" width="80" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="SL7-1Q-jzv"/>
+                        <constraint firstAttribute="width" constant="80" id="W4P-zg-CMj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="添加事件">
+                        <color key="titleColor" red="0.92549019610000005" green="0.49019607840000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DTo-nh-n0Y" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1Jq-oT-a2e"/>
+                <constraint firstItem="aAe-dQ-k6o" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1ba-Zv-sjY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aAe-dQ-k6o" secondAttribute="trailing" id="1na-nq-arN"/>
+                <constraint firstItem="DTo-nh-n0Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dK0-yY-RRW"/>
+                <constraint firstItem="aAe-dQ-k6o" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eNd-MG-1aZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="addEventButton" destination="DTo-nh-n0Y" id="nSQ-rS-aZb"/>
+                <outlet property="calendar" destination="aAe-dQ-k6o" id="uud-uJ-dc3"/>
+            </connections>
+            <point key="canvasLocation" x="26.5" y="77"/>
+        </view>
+    </objects>
+</document>

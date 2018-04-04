@@ -13,6 +13,7 @@ target 'WWProjectTools' do
     pod 'ESPictureBrowser'
     pod 'AsyncDisplayKit', '~> 1.9.90'
     pod 'QMUIKit'
+    pod 'MJExtension'
     use_frameworks!
     pod 'FSCalendar'
 end

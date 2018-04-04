@@ -15,7 +15,8 @@ uint64_t const kDBVersion = 100002;
 
 #pragma mark - heweather
 
-NSString *const HeWeatherUrl = @"https://free-api.heweather.com/s6/weather?";
+NSString *const HeWeatherBasicUrl = @"https://free-api.heweather.com/s6/weather?";
+NSString *const HeWeatherAirUrl = @"https://free-api.heweather.com/s6/air?";
 NSString *const HeWeatherIdKey = @"f8e853ca81cc4141af568c0d6263a6f3";
 NSString *const HeWeatherTitleKey = @"HeWeather6";
 

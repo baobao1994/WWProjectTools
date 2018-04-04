@@ -56,8 +56,9 @@
     self.datePicker.backgroundColor = [UIColor whiteColor];
     [self setMinTime];
     [self.datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
-    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];//设置为中文显示
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_Hans_CN"];//设置为中文显示
     self.datePicker.locale = locale;
+    
     self.remindTextField.inputView = self.datePicker;
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     //设置工具条的颜色
@@ -87,9 +88,12 @@
         dateString = [self.remindDate formateDate:@"yyyy-MM-dd HH:mm"];
         NSDate *nextDate = [self.remindDate dateByAddingTimeInterval:60*60*8];//顺延8小时
         dateString = [nextDate formateDate:@"yyyy-MM-dd HH:mm"];
+        [self.datePicker setDate:nextDate];
     } else {
         NSDate *nowDate = [NSDate dateWithTimeIntervalSinceNow:60*60*8];//顺延8小时
         dateString = [nowDate formateDate:@"yyyy-MM-dd HH:mm"];
+        [self.datePicker setDate:nowDate];
+
     }
     self.remindTime = dateString;
     self.remindTextField.text = self.remindTime;
