@@ -49,7 +49,6 @@
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     //监听回调事件
     center.delegate = self;
-    
     //iOS 10 使用以下方法注册，才能得到授权
     [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + UNAuthorizationOptionBadge)
                           completionHandler:^(BOOL granted, NSError * _Nullable error) {
@@ -59,18 +58,22 @@
 
 // 处理完成后调用 completionHandler ，用于指示在前台显示通知的形式
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
-    NSDictionary *userInfo = notification.request.content.userInfo;
-    [WWHUD showWithText:[NSString stringWithFormat:@"前台%@",userInfo] inView:_window afterDelay:2];
+    [self showNotificationAlert:notification.request.content];
     completionHandler(UNNotificationPresentationOptionSound);
 }
 
 //后台
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler{
-//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Title" message:@"message" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-//    [alert show];
-    NSDictionary *userInfo = response.notification.request.content.userInfo;
-    [WWHUD showWithText:[NSString stringWithFormat:@"后台%@",userInfo] inView:_window afterDelay:2];
+    [self showNotificationAlert:response.notification.request.content];
     completionHandler();
+}
+
+- (void)showNotificationAlert:(UNNotificationContent *)notificationContent {
+    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"知道了" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+    }];
+    QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:notificationContent.title message:notificationContent.body preferredStyle:QMUIAlertControllerStyleAlert];
+    [alertController addAction:action1];
+    [alertController showWithAnimated:YES];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

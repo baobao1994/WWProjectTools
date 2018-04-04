@@ -94,7 +94,9 @@
 - (void)EventNotificationAction:(NSNotification *)notification{
     NSLog(@"---接收到通知---");
     [[self.eventViewModel requestEventsCommand] execute:nil];
-    [self.calendar deselectDate:self.calendar.selectedDate];
+    if (self.calendar.selectedDate) {
+        [self.calendar deselectDate:self.calendar.selectedDate];
+    }
 }
 
 - (void)bind {
