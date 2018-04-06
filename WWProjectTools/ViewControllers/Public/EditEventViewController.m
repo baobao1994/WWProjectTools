@@ -86,7 +86,12 @@
     NSString *dateString;
     if (self.remindDate) {//从日历点击进来
         dateString = [self.remindDate formateDate:@"yyyy-MM-dd HH:mm"];
-        NSDate *nextDate = [self.remindDate dateByAddingTimeInterval:60*60*8];//顺延8小时
+        NSDate *nextDate;
+        if ([[self.remindDate formateDate:@"yyyy-MM-dd"] isEqualToString:[[NSDate date] formateDate:@"yyyy-MM-dd"]]) {
+            nextDate = [self.remindDate dateByAddingTimeInterval:60*60*32];//顺延1天8小时
+        } else {
+            nextDate = [self.remindDate dateByAddingTimeInterval:60*60*8];//顺延8小时
+        }
         dateString = [nextDate formateDate:@"yyyy-MM-dd HH:mm"];
         [self.datePicker setDate:nextDate];
     } else {

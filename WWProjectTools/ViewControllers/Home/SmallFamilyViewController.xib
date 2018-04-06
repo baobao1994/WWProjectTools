@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SmallFamilyViewController">
             <connections>
                 <outlet property="eventView" destination="9aR-e8-Vz3" id="2wU-LY-uio"/>
+                <outlet property="eventViewTopConstraint" destination="DbR-On-Cy5" id="hig-lI-NzZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aR-e8-Vz3">
-                    <rect key="frame" x="0.0" y="370" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="370" width="375" height="25"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="NSE-kL-D4w"/>
+                        <constraint firstAttribute="height" constant="25" id="NSE-kL-D4w"/>
                     </constraints>
                 </view>
             </subviews>

@@ -19,7 +19,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="350" id="DS3-Jq-5UX"/>
+                        <constraint firstAttribute="height" constant="350" id="hhP-dG-F20"/>
                     </constraints>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="lwf-Bq-79q"/>
@@ -27,10 +27,10 @@
                     </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTo-nh-n0Y">
-                    <rect key="frame" x="295" y="0.0" width="80" height="40"/>
+                    <rect key="frame" x="295" y="0.0" width="80" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="SL7-1Q-jzv"/>
+                        <constraint firstAttribute="height" constant="44" id="SL7-1Q-jzv"/>
                         <constraint firstAttribute="width" constant="80" id="W4P-zg-CMj"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -52,6 +52,7 @@
             <connections>
                 <outlet property="addEventButton" destination="DTo-nh-n0Y" id="nSQ-rS-aZb"/>
                 <outlet property="calendar" destination="aAe-dQ-k6o" id="uud-uJ-dc3"/>
+                <outlet property="calendarHeightConstraint" destination="hhP-dG-F20" id="e0j-dk-Y0D"/>
             </connections>
             <point key="canvasLocation" x="26.5" y="77"/>
         </view>

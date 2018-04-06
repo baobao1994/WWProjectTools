@@ -22,10 +22,12 @@
 @interface WWCalendarView ()<FSCalendarDataSource,FSCalendarDelegate,FSCalendarDelegateAppearance>
 
 @property (weak, nonatomic) IBOutlet UIButton *addEventButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarHeightConstraint;
 @property (strong, nonatomic) NSCalendar *chineseCalendar;//显示中国地区
 @property (strong, nonatomic) NSArray<NSString *> *lunarChars;//农历日历
 @property (strong, nonatomic) NSArray<EKEvent *> *events;//事件
 @property (nonatomic, assign) CGRect tempframe;
+@property (strong, nonatomic) NSDate *selectDate;
 
 @end
 
@@ -35,7 +37,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self = [[[NSBundle mainBundle] loadNibNamed:@"WWCalendarView" owner:self options:nil] firstObject];
-        self.frame = frame;
+//        self.frame = frame;
+        self.calendarHeightConstraint.constant = frame.size.height;
         self.tempframe = frame;
         [self setUp];
         [self bind];
@@ -161,6 +164,12 @@
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];//创建一个日期格式化器
     dateFormatter.dateFormat=@"yyyy-MM-dd hh:mm:ss";//指定转date得日期格式化形式
     NSLog(@"%@",[dateFormatter stringFromDate:date]);//2015-11-20 08:24:04
+    if ([self.selectDate isEqualToDate:date]) {
+        [self.calendar deselectDate:date];
+        date = nil;
+    } else {
+        self.selectDate = date;
+    }
     if (self.scrollLabel) {
         self.scrollLabel(date);
     }
