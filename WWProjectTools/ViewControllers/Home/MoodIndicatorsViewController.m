@@ -83,7 +83,7 @@
 }
 
 - (CGFloat)allowToShowMinLimitPercent:(ZFPieChart *)pieChart{
-    return 0.f;
+    return 0.1f;
 }
 
 - (CGFloat)radiusForPieChart:(ZFPieChart *)pieChart{

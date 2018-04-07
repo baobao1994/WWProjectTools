@@ -11,6 +11,10 @@
 #import "ZFPopoverLabel.h"
 #import "ZFCircle.h"
 #import "ZFLine.h"
+#import "ZFGenericChart.h"
+#import "ZFCircle.h"
+#import "ZFGenericAxis.h"
+
 @class ZFLineChart;
 
 /*********************  ZFLineChartDelegate(ZFLineChart协议方法)  *********************/
@@ -77,6 +81,9 @@
 
 
 @interface ZFLineChart : ZFGenericChart
+
+/** 通用坐标轴图表 */
+@property (nonatomic, strong) ZFGenericAxis * genericAxis;
 
 @property (nonatomic, weak) id<ZFLineChartDelegate> delegate;
 

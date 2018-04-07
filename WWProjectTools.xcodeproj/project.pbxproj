@@ -317,6 +317,10 @@
 		4FFEE1B7204D12DC00F6D520 /* loading_35.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE14A204D12DC00F6D520 /* loading_35.png */; };
 		4FFEE1B8204D12DC00F6D520 /* loading_21.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFEE14B204D12DC00F6D520 /* loading_21.png */; };
 		70BE1824F67A7A1E8DF09524 /* Pods_WWProjectTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAF738558B0BB10C37677EA /* Pods_WWProjectTools.framework */; };
+		A52D67672078E767004EEDA3 /* WWLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A52D67662078E767004EEDA3 /* WWLocation.m */; };
+		A52D676A2078FBA0004EEDA3 /* AppCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A52D67692078FBA0004EEDA3 /* AppCache.m */; };
+		A53158AC2077BE3D00BE8530 /* WeatherCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A53158AA2077BE3D00BE8530 /* WeatherCollectionViewCell.m */; };
+		A53158AD2077BE3D00BE8530 /* WeatherCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53158AB2077BE3D00BE8530 /* WeatherCollectionViewCell.xib */; };
 		A5FD128F2070D4CE0043CA27 /* EditEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD128D2070D4CE0043CA27 /* EditEventViewController.m */; };
 		A5FD12902070D4CE0043CA27 /* EditEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5FD128E2070D4CE0043CA27 /* EditEventViewController.xib */; };
 		A5FD12962070DA5B0043CA27 /* EditMotherNoteViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FD12922070DA5B0043CA27 /* EditMotherNoteViewModel.m */; };
@@ -841,6 +845,13 @@
 		4FFEE14A204D12DC00F6D520 /* loading_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_35.png; sourceTree = "<group>"; };
 		4FFEE14B204D12DC00F6D520 /* loading_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_21.png; sourceTree = "<group>"; };
 		6BAF738558B0BB10C37677EA /* Pods_WWProjectTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WWProjectTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52D67652078E767004EEDA3 /* WWLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWLocation.h; sourceTree = "<group>"; };
+		A52D67662078E767004EEDA3 /* WWLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWLocation.m; sourceTree = "<group>"; };
+		A52D67682078FBA0004EEDA3 /* AppCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCache.h; sourceTree = "<group>"; };
+		A52D67692078FBA0004EEDA3 /* AppCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppCache.m; sourceTree = "<group>"; };
+		A53158A92077BE3D00BE8530 /* WeatherCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherCollectionViewCell.h; sourceTree = "<group>"; };
+		A53158AA2077BE3D00BE8530 /* WeatherCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherCollectionViewCell.m; sourceTree = "<group>"; };
+		A53158AB2077BE3D00BE8530 /* WeatherCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCollectionViewCell.xib; sourceTree = "<group>"; };
 		A5FD128C2070D4CE0043CA27 /* EditEventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditEventViewController.h; sourceTree = "<group>"; };
 		A5FD128D2070D4CE0043CA27 /* EditEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditEventViewController.m; sourceTree = "<group>"; };
 		A5FD128E2070D4CE0043CA27 /* EditEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditEventViewController.xib; sourceTree = "<group>"; };
@@ -1185,6 +1196,8 @@
 				4F790462200F391A00CA7DF3 /* PrefixHeader.pch */,
 				4F45EBEC205B638C008AE38D /* ConstString.h */,
 				4F45EBED205B638C008AE38D /* ConstString.m */,
+				A52D67682078FBA0004EEDA3 /* AppCache.h */,
+				A52D67692078FBA0004EEDA3 /* AppCache.m */,
 				4FFEE026204D126D00F6D520 /* WWProjectTools */,
 				4FACE840200E01A000CCC34D /* WWProjectDemoTests */,
 				4FACE84B200E01A000CCC34D /* WWProjectDemoUITests */,
@@ -1335,6 +1348,9 @@
 				4F338915207376590067315E /* WeatherView.h */,
 				4F338916207376590067315E /* WeatherView.m */,
 				4F338918207376620067315E /* WeatherView.xib */,
+				A53158A92077BE3D00BE8530 /* WeatherCollectionViewCell.h */,
+				A53158AA2077BE3D00BE8530 /* WeatherCollectionViewCell.m */,
+				A53158AB2077BE3D00BE8530 /* WeatherCollectionViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1611,6 +1627,7 @@
 		4FFEE04A204D126D00F6D520 /* WWCustomView */ = {
 			isa = PBXGroup;
 			children = (
+				A52D67642078E75B004EEDA3 /* WWLocation */,
 				4F88A4772074C76400C9F098 /* WWCalendarView */,
 				4FD1EE462061F0490086B94C /* WWFile */,
 				4F794F1C2060ED9100EB4E25 /* WWHUD */,
@@ -1902,6 +1919,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A52D67642078E75B004EEDA3 /* WWLocation */ = {
+			isa = PBXGroup;
+			children = (
+				A52D67652078E767004EEDA3 /* WWLocation.h */,
+				A52D67662078E767004EEDA3 /* WWLocation.m */,
+			);
+			path = WWLocation;
+			sourceTree = "<group>";
+		};
 		A5FD12912070DA5B0043CA27 /* Public */ = {
 			isa = PBXGroup;
 			children = (
@@ -2151,6 +2177,7 @@
 				4FFEE19F204D12DC00F6D520 /* loading_54.png in Resources */,
 				4FFEE191204D12DC00F6D520 /* loading_6.png in Resources */,
 				4FFEE198204D12DC00F6D520 /* loading_9.png in Resources */,
+				A53158AD2077BE3D00BE8530 /* WeatherCollectionViewCell.xib in Resources */,
 				4FFEE15B204D12DC00F6D520 /* bounce_34.png in Resources */,
 				4FFEE18F204D12DC00F6D520 /* loading_49.png in Resources */,
 				4FFEE1AF204D12DC00F6D520 /* loading_27.png in Resources */,
@@ -2433,6 +2460,7 @@
 				4F794F112060D97C00EB4E25 /* QDSingleImagePickerPreviewViewController.m in Sources */,
 				4F1AF2B7205BB98B00D8419C /* GTMBase64.m in Sources */,
 				4F1AF2A8205BA80600D8419C /* NSString+Addition.m in Sources */,
+				A52D676A2078FBA0004EEDA3 /* AppCache.m in Sources */,
 				4FFEE0D2204D126D00F6D520 /* WXSTransitionManager+FlipAnimation.m in Sources */,
 				4F1AF2A4205BA80600D8419C /* UIViewController+Addition.m in Sources */,
 				4FD1EEB62062386B0086B94C /* ZFYAxisLine.m in Sources */,
@@ -2449,8 +2477,10 @@
 				4F1AF298205BA80600D8419C /* UIView+NIB.m in Sources */,
 				4F1AF2CB205BBD2100D8419C /* ESPPictureBrowserViewController.m in Sources */,
 				4FFEE0C2204D126D00F6D520 /* PlusAnimate.m in Sources */,
+				A53158AC2077BE3D00BE8530 /* WeatherCollectionViewCell.m in Sources */,
 				4FFEE0CE204D126D00F6D520 /* WXSTransitionManager+BoomAnimation.m in Sources */,
 				4FD1EEB52062386B0086B94C /* ZFXAxisLine.m in Sources */,
+				A52D67672078E767004EEDA3 /* WWLocation.m in Sources */,
 				4F1AF296205BA80600D8419C /* UITextView+Addition.m in Sources */,
 				4FD1EEA62062386B0086B94C /* UIBezierPath+Zirkfied.m in Sources */,
 				4F88A46A2074760600C9F098 /* WeatherBasicModel.m in Sources */,

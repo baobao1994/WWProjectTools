@@ -14,10 +14,62 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeatherView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-NC-zFJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="福州市鼓楼区 后县路" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-ao-IEe">
+                            <rect key="frame" x="10" y="0.0" width="132.5" height="25"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="VpE-y8-LPf">
+                            <rect key="frame" x="147.5" y="4.5" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="Ola-BG-V6W"/>
+                                <constraint firstAttribute="height" constant="16" id="QNK-9f-8ec"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smZ-0I-60g">
+                            <rect key="frame" x="325" y="0.0" width="50" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Tgl-m8-ZZY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="刷新"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="hAP-ao-IEe" firstAttribute="top" secondItem="Q17-NC-zFJ" secondAttribute="top" id="5IP-dk-07j"/>
+                        <constraint firstAttribute="bottom" secondItem="smZ-0I-60g" secondAttribute="bottom" id="5cN-pD-cuP"/>
+                        <constraint firstItem="smZ-0I-60g" firstAttribute="top" secondItem="Q17-NC-zFJ" secondAttribute="top" id="BTS-Tb-e9R"/>
+                        <constraint firstAttribute="trailing" secondItem="smZ-0I-60g" secondAttribute="trailing" id="BZU-Jv-EEm"/>
+                        <constraint firstItem="hAP-ao-IEe" firstAttribute="leading" secondItem="Q17-NC-zFJ" secondAttribute="leading" constant="10" id="UQ6-pL-UhS"/>
+                        <constraint firstAttribute="height" constant="25" id="b5A-mB-BdG"/>
+                        <constraint firstItem="VpE-y8-LPf" firstAttribute="leading" secondItem="hAP-ao-IEe" secondAttribute="trailing" constant="5" id="eNQ-fJ-yM0"/>
+                        <constraint firstAttribute="bottom" secondItem="hAP-ao-IEe" secondAttribute="bottom" id="fdl-xs-BBn"/>
+                        <constraint firstItem="VpE-y8-LPf" firstAttribute="centerY" secondItem="hAP-ao-IEe" secondAttribute="centerY" id="oV5-hb-D4W"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0039215686274509803" green="0.66666666666666663" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Q17-NC-zFJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3m7-qY-E08"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Q17-NC-zFJ" secondAttribute="trailing" id="Crz-90-MXy"/>
+                <constraint firstItem="Q17-NC-zFJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cwb-5v-jLb"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-24" y="2"/>
+            <connections>
+                <outlet property="addressLabel" destination="hAP-ao-IEe" id="wSq-Bs-KJG"/>
+                <outlet property="reFreshButton" destination="smZ-0I-60g" id="eD7-1s-Ohi"/>
+            </connections>
+            <point key="canvasLocation" x="-164" y="15"/>
         </view>
     </objects>
+    <resources>
+        <image name="location" width="10" height="10"/>
+    </resources>
 </document>

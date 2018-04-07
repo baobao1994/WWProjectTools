@@ -46,7 +46,7 @@
     
     self.delegate = self;
     self.showsHorizontalScrollIndicator = NO;
-    self.bounces = NO;
+    self.bounces = YES;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{

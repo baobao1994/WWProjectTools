@@ -27,8 +27,9 @@
 - (RACSignal *)requestWeatherBasicCommandSignal {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         kWeakSelf;
-        NSString *httpArg = @"location=CN101010100";
-        NSString *urlStr = [[NSString alloc]initWithFormat: @"%@%@&key=%@", HeWeatherBasicUrl, httpArg, HeWeatherIdKey];
+//        NSString *httpArg = @"location=CN101010100";
+        NSString *loction = [NSString stringWithFormat:@"location=%.2lf.%.2lf",weakSelf.longitude,weakSelf.latitude];
+        NSString *urlStr = [[NSString alloc]initWithFormat: @"%@%@&key=%@", HeWeatherBasicUrl, loction, HeWeatherIdKey];
         NSURL *url = [NSURL URLWithString: urlStr];
         //1.创建NSURLSession对象（可以获取单例对象）
         NSURLSession *session = [NSURLSession sharedSession];

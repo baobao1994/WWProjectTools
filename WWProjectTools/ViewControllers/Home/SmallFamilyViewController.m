@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *eventViewTopConstraint;
 @property (nonatomic, strong) WWCalendarView *calendarView;
 @property (nonatomic, strong) WeatherView *weatherView;
+@property (nonatomic, strong) AppCache *appCache;
 
 @end
 
@@ -44,6 +45,9 @@
     [self.view addSubview:self.calendarView];
     [self.view addSubview:self.weatherView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(EventNotificationAction:) name:@"EventNotification" object:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self reSetScrollLabel:nil];
+    });
 }
 
 - (void)EventNotificationAction:(NSNotification *)notification{
@@ -55,7 +59,17 @@
 }
 
 - (void)bind {
-    
+    self.appCache = [AppCache sharedCache];
+    [RACObserve(self.appCache, isForeground) subscribeNext:^(id  _Nullable x) {
+        NSLog(@"xxx = %@",[x boolValue]?@"yes":@"no");
+        if ([x boolValue]) {
+            if (self.calendarView.calendar.selectedDate) {
+                [self reSetScrollLabel:self.calendarView.calendar.selectedDate];
+            } else {
+                [self reSetScrollLabel:nil];
+            }
+        }
+    }];
 }
 
 - (WWCalendarView *)calendarView {
@@ -77,7 +91,6 @@
 - (WeatherView *)weatherView {
     if (!_weatherView) {
         _weatherView = [[WeatherView alloc] initWithFrame:CGRectMake(0, kCalendarViewHeight + 25, UIScreenWidth, kCalendarViewHeight)];
-        _weatherView.backgroundColor = RandomColor;
     }
     return _weatherView;
 }

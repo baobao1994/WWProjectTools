@@ -14,8 +14,7 @@
 
 @interface ZFLineChart()<ZFGenericAxisDelegate>
 
-/** 通用坐标轴图表 */
-@property (nonatomic, strong) ZFGenericAxis * genericAxis;
+
 /** 存储圆的数组 */
 @property (nonatomic, strong) NSMutableArray * circleArray;
 /** 存储popoverLaber数组 */
@@ -199,6 +198,8 @@
     [self.popoverLaberArray addObject:popoverLabel];
     [popoverLabel addTarget:self action:@selector(popoverAction:) forControlEvents:UIControlEventTouchUpInside];
     
+//    NSLog(@"index = %ld,value = %@",index,valueArray[index]);
+    
     //_valueOnChartPosition为上下分布
     if (valuePosition == kChartValuePositionDefalut) {
         //根据end_YPos判断label显示在圆环上面或下面
@@ -212,13 +213,25 @@
             end_YPos = preCirque.center.y - circle.center.y;
         }
         
-        //根据end_YPos，设置popoverLabel的上下位置
-        if (end_YPos < 0) {
-            popoverLabel.arrowsOrientation = kPopoverLaberArrowsOrientationOnTop;
-            popoverLabel.center = CGPointMake(circle.center.x, circle.center.y + _valueCenterToCircleCenterPadding);
-        }else{
-            popoverLabel.arrowsOrientation = kPopoverLaberArrowsOrientationOnBelow;
-            popoverLabel.center = CGPointMake(circle.center.x, circle.center.y - _valueCenterToCircleCenterPadding);
+        //-by baobao
+        //第一组都是上 第二组都是下 两组的情况
+        if (self.circleArray.count == 2) {
+            if (colorIndex == 0) {
+                popoverLabel.arrowsOrientation = kPopoverLaberArrowsOrientationOnBelow;
+                popoverLabel.center = CGPointMake(circle.center.x, circle.center.y - _valueCenterToCircleCenterPadding);
+            } else {
+                popoverLabel.arrowsOrientation = kPopoverLaberArrowsOrientationOnTop;
+                popoverLabel.center = CGPointMake(circle.center.x, circle.center.y + _valueCenterToCircleCenterPadding);
+            }
+        } else {
+            //根据end_YPos，设置popoverLabel的上下位置
+            if (end_YPos < 0) {
+                popoverLabel.arrowsOrientation = kPopoverLaberArrowsOrientationOnTop;
+                popoverLabel.center = CGPointMake(circle.center.x, circle.center.y + _valueCenterToCircleCenterPadding);
+            }else{
+                popoverLabel.arrowsOrientation = kPopoverLaberArrowsOrientationOnBelow;
+                popoverLabel.center = CGPointMake(circle.center.x, circle.center.y - _valueCenterToCircleCenterPadding);
+            }
         }
         
     //_valueOnChartPosition为圆环上方

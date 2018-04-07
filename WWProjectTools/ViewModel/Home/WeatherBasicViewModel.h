@@ -13,8 +13,8 @@
 @interface WeatherBasicViewModel : NSObject
 
 @property (nonatomic, copy) NSString *cityId;
-@property (nonatomic, copy) NSString *longitude;
-@property (nonatomic, copy) NSString *latitude;
+@property (nonatomic, assign) double longitude;
+@property (nonatomic, assign) double latitude;
 
 @property (nonatomic, strong) WeatherBasicModel *weatherModel;
 @property (nonatomic, strong) RACCommand *requestWeatherBasicCommand;
