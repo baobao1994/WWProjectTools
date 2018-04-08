@@ -10,6 +10,7 @@
 #import <EventKit/EventKit.h>
 #import "RHDeviceAuthTool.h"
 #import "EditEventViewController.h"
+#import "PPCounter.h"
 
 #define KDay (3600 * 24)
 #define KMonth (KDay * 30)
@@ -28,6 +29,7 @@
 @property (strong, nonatomic) NSArray<EKEvent *> *events;//事件
 @property (nonatomic, assign) CGRect tempframe;
 @property (strong, nonatomic) NSDate *selectDate;
+@property (weak, nonatomic) IBOutlet UIButton *countButton;
 
 @end
 
@@ -43,6 +45,16 @@
         [self setUp];
         [self bind];
         self.clipsToBounds = YES;
+        self.countButton.animationOptions = PPCounterAnimationOptionCurveEaseOut;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            // 开始计数
+            NSString *nowDateString = [[NSDate date] formateDate:@"yyyy-MM-dd HH:mm:ss"];
+            NSDateComponents *components = [NSDate pleaseInsertStarTimeo:@"2018-01-01 00:00:00" andInsertEndTime:nowDateString calendarUnit:NSCalendarUnitDay];
+            [NSDate getMonthBeginAndEndWithDate:[NSDate date]];
+            [self.countButton pp_fromNumber:280 toNumber:280 - components.day duration:1.5f format:^NSString *(CGFloat number) {
+                return [NSString stringWithFormat:@"距离小宝诞生还有%.0f天",number];
+            }];
+        });
     }
     return self;
 }

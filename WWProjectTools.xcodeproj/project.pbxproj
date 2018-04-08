@@ -75,6 +75,10 @@
 		4F794F1F2060EDA300EB4E25 /* WWHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F1E2060EDA300EB4E25 /* WWHUD.m */; };
 		4F794F222060F88D00EB4E25 /* MotherNoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F212060F88D00EB4E25 /* MotherNoteModel.m */; };
 		4F794F25206112EF00EB4E25 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F794F24206112EF00EB4E25 /* UIImage+Addition.m */; };
+		4F839FFA207A1FD0008ADC0B /* PPCounterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F839FF2207A1FCF008ADC0B /* PPCounterEngine.m */; };
+		4F839FFB207A1FD0008ADC0B /* PPCounterConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F839FF3207A1FCF008ADC0B /* PPCounterConst.m */; };
+		4F839FFC207A1FD0008ADC0B /* UIButton+PPCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F839FF7207A1FCF008ADC0B /* UIButton+PPCounter.m */; };
+		4F839FFD207A1FD0008ADC0B /* UILabel+PPCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F839FF8207A1FCF008ADC0B /* UILabel+PPCounter.m */; };
 		4F88A46A2074760600C9F098 /* WeatherBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F88A4692074760600C9F098 /* WeatherBasicModel.m */; };
 		4F88A4722074ACC500C9F098 /* WeatherAirViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F88A46E2074ACC500C9F098 /* WeatherAirViewModel.m */; };
 		4F88A4732074ACC500C9F098 /* WeatherBasicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F88A4702074ACC500C9F098 /* WeatherBasicViewModel.m */; };
@@ -483,6 +487,15 @@
 		4F794F212060F88D00EB4E25 /* MotherNoteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotherNoteModel.m; sourceTree = "<group>"; };
 		4F794F23206112EF00EB4E25 /* UIImage+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Addition.h"; sourceTree = "<group>"; };
 		4F794F24206112EF00EB4E25 /* UIImage+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Addition.m"; sourceTree = "<group>"; };
+		4F839FEF207A1FCF008ADC0B /* PPCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPCounter.h; sourceTree = "<group>"; };
+		4F839FF1207A1FCF008ADC0B /* PPCounterConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPCounterConst.h; sourceTree = "<group>"; };
+		4F839FF2207A1FCF008ADC0B /* PPCounterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPCounterEngine.m; sourceTree = "<group>"; };
+		4F839FF3207A1FCF008ADC0B /* PPCounterConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPCounterConst.m; sourceTree = "<group>"; };
+		4F839FF4207A1FCF008ADC0B /* PPCounterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPCounterEngine.h; sourceTree = "<group>"; };
+		4F839FF6207A1FCF008ADC0B /* UILabel+PPCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+PPCounter.h"; sourceTree = "<group>"; };
+		4F839FF7207A1FCF008ADC0B /* UIButton+PPCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+PPCounter.m"; sourceTree = "<group>"; };
+		4F839FF8207A1FCF008ADC0B /* UILabel+PPCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+PPCounter.m"; sourceTree = "<group>"; };
+		4F839FF9207A1FCF008ADC0B /* UIButton+PPCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+PPCounter.h"; sourceTree = "<group>"; };
 		4F88A4682074760600C9F098 /* WeatherBasicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherBasicModel.h; sourceTree = "<group>"; };
 		4F88A4692074760600C9F098 /* WeatherBasicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherBasicModel.m; sourceTree = "<group>"; };
 		4F88A46E2074ACC500C9F098 /* WeatherAirViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAirViewModel.m; sourceTree = "<group>"; };
@@ -1180,6 +1193,38 @@
 			path = WWHUD;
 			sourceTree = "<group>";
 		};
+		4F839FEE207A1FCF008ADC0B /* PPCounter */ = {
+			isa = PBXGroup;
+			children = (
+				4F839FEF207A1FCF008ADC0B /* PPCounter.h */,
+				4F839FF0207A1FCF008ADC0B /* Core */,
+				4F839FF5207A1FCF008ADC0B /* UIKit */,
+			);
+			path = PPCounter;
+			sourceTree = "<group>";
+		};
+		4F839FF0207A1FCF008ADC0B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4F839FF1207A1FCF008ADC0B /* PPCounterConst.h */,
+				4F839FF2207A1FCF008ADC0B /* PPCounterEngine.m */,
+				4F839FF3207A1FCF008ADC0B /* PPCounterConst.m */,
+				4F839FF4207A1FCF008ADC0B /* PPCounterEngine.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4F839FF5207A1FCF008ADC0B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4F839FF6207A1FCF008ADC0B /* UILabel+PPCounter.h */,
+				4F839FF7207A1FCF008ADC0B /* UIButton+PPCounter.m */,
+				4F839FF8207A1FCF008ADC0B /* UILabel+PPCounter.m */,
+				4F839FF9207A1FCF008ADC0B /* UIButton+PPCounter.h */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		4F88A4772074C76400C9F098 /* WWCalendarView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1733,6 +1778,7 @@
 		4FFEE079204D126D00F6D520 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4F839FEE207A1FCF008ADC0B /* PPCounter */,
 				4F0EB453206F83A400274C86 /* MarqueeScrollLabel */,
 				4FB8117A2063AD27000B03C6 /* TagsChooser */,
 				4FD1EE4F2062386B0086B94C /* ZFChart */,
@@ -2305,6 +2351,7 @@
 			files = (
 				4FFEE0D8204D126D00F6D520 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				4F1AF26E205BA46800D8419C /* DBModels.m in Sources */,
+				4F839FFA207A1FD0008ADC0B /* PPCounterEngine.m in Sources */,
 				4FFEE0B0204D126D00F6D520 /* WXSCollectionViewCell.m in Sources */,
 				4FD1EEA42062386B0086B94C /* ZFBar.m in Sources */,
 				4F1AF2CA205BBD2100D8419C /* ESCellLayout.m in Sources */,
@@ -2327,6 +2374,7 @@
 				4FB811852063AD28000B03C6 /* YLWaterFlowLayout.m in Sources */,
 				4F1AF29B205BA80600D8419C /* NSString+DES.m in Sources */,
 				4FD1EEB02062386B0086B94C /* ZFPie.m in Sources */,
+				4F839FFD207A1FD0008ADC0B /* UILabel+PPCounter.m in Sources */,
 				4FFEE0B7204D126D00F6D520 /* TabBarController.m in Sources */,
 				4F1AF2B6205BB98B00D8419C /* MD5Encryption.m in Sources */,
 				4FD1EEA72062386B0086B94C /* UIColor+Zirkfied.m in Sources */,
@@ -2336,6 +2384,7 @@
 				4F88A4762074ADB300C9F098 /* WeatherAirModel.m in Sources */,
 				A5FD128F2070D4CE0043CA27 /* EditEventViewController.m in Sources */,
 				4FFEE0C8204D126D00F6D520 /* ViewController3.m in Sources */,
+				4F839FFB207A1FD0008ADC0B /* PPCounterConst.m in Sources */,
 				4FD1EEC22062386B0086B94C /* ZFHorizontalBar.m in Sources */,
 				4FFEE0A4204D126D00F6D520 /* PopViewController.m in Sources */,
 				4F45EC02205B6DFD008AE38D /* WSCollectionViewController.m in Sources */,
@@ -2373,6 +2422,7 @@
 				4FD1EECD20624AED0086B94C /* MoodIndicatorsViewController.m in Sources */,
 				4FCEABD5205FA7C00045AB0C /* CustomSegmentedControlView.m in Sources */,
 				4FD1EEBF2062386B0086B94C /* ZFWaveChart.m in Sources */,
+				4F839FFC207A1FD0008ADC0B /* UIButton+PPCounter.m in Sources */,
 				4FFEE0DC204D126D00F6D520 /* WXSTransitionProperty.m in Sources */,
 				A5FD129A2070DA810043CA27 /* EditEventViewModel.m in Sources */,
 				4FFEE0D7204D126D00F6D520 /* WXSTransitionManager+CoverAnimation.m in Sources */,

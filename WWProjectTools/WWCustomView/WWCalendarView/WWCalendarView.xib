@@ -38,14 +38,27 @@
                         <color key="titleColor" red="0.92549019610000005" green="0.49019607840000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc7-9v-aHT">
+                    <rect key="frame" x="0.0" y="0.0" width="140" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="VmZ-JK-2x2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="距离小宝诞生还有280天">
+                        <color key="titleColor" red="0.92549019610000005" green="0.49019607840000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="DTo-nh-n0Y" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1Jq-oT-a2e"/>
                 <constraint firstItem="aAe-dQ-k6o" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1ba-Zv-sjY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aAe-dQ-k6o" secondAttribute="trailing" id="1na-nq-arN"/>
+                <constraint firstItem="bc7-9v-aHT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Wve-v3-h81"/>
                 <constraint firstItem="DTo-nh-n0Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dK0-yY-RRW"/>
                 <constraint firstItem="aAe-dQ-k6o" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eNd-MG-1aZ"/>
+                <constraint firstItem="bc7-9v-aHT" firstAttribute="height" secondItem="DTo-nh-n0Y" secondAttribute="height" id="m5U-tx-Qe0"/>
+                <constraint firstItem="bc7-9v-aHT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pbP-0m-PdW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -53,6 +66,7 @@
                 <outlet property="addEventButton" destination="DTo-nh-n0Y" id="nSQ-rS-aZb"/>
                 <outlet property="calendar" destination="aAe-dQ-k6o" id="uud-uJ-dc3"/>
                 <outlet property="calendarHeightConstraint" destination="hhP-dG-F20" id="e0j-dk-Y0D"/>
+                <outlet property="countButton" destination="bc7-9v-aHT" id="qHj-Oi-Fz3"/>
             </connections>
             <point key="canvasLocation" x="26.5" y="77"/>
         </view>

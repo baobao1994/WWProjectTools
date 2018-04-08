@@ -31,7 +31,7 @@
 
 + (NSTimeInterval)pleaseInsertStarTime:(NSString *)starTime andInsertEndTime:(NSString *)endTime;
 
-+ (NSDateComponents *)pleaseInsertStarTimeo:(NSString *)time1 andInsertEndTime:(NSString *)time2;
++ (NSDateComponents *)pleaseInsertStarTimeo:(NSString *)time1 andInsertEndTime:(NSString *)time2 calendarUnit:(NSCalendarUnit)calendarUnit;
 
 + (BOOL)isSameDay:(NSDate *)date1 date2:(NSDate *)date2;
 
