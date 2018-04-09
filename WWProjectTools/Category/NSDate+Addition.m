@@ -67,7 +67,7 @@
 
 + (NSString *)cTimestampFromString:(NSString *)time {
     //theTime __@"%04d-%02d-%02d %02d:%02d:00"
-    //装换为时间戳
+    //转换为时间戳
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];

@@ -109,15 +109,21 @@
     }];
     
     [[self.reFreshButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf loadWeather];
+        [weakSelf getCurentLocation];
     }];
-    
+    [self getCurentLocation];
+}
+
+- (void)getCurentLocation {
+    kWeakSelf;
     [self.location getCurrentLocation:^(CLLocation *location, CLPlacemark *placemark, NSString *error) {
         if (placemark) {
             weakSelf.weatherViewModel.latitude = location.coordinate.latitude;
             weakSelf.weatherViewModel.longitude = location.coordinate.longitude;
             weakSelf.addressLabel.text = [NSString stringWithFormat:@"%@%@ %@",[placemark.addressDictionary objectForKey:@"City"],placemark.subLocality,placemark.thoroughfare];
             [weakSelf loadWeather];
+        } else {
+            weakSelf.addressLabel.text = @"现在处于外太空中...";
         }
     }];
 }

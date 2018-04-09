@@ -32,6 +32,11 @@
     [self setUp];
     [self createNavigationRightItemWithTitle:@"发布"];
 }
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)selectedNavigationRightItem:(id)sender {
     EditVariousIndicatorsViewController *editVC = [[EditVariousIndicatorsViewController alloc] init];
     [self.navigationController pushViewController:editVC animated:YES];
@@ -87,6 +92,11 @@
         [WWHUD hideAllTipsInView:NavigationControllerView];
         [WWHUD showLoadingWithErrorInView:SelfViewControllerView afterDelay:1];
     }];
+    [[self.viewModel requestVariousIndicatorsCommand] execute:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(VariousIndicatorsNotificationAction:) name:@"VariousIndicatorsNotification" object:nil];
+}
+
+- (void)VariousIndicatorsNotificationAction:(NSNotification *)notification{
     [[self.viewModel requestVariousIndicatorsCommand] execute:nil];
 }
 

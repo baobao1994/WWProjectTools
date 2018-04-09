@@ -46,6 +46,8 @@
                 [weakSelf.weightArr removeAllObjects];
                 [weakSelf.moodArr removeAllObjects];
                 [weakSelf.physicalStateArr removeAllObjects];
+                [weakSelf.noteArr removeAllObjects];
+                [weakSelf.publicTimeArr removeAllObjects];
                 /*
                  心情：0 非常好 1 很好 2 一般 3 差
                  */

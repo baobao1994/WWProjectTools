@@ -46,6 +46,11 @@
     [self bind];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)setUp {
     self.moodArr = @[@"非常好",@"很好",@"一般",@"差"];
     self.physicalStateArr = @[@"腰酸",@"头痛",@"感冒",@"发烧",@"其它"];
@@ -67,12 +72,20 @@
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
-    self.viewModel.weight = self.weightStr;
-    self.viewModel.mood = self.moodStr;
-    self.viewModel.physicalState = self.physicalStateStr;
-    self.viewModel.note = self.noteTextView.text;
-    self.viewModel.publicTime = self.publicTime;
-    [[self.viewModel publicEditVariousIndicatorsCommand] execute:nil];
+    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"发布" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+        self.viewModel.weight = self.weightStr;
+        self.viewModel.mood = self.moodStr;
+        self.viewModel.physicalState = self.physicalStateStr;
+        self.viewModel.note = self.noteTextView.text;
+        self.viewModel.publicTime = self.publicTime;
+        [[self.viewModel publicEditVariousIndicatorsCommand] execute:nil];
+    }];
+    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+    }];
+    QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否发布" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
+    [alertController addAction:action1];
+    [alertController addAction:action2];
+    [alertController showWithAnimated:YES];
 }
 
 - (void)bind {
@@ -103,6 +116,8 @@
     [[self.viewModel.publicEditVariousIndicatorsCommand executionSignals] subscribeNext:^(RACSignal *x) {
         [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
         [x subscribeNext:^(id x) {
+            NSNotification *notification = [NSNotification notificationWithName:@"VariousIndicatorsNotification" object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
             [WWHUD hideAllTipsInView:NavigationControllerView];
             [WWHUD showLoadingWithText:@"发布成功" inView:NavigationControllerView afterDelay:1];
             [weakSelf.navigationController popViewControllerAnimated:YES];

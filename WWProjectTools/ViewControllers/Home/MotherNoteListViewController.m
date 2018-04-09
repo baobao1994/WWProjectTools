@@ -34,6 +34,10 @@
     [WWHUD showLoadingWithInView:SelfViewControllerView afterDelay:30];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)selectedNavigationRightItem:(id)sender {
     EditMotherNoteViewController *editVC = [[EditMotherNoteViewController alloc] init];
     [self.navigationController pushViewController:editVC animated:YES];
@@ -70,6 +74,12 @@
         [WWHUD showLoadingWithErrorInView:SelfViewControllerView afterDelay:2];
     }];
     [[self.listViewModel loadCommand] execute:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MotherNoteNotificationAction:) name:@"MotherNoteNotification" object:nil];
+}
+
+- (void)MotherNoteNotificationAction:(NSNotification *)notification{
+    [[self.listViewModel loadCommand] execute:nil];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 #pragma -mark WSRefreshDelegate
@@ -134,7 +144,7 @@
     MotherNoteModel *noteModel = self.listViewModel.arrRecords[indexPath.row];
     if (noteModel.isTop) {
         TimeHeaderTableViewCell * cell = [TimeHeaderTableViewCell dequeOrCreateInTable:tableView selectedBackgroundViewColor:UIColorFromHexColor(0xCCC2C2)];
-        cell.timeLabel.text = [[NSDate alloc] setTimeInterval:noteModel.publicTime formateDate:@"yyyy-MM-dd"];
+        cell.timeLabel.text = noteModel.publicTimeString;
         return cell;
     } else {
         MotherNoteTableViewCell * cell = [MotherNoteTableViewCell dequeInTable:tableView];

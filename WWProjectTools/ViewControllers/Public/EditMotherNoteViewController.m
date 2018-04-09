@@ -51,6 +51,11 @@
     [self createNavigationRightItemWithTitle:@"发布"];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)setUp {
     self.textViewMinimumHeight = 150;
     self.textViewMaximumHeight = 200;
@@ -71,6 +76,8 @@
     [[self.viewModel.publicEditMotherNoteCommand executionSignals] subscribeNext:^(RACSignal *x) {
         [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
         [x subscribeNext:^(id x) {
+            NSNotification *notification = [NSNotification notificationWithName:@"MotherNoteNotification" object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
             [WWHUD hideAllTipsInView:NavigationControllerView];
             [WWHUD showLoadingWithText:@"发布成功" inView:NavigationControllerView afterDelay:1];
             [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -91,30 +98,38 @@
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
-    self.viewModel.note = self.textInputView.text;
-    self.viewModel.publicTime = self.publicTime;
-    if (self.filePathArr.count) {
-        [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
-        [BmobFile filesUploadBatchWithPaths:self.filePathArr
-                              progressBlock:^(int index, float progress) {
-                                  //index 上传数组的下标，progress当前文件的进度
-                                  NSLog(@"index %d progress %f",index,progress);
-                              } resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
-                                  //array 文件数组，isSuccessful 成功或者失败,error 错误信息
-                                  //存放文件URL的数组
-                                  NSMutableArray *fileArray = [NSMutableArray array];
-                                  for (int i = 0 ; i < array.count ;i ++) {
-                                      BmobFile *file = array [i];
-                                      [fileArray addObject:file.url];
+    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"发布" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+        self.viewModel.note = self.textInputView.text;
+        self.viewModel.publicTime = self.publicTime;
+        if (self.filePathArr.count) {
+            [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
+            [BmobFile filesUploadBatchWithPaths:self.filePathArr
+                                  progressBlock:^(int index, float progress) {
+                                      //index 上传数组的下标，progress当前文件的进度
+                                      NSLog(@"index %d progress %f",index,progress);
+                                  } resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
+                                      //array 文件数组，isSuccessful 成功或者失败,error 错误信息
+                                      //存放文件URL的数组
+                                      NSMutableArray *fileArray = [NSMutableArray array];
+                                      for (int i = 0 ; i < array.count ;i ++) {
+                                          BmobFile *file = array [i];
+                                          [fileArray addObject:file.url];
+                                      }
+                                      self.viewModel.photosArr = [fileArray copy];
+                                      [[self.viewModel publicEditMotherNoteCommand] execute:nil];
                                   }
-                                  self.viewModel.photosArr = [fileArray copy];
-                                  [[self.viewModel publicEditMotherNoteCommand] execute:nil];
-                              }
-         ];
-    } else {
-        self.viewModel.photosArr = @[];
-        [[self.viewModel publicEditMotherNoteCommand] execute:nil];
-    }
+             ];
+        } else {
+            self.viewModel.photosArr = @[];
+            [[self.viewModel publicEditMotherNoteCommand] execute:nil];
+        }
+    }];
+    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+    }];
+    QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否发布" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
+    [alertController addAction:action1];
+    [alertController addAction:action2];
+    [alertController showWithAnimated:YES];
 }
 
 - (CustomPickerView *)timePickerView {
@@ -167,6 +182,7 @@
     if (!_textInputView) {
         _textInputView = [[QMUITextView alloc] initWithFrame:CGRectMake(5, 64 + 5, UIScreenWidth - 10, self.textViewMinimumHeight)];
         _textInputView.delegate = self;
+        _textInputView.font = [UIFont systemFontOfSize:15.0f];
         _textInputView.placeholder = @"输入今日的笔记";
         _textInputView.placeholderColor = UIColorPlaceholder; // 自定义 placeholder 的颜色
         _textInputView.autoResizable = YES;

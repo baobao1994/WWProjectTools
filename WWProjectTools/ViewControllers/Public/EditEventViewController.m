@@ -41,11 +41,19 @@
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
-    self.viewModel.content = self.contentTextView.text;
-    self.viewModel.isRemind = self.isRemindSwitch.on;
-    self.viewModel.title = self.titleTextField.text;
-    self.viewModel.remindTime = self.remindTime;
-    [[self.viewModel publicEditEventCommand] execute:nil];
+    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"发布" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+        self.viewModel.content = self.contentTextView.text;
+        self.viewModel.isRemind = self.isRemindSwitch.on;
+        self.viewModel.title = self.titleTextField.text;
+        self.viewModel.remindTime = self.remindTime;
+        [[self.viewModel publicEditEventCommand] execute:nil];
+    }];
+    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+    }];
+    QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否发布" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
+    [alertController addAction:action1];
+    [alertController addAction:action2];
+    [alertController showWithAnimated:YES];
 }
 
 - (void)setUp {

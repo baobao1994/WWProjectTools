@@ -7,6 +7,7 @@
 //
 
 #import "MotherNoteModel.h"
+#import "NSDate+Addition.h"
 
 @implementation MotherNoteModel
 
@@ -15,6 +16,7 @@
         self.publicTime = [object objectForKey:PublicTimeKey];
         self.note = [object objectForKey:NoteKey];
         self.photos = [[NSArray alloc] initWithArray:[object objectForKey:PhotosKey]];
+        self.publicTimeString = [[NSDate alloc] setTimeInterval:self.publicTime formateDate:@"yyyy-MM-dd"];
     }
     return self;
 }

@@ -133,7 +133,7 @@
     if (section == 0) {
         if (row == 0) {
             TimeHeaderTableViewCell * cell = [TimeHeaderTableViewCell dequeOrCreateInTable:tableView selectedBackgroundViewColor:UIColorFromHexColor(0xCCC2C2)];
-            cell.timeLabel.text = [[NSDate alloc] setTimeInterval:self.motherNoteModel.publicTime formateDate:@"yyyy-MM-dd"];
+            cell.timeLabel.text = self.motherNoteModel.publicTimeString;
             return cell;
         } else {
             MotherNoteTableViewCell * cell = [MotherNoteTableViewCell dequeInTable:tableView];

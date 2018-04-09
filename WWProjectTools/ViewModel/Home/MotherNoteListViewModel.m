@@ -66,14 +66,16 @@
         if (i == 0) {
             timeNote.isTop = YES;
             timeNote.publicTime = motherNote.publicTime;
+            timeNote.publicTimeString = motherNote.publicTimeString;
             [combineSource addObject:timeNote];
         }
         if (i + 1 < arrRecordsArr.count) {
             MotherNoteModel *nextMotherNote = arrRecordsArr[i + 1];
-            if (![nextMotherNote.publicTime isEqualToString:motherNote.publicTime]) {
+            if (![nextMotherNote.publicTimeString isEqualToString:motherNote.publicTimeString]) {
                 [combineSource addObject:motherNote];
                 MotherNoteModel *nextTimeNote = [[MotherNoteModel alloc] init];
                 nextTimeNote.publicTime = nextMotherNote.publicTime;
+                nextTimeNote.publicTimeString = nextMotherNote.publicTimeString;
                 nextTimeNote.isTop = YES;
                 [combineSource addObject:nextTimeNote];
             } else {
