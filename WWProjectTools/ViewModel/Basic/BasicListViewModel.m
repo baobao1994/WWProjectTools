@@ -46,4 +46,23 @@
     return _loadMoreCommand;
 }
 
+- (RACCommand *)reLoadCommand{
+    _pageNumber = 0;
+    _skip = 0;
+    if (self.pageBeforeLimit) {
+        _pageLimit = _pageBeforeLimit;
+    } else {
+        _pageLimit = 10;
+    }
+    _isLoadedAllTheData = NO;
+    if (_reLoadCommand == nil) {
+        __weak __typeof(self)weakSelf = self;
+        _reLoadCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return weakSelf.loadSignal;
+        }];
+    }
+    _reLoadCommand.allowsConcurrentExecution = true;
+    return _reLoadCommand;
+}
+
 @end

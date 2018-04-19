@@ -39,6 +39,7 @@
                     [moreListArr addObjectsFromArray:listArr];
                     weakSelf.oldArr = [moreListArr copy];
                 }
+                weakSelf.pageBeforeLimit = weakSelf.oldArr.count;
                 weakSelf.arrRecords = [weakSelf recombineSource:weakSelf.oldArr];
                 if (listArr.count >= weakSelf.pageLimit) {
                     weakSelf.pageNumber = weakSelf.pageNumber + 1;

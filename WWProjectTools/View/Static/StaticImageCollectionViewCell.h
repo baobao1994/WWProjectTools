@@ -11,5 +11,6 @@
 @interface StaticImageCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end

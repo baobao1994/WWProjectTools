@@ -17,11 +17,13 @@
 #import "NSDate+Addition.h"
 #import "UIViewController+Addition.h"
 #import "EditMotherNoteViewController.h"
+#import "EditMotherNoteViewModel.h"
 
 @interface MotherNoteListViewController ()<WSRefreshDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet WSRefreshTableView *tableView;
 @property (nonatomic, strong) MotherNoteListViewModel *listViewModel;
+@property (nonatomic, strong) EditMotherNoteViewModel *editMotherNoteViewModel;
 
 @end
 
@@ -73,7 +75,33 @@
     [self.listViewModel.loadMoreCommand.errors subscribeNext:^(NSError * _Nullable x) {
         [WWHUD showLoadingWithErrorInView:SelfViewControllerView afterDelay:2];
     }];
+    
+    [[self.listViewModel.reLoadCommand executionSignals] subscribeNext:^(RACSignal *x) {
+        [x subscribeNext:^(id x) {
+            [weakSelf.tableView doneLoadingTableViewData];
+            [weakSelf.tableView reloadData];
+            weakSelf.tableView.isLoadedAllTheData = weakSelf.listViewModel.isLoadedAllTheData;
+        }];
+    }];
+    
+    [self.listViewModel.reLoadCommand.errors subscribeNext:^(NSError * _Nullable x) {
+        [WWHUD showLoadingWithErrorInView:SelfViewControllerView afterDelay:2];
+    }];
+    
     [[self.listViewModel loadCommand] execute:nil];
+    
+    self.editMotherNoteViewModel = [[EditMotherNoteViewModel alloc] init];
+    
+    [[self.editMotherNoteViewModel.deleteEditMotherNoteCommand executionSignals] subscribeNext:^(RACSignal *x) {
+        [x subscribeNext:^(id x) {
+            [WWHUD showLoadingWithText:@"删除成功" inView:SelfViewControllerView afterDelay:2];
+            [[weakSelf.listViewModel reLoadCommand] execute:nil];
+        }];
+    }];
+    
+    [self.editMotherNoteViewModel.deleteEditMotherNoteCommand.errors subscribeNext:^(NSError * _Nullable x) {
+        [WWHUD showLoadingWithErrorInView:SelfViewControllerView afterDelay:2];
+    }];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MotherNoteNotificationAction:) name:@"MotherNoteNotification" object:nil];
 }
 
@@ -160,5 +188,67 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    MotherNoteModel *noteModel = self.listViewModel.arrRecords[indexPath.row];
+    if (noteModel.isTop) {
+        return NO;
+    }
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleNone | UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
+}
+
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 添加一个删除按钮
+    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除"handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"删除" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+            MotherNoteModel *noteModel = self.listViewModel.arrRecords[indexPath.row];
+            self.editMotherNoteViewModel.objectId = noteModel.objectId;
+            [[self.editMotherNoteViewModel deleteEditMotherNoteCommand] execute:nil];
+        }];
+        QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+        }];
+        QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否删除" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
+        [alertController addAction:action1];
+        [alertController addAction:action2];
+        [alertController showWithAnimated:YES];
+        NSLog(@"点击了删除");
+    }];
+    // 删除一个编辑按钮
+    UITableViewRowAction *topRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"置顶"handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        NSLog(@"编辑");
+        EditMotherNoteViewController *editVC = [[EditMotherNoteViewController alloc] init];
+        editVC.isEdit = YES;
+        editVC.motherNoteModel = self.listViewModel.arrRecords[indexPath.row];
+        [self.navigationController pushViewController:editVC animated:YES];
+    }];
+    topRowAction.backgroundColor = [UIColor yellowColor];
+
+//    // 添加一个更多按钮
+//    UITableViewRowAction *moreRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"更多"handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+//        NSLog(@"点击了更多");
+//    }];
+//    moreRowAction.backgroundEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+
+    // 将设置好的按钮放到数组中返回
+    return @[deleteRowAction, topRowAction];
+}
+
+//ios 11 后面的方法
+//- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"取消\n收藏" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+////        [self.dataArray removeObjectAtIndex:indexPath.section];
+//        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section]
+//                      withRowAnimation:UITableViewRowAnimationFade];
+//        completionHandler(YES);
+//    }];
+//    //也可以设置图片
+//    deleteAction.backgroundColor = [UIColor redColor];
+//    UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
+//    return config;
+//}
 
 @end

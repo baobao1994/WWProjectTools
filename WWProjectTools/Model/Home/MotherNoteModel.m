@@ -17,6 +17,9 @@
         self.note = [object objectForKey:NoteKey];
         self.photos = [[NSArray alloc] initWithArray:[object objectForKey:PhotosKey]];
         self.publicTimeString = [[NSDate alloc] setTimeInterval:self.publicTime formateDate:@"yyyy-MM-dd"];
+        self.objectId = [object objectForKey:ObjectIdKey];
+        self.createdAt = [object objectForKey:CreatedAtKey];
+        self.updatedAt = [object objectForKey:UpdatedAtKey];
     }
     return self;
 }

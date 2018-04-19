@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MotherNoteModel.h"
 
 @interface EditMotherNoteViewController : BasicViewController
+
+@property (nonatomic, assign) BOOL isEdit;
+@property (nonatomic, strong) MotherNoteModel *motherNoteModel;
 
 @end

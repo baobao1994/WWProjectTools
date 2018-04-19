@@ -10,10 +10,15 @@
 
 @interface EditMotherNoteViewModel : NSObject
 
+@property (nonatomic, assign) BOOL isEdit;
+
 @property (nonatomic, strong) NSArray *photosArr;
 @property (nonatomic, copy) NSString *note;
 @property (nonatomic, copy) NSString *publicTime;
+@property (nonatomic, copy) NSString *objectId;
 
 @property (nonatomic, strong) RACCommand *publicEditMotherNoteCommand;
+@property (nonatomic, strong) RACCommand *deleteEditMotherNoteCommand;
+@property (nonatomic, strong) RACCommand *updateEidtMotherNoteCommand;
 
 @end

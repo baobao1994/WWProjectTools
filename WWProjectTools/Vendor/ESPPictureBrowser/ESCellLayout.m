@@ -7,7 +7,7 @@
 //
 
 #import "ESCellLayout.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ESCellLayout
 
@@ -55,7 +55,10 @@
     CGFloat height = count == 1 ? 188 : width;
     
     for (ASNetworkImageNode *node in pictureImageNodes) {
-        node.preferredFrameSize = CGSizeMake(width, height);
+        CGRect theRect = node.frame;
+        theRect.size.width = width;
+        theRect.size.height = height;
+        node.frame = theRect;
     }
     
     ASStackLayoutSpec *spec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:5 justifyContent:ASStackLayoutJustifyContentSpaceBetween alignItems:ASStackLayoutAlignItemsStretch children:pictureImageNodes];

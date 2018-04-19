@@ -20,6 +20,7 @@
 #import "CustomPickerView.h"
 #import "CustomKeyWindowView.h"
 #import "NSDate+Addition.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface EditMotherNoteViewController ()<QMUITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -66,6 +67,12 @@
     self.showView = [[CustomKeyWindowView alloc] init];
     [self.showView setCustomContentView:self.timePickerView backGroundColor:[UIColor blackColor] Alpha:0.5];
     NSDate *nowDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    if (self.isEdit) {
+        nowDate = [NSDate dateWithTimeIntervalSince1970:[self.motherNoteModel.publicTime longLongValue]];
+        self.textInputView.text = self.motherNoteModel.note;
+        self.photosArr = [[NSMutableArray alloc] initWithArray:self.motherNoteModel.photos];
+        self.viewModel.objectId = self.motherNoteModel.objectId;
+    }
     NSString *dateString = [nowDate formateDate:@"yyyy-MM-dd"];
     self.publicTime = [nowDate formateDate:@"yyyy-MM-dd HH:mm"];
     self.timeLabel.text = dateString;
@@ -88,6 +95,23 @@
         [WWHUD hideAllTipsInView:NavigationControllerView];
         [WWHUD showLoadingWithErrorInView:NavigationControllerView afterDelay:2];
     }];
+    
+    [[self.viewModel.updateEidtMotherNoteCommand executionSignals] subscribeNext:^(RACSignal *x) {
+        [WWHUD showLoadingWithText:@"上传中" inView:NavigationControllerView afterDelay:CGFLOAT_MAX];
+        [x subscribeNext:^(id x) {
+            NSNotification *notification = [NSNotification notificationWithName:@"MotherNoteNotification" object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+            [WWHUD hideAllTipsInView:NavigationControllerView];
+            [WWHUD showLoadingWithText:@"更新成功" inView:NavigationControllerView afterDelay:1];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }];
+    }];
+    
+    [self.viewModel.updateEidtMotherNoteCommand.errors subscribeNext:^(NSError * _Nullable x) {
+        [WWHUD hideAllTipsInView:NavigationControllerView];
+        [WWHUD showLoadingWithErrorInView:NavigationControllerView afterDelay:2];
+    }];
+    
     [[self.selectTimeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         NSArray *timeArr = [self.timeLabel.text componentsSeparatedByString:@"-"];
         weakSelf.timePickerView.defaultSelectedArr = @[[NSString stringWithFormat:@"%@年",timeArr[0]],
@@ -110,18 +134,33 @@
                                   } resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
                                       //array 文件数组，isSuccessful 成功或者失败,error 错误信息
                                       //存放文件URL的数组
-                                      NSMutableArray *fileArray = [NSMutableArray array];
+                                      NSMutableArray *fileArray = [NSMutableArray arrayWithArray:self.photosArr];
+                                      
                                       for (int i = 0 ; i < array.count ;i ++) {
                                           BmobFile *file = array [i];
                                           [fileArray addObject:file.url];
                                       }
+                                      for (id object in fileArray.reverseObjectEnumerator) {
+                                          if (![object isKindOfClass:[NSString class]]) {
+                                              [fileArray removeObject:object];
+                                          }
+                                      }
                                       self.viewModel.photosArr = [fileArray copy];
-                                      [[self.viewModel publicEditMotherNoteCommand] execute:nil];
+                                      if (self.isEdit) {
+                                          [[self.viewModel updateEidtMotherNoteCommand] execute:nil];
+                                      } else {
+                                          [[self.viewModel publicEditMotherNoteCommand] execute:nil];
+                                      }
                                   }
              ];
         } else {
-            self.viewModel.photosArr = @[];
-            [[self.viewModel publicEditMotherNoteCommand] execute:nil];
+            if (self.isEdit) {
+                self.viewModel.photosArr = self.photosArr;
+                [[self.viewModel updateEidtMotherNoteCommand] execute:nil];
+            } else {
+                self.viewModel.photosArr = @[];
+                [[self.viewModel publicEditMotherNoteCommand] execute:nil];
+            }
         }
     }];
     QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
@@ -240,11 +279,22 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
     StaticImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class]) forIndexPath:indexPath];
+    kWeakSelf;
+    [[[cell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] takeUntil:[cell rac_prepareForReuseSignal]] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [weakSelf.photosArr removeObjectAtIndex:indexPath.row];
+        [weakSelf.collectionView reloadData];
+    }];
     if (row == self.photosArr.count) {
+        cell.deleteButton.hidden = YES;
         cell.itemImageView.image = [UIImage imageNamed:@"picture_add"];
     } else {
-        QMUIAsset *asset = self.photosArr[indexPath.row];
-        cell.itemImageView.image = asset.originImage;
+        cell.deleteButton.hidden = NO;
+        if ([self.photosArr[indexPath.row] isKindOfClass:[QMUIAsset class]]) {
+            QMUIAsset *asset = self.photosArr[indexPath.row];
+            cell.itemImageView.image = asset.originImage;
+        } else if ([self.photosArr[indexPath.row] isKindOfClass:[NSString class]]) {
+            [cell.itemImageView sd_setImageWithURL:self.photosArr[indexPath.row]];
+        }
     }
     
     return cell;

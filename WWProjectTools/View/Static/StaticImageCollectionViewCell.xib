@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,18 +21,30 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pal-10-Amf">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     </imageView>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qeu-u0-QdP">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <state key="normal" image="delete"/>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="Pal-10-Amf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="40X-Ms-ioN"/>
+                <constraint firstItem="Qeu-u0-QdP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Hq-7n-umL"/>
+                <constraint firstAttribute="bottom" secondItem="Qeu-u0-QdP" secondAttribute="bottom" id="AZu-ov-fGb"/>
                 <constraint firstAttribute="bottom" secondItem="Pal-10-Amf" secondAttribute="bottom" id="Oa2-g0-OgY"/>
                 <constraint firstItem="Pal-10-Amf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Z1V-GF-I6p"/>
+                <constraint firstItem="Qeu-u0-QdP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="c8q-JO-m6k"/>
+                <constraint firstAttribute="trailing" secondItem="Qeu-u0-QdP" secondAttribute="trailing" id="nWU-mr-W7H"/>
                 <constraint firstAttribute="trailing" secondItem="Pal-10-Amf" secondAttribute="trailing" id="xkY-zr-i5I"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <connections>
+                <outlet property="deleteButton" destination="Qeu-u0-QdP" id="HSg-D3-9Kv"/>
                 <outlet property="itemImageView" destination="Pal-10-Amf" id="7ka-El-CEQ"/>
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="delete" width="42" height="42"/>
+    </resources>
 </document>
