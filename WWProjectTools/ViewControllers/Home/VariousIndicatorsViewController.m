@@ -104,7 +104,6 @@
     if (!_weightIndicatorVC) {
         _weightIndicatorVC = [[WeightIndicatorViewController alloc] init];
         _weightIndicatorVC.view.frame = CGRectMake(0, 64, UIScreenWidth, [UIScreen mainScreen].bounds.size.height);
-        _weightIndicatorVC.view.backgroundColor = RandomColor;
     }
     return _weightIndicatorVC;
 }
@@ -113,7 +112,6 @@
     if (!_moodIndicatorsVC) {
         _moodIndicatorsVC = [[MoodIndicatorsViewController alloc] init];
         _moodIndicatorsVC.view.frame = CGRectMake(0, 64, UIScreenWidth, [UIScreen mainScreen].bounds.size.height);
-        _moodIndicatorsVC.view.backgroundColor = RandomColor;
         _moodIndicatorsVC.view.hidden = YES;
     }
     return _moodIndicatorsVC;
@@ -123,7 +121,6 @@
     if (!_physicalStateIndicatorsVC) {
         _physicalStateIndicatorsVC = [[PhysicalStateIndicatorsViewController alloc] init];
         _physicalStateIndicatorsVC.view.frame = CGRectMake(0, 64, UIScreenWidth, [UIScreen mainScreen].bounds.size.height);
-        _physicalStateIndicatorsVC.view.backgroundColor = RandomColor;
         _physicalStateIndicatorsVC.view.hidden = YES;
     }
     return _physicalStateIndicatorsVC;

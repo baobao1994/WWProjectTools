@@ -7,14 +7,12 @@
 //
 
 #import "ZFBarChart.h"
-#import "ZFGenericAxis.h"
 #import "NSString+Zirkfied.h"
 #import "ZFMethod.h"
 
 @interface ZFBarChart()<ZFGenericAxisDelegate>
 
-/** 通用坐标轴图表 */
-@property (nonatomic, strong) ZFGenericAxis * genericAxis;
+
 /** 存储柱状条的数组 */
 @property (nonatomic, strong) NSMutableArray * barArray;
 /** 颜色数组 */

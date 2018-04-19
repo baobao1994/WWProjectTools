@@ -281,8 +281,16 @@
     StaticImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class]) forIndexPath:indexPath];
     kWeakSelf;
     [[[cell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] takeUntil:[cell rac_prepareForReuseSignal]] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf.photosArr removeObjectAtIndex:indexPath.row];
-        [weakSelf.collectionView reloadData];
+        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"删除" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+            [weakSelf.photosArr removeObjectAtIndex:indexPath.row];
+            [weakSelf.collectionView reloadData];
+        }];
+        QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+        }];
+        QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否删除" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
+        [alertController addAction:action1];
+        [alertController addAction:action2];
+        [alertController showWithAnimated:YES];
     }];
     if (row == self.photosArr.count) {
         cell.deleteButton.hidden = YES;

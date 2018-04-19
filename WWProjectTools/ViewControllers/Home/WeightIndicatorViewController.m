@@ -42,6 +42,10 @@
 
 - (void)strokePath {
     [self.lineChart strokePath];
+    CGFloat time = (self.weightArr.count / 8 + 1) * 2;
+    [UIView animateWithDuration:time animations:^{
+        [self.lineChart.genericAxis setContentOffset:CGPointMake(self.lineChart.genericAxis.contentSize.width - UIScreenWidth, 0) animated:YES];
+    }];
 }
 
 #pragma mark - ZFGenericChartDataSource

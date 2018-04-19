@@ -45,6 +45,10 @@
 
 - (void)strokePath {
     [self.barChart strokePath];
+    CGFloat time = (self.physicalStateArr.count / 8 + 1) * 2;
+    [UIView animateWithDuration:time animations:^{
+        [self.barChart.genericAxis setContentOffset:CGPointMake(self.barChart.genericAxis.contentSize.width - UIScreenWidth, 0) animated:YES];
+    }];
 }
 
 #pragma mark - ZFGenericChartDataSource

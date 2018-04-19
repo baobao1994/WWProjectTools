@@ -10,6 +10,8 @@
 #import "ZFBar.h"
 #import "ZFPopoverLabel.h"
 #import "ZFConst.h"
+#import "ZFGenericAxis.h"
+
 @class ZFBarChart;
 
 /*********************  ZFBarChartDelegate(ZFBarChart协议方法)  *********************/
@@ -78,6 +80,9 @@
 
 
 @interface ZFBarChart : ZFGenericChart
+
+/** 通用坐标轴图表 */
+@property (nonatomic, strong) ZFGenericAxis * genericAxis;
 
 @property (nonatomic, weak) id<ZFBarChartDelegate> delegate;
 /** 是否带阴影效果(默认为YES) */

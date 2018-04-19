@@ -88,6 +88,7 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weakSelf strokePath];
                 [weakSelf.collectionView reloadData];
+                weakSelf.backgroundColor = UIColorFromHexColor(0x01AAF8);
             });
         }];
     }];
@@ -120,7 +121,17 @@
         if (placemark) {
             weakSelf.weatherViewModel.latitude = location.coordinate.latitude;
             weakSelf.weatherViewModel.longitude = location.coordinate.longitude;
-            weakSelf.addressLabel.text = [NSString stringWithFormat:@"%@%@ %@",[placemark.addressDictionary objectForKey:@"City"],placemark.subLocality,placemark.thoroughfare];
+            NSString *address = @"";
+            if (!isEmptyString([placemark.addressDictionary objectForKey:@"City"])) {
+                address = [placemark.addressDictionary objectForKey:@"City"];
+            }
+            if (!isEmptyString(placemark.subLocality)) {
+               address = [address stringByAppendingString:placemark.subLocality];
+            }
+            if (!isEmptyString(placemark.name)) {
+                address = [address stringByAppendingString:placemark.name];
+            }
+            weakSelf.addressLabel.text = address;
             [weakSelf loadWeather];
         } else {
             weakSelf.addressLabel.text = @"现在处于外太空中...";
