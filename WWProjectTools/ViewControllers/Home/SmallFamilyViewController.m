@@ -90,7 +90,7 @@
 
 - (WeatherView *)weatherView {
     if (!_weatherView) {
-        _weatherView = [[WeatherView alloc] initWithFrame:CGRectMake(0, kCalendarViewHeight + 25, UIScreenWidth, kCalendarViewHeight)];
+        _weatherView = [[WeatherView alloc] initWithFrame:CGRectMake(0, kCalendarViewHeight + 25, UIScreenWidth, kCalendarViewHeight + kTopBarDifHeight)];
     }
     return _weatherView;
 }

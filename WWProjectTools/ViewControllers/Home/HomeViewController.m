@@ -65,8 +65,7 @@
 - (SmallFamilyViewController *)smallFamilyVC {
     if (!_smallFamilyVC) {
         _smallFamilyVC = [[SmallFamilyViewController alloc] init];
-        _smallFamilyVC.view.frame = CGRectMake(0, 64, self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height);
-        _smallFamilyVC.view.backgroundColor = RandomColor;
+        _smallFamilyVC.view.frame = CGRectMake(0, kNavBarHAbove7, self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height);
         _smallFamilyVC.pushViewControllerBlock = self.pushViewControllerBlock;
     }
     return _smallFamilyVC;
@@ -75,7 +74,7 @@
 - (MotherViewController *)motherVC {
     if (!_motherVC) {
         _motherVC = [[MotherViewController alloc] init];
-        _motherVC.view.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64 - 44);
+        _motherVC.view.frame = CGRectMake(0, kNavBarHAbove7, self.view.frame.size.width, self.view.frame.size.height - kNavBarHAbove7);
         _motherVC.pushViewControllerBlock = self.pushViewControllerBlock;
         [self.view addSubview:_motherVC.view];
     }

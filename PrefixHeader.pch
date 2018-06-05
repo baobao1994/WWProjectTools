@@ -65,4 +65,23 @@
 #define NavigationControllerView self.navigationController.view
 #define SelfViewControllerView self.view
 
+//iphone X
+#define YYISiPhoneX [[UIScreen mainScreen] bounds].size.width >=375.0f && [[UIScreen mainScreen] bounds].size.height >=812.0f&& YYIS_IPHONE
+#define YYIS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+
+//状态栏高度
+#define kStatusBarHeight (CGFloat)(YYISiPhoneX?(44):(20))
+// 导航栏高度
+#define kNavBarHBelow7 (44)
+// 状态栏和导航栏总高度
+#define kNavBarHAbove7 (CGFloat)(YYISiPhoneX?(88):(64))
+// 顶部安全区域远离高度
+#define kTopBarSafeHeight (CGFloat)(YYISiPhoneX?(44):(0))
+// TabBar高度
+#define kTabBarHeight (CGFloat)(YYISiPhoneX?(49+34):(49))
+// 底部安全区域远离高度
+#define kBottomSafeHeight (CGFloat)(YYISiPhoneX?(34):(0))
+// iPhoneX的状态栏高度差值
+#define kTopBarDifHeight (CGFloat)(YYISiPhoneX?(24):(0))
+
 #endif /* PrefixHeader_pch */
