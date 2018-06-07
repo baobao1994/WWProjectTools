@@ -251,4 +251,24 @@
 //    return config;
 //}
 
+#pragma mark - 3D Touch 预览Action代理
+- (NSArray<id<UIPreviewActionItem>> *)previewActionItems {
+    
+    NSMutableArray *arrItem = [NSMutableArray array];
+    
+    UIPreviewAction *previewAction0 = [UIPreviewAction actionWithTitle:@"取消" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        
+        NSLog(@"didClickCancel");
+    }];
+    
+    UIPreviewAction *previewAction1 = [UIPreviewAction actionWithTitle:@"替换该元素" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        
+        //把下标为index的元素替换成preview        
+    }];
+    
+    [arrItem addObjectsFromArray:@[previewAction0 ,previewAction1]];
+    
+    return arrItem;
+}
+
 @end

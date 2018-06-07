@@ -43,7 +43,27 @@
     
     [self resignNotificationCenter];
     
+    //添加3DTouch
+    //也可以在plist添加静态的
+    //https://www.jianshu.com/p/d472c6350a1a
+    
+//    NSMutableArray *arrShortcutItem = (NSMutableArray *)[UIApplication sharedApplication].shortcutItems;
+//    
+//    UIApplicationShortcutItem *shoreItem1 = [[UIApplicationShortcutItem alloc] initWithType:@"smallFamily.ww.openSearch" localizedTitle:@"搜索" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeSearch] userInfo:nil];
+//    [arrShortcutItem addObject:shoreItem1];
+//    
+//    UIApplicationShortcutItem *shoreItem2 = [[UIApplicationShortcutItem alloc] initWithType:@"smallFamily.ww.openCompose" localizedTitle:@"新消息" localizedSubtitle:@"" icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose] userInfo:nil];
+//    [arrShortcutItem addObject:shoreItem2];
+//    
+//    [UIApplication sharedApplication].shortcutItems = arrShortcutItem;
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    
+    //不管APP在后台还是进程被杀死，只要通过主屏快捷操作进来的，都会调用这个方法
+    NSLog(@"name:%@\ntype:%@", shortcutItem.localizedTitle, shortcutItem.type);
 }
 
 - (void)resignNotificationCenter {

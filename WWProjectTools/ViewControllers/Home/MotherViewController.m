@@ -142,6 +142,23 @@
                 [cell.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([StaticImageCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell  class])];
             }
             [cell setContent:self.motherNoteModel];
+            //注册3D Touch
+            /**
+             从iOS9开始，我们可以通过这个类来判断运行程序对应的设备是否支持3D Touch功能。
+             UIForceTouchCapabilityUnknown = 0,     //未知
+             UIForceTouchCapabilityUnavailable = 1, //不可用
+             UIForceTouchCapabilityAvailable = 2    //可用
+             */
+            if ([self respondsToSelector:@selector(traitCollection)]) {
+                
+                if ([self.traitCollection respondsToSelector:@selector(forceTouchCapability)]) {
+                    
+                    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+                        
+                        [self registerForPreviewingWithDelegate:(id)self sourceView:cell];
+                    }
+                }
+            }
             return cell;
         }
     } else {
@@ -174,6 +191,26 @@
     if (_pushViewControllerBlock) {
         _pushViewControllerBlock(vc);
     }
+}
+
+#pragma mark - UIViewControllerPreviewingDelegate
+#pragma mark peek(preview)
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location NS_AVAILABLE_IOS(9_0) {
+    
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)[previewingContext sourceView]];
+    //创建要预览的控制器
+    MotherNoteListViewController *presentationVC = [[MotherNoteListViewController alloc] init];
+    //指定当前上下文视图Rect
+    CGRect rect = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 300);
+    previewingContext.sourceRect = rect;
+    
+    return presentationVC;
+}
+
+#pragma mark pop(push)
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit NS_AVAILABLE_IOS(9_0) {
+    
+    [self showViewController:viewControllerToCommit sender:self];
 }
 
 @end
