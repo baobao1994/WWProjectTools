@@ -1,9 +1,16 @@
+/*****
+ * Tencent is pleased to support the open source community by making QMUI_iOS available.
+ * Copyright (C) 2016-2019 THL A29 Limited, a Tencent company. All rights reserved.
+ * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+ * http://opensource.org/licenses/MIT
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ *****/
+
 //
 //  QMUIImagePickerPreviewViewController.m
 //  qmui
 //
-//  Created by Kayo Lee on 15/5/3.
-//  Copyright (c) 2015年 QMUI Team. All rights reserved.
+//  Created by QMUI Team on 15/5/3.
 //
 
 #import "QMUIImagePickerPreviewViewController.h"
@@ -14,6 +21,7 @@
 #import "QMUIZoomImageView.h"
 #import "QMUIAsset.h"
 #import "QMUIButton.h"
+#import "QMUINavigationButton.h"
 #import "QMUIImagePickerHelper.h"
 #import "QMUIPieProgressView.h"
 #import "QMUIAlertController.h"
@@ -21,8 +29,6 @@
 #import "UIView+QMUI.h"
 #import "UIControl+QMUI.h"
 #import "QMUILog.h"
-
-#define TopToolBarViewHeight (20 + NavigationBarHeight + IPhoneXSafeAreaInsets.top)
 
 #pragma mark - QMUIImagePickerPreviewViewController (UIAppearance)
 
@@ -36,7 +42,7 @@
 }
 
 static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerAppearance;
-+ (instancetype)appearance {
++ (nonnull instancetype)appearance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (!imagePickerPreviewViewControllerAppearance) {
@@ -77,16 +83,14 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
     self.topToolBarView.tintColor = self.toolBarTintColor;
     [self.view addSubview:self.topToolBarView];
     
-    _backButton = [[QMUIButton alloc] init];
-    self.backButton.adjustsImageTintColorAutomatically = YES;
-    [self.backButton setImage:NavBarBackIndicatorImage forState:UIControlStateNormal];
-    self.backButton.tintColor = self.topToolBarView.tintColor;
-    [self.backButton sizeToFit];
+    _backButton = [[QMUINavigationButton alloc] initWithType:QMUINavigationButtonTypeBack];
     [self.backButton addTarget:self action:@selector(handleCancelPreviewImage:) forControlEvents:UIControlEventTouchUpInside];
     self.backButton.qmui_outsideEdge = UIEdgeInsetsMake(-30, -20, -50, -80);
     [self.topToolBarView addSubview:self.backButton];
     
     _checkboxButton = [[QMUIButton alloc] init];
+    self.checkboxButton.adjustsTitleTintColorAutomatically = YES;
+    self.checkboxButton.adjustsImageTintColorAutomatically = YES;
     UIImage *checkboxImage = [QMUIHelper imageWithName:@"QMUI_previewImage_checkbox"];
     UIImage *checkedCheckboxImage = [QMUIHelper imageWithName:@"QMUI_previewImage_checkbox_checked"];
     [self.checkboxButton setImage:checkboxImage forState:UIControlStateNormal];
@@ -100,29 +104,59 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
     if (!_singleCheckMode) {
-        QMUIAsset *imageAsset = [self.imagesAssetArray objectAtIndex:self.imagePreviewView.currentImageIndex];
+        QMUIAsset *imageAsset = self.imagesAssetArray[self.imagePreviewView.currentImageIndex];
         self.checkboxButton.selected = [self.selectedImageAssetArray containsObject:imageAsset];
+    }
+    
+    BeginIgnoreDeprecatedWarning
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    EndIgnoreDeprecatedWarning
+    
+    if ([self conformsToProtocol:@protocol(QMUICustomNavigationBarTransitionDelegate)]) {
+        UIViewController<QMUICustomNavigationBarTransitionDelegate> *vc = (UIViewController<QMUICustomNavigationBarTransitionDelegate> *)self;
+        if ([vc respondsToSelector:@selector(shouldCustomizeNavigationBarTransitionIfHideable)] &&
+            [vc shouldCustomizeNavigationBarTransitionIfHideable]) {
+        } else {
+            [self.navigationController setNavigationBarHidden:YES animated:NO];
+        }
     }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    BeginIgnoreDeprecatedWarning
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    EndIgnoreDeprecatedWarning
+    
+    if ([self conformsToProtocol:@protocol(QMUICustomNavigationBarTransitionDelegate)]) {
+        UIViewController<QMUICustomNavigationBarTransitionDelegate> *vc = (UIViewController<QMUICustomNavigationBarTransitionDelegate> *)self;
+        if ([vc respondsToSelector:@selector(shouldCustomizeNavigationBarTransitionIfHideable)] &&
+            [vc shouldCustomizeNavigationBarTransitionIfHideable]) {
+        } else {
+            [self.navigationController setNavigationBarHidden:NO animated:NO];
+        }
+    }
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.topToolBarView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), TopToolBarViewHeight);
-    CGFloat topToolbarPaddingTop = IPhoneXSafeAreaInsets.top;
+    self.topToolBarView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), NavigationContentTopConstant);
+    CGFloat topToolbarPaddingTop = SafeAreaInsetsConstantForDeviceWithNotch.top;
     CGFloat topToolbarContentHeight = CGRectGetHeight(self.topToolBarView.bounds) - topToolbarPaddingTop;
-    self.backButton.frame = CGRectSetXY(self.backButton.frame, 8, topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.backButton.frame)));
+    self.backButton.frame = CGRectSetXY(self.backButton.frame, 16 + self.view.qmui_safeAreaInsets.left, topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.backButton.frame)));
     if (!self.checkboxButton.hidden) {
-        self.checkboxButton.frame = CGRectSetXY(self.checkboxButton.frame, CGRectGetWidth(self.topToolBarView.frame) - 10 - CGRectGetWidth(self.checkboxButton.frame), topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.checkboxButton.frame)));
+        self.checkboxButton.frame = CGRectSetXY(self.checkboxButton.frame, CGRectGetWidth(self.topToolBarView.frame) - 10 - self.view.qmui_safeAreaInsets.right - CGRectGetWidth(self.checkboxButton.frame), topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.checkboxButton.frame)));
     }
+}
+
+- (BOOL)preferredNavigationBarHidden {
+    return YES;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)setToolBarBackgroundColor:(UIColor *)toolBarBackgroundColor {
@@ -133,8 +167,6 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
 - (void)setToolBarTintColor:(UIColor *)toolBarTintColor {
     _toolBarTintColor = toolBarTintColor;
     self.topToolBarView.tintColor = toolBarTintColor;
-    self.backButton.tintColor = toolBarTintColor;
-    self.checkboxButton.tintColor = toolBarTintColor;
 }
 
 - (void)setDownloadStatus:(QMUIAssetDownloadStatus)downloadStatus {
@@ -185,7 +217,7 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
 
 - (void)imagePreviewView:(QMUIImagePreviewView *)imagePreviewView willScrollHalfToIndex:(NSUInteger)index {
     if (!_singleCheckMode) {
-        QMUIAsset *imageAsset = [self.imagesAssetArray objectAtIndex:index];
+        QMUIAsset *imageAsset = self.imagesAssetArray[index];
         self.checkboxButton.selected = [self.selectedImageAssetArray containsObject:imageAsset];
     }
 }
@@ -208,7 +240,11 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
 #pragma mark - 按钮点击回调
 
 - (void)handleCancelPreviewImage:(QMUIButton *)button {
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+//        [self exitPreviewAutomatically];
+    }
     if (self.delegate && [self.delegate respondsToSelector:@selector(imagePickerPreviewViewControllerDidCancel:)]) {
         [self.delegate imagePickerPreviewViewControllerDidCancel:self];
     }
@@ -223,8 +259,8 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
         }
         
         button.selected = NO;
-        QMUIAsset *imageAsset = [self.imagesAssetArray objectAtIndex:self.imagePreviewView.currentImageIndex];
-        [QMUIImagePickerHelper imageAssetArray:self.selectedImageAssetArray removeImageAsset:imageAsset];
+        QMUIAsset *imageAsset = self.imagesAssetArray[self.imagePreviewView.currentImageIndex];
+        [self.selectedImageAssetArray removeObject:imageAsset];
         
         if ([self.delegate respondsToSelector:@selector(imagePickerPreviewViewController:didUncheckImageAtIndex:)]) {
             [self.delegate imagePickerPreviewViewController:self didUncheckImageAtIndex:self.imagePreviewView.currentImageIndex];
@@ -358,12 +394,17 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
             imageView.tag = imageAsset.requestID;
         } else if (imageAsset.assetSubType == QMUIAssetSubTypeGIF) {
             [imageAsset requestImageData:^(NSData *imageData, NSDictionary<NSString *,id> *info, BOOL isGIF, BOOL isHEIC) {
-                UIImage *resultImage = [QMUIImagePickerPreviewViewController animatedGIFWithData:imageData];
-                imageView.image = resultImage;
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    UIImage *resultImage = [UIImage qmui_animatedImageWithData:imageData];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        imageView.image = resultImage;
+                    });
+                });
             }];
         } else {
             imageView.tag = -1;
-            imageAsset.requestID = [imageAsset requestPreviewImageWithCompletion:^void(UIImage *result, NSDictionary *info) {
+            imageView.image = [imageAsset thumbnailWithSize:CGSizeMake([QMUIImagePickerViewController appearance].minimumImageWidth, [QMUIImagePickerViewController appearance].minimumImageWidth)];
+            imageAsset.requestID = [imageAsset requestOriginImageWithCompletion:^void(UIImage *result, NSDictionary *info) {
                 // 这里可能因为 imageView 复用，导致前面的请求得到的结果显示到别的 imageView 上，
                 // 因此判断如果是新请求（无复用问题）或者是当前的请求才把获得的图片结果展示出来
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -390,55 +431,6 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
             imageView.tag = imageAsset.requestID;
         }
     }
-}
-
-+ (UIImage *)animatedGIFWithData:(NSData *)data {
-    // http://www.jianshu.com/p/767af9c690a3
-    // https://github.com/rs/SDWebImage
-    if (!data) {
-        return nil;
-    }
-    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
-    size_t count = CGImageSourceGetCount(source);
-    UIImage *animatedImage;
-    if (count <= 1) {
-        animatedImage = [[UIImage alloc] initWithData:data];
-    } else {
-        NSMutableArray <UIImage *> *images = [NSMutableArray array];
-        NSTimeInterval duration = 0.0f;
-        for (size_t i = 0; i < count; i++) {
-            CGImageRef image = CGImageSourceCreateImageAtIndex(source, i, NULL);
-            duration += [self frameDurationAtIndex:i source:source];
-            [images addObject:[UIImage imageWithCGImage:image scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp]];
-            CGImageRelease(image);
-        }
-        if (!duration) {
-            duration = (1.0f / 10.0f) * count;
-        }
-        animatedImage = [UIImage animatedImageWithImages:images duration:duration];
-    }
-    CFRelease(source);
-    return animatedImage;
-}
-
-+ (float)frameDurationAtIndex:(NSUInteger)index source:(CGImageSourceRef)source {
-    // http://www.jianshu.com/p/767af9c690a3
-    // https://github.com/rs/SDWebImage
-    float frameDuration = 0.1f;
-    CFDictionaryRef cfFrameProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil);
-    NSDictionary <NSString *, NSDictionary *> *frameProperties = (__bridge NSDictionary *)cfFrameProperties;
-    NSDictionary <NSString *, NSNumber *> *gifProperties = frameProperties[(NSString *)kCGImagePropertyGIFDictionary];
-    NSNumber *delayTimeUnclampedProp = gifProperties[(NSString *)kCGImagePropertyGIFUnclampedDelayTime];
-    if (delayTimeUnclampedProp) {
-        frameDuration = [delayTimeUnclampedProp floatValue];
-    } else {
-        NSNumber *delayTimeProp = gifProperties[(NSString *)kCGImagePropertyGIFDelayTime];
-        if (delayTimeProp) {
-            frameDuration = [delayTimeProp floatValue];
-        }
-    }
-    CFRelease(cfFrameProperties);
-    return frameDuration;
 }
 
 @end

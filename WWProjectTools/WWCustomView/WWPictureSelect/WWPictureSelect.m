@@ -46,7 +46,7 @@ static QMUIAlbumContentType const kAlbumContentType = QMUIAlbumContentTypeAll;
     WWNavigationController *navigationController = [[WWNavigationController alloc] initWithRootViewController:albumViewController];
     
     // 获取最近发送图片时使用过的相簿，如果有则直接进入该相簿
-    QMUIAssetsGroup *assetsGroup = [QMUIImagePickerHelper assetsGroupOfLastestPickerAlbumWithUserIdentify:nil];
+    QMUIAssetsGroup *assetsGroup = [QMUIImagePickerHelper assetsGroupOfLastPickerAlbumWithUserIdentify:nil];
     if (assetsGroup) {
         QMUIImagePickerViewController *imagePickerViewController = [self imagePickerViewControllerForAlbumViewController:albumViewController];
         

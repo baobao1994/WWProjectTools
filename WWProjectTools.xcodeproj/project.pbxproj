@@ -1999,7 +1999,6 @@
 				4FACE822200E019F00CCC34D /* Frameworks */,
 				4FACE823200E019F00CCC34D /* Resources */,
 				2DCF4A53F2C123B160D0CFB0 /* [CP] Embed Pods Frameworks */,
-				79A85D616CB942056D1408D3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2274,7 +2273,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ESPictureBrowser/ESPictureBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
@@ -2319,29 +2318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		79A85D616CB942056D1408D3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-resources.sh",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUIResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QMUIResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WWProjectTools/Pods-WWProjectTools-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2704,16 +2681,16 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = P98XF9G8UL;
+				DEVELOPMENT_TEAM = 72FQY3LYLG;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/WWProjectTools/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = smallFamily.ww;
+				PRODUCT_BUNDLE_IDENTIFIER = smallFamily.gww.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "de45c3e4-8efb-4ce1-839b-88342c5a4bba";
-				PROVISIONING_PROFILE_SPECIFIER = dev_p;
+				PROVISIONING_PROFILE_SPECIFIER = provision_sf_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2726,16 +2703,16 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = P98XF9G8UL;
+				DEVELOPMENT_TEAM = 72FQY3LYLG;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/WWProjectTools/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = smallFamily.ww;
+				PRODUCT_BUNDLE_IDENTIFIER = smallFamily.gww.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b1f4c126-15b5-4bb1-91f0-7a4e6197a727";
-				PROVISIONING_PROFILE_SPECIFIER = adhoc_dis_p;
+				PROVISIONING_PROFILE_SPECIFIER = provision_sf_ad_dis;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -72,7 +72,7 @@
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
-    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"发布" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"发布" style:QMUIAlertActionStyleCancel handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
         self.viewModel.weight = self.weightStr;
         self.viewModel.mood = self.moodStr;
         self.viewModel.physicalState = self.physicalStateStr;
@@ -80,7 +80,7 @@
         self.viewModel.publicTime = self.publicTime;
         [[self.viewModel publicEditVariousIndicatorsCommand] execute:nil];
     }];
-    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
     }];
     QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否发布" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
     [alertController addAction:action1];

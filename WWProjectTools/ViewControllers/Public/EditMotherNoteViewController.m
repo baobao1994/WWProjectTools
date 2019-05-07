@@ -122,7 +122,7 @@
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
-    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"发布" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"发布" style:QMUIAlertActionStyleCancel handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
         self.viewModel.note = self.textInputView.text;
         self.viewModel.publicTime = self.publicTime;
         if (self.filePathArr.count) {
@@ -163,7 +163,7 @@
             }
         }
     }];
-    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
     }];
     QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否发布" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
     [alertController addAction:action1];
@@ -195,23 +195,28 @@
         kWeakSelf;
         _pictureSelect = [[WWPictureSelect alloc] initWithController:self];
         _pictureSelect.selectImages = ^(NSMutableArray *imagesArr) {
-            for (QMUIAsset *asset in imagesArr) {
+            NSMutableArray *images = [[NSMutableArray alloc] initWithArray:imagesArr];
+            for (QMUIAsset *asset in images) {
                 [weakSelf.photosArr addObject:asset];
             }
             [weakSelf.collectionView reloadData];
-//            [weakSelf.filePathArr removeAllObjects];
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                NSLog(@"// 处理耗时操作的代码块...");
-                for (QMUIAsset *asset in imagesArr) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (QMUIAsset *asset in images) {
                     [WWFile saveFileToDocument:asset block:^(BOOL isSuccess, NSString *tip, NSString *filePath) {
                         NSLog(@"tip = %@",tip);
                         [weakSelf.filePathArr addObject:filePath];
                     }];
                 }
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"//回调或者说是通知主线程刷新");
-                });
             });
+//            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//                NSLog(@"// 处理耗时操作的代码块...");
+//
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    NSLog(@"//回调或者说是通知主线程刷新");
+//
+//                });
+//            });
+//            [weakSelf.filePathArr removeAllObjects];
         };
     }
     return _pictureSelect;
@@ -224,7 +229,7 @@
         _textInputView.font = [UIFont systemFontOfSize:15.0f];
         _textInputView.placeholder = @"输入今日的笔记";
         _textInputView.placeholderColor = UIColorPlaceholder; // 自定义 placeholder 的颜色
-        _textInputView.autoResizable = YES;
+//        _textInputView.autoResizable = YES;
 //        _textInputView.textContainerInset = UIEdgeInsetsMake(10, 7, 10, 7);
         _textInputView.returnKeyType = UIReturnKeyDone;
         _textInputView.enablesReturnKeyAutomatically = YES;
@@ -281,11 +286,11 @@
     StaticImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([StaticImageCollectionViewCell class]) forIndexPath:indexPath];
     kWeakSelf;
     [[[cell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] takeUntil:[cell rac_prepareForReuseSignal]] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"删除" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"删除" style:QMUIAlertActionStyleCancel handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
             [weakSelf.photosArr removeObjectAtIndex:indexPath.row];
             [weakSelf.collectionView reloadData];
         }];
-        QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+        QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
         }];
         QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否删除" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
         [alertController addAction:action1];

@@ -204,12 +204,12 @@
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     // 添加一个删除按钮
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除"handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"删除" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"删除" style:QMUIAlertActionStyleCancel handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
             MotherNoteModel *noteModel = self.listViewModel.arrRecords[indexPath.row];
             self.editMotherNoteViewModel.objectId = noteModel.objectId;
             [[self.editMotherNoteViewModel deleteEditMotherNoteCommand] execute:nil];
         }];
-        QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+        QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
         }];
         QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否删除" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
         [alertController addAction:action1];

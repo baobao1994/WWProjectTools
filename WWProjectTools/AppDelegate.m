@@ -91,7 +91,7 @@
 }
 
 - (void)showNotificationAlert:(UNNotificationContent *)notificationContent {
-    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"知道了" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"知道了" style:QMUIAlertActionStyleCancel handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
     }];
     QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:notificationContent.title message:notificationContent.body preferredStyle:QMUIAlertControllerStyleAlert];
     [alertController addAction:action1];

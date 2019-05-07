@@ -41,14 +41,14 @@
 }
 
 - (void)selectedNavigationRightItem:(id)sender {
-    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"发布" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"发布" style:QMUIAlertActionStyleCancel handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
         self.viewModel.content = self.contentTextView.text;
         self.viewModel.isRemind = self.isRemindSwitch.on;
         self.viewModel.title = self.titleTextField.text;
         self.viewModel.remindTime = self.remindTime;
         [[self.viewModel publicEditEventCommand] execute:nil];
     }];
-    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
     }];
     QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否发布" message:@"" preferredStyle:QMUIAlertControllerStyleAlert];
     [alertController addAction:action1];
@@ -87,7 +87,7 @@
     self.viewModel.isRemind = YES;
     self.contentTextView.delegate = self;
     self.contentTextView.placeholderColor = UIColorPlaceholder; // 自定义 placeholder 的颜色
-    self.contentTextView.autoResizable = YES;
+//    self.contentTextView.autoResizable = YES;
     self.contentTextView.returnKeyType = UIReturnKeyDone;
     self.contentTextView.enablesReturnKeyAutomatically = YES;
     self.contentTextView.maximumTextLength = NSUIntegerMax;

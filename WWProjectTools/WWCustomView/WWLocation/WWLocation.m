@@ -72,11 +72,11 @@
 //定位失败则执行此代理方法
 //定位失败弹出提示框,点击"打开定位"按钮,会打开系统的设置,提示打开定位服务
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"打开定位" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertAction *action) {
+    QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"打开定位" style:QMUIAlertActionStyleCancel handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
         NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
         [[UIApplication sharedApplication] openURL:settingsURL options:[NSDictionary dictionaryWithObject:@"" forKey:@""] completionHandler:nil];
     }];
-    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(QMUIAlertAction *action) {
+    QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleDestructive handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
     }];
     QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"允许\"定位\"提示" message:@"请在设置中打开定位" preferredStyle:QMUIAlertControllerStyleAlert];
     [alertController addAction:action1];

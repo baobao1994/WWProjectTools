@@ -29,7 +29,7 @@
     [super viewWillAppear:animated];
     //设置导航条透明度
     self.navigationController.navigationBar.translucent = NO;//不透明
-    [[[self.navigationBar subviews] objectAtIndex:0] setAlpha:1];
+//    [[[self.navigationBar subviews] objectAtIndex:0] setAlpha:1];
     //图标颜色为白色
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     //导航栏背景颜色

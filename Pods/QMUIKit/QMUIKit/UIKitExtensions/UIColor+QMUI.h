@@ -1,9 +1,16 @@
+/*****
+ * Tencent is pleased to support the open source community by making QMUI_iOS available.
+ * Copyright (C) 2016-2019 THL A29 Limited, a Tencent company. All rights reserved.
+ * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+ * http://opensource.org/licenses/MIT
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ *****/
+
 //
 //  UIColor+QMUI.h
 //  qmui
 //
-//  Created by ZhoonChen on 15/7/20.
-//  Copyright (c) 2015年 QMUI Team. All rights reserved.
+//  Created by QMUI Team on 15/7/20.
 //
 
 #import <UIKit/UIKit.h>
@@ -23,12 +30,12 @@
  *
  * @return UIColor对象
  */
-+ (UIColor *)qmui_colorWithHexString:(NSString *)hexString;
++ (nullable UIColor *)qmui_colorWithHexString:(nullable NSString *)hexString;
 
 /**
  *  将当前色值转换为hex字符串，通道排序是AARRGGBB（与Android保持一致）
  */
-- (NSString *)qmui_hexString;
+- (nonnull NSString *)qmui_hexString;
 
 /**
  *  获取当前UIColor对象里的红色色值
@@ -78,24 +85,24 @@
  *
  *  @return alpha通道为1.0，其他rgb通道与原UIColor对象一致的新UIColor对象
  */
-- (UIColor *)qmui_colorWithoutAlpha;
+- (nullable UIColor *)qmui_colorWithoutAlpha;
 
 /**
  *  计算当前color叠加了alpha之后放在指定颜色的背景上的色值
  */
-- (UIColor *)qmui_colorWithAlpha:(CGFloat)alpha backgroundColor:(UIColor *)backgroundColor;
+- (nonnull UIColor *)qmui_colorWithAlpha:(CGFloat)alpha backgroundColor:(nullable UIColor *)backgroundColor;
 
 /**
  *  计算当前color叠加了alpha之后放在白色背景上的色值
  */
-- (UIColor *)qmui_colorWithAlphaAddedToWhite:(CGFloat)alpha;
+- (nonnull UIColor *)qmui_colorWithAlphaAddedToWhite:(CGFloat)alpha;
 
 /**
  *  将自身变化到某个目标颜色，可通过参数progress控制变化的程度，最终得到一个纯色
  *  @param toColor 目标颜色
  *  @param progress 变化程度，取值范围0.0f~1.0f
  */
-- (UIColor *)qmui_transitionToColor:(UIColor *)toColor progress:(CGFloat)progress;
+- (nonnull UIColor *)qmui_transitionToColor:(nullable UIColor *)toColor progress:(CGFloat)progress;
 
 /**
  *  判断当前颜色是否为深色，可用于根据不同色调动态设置不同文字颜色的场景。
@@ -111,7 +118,7 @@
  *
  *  @link http://stackoverflow.com/questions/5893261/how-to-get-inverse-color-from-uicolor @/link
  */
-- (UIColor *)qmui_inverseColor;
+- (nonnull UIColor *)qmui_inverseColor;
 
 /**
  *  判断当前颜色是否等于系统默认的 tintColor 颜色。
@@ -122,13 +129,13 @@
 /**
  *  获取当前系统的默认 tintColor 色值
  */
-+ (UIColor *)qmui_systemTintColor;
++ (nonnull UIColor *)qmui_systemTintColor;
 
 /**
  *  计算两个颜色叠加之后的最终色（注意区分前景色后景色的顺序）<br/>
  *  @link http://stackoverflow.com/questions/10781953/determine-rgba-colour-received-by-combining-two-colours @/link
  */
-+ (UIColor *)qmui_colorWithBackendColor:(UIColor *)backendColor frontColor:(UIColor *)frontColor;
++ (nonnull UIColor *)qmui_colorWithBackendColor:(nonnull UIColor *)backendColor frontColor:(nonnull UIColor *)frontColor;
 
 /**
  *  将颜色A变化到颜色B，可通过progress控制变化的程度
@@ -136,11 +143,11 @@
  *  @param toColor 目标颜色
  *  @param progress 变化程度，取值范围0.0f~1.0f
  */
-+ (UIColor *)qmui_colorFromColor:(UIColor *)fromColor toColor:(UIColor *)toColor progress:(CGFloat)progress;
++ (nonnull UIColor *)qmui_colorFromColor:(nonnull UIColor *)fromColor toColor:(nonnull UIColor *)toColor progress:(CGFloat)progress;
 
 /**
  *  产生一个随机色，大部分情况下用于测试
  */
-+ (UIColor *)qmui_randomColor;
++ (nonnull UIColor *)qmui_randomColor;
 
 @end

@@ -23,7 +23,6 @@
 #import "RLMObject.h"
 #import "RLMObjectSchema_Private.hpp"
 #import "RLMObject_Private.h"
-#import "RLMOptionalBase.h"
 #import "RLMSchema_Private.h"
 #import "RLMSwiftSupport.h"
 #import "RLMUtil.hpp"
@@ -92,6 +91,10 @@ static bool rawTypeShouldBeTreatedAsComputedProperty(NSString *rawType) {
                                         optional:is_nullable(prop.type)];
     if (is_array(prop.type)) {
         ret->_array = true;
+    }
+    if (!prop.public_name.empty()) {
+        ret->_columnName = ret->_name;
+        ret->_name = @(prop.public_name.c_str());
     }
     return ret;
 }
